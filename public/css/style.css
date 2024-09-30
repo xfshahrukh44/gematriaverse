@@ -1,0 +1,2130 @@
+h1.heading-1 {
+    font-family: Pixeboy;
+    font-size: 70px;
+    font-weight: 500;
+    color: #fff !important;
+    letter-spacing: 3px;
+    position: relative;
+    bottom: -40px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.logo-header {
+    max-width: 200px;
+}
+
+header {
+    background: #151518;
+}
+
+header .nav-link {
+    color: #ffffff !important;
+    font-family: Pixeboy;
+    font-size: 22px;
+}
+
+.social i {
+    color: white;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-header-parent {
+    background: black;
+}
+
+header .dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #7fbe00;
+    color: white;
+}
+
+.guest span {
+    font-size: 16px;
+    padding: 10px 0;
+    color: white;
+}
+
+.log-in {
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 5px;
+    color: white;
+}
+
+.log-in span {
+    margin: 0rem 4px;
+}
+
+i.fa-brands.fa-youtube {
+    color: red;
+}
+
+span.icons-img img {
+    width: 20px;
+}
+
+i.fa-solid.fa-cart-shopping {
+    color: #8cfaf3;
+}
+
+
+span.twitter-card img {
+    width: 22px;
+}
+
+/* hero section css  */
+/* ---- reset ---- */
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #b61924;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+#myCanvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero-section {
+    position: relative;
+    z-index: 0;
+    height: 700px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+}
+
+.hero-section .custom-btn {
+    box-shadow: 0 0 20px #7fbe00;
+}
+
+.parent-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    /* background: #00000069; */
+    padding: 45px 30px;
+    border-radius: 30px;
+    gap: 50px;
+    position: relative;
+    z-index: 9;
+}
+
+.custom-btn {
+    font-size: 20px;
+    color: #ffffff !important;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #317009, #7fbe00);
+    border-color: #7fbe00;
+    padding: 8px 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 40px;
+}
+
+.uncovering {
+    padding: 2rem 0;
+    background: linear-gradient(45deg, #317009, #7fbe00);
+    text-align: center;
+}
+
+span.banner-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+}
+
+/* hero section css  */
+
+
+.simple-easy-section.py {
+    background: #151518;
+}
+
+.py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.heading-2 {
+    font-size: 3rem;
+}
+
+.white {
+    color: white;
+}
+
+.para {
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.heading-3 {
+    font-weight: 500;
+    text-decoration: none;
+    color: #ffffff;
+    transition: .28s;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul.list-content li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+ul.list-content li .icons {
+    font-size: 50px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #317009, #7fbe00);
+    border-color: #1862cf;
+    border-radius: 320px;
+    width: 140px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+}
+
+
+ul.list-content li .cotent {
+    width: 100%;
+}
+
+ul.list-content {
+    margin: 3rem 0 2rem;
+}
+
+/* testimonials  */
+.testimonials {
+    padding: 5rem 0;
+    background: #151518;
+}
+
+.testi-parents {
+    position: relative;
+    z-index: 0;
+    height: 330px;
+}
+
+.testi-parents figure {
+    position: absolute;
+    top: 40px;
+    width: 80%;
+    left: 90px;
+}
+
+.testi-content {
+    position: absolute;
+    top: 150px;
+    width: 70%;
+    left: 140px;
+    text-align: center;
+}
+
+.testi-content .para {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.testi-content span {
+    color: white;
+}
+
+/* testimonials  */
+
+/* bread crums  */
+.bread-crums ol.breadcrumb {
+    margin: 0;
+    background: transparent;
+    justify-content: center;
+}
+
+.bread-crums {
+    background: #151518;
+}
+
+.bread-crums ol.breadcrumb a {
+    color: white;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: #ffffff;
+    content: "|";
+}
+
+table#GemTable {
+    background-color: rgba(16, 16, 16, 0.5);
+    border-radius: 15px;
+    border: 2px solid RGB(77, 77, 77);
+    padding: 10px;
+    border-collapse: separate;
+    margin: 0 auto;
+    font-family: "Lato";
+}
+
+#GemTable td {
+    width: 88px;
+    text-align: center;
+    padding: 2px !important;
+    line-height: 18px;
+}
+
+.GemTableHeader {
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+#GemTable td {
+    width: 88px;
+    text-align: center;
+    padding: 2px !important;
+    line-height: 18px;
+}
+
+.GemTableValue .NumberClass {
+    padding: 5px;
+}
+
+.NumberClass {
+    display: inline-block;
+}
+
+.justnumber {
+    font-weight: bold;
+}
+
+.calculator-meter {
+    background: #151518;
+    padding-top: 2rem;
+}
+
+.bread-crums input {
+    margin: 1rem 0rem 0;
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: 'Arial';
+    width: 500px;
+    color: #DEDEDE;
+    background-color: black !important;
+    display: inline-block;
+    height: 1.6em;
+}
+
+.GemTableValue {
+    font-size: 2em;
+}
+
+#ChartSpot {
+    overflow: auto;
+}
+
+#ChartSpot table {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(16, 16, 16, 0.5);
+    border: solid 2px RGB(77, 77, 77);
+    border-radius: 15px;
+    padding: 10px;
+    border-collapse: separate;
+}
+
+#calculator-advanced table {
+    text-align: center;
+}
+
+#ChartSpot tr {
+    line-height: 15px;
+}
+
+table:not(.wp-calendar-table) tr:nth-child(2n) {
+    background-color: inherit;
+}
+
+#ChartSpot td {
+    padding: 5px;
+}
+
+.chartChar {
+    color: RGB(242, 153, 96);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+.chartVal {
+    color: RGB(200, 200, 200);
+    font-size: 1em;
+    font-weight: 500;
+    font-weight: 700;
+}
+
+
+table:not(.wp-calendar-table) tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, .015);
+}
+
+#cipherChartTitle {
+    font-weight: bold;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+#moveCipherUp {
+    padding-right: 10px;
+}
+
+.moveCipher {
+    cursor: pointer;
+    display: inline-block;
+}
+
+span {
+    color: white;
+}
+
+#cipherChartTitle {
+    font-weight: bold;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: center;
+}
+
+#ChartSpot tr {
+    line-height: 15px;
+}
+
+#moveCipherDown {
+    padding-left: 10px;
+}
+
+.moveCipher {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.calculator-table {
+    background: #151518;
+    padding-top: 1rem;
+}
+
+#membershipText {
+    color: yellow;
+    margin: auto;
+    text-align: center;
+    font-size: 1.4em;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.empty-sec {
+    background: #151518;
+}
+
+.action-required {
+    margin: 30px 0 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----ADAM STYLES----- */
+html {
+    scroll-behavior: smooth;
+}
+
+#DateNum1 a,
+#DateNum2 a {
+    color: inherit
+}
+
+a:hover {
+    color: inherit;
+}
+
+#lunationDate1,
+#lunationDate2 {
+    margin: 5px 0px 0px;
+    text-align: center;
+}
+
+.TopTable td {
+    /*border: 1px solid white;*/
+    background-color: black;
+    padding: 0px;
+}
+
+.TopTable thead {
+    background-color: #2a2a2a;
+    line-height: 0px;
+}
+
+.TopTable.SignCell {
+    font-size: 50%;
+}
+
+#MoonSpot1,
+#MoonSpot2 {
+    display: block;
+    /*margin-top: -20px;*/
+}
+
+#LunaSpot1,
+#LunaSpot2 {
+    /*display:block;*/
+    /*margin-top: -63px;*/
+    font-size: 1em;
+    font-weight: bold;
+    /*background-color: black;*/
+    /*opacity: .85;*/
+}
+
+#SarosSpot1,
+#SarosSpot2 {
+    display: block;
+    margin: -50px 0 0;
+    padding-bottom: 7px;
+    font-weight: bold;
+}
+
+.eclipseNextPrev {
+    font-size: .85em;
+    font-weight: bold;
+}
+
+#containerDateAdv {
+    font-family: "Lato" !important;
+}
+
+#dateRows {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px 0px;
+    margin: auto;
+    text-align: center;
+}
+
+#topLeft,
+#topRight {
+    width: 18%;
+    float: left;
+    display: block;
+}
+
+#topMid {
+    width: 71%;
+    float: left;
+    display: block;
+}
+
+#firstDate,
+#secondDate {
+    display: inline-block;
+    ;
+    height: auto;
+}
+
+.topIcons {
+    cursor: pointer;
+}
+
+#mdy1 {
+    text-align: center;
+    clear: left;
+    display: table-cell;
+    border: 2px solid;
+    border-color: rgb(77, 77, 77);
+    border-radius: 20px;
+    background-color: rgba(16, 16, 16);
+    padding: 10px 10px 0px;
+}
+
+#mdy2 {
+    text-align: center;
+    clear: left;
+    display: table-cell;
+    border: 2px solid;
+    border-color: rgb(77, 77, 77);
+    border-radius: 20px;
+    background-color: rgba(16, 16, 16);
+    padding: 10px 10px 0px;
+}
+
+#Date1Inputs,
+#Date2Inputs {
+    padding: 0px 0px 10px;
+}
+
+#titleAddGridList1,
+#titleAddGridList2 {
+    /*margin-top: -5px;*/
+}
+
+#DateHeader1,
+#DateHeader2 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: orange;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+#SignSpot1,
+#SignSpot2 {
+    font-size: 1em;
+    color: white;
+}
+
+.SignDropdown {
+    font-size: 1em;
+}
+
+.mdyDiv {
+    width: auto;
+    text-align: center;
+    display: inline;
+    float: left;
+    padding: 0 15px;
+    margin: auto;
+    color: white;
+}
+
+.mdyDiv input {
+    width: 88px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    height: 30px;
+}
+
+.dateTitle {
+    /*width: 100%;*/
+    margin: auto;
+    /*padding-bottom: 10px;*/
+    float: left;
+}
+
+.dateTitleLess {
+    /*width: 100%;*/
+    margin: auto;
+    margin-top: 24px;
+    display: inline-block;
+}
+
+.dateTitle input {
+    color: black;
+    font-weight: bold;
+    height: 30px;
+}
+
+.dateTitle input[type=checkbox] {
+    height: auto;
+}
+
+.dateTitle::placeholder {
+    color: gray;
+}
+
+.dateTitle button {
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 30px;
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato';
+}
+
+#DateStr1Show,
+#DateStr2Show {
+    display: block;
+    /*margin-top: -10px;*/
+}
+
+.AddToList {
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 30px;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    float: left;
+}
+
+#AddSubSection {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#AddSubBlock {
+    display: inline-flex;
+    text-align: center;
+    margin: auto;
+}
+
+#AddSubTextBlock {
+    display: inline;
+    float: left;
+    width: auto;
+    margin-top: 13px;
+    text-align: left;
+}
+
+#AddSubLink {
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+#AddSubYMWD {
+    margin: auto;
+}
+
+#TetherDateDiv {
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+#DateNum1,
+#DateNum2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#Date0Sum5,
+#Date0Sum6,
+#Date1Sum5,
+#Date1Sum6 {
+    color: yellow;
+}
+
+#Date0Sum11,
+#Date0Sum12,
+#Date1Sum11,
+#Date1Sum12 {
+    color: lightblue;
+}
+
+#DateStr1,
+#DateStr2 {
+    font-size: 1.5em;
+}
+
+.dateNumSpan {
+    padding: 3px 6px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.coloryellow {
+    color: yellow;
+}
+
+.colororange {
+    color: orange;
+}
+
+.colorlightblue {
+    color: lightblue;
+}
+
+.coloryellow:hover {
+    color: #1862cf;
+}
+
+.colororange:hover {
+    color: #1862cf;
+}
+
+.colorlightblue:hover {
+    color: #1862cf;
+}
+
+.dateNumSpan a {
+    color: white;
+}
+
+.dateNumSpan a:hover {
+    color: #1862cf !important;
+}
+
+.dateNumSpan a:focus {
+    color: #1862cf !important;
+}
+
+.SumString a {
+    color: inherit;
+}
+
+#MainDateTitleRow,
+#MainDateNumRow {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+#TimeBetweenRow {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+#TimeBetweenDates {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px 15px;
+    display: block;
+}
+
+.DurHead {
+    font-size: 150%;
+    font-weight: bold;
+    color: orange;
+    text-align: center;
+    width: 100%;
+    clear: both;
+}
+
+#TimeBetweenText {
+    width: 50%;
+    float: left;
+    display: inline;
+    font-size: 1em;
+    text-align: left;
+}
+
+.DurationString {
+    color: #7fbe00;
+    font-weight: 600;
+    font-size: 1.1em;
+    font-family: Montserrat;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.DurationStringMain {
+    color: orange;
+    font-weight: 900;
+    font-size: 1.25em;
+}
+
+#CheckBoxSection {
+    width: 30%;
+    display: block;
+    float: left;
+    margin-top: -63px;
+}
+
+#CheckBoxSpotTitle {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 0px 0px 0px;
+}
+
+#CheckBoxSpot {
+    width: 100%;
+    float: left;
+    display: block;
+    text-align: left;
+    margin-left: 0;
+}
+
+#DurationRow {
+    max-width: 1331px;
+    margin: auto;
+}
+
+.DurNum {
+    font-size: 110%;
+    font-weight: bold;
+    color: RGB(174, 251, 255);
+}
+
+.DurNumMain {
+    font-size: 2em;
+    font-weight: bold;
+    color: RGB(174, 251, 255);
+}
+
+.durLink .DurNumMain {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#DurationTotalsSpotHolder {
+    width: 30%;
+    float: left;
+    margin-top: -63px;
+    display: block;
+    text-align: center;
+}
+
+#DurationSection {
+    display: block;
+    text-align: center;
+    border: 2px solid;
+    border-color: rgb(77, 77, 77);
+    border-radius: 20px;
+    background-color: rgba(16, 16, 16);
+    width: 90%;
+    margin: auto;
+}
+
+#DurationContainer {
+    width: 40%;
+    display: block;
+    float: left;
+}
+
+#DateTable {
+    display: inline-block;
+    margin: auto;
+    overflow: auto;
+    padding: 0 100px 120px;
+}
+
+#DateSearch {
+    height: 30px;
+    margin: 5px 0;
+    width: 95%;
+    font-weight: bold;
+}
+
+#ClearSearch {
+    color: #111111;
+    font-weight: bold;
+    height: 30px;
+    text-transform: uppercase;
+}
+
+/* User Tables Left Side Slider Menu Styles */
+#userDatesContainer {
+    width: 250px;
+    height: 275px;
+    visibility: hidden;
+    transition: 600ms;
+    position: absolute;
+    z-index: 99;
+    top: 0px;
+    float: left;
+}
+
+#userDatesContainerContent {
+    width: 100%;
+    height: 555px;
+    border-top: 2px solid RGB(77, 77, 77);
+    border-bottom: 2px solid RGB(77, 77, 77);
+    border-right: 2px solid RGB(77, 77, 77);
+    border-radius: 0 15px 15px 0;
+    padding: 0px 0px;
+    background-color: #111111;
+    display: inline-block;
+    float: left;
+}
+
+#userDatesTab {
+    width: 25px;
+    height: 275px;
+    float: left;
+    background-color: #1862cf;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#tabArrow {
+    max-width: 66%;
+    height: auto;
+}
+
+#userDatesContainerCloser {
+    cursor: pointer;
+    position: absolute;
+    top: -7px;
+    right: 26px;
+    font-size: 2em;
+    color: red;
+}
+
+/* END OF User Tables Left Side Slider Menu */
+/* Options Right Side Slider Menu Styles */
+#optionsTab {
+    width: 25px;
+    height: 275px;
+    float: right;
+    background-color: #1862cf;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 222;
+}
+
+#optionsTabArrow {
+    max-width: 66%;
+    height: auto;
+}
+
+#optionsContainer {
+    width: 250px;
+    height: auto;
+    visibility: hidden;
+    transition: 600ms;
+    position: absolute;
+    z-index: 33333;
+    top: 0px;
+    float: right;
+}
+
+#optionsContainerContent {
+    width: 100%;
+    height: auto;
+    border-top: 2px solid RGB(77, 77, 77);
+    border-bottom: 2px solid RGB(77, 77, 77);
+    border-left: 2px solid RGB(77, 77, 77);
+    border-radius: 15px 0 0 15px;
+    padding: 0px 0px;
+    background-color: #111111;
+    display: inline-block;
+    float: right;
+}
+
+#optionsContainerCloser {
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    top: -7px;
+    left: 7px;
+    font-size: 2em;
+    color: red;
+}
+
+/* END OF options Right Side Slider Menu */
+#DateSelector {
+    max-height: auto;
+    padding: 0px 0px;
+}
+
+.displayOptions {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 1.35em;
+    color: #1862cf;
+}
+
+.displayOptions:hover {
+    color: white;
+}
+
+#MainTable td {
+    padding: 5px 15px;
+    border: 1px solid white;
+    font-weight: bold;
+    font-size: 1.10em;
+}
+
+#MainTable tr:nth-child(even) {
+    background-color: #141414 !important;
+}
+
+#MainTable tr:nth-child(odd) {
+    background-color: #0a0a0a;
+}
+
+#MainTable tbody>tr> :nth-child(1) {
+    text-align: left;
+    width: 175px;
+}
+
+#ClassicTableSpot {
+    margin: auto;
+    margin-top: 5px;
+}
+
+.ClassicDateTable tr {
+    border: #222 1px solid;
+}
+
+.ClassicDateTable td {
+    padding: 2px;
+    color: white;
+}
+
+.ClassicDateTable {
+    display: inline-block;
+    padding: 5px 15px;
+}
+
+.DateNumTable {
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+.ClassicDateTable thead tr {
+    border: none;
+}
+
+.FullDateString {
+    text-align: center;
+    color: RGB(255, 255, 255);
+    font-weight: 900;
+    font-size: 1.1em;
+}
+
+.NumString {
+    background: rgb(25, 25, 25);
+    font-size: 1.1em;
+    padding-left: 2px;
+    width: 230px;
+}
+
+.SumString {
+    background: linear-gradient(180deg, rgba(16, 16, 16, 1) 0%, rgba(8, 8, 8, 1) 50%, rgba(16, 16, 16, 1) 100%);
+    font-weight: bold;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+#FDS1 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#FDS2 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.buttonFunction {
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 30px;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 148px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    line-height: 16px;
+    margin: 5px 0px 0px;
+}
+
+#ImageLink {
+    color: black;
+}
+
+#recentDatesText {
+    color: #1862cf;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#PlanetTableDiv {
+    display: inline-block;
+}
+
+#planetsRow {
+    width: 100%;
+}
+
+#numberProperty {
+    width: 100%;
+    height: 777px;
+    /*margin-top: -114px;*/
+}
+
+#watermarkDurationText {
+    opacity: .25;
+    display: inline;
+    text-align: center;
+}
+
+#watermarkDurationGuy {
+    opacity: .25;
+    display: inline;
+}
+
+.mo {
+    display: none;
+}
+
+.current-user {
+    display: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* -----MOBILE STYLES------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+@media (min-width:320px) and (max-width: 600px) {
+    .nomo {
+        display: none !important;
+    }
+
+    .mo {
+        display: inline;
+    }
+
+    .mo-only {
+        display: inline;
+    }
+
+    #containerDateAdv {
+        width: 100%
+    }
+
+    #dateRows {
+        display: block;
+    }
+
+    #DateStr1,
+    #DateStr2,
+    #DateNum1,
+    #DateNum2 {
+        font-size: 1.25em;
+    }
+
+    .dateTitle {
+        width: 100%;
+        margin: auto;
+        /*padding-bottom: 10px;*/
+        line-height: 15px;
+        font-size: .85em;
+    }
+
+    #firstDate,
+    #secondDate {
+        width: 305px;
+        display: block;
+        margin: auto;
+    }
+
+    #SignSpot1,
+    #SignSpot2 {
+        font-size: 1.15em;
+    }
+
+    #mdy1,
+    #mdy2 {
+        width: 100%;
+        display: block;
+        margin-top: 2px;
+        padding: 0 10px;
+    }
+
+    .mdyDiv {
+        margin: auto;
+        line-height: 18px;
+        font-size: .85em;
+    }
+
+    .mdyDiv input {
+        width: 73px;
+        font-size: 1.25em;
+    }
+
+    #DateHeader1,
+    #DateHeader2 {
+        font-size: 1.15em;
+    }
+
+    .SignDropdown-content {
+        right: 0px;
+    }
+
+    .dateTitle input {
+        width: 100%;
+    }
+
+    .dateNumSpan {
+        font-size: 0.75em;
+    }
+
+    #TetherSpan {
+        vertical-align: super;
+    }
+
+    #TetherDateDiv {
+        margin-top: 5px;
+    }
+
+    #AddSubBlock {
+        display: inline-block;
+    }
+
+    #AddSubTextBlock {
+        float: none;
+        text-align: center;
+    }
+
+    #AddSubBlock .mdyDiv {
+        padding: 0px 5px;
+    }
+
+    #AddSubBlock .mdyDiv input {
+        width: 64px;
+    }
+
+    input[type='radio'] {
+        width: 25px;
+        height: 25px;
+        margin: 0px 0 0;
+    }
+
+    input[type='checkbox'] {
+        width: 25px;
+        margin: 0px 0 0;
+        height: 25px;
+    }
+
+    #Check_Planets input[type='checkbox'] {
+        width: 25px;
+        margin: 0px 0 0;
+    }
+
+    .optionText {
+        vertical-align: super;
+    }
+
+    #TimeBetweenRow,
+    #DurationContainer,
+    #TimeBetweenCheckbox,
+    #TimeBetweenText {
+        width: 100%;
+        margin: auto;
+    }
+
+    #CheckBoxSection,
+    #DurationTotalsSpotHolder {
+        width: 100%;
+        margin: auto;
+    }
+
+    #DurationTotalsSpotHolder {
+        margin: 20px 0 0;
+    }
+
+    #CheckBoxSection {
+        margin: 0;
+    }
+
+    #TimeBetweenCheckbox {
+        width: auto;
+        float: none;
+        display: inline-flex;
+        margin: auto;
+    }
+
+    #TimeBetweenText {
+        float: none;
+    }
+
+    #CheckBoxSpot {
+        display: inline-flex;
+        margin: auto;
+        float: none;
+        width: auto;
+    }
+
+    #MainTable td {
+        font-size: .95em;
+    }
+
+    .ClassicDateTable td {
+        padding: 2px;
+    }
+
+    .ClassicDateTable {
+        display: inline-block;
+        padding: 2px 5px;
+        width: 48%;
+    }
+
+    .NumString {
+        background: rgb(25, 25, 25);
+        font-size: .75em;
+        padding-left: 2px;
+    }
+
+    .SumString {
+        background: linear-gradient(180deg, rgba(16, 16, 16, 1) 0%, rgba(8, 8, 8, 1) 50%, rgba(16, 16, 16, 1) 100%);
+        font-weight: bold;
+        font-size: .95em;
+        text-align: center;
+    }
+
+    #PlanetDiv {
+        overflow: auto;
+    }
+
+    #PlanetTableDiv {
+        overflow: auto;
+    }
+
+    #PlanetTable td {
+        min-width: 60px;
+    }
+
+    .userDatesContainer {
+        width: 213px;
+        max-height: 500px;
+    }
+
+    .userDatesContainerContent {
+        height: 500px;
+    }
+
+    #userDatesContainerContent {
+        max-height: 500px;
+        overflow: auto;
+    }
+
+    #DateSelector {
+        padding: 0;
+    }
+
+    #DateTable {
+        margin-top: 15px;
+    }
+
+    #optionsTab,
+    #userDatesTab {
+        height: 100px;
+    }
+}
+
+@media (min-width:601px) and (max-width: 1199px) {
+    .DurationStringMain {
+        font-size: 1.05em;
+    }
+
+    .container {
+        max-width: 973px;
+    }
+
+    #topLeft {
+        display: none;
+    }
+
+    #topRight {
+        width: 15%;
+        float: left;
+        display: block;
+    }
+
+    #topMid {
+        width: 89%;
+        float: left;
+        display: block;
+    }
+
+    .SignDropdown-content {
+        right: 0px;
+    }
+
+    #userDatesContainerContent {
+        max-height: 500px;
+        overflow: auto;
+    }
+
+    .mo {
+        display: inline;
+    }
+
+    .mo-only {
+        display: none;
+    }
+
+    #MainTable tbody>tr> :nth-child(1) {
+        text-align: left;
+        width: 175px;
+    }
+}
+
+@media (min-width:1200px) {
+    #userDatesContainerContent {
+        max-height: 500px;
+        overflow: auto;
+    }
+
+    .SignDropdown-content {
+        right: 0px;
+    }
+
+    .mo-only {
+        display: none;
+    }
+}
+
+/* -----END ADAM STYLES----- */
+
+.sameDates {
+    background-color: black;
+    text-align: center;
+}
+
+#PlanetDiv {
+    display: none;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#EclipseTable td {
+    padding: 5px;
+    border: 1px solid white;
+}
+
+.opt_check {
+    font-size: 80%;
+}
+
+.durLink {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.resLink {
+    color: steelblue;
+    text-decoration: underline;
+}
+
+.resLink:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+
+.PlanetNum {
+    font-size: 110%;
+    font-weight: bold;
+    color: RGB(216, 216, 111);
+}
+
+
+
+.DurCell {
+    background-color: RGB(21, 21, 21);
+}
+
+#PlanetDiv {
+    font-size: 85%;
+    vertical-align: center;
+}
+
+#MoonTable {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#PlanetTable {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#MoonTable td,
+#PlanetTable td {
+    padding: 5px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+
+div.TableMsg {
+    width: 100%;
+    text-align: center;
+    font-size: 1.25em;
+    font-color: yellow;
+    font-weight: bolder;
+    margin: auto;
+}
+
+#YearTable td {
+    boroder: 1px solid gray;
+    text-align: center;
+}
+
+.TableLink {
+    display: inline-block;
+    padding: 10px;
+}
+
+.TableLink a {
+    text-decoration: underline;
+    color: white;
+}
+
+.DateCategory a {
+    text-decoration: underline;
+    color: lightskyblue;
+}
+
+.DateName {
+    text-decoration: none;
+    color: lightblue;
+}
+
+.DateNameIn {
+    text-decoration: none;
+    color: lightgoldenrodyellow;
+}
+
+/*--------------------------------------------------*/
+.DropButton {
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Dropdown button on hover & focus */
+.DropButton:hover,
+.DropButton:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.DateDropdown {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1em;
+    color: orange;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.DateDropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.DateDropdownGrid-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.DateDropdown-content a,
+.DateDropdownGrid-content a {
+    color: black;
+    padding: 3px 4px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.DateDropdown-content a:hover {
+    background-color: #ddd
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+/*--------------------------------------------------*/
+
+.separator {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}
+
+.SignButton {
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+/* Dropdown button on hover & focus */
+.SignButton:hover {
+    color: #1862cf !important;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.SignDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.SignDropdown-content {
+    display: none;
+    color: lightblue;
+    font-size: 0.85em;
+    position: absolute;
+    background-color: #111111;
+    border: solid 2px RGB(77, 77, 77);
+    border-radius: 15px;
+    min-width: 262px;
+    padding: 15px;
+    z-index: 1;
+}
+
+.astrologyInfo {
+    font-weight: bold;
+}
+
+.astrologyLabel {
+    color: white;
+}
+
+.table-date-calculator {
+    background: #151518;
+}
+
+
+.main-content-area {
+    background-image: linear-gradient(180deg, hsl(120 0% 7% / 0.95), hsl(180 0% 7% / 0.95)), url(/tools/date-calculator-advanced/img/flower-of-life-tile.png) !important;
+    background-attachment: fixed;
+    font-family: "Lato", Arial, sans-serif;
+    color: rgb(222, 222, 222);
+}
+
+.mdyDiv input::placeholder {
+    color: black;
+}
+
+/* multinumbering css  */
+#NumberField {
+    height: 30px;
+}
+
+.titles {
+    font-family: "Montserrat";
+    font-size: 2em;
+    font-weight: 700;
+    color: #7fbe00;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+input#NumberField {
+    color: white;
+    background-color: black;
+    font-size: 1.25em;
+    font-weight: 600;
+    font-family: 'Arial';
+    width: 100px;
+    color: #DEDEDE;
+    background-color: black !important;
+    display: inline-block;
+    /*padding: 14px 2px 12px;*/
+    border-radius: 4px;
+    border: solid 2px #f0f0f0;
+    line-height: 1.6em;
+}
+
+::placeholder {
+    color: #757575;
+}
+
+#numPropContainer {
+    width: 1080px;
+    margin: auto;
+}
+
+.Linkable a {
+    color: skyblue;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Lato";
+}
+
+.Linkable :hover {
+    color: #1862cf;
+}
+
+#TopTable {
+    margin-bottom: 5px;
+}
+
+#TopTable td {
+    /*border: 1px solid black;*/
+    padding: 0px 50px;
+    text-align: center;
+}
+
+#TopTable .RegularLink {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#TopNumber {
+    font-size: 5em;
+    font-weight: bold;
+    font-family: "Lato";
+    color: white;
+}
+
+#belowSpecials {
+    float: left;
+    width: 100%;
+}
+
+#RelationTableDiv {
+    /*border: solid 2px RGB(77,77,77);*/
+    border-radius: 15px;
+    padding: 10px;
+    width: 45%;
+    /* float: left; */
+    line-height: 1.5em;
+}
+
+#RelationTable td {
+    /*border: 1px solid black;*/
+    font-size: 1.25em;
+}
+
+#SeqTable {
+    margin-bottom: 5px;
+    /*color: white;*/
+    font-family: "Lato";
+}
+
+#SeqTable td {
+    /*border: 1px solid black;*/
+    font-size: 1.25em;
+    line-height: 1.25em;
+}
+
+.NavSeq {
+    /*border: 1px solid black;*/
+    padding: 0px 50px;
+    font-weight: bold;
+}
+
+.SeqNum {
+    display: inline-block;
+    color: RGB(0, 198, 0);
+}
+
+.SeqNum a {
+    color: RGB(0, 198, 0);
+}
+
+.SeqPlace {
+    color: RGB(0, 198, 0);
+    font-weight: bold;
+    text-align: center;
+    /*text-transform: uppercase;*/
+}
+
+.RelativeClass {
+    text-align: right;
+    color: white;
+    font-family: "Lato";
+}
+
+.RelativeNum {
+    text-align: left;
+}
+
+#DivisorTableDiv {
+    float: left;
+    width: 100%;
+    /*border: solid 2px RGB(77,77,77);*/
+    border-radius: 15px;
+    padding: 10px;
+    line-height: 1.5em;
+    color: white;
+    font-family: "Lato";
+}
+
+#DivisorTable {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+#DivisorTable td {
+    /*border: 1px solid black;*/
+    padding: 0px 25px;
+    color: white;
+    font-family: "Lato";
+}
+
+#ConversionsTableDiv {
+    float: left;
+    width: 45%;
+    /*border: solid 2px RGB(77,77,77);*/
+    border-radius: 15px;
+    padding: 10px;
+    line-height: 1.5em;
+}
+
+#ConversionTable td {
+    /*border: 1px solid black;*/
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+    font-family: "Lato";
+}
+
+.conversionMiddle {
+    padding: 0px 50px;
+    color: white;
+    font-family: "Lato";
+}
+
+#PrimeString {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-family: "Lato";
+}
+
+.RegularLink {
+    color: lightskyblue;
+    font-family: "Lato";
+}
+
+.buttonFunction {
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 30px;
+    padding: 0px 0px;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lato";
+}
+
+@media (min-width:300px) and (max-width: 991px) {
+    #numPropContainer {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.55em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    .titles {
+        font-size: 1.25em;
+    }
+
+    #TopNumber {
+        font-size: 3em;
+    }
+
+    #TopTable td {
+        padding: 5px;
+    }
+
+    .NavSeq {
+        padding: 0px 15px;
+    }
+
+    #DivisorTable tbody>tr>:nth-child(1),
+    #DivisorTable tbody>tr>:nth-child(3) {
+        /*background: #4e4e4e;*/
+        padding: 0px 10px;
+    }
+
+    #DivisorTable td {
+        padding: 0px 2px;
+        font-size: 0.85em;
+        color: white;
+    }
+
+    #DivisorTableDiv {
+        width: 100%;
+        padding: 0px;
+        margin-top: 15px;
+    }
+
+    #RelationTableDiv,
+    #ConversionsTableDiv {
+        width: 100%;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    #ConversionsTableDiv {
+        margin-bottom: 20px;
+    }
+
+    .buttonFunction {
+        height: 60px;
+    }
+
+    #NumberField {
+        height: 45px;
+        width: 100px;
+        font-size: 1.5em;
+    }
+}
+
+.log-in span a {
+    color: #7fbe00;
+    font-weight: 600;
+}
+
+a {
+    color: #7fbe00;
+}
+
+header .nav-link:hover {
+    color: #85be00 !important;
+}
+/* multinumbering css  */
+
+.hero-section::before {
+    background: #00000073;
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+}
+
+.tool-wrapper h1 {
+    /* font-family: Montserrat, Arial, Helvetica, sans-serif; */
+    font-weight: 700;
+    font-style: normal;
+    color: #7fbe00;
+}
+
+th, td {
+    /* padding: 12px; */
+    /* border: 1px solid rgba(0, 0, 0, .1); */
+}
+
+#DecadeSpot {
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
+}
+
+#DecadeSpot {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+}
+
+.CalHeaderTop {
+    text-align: center;
+    font-size: 2rem;
+}
+
+span#YearViewYear {
+    margin: 0rem 2rem;
+}

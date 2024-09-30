@@ -1,0 +1,228 @@
+input#NameField {
+	color: black;
+	font-weight: 700;
+	font-size: 1em;
+	text-align: center;
+	height: 30px;
+	margin-bottom:  20px;
+}
+h2 {
+	text-transform: uppercase;
+    font-size: 1.5em;
+}
+.buttonFunction {
+	color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 30px;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 148px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato';
+}
+
+.ActiveCipher {
+    background-color: #323232;
+}
+
+#MainTableDiv {
+	text-align: center;
+	border: 2px solid RGB(77,77,77);
+	border-radius: 15px;
+	padding: 15px;
+	margin: auto;
+	width: 55%;
+	margin-top: 10px;
+}
+#MainTable {
+	width: 50%;
+	margin: auto;
+}
+#MainTable tr {
+	margin: auto;
+	display: block;
+}
+#lower1, #lower2 {
+	display: block;
+}
+#uniqueCapsText {
+	margin: auto;
+	text-align: center;
+	margin: 10px;
+	font-weight: bold;
+}
+.CipherSelection {
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+	font-weight: bold;
+}
+#cipherName, #rgbText {
+	font-size: 1em;
+	font-weight: 700;
+	padding: 10px;
+}
+#Cap_Check {
+	margin: auto;
+}
+input[type="number"] {
+	color: black;
+	font-weight: 700;
+	font-size: 1em;
+	text-align: center;
+	height: 30px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+#colorSection {
+	margin: auto;
+    text-align: center;
+    margin-top: 10px;
+}
+#ColorDiv {
+	display: inline;
+	width: 100px;
+	height: 30px;
+    border-radius: 2px;
+    padding: 5px;
+    color:  black;
+    font-weight: bold;
+}
+
+.LetterBox, .LetterBoxCaps {
+	color: orange;
+	text-align: center;
+	font-size: 1em;
+    font-weight: 700;
+    padding: 0 5px;
+}
+.CharBox {
+	width: 48px;
+	text-align: center;
+}
+input[type=checkbox]:checked~#caps1, #caps2 {
+  display: block;
+}
+#caps1, #caps2 {
+	display: none;
+}
+#ButtonSpot {
+	margin: 20px 0px;
+}
+#cipherHelp {
+	width: 50%;
+  margin: auto;
+  line-height: 1.25em;
+}
+#cipherHelp a {
+	font-weight: bold;
+}
+.mo {
+	display: none;
+}
+
+@media (min-width:330px) and (max-width: 501px){
+	.mo {
+		display: inline;
+	}
+	#MainTableDiv, #MainTable, .CipherSelection {
+		width: 100%;
+	}
+	#MainTableDiv {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	#MainTable {
+		overflow: auto;
+	}
+	.CharBox {
+		width: 100%;
+	}
+	.LetterBox, .LetterBoxCaps {
+		color: orange;
+		text-align: center;
+		font-size: .65em;
+	    font-weight: 700;
+	    padding: 0 1px;
+	}
+	.ColorBox {
+		width: 40px;
+	}
+}
+@media (min-width:502px) and (max-width: 991px){
+	.mo {
+		display: inline;
+	}
+	#MainTableDiv, #MainTable, .CipherSelection {
+		width: 90%;
+	}
+	#MainTableDiv {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	#MainTable {
+		overflow: auto;
+		margin:auto;
+		display: inline;
+	}
+	.LetterBox, .LetterBoxCaps {
+		color: orange;
+		text-align: center;
+		font-size: .85em;
+	    font-weight: 700;
+	    padding: 0 1px;
+	}
+	.CharBox {
+	    width: 30px;
+	    text-align: center;
+    }
+	.ColorBox {
+		width: 40px;
+	}
+}
+@media (min-width:992px) and (max-width: 1445px){
+	.mo {
+		display: inline;
+	}
+	#MainTableDiv, #MainTable, .CipherSelection {
+		width: 90%;
+	}
+	#MainTableDiv {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	#MainTable {
+		overflow: auto;
+		margin:auto;
+		display: inline;
+	}
+	.LetterBox, .LetterBoxCaps {
+		color: orange;
+		text-align: center;
+		font-size: 1em;
+	    font-weight: 700;
+	    padding: 0 1px;
+	}
+	.ColorBox {
+		width: 40px;
+	}
+}
+
+

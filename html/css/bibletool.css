@@ -1,0 +1,344 @@
+/* Adam's Styles */
+
+#h1holder {
+	text-align: center !important;
+	color: white;
+	font-weight: bold;
+}
+h1 {
+	margin: 0;
+}
+.directions {
+	margin-bottom: 15px;
+}
+
+#directSearchSection, #phraseValueSearchSection, #verseNumberSearchSection, #optionsSection {
+	display: inline-block;
+}
+
+#bookSelect, #gemSelect {
+	text-align: center !important;
+}
+#SelectBook, #SelectChapter, #SelectVerse, #BibleSearchButton, #WPNSearchButton, #wordPhraseNumber, #verseNumber, #verseSearchButton {
+	display: inline-block;
+	width: auto;
+  text-align: center;
+  color: black;
+  height: 30px;
+  padding: 0;
+  font-size: 1em;
+  font-family: 'Lato';
+  font-weight: 700;
+}
+#bookSelector, #chapterSelector, #verseSelector {
+	display: inline-block;
+	padding: 0 10px;
+}
+#ciphModBtn, #bookDatBtn a, #Include_Verses {
+	color: black !important;
+	text-decoration: none;
+}
+.buttonFunction {
+	color: black;
+	font-weight: 700;
+	font-size: 1em;
+	height: 30px;
+	padding: 0px 5px;
+	display: inline-block;
+	width: auto;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Lato';
+}
+.buttonFunctionCiphers {
+	color: black;
+	font-weight: 700;
+	font-size: 1em;
+	height: 30px;
+	padding: 0px 0px;
+	display: inline-block;
+	width: 148px;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Lato';
+}
+.imgMiddle img{
+	vertical-align: middle;
+}
+#firstRow, #secondRow {
+	margin-top: 30px;
+}
+label {
+	font-weight: bold;
+	color: white;
+}
+option {
+	font-size: 1em;
+    font-family: 'Lato';
+    font-weight: 700;
+}
+#options {
+	text-align: center !important;
+	color: white;
+}
+.width150 {
+	width: 150px !important;
+	/*color: white;*/
+}
+/*---- The Cipher Modal / Options Modal (background) ----*/
+.ciphMod, .bookDatMod {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	color: #ffffff;
+}
+#bookDataBox {
+	width: 50%;
+	margin:  auto;
+}
+#cipherBox {
+	font-weight:  bold;
+	font-size: 1.25em;
+  line-height: 1.25em;
+  width: 60%;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+#ciphMod #toph2 {
+	margin-top: 100px;
+}
+ul#cipherBox  {
+	columns: 4;
+	-webkit-columns: 4;
+	list-style-type: none;
+}
+#PresetDropdown, #PresetDropdown2 {
+	width: 100px;
+	height: 32px;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 16px;
+	padding: 5px 0px;
+}
+.fancybox-close-small {
+	/*display: none;*/
+}
+#cipherPresets {
+	padding: 10px;
+  border: solid RGB(77,77,77) 2px;
+  width: 675px;
+  border-radius: 15px;
+  margin-top: 25px;
+}
+input[type='checkbox'] {
+	height: 18px;
+	width: 18px;
+	margin-top:  11px;
+}
+.mo-only{
+	display: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.no-mo {
+		display: none;
+	}
+	.mo-only {
+		display: block;
+	}
+	#wordPhraseNumber {
+		width: 66%;
+	}
+	#WPNSearchButton, #verseSearchButton {
+		margin-left: 5px;
+	}
+	#directSearchSection, #phraseValueSearchSection, #verseNumberSearchSection, #optionsSection {
+		display: none;
+	}
+	#SelectBook, #SelectChapter, #SelectVerse, #BibleSearchButton, #WPNSearchButton, #wordPhraseNumber, #verseNumber, #verseSearchButton {
+	  height: 50px;
+	  padding: 0;
+	  font-size: 1.15em;
+	  font-family: 'Lato';
+	  font-weight: 700;
+	}
+	#firstRow, #secondRow {
+		margin-top: 0px;
+	}
+	#resultsContainer {
+		overflow-x: scroll;
+		width: auto;
+	}
+	#bookDataBox {
+		width: 100%;
+		margin: auto;
+		font-size: .8em;
+	}
+  #bookSelector, #chapterSelector, #verseSelector {
+  	padding: 0px;
+  }
+	#bookSelector ul {
+		grid-template-rows: repeat(20, 1fr);
+		font-size: .85em;
+		padding-left: 1rem;
+	}
+	input[type='checkbox'] {
+		height: 25px;
+		width: 25px;
+	}
+	#cipherBox {
+		width: 100%;
+		padding: none;
+		/*margin:  0px;*/
+	}
+	.fancybox-content {
+		padding: 0px;
+	}
+	#MainTable tr{
+		font-size: 0.85em;
+	}
+	ul#cipherBox  {
+		columns: 1;
+		-webkit-columns: 1;
+		list-style-type: none;
+	}
+	tbody {
+		font-size: 0.55em;
+	}
+	#DropHere {
+		overflow-x: scroll;
+	}
+}
+
+/* The Close Button */
+.ciphModClose, .bookDataClose {
+  color: #aaa;
+  font-size: 50px;
+  font-weight: bold;
+	margin: -36px 0 0;
+	float: right;
+}
+
+.ciphModClose:hover,
+.ciphModClose:focus,
+.bookDataClose:hover,
+.bookDataClose:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#MainTable {
+	width: 100%;
+	margin-top: 5px;
+}
+
+#DropShitHere {
+	color: red;
+	width: 90%;
+}
+#bookSelector ul {
+	display: grid;
+	grid-auto-flow: column;
+	text-align: left;
+	list-style-type: none;
+}
+@media only screen and (min-width: 601px) {
+	.mo {
+		display: none !important;
+	}
+	#bookSelector ul {
+	  grid-template-rows: repeat(8, 1fr);
+	}
+	#wordPhraseNumber {
+		width: 50%;
+	}
+	#resultsContainer {
+		display: block;
+		width: 100%;
+	}
+}
+ul {
+	list-style-type: none;
+}
+
+#backToResultsBtn {
+	margin-top: 17px;
+}
+
+#MainTable thead tr {
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	text-align: center;
+	background-color: none !important;
+}
+thead  {
+	background-color: transparent !important;
+}
+
+th {
+	text-align: center !important;
+}
+
+td {
+	width: auto;
+	text-align: center;
+}
+#MainTableVerse {
+	margin-top: 25px;
+}
+
+#MainTable tr {
+	font-size: 1.5em;
+	font-weight: 500;
+}
+
+#MainTable tr:hover {
+	background-color: #333333;
+}
+
+table#MainTableVerse tr {
+	font-size: 1em;
+	font-weight: 500;
+	color: white;
+	margin-top: 25px;
+}
+
+table#MainTableVerse tr:hover {
+	background-color: none;
+}
+
+tr button {
+	font-size: 16px;
+}
+
+.bibleCount {
+	color: #afdcff;
+	font-weight: bold;
+}
+
+.verseTitle {
+	font-size: 1.7em;
+}
+.verseText {
+	font-size: 1.5em;
+}
+
+/*table tr th:nth-child(1){
+	width: 200px;
+}*/
+a {
+	/*text-decoration: underline;*/
+}
+a:hover {
+	/*font-weight: bold;*/
+}

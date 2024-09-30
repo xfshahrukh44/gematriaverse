@@ -1,0 +1,172 @@
+body {
+	font-family: "Bookman Old Style", Arial;
+	color: white;
+	background-color: RGB(34, 34, 34);
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#MatchButton {
+	background-color: RGB(16, 16, 16);
+	font-size: 80%;
+	text-decoration: underline;
+	color: RGB(47, 235, 255);
+}
+
+#LinkButton {
+	background-color: RGB(0, 66, 36);
+	font-size: 80%;
+	text-decoration: underline;
+	color: RGB(47, 235, 255);
+}
+
+.MTable {
+	border: 1px solid gray;
+	padding: 2px;
+	text-align: center;
+	table-layout: fixed;
+}
+.CipherHead {
+	min-width: 80px;
+	max-width: 80px;
+	font-size: 85%;
+	padding: 5px;
+}
+.MTable tr:nth-child(even) {
+	background-color: RGB(25, 25, 25);
+}
+.MTable tr:nth-child(odd) {
+	background-color: RGB(19, 19, 19);
+}
+.MPhrase {
+	padding: 3px;
+	padding-right: 8px;
+	max-width: 300px;
+	text-align: right;
+}
+.MSum {
+	font-size: 90%;
+	padding: 5px;
+}
+.MSumFull {
+	font-size: 136%;
+	font-weight: bold;
+}
+.MSumPart {
+	font-size: 115%;
+	font-weight: bold;
+}
+
+.GTable {
+	border: 1px solid white;
+	text-align: center;
+	background-color: RGB(16, 16, 16);
+	padding: 5px;
+}
+.Gem_Head {
+	padding-top: 6px;
+	padding-left: 3px;
+	padding-right: 3px;
+	width: 125px;
+	font-size: 110%;
+	font-weight: bolder;
+	vertical-align: bottom;
+	font-weight: 100;
+}
+.Gem_Head a {
+	color: inherit !important;
+	text-decoration: inherit !important;
+}
+.Gem_Head:hover {
+	text-decoration: underline;
+}
+.Gem_Sum {
+	width: 125px;
+	font-size: 200%;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+.Gem_Sum a {
+	color: inherit !important;
+	text-decoration: inherit !important;
+}
+.Gem_Sum:hover {
+	text-decoration: underline;
+}
+
+#BreakdownSpot {
+	padding: 10px;
+	background-color: RGB(19, 19, 19);
+	color: RGB(200, 255, 255);
+	font-size: 140%;
+	min-height: 150px;
+}
+#BreakdownSpot a {
+	font-size: 60%;
+	color: #00ffff;
+}
+
+#OptionsSpot {
+	padding-bottom: 5px;
+	font-size: 110%;
+}
+#OptionsSpot a {
+	color: RGB(0, 200, 255);
+}
+#OptionsSpot a:hover {
+	color: RGB(20, 235, 255);
+}
+
+.BreakEq {
+	color: RGB(180, 180, 180);
+	font-size: 75%;
+}
+
+.MoveCipher {
+    color: RGB(0, 200, 255);
+    width: 175px;
+    background-color: RGB(0, 0, 4);
+    font-size: 13px;
+}
+
+.OLink {
+	background-color: RGB(0, 0, 8);
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.OLink a {
+	color: RGB(0, 200, 255);
+}
+.OLink a:hover {
+	color: RGB(2, 222, 255);
+}
+
+#OptionsTable {
+	padding: 5px;
+	background-color: RGB(19, 19, 19);
+}
+.mSel{
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: RGB(0, 0, 223);
+}
+.noSel {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.HelpItem {
+	color: orange;
+	background-color: RGB(8, 0, 0);
+	text-align: left;
+	padding-right-left: 10px;
+	padding-top-bottom: 10px;
+}
+
+.CountDiv{
+	padding-top: 15px;
+	color: RGB(244, 244, 196);
+	font-size: 70%;
+}

@@ -1,0 +1,1364 @@
+.hideValue {display: none;}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: RGB(34, 34, 34);
+}
+span {
+	color: white;
+}
+h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+h3 {
+	font-size: 1.2em;
+	font-weight: 700;
+}
+#membershipText {
+    color:yellow;
+    margin:auto;
+    text-align:center;
+    font-size:1.4em;
+    display: block;
+    padding-bottom:20px;
+}
+#FirstRow {
+	margin-top: 10px;
+}
+#MainCol {
+	margin: auto;
+	width:100%;
+}
+/* Firefox only style */
+@-moz-document url-prefix() { 
+	#MenuSpot {
+		margin-bottom: 5px;
+	}
+}
+.displayOptions {
+	font-family: Montserrat;
+	font-weight: 600;
+	font-size: 1.25em;
+	line-height: 1.35em;
+	color: #1862cf;
+}
+.displayOptions:hover,
+.displayOptions .no-mo:hover, 
+.displayOptions a:hover {
+	color: white !important;
+}
+#optionsBtn, #ciphModBtn, #shortcutsBtn, #dateBtn, #numPropBtn, #bibleBtn, #loginBtn, .mobile-calc-menu-icon {
+	cursor: pointer;
+	color: RGB(100, 226, 226);
+}
+#OptionSpot {
+	text-align: center;
+}
+#cipherChartOn,
+#breakdownOn {
+	color: black;
+}
+#cipherChartOn, 
+#cipherChartOff, 
+#breakdownOn, 
+#breakdownOff, 
+.functionDescription,
+#tablesContainerCloser,
+#noMessage,
+#WordLetterCount {
+	font-weight: bold !important;
+	font-size: .85em;
+}
+#WordLetterCount {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+/* User Tables Left Side Slider Menu Styles */
+#tablesContainer {
+    width: 30%;
+    height: 275px;
+    visibility: hidden;
+    transition: 800ms;
+    position: absolute;
+    z-index: 99;
+    top: 0px;
+    float: left;
+}
+#tablesContainerContent{
+    width: 100%;
+    height: 275px;
+    border-top: 2px solid RGB(77,77,77);
+    border-bottom: 2px solid RGB(77,77,77);
+    border-right: 2px solid RGB(77,77,77);
+    border-radius: 0 15px 15px 0;
+    padding: 0px 0px;
+    background-color: #111111;
+    display: inline-block;
+    float: left;
+}
+#tablesTab {
+	width: 25px;
+	height: 275px;
+	float: left;
+	background-color: #1862cf;
+	border-bottom-right-radius: 50%;
+	border-top-right-radius: 50%;
+	display: flex;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+#tablesTabArrow{
+	max-width: 66%;
+    height: auto;
+}
+#tablesContainerCloser {
+	cursor: pointer;
+	color: red;
+	position: absolute;
+	top: 2px;
+	right: 11px;
+	font-size: 2em;
+}
+/* END OF User Tables Left Side Slider Menu */
+
+.current-user, .temporary-message {
+	display: none;
+}
+
+/* Functions Right Side Slider Menu Styles */
+#functionsContainer {
+    width: 30%;
+    height: 275px;
+    visibility: hidden;
+    transition: 800ms;
+    position: absolute;
+    z-index: 33333;
+    top: 0px;
+    float: right;
+}
+#functionsContainerContent{
+    width: 100%;
+    height: 275px;
+    border-top: 2px solid RGB(77,77,77);
+    border-bottom: 2px solid RGB(77,77,77);
+    border-left: 2px solid RGB(77,77,77);
+    border-radius: 15px 0 0 15px;
+    padding: 0px 0px;
+    background-color: #111111;
+    display: inline-block;
+    float: right;
+    line-height: 4px;
+}
+#functionsTab {
+	width: 25px;
+	height: 275px;
+	float: right;
+	background-color: #1862cf;
+	border-bottom-left-radius: 50%;
+	border-top-left-radius: 50%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 222;
+}
+#functionsTabArrow{
+	max-width: 66%;
+    height: auto;
+}
+#functionsContainerCloser {
+	cursor: pointer;
+	color: red;
+	position: absolute;
+	top: 2px;
+	left: 11px;
+	font-size: 2em;
+}
+/* END OF Functions Right Side Slider Menu */
+
+#EntryDiv {
+	display:  inline-block;
+	width: 100%;
+}
+#EntryField {
+	font-size: 1.25em;
+	font-weight: 700;
+	font-family: 'Arial';
+	width: 500px;
+	color:  #DEDEDE;
+	background-color: black !important;
+	display: inline-block;
+	height:  1.6em;
+}
+input#EntryField {
+    padding: 2px 3px 2px;
+    border-radius: 3px;
+}
+/*------OPTIONS STYLES------*/
+#NumCalcSel, 
+#CiphersPerSel, 
+#BreakdownSel, 
+#NumSeqSel, 
+#NumCalcSel option,
+#CiphersPerSel option,
+#BreakdownSel option, 
+#NumSeqSel option {
+	display: inline-block;
+    width: auto;
+    text-align: left;
+    color: black;
+    height: 30px;
+    padding: 0;
+    font-size: 1em;
+    font-family: 'Lato';
+    font-weight: 700;
+}
+
+/*---- The Cipher Modal / Options Modal / Shortcuts Modal (background) ----*/
+.ciphMod, .optionsMod, .shortcutsMod {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+#cipherBox {
+	font-weight:  bold;
+	font-size: 1.25em;
+    line-height: 1.25em;
+    width: 60%;
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+#ciphMod #toph2 {
+	margin-top: 100px;
+}
+#cipherHelpText {
+    font-weight:bold;
+}
+ul#cipherBox  {
+	columns: 4;
+	-webkit-columns: 4;
+	list-style-type: none;
+}
+#PresetDropdown, #PresetDropdown2 {
+	width: 100px;
+	height: 30px;
+	font-size: .85em;
+	font-weight: bold;
+	line-height: 16px;
+	padding: 5px 0px;
+}
+.fancybox-close-small {
+	display: none;
+}
+.fancybox-content {
+    color: #fff;
+}
+#shortcutsMod .fancybox-close-small {
+	display: inline;
+}
+#cipherPresets {
+	padding: 10px;
+    border: solid RGB(77,77,77) 2px;
+    width: 675px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+#shortcutsMod {
+    margin:auto;
+    text-align:center;
+}
+.scLeft {
+    color:orange;
+    font-weight:bold;
+}
+.scRight {
+    color:white;
+    font-weight:bold;
+}
+#shortcuts h3 {
+	margin-top: 40px;
+}
+#shortcutsCipherDisplay {
+	width: 50%;
+	margin: auto;
+}
+#shortcutsOptionsDisplay {
+	width: 50%;
+	margin: auto;
+}
+#shortcutsMod table {
+	border: none;
+	margin: auto;
+}
+#shortcutsMod table td, #shortcutsMod table th  {
+	padding: 2px 20px;
+}
+#shortcutsMod h3 {
+	margin-top: 20px;
+}
+#cipher-list-colored {
+	position: absolute;
+	width: 100%;
+	display: none;
+}
+#exitCipherListColored {
+	color: red;
+	font-size: 3em;
+	cursor: pointer;
+}
+.seeCipherShortcuts {
+	color: #1862cf;
+	cursor: pointer;
+}
+
+/*------MODAL STYLES END------*/
+
+.AddMatchButtons {
+	display: inline-block;
+	vertical-align: bottom;
+	/*margin-top: 15px;*/
+	text-align: center;
+}
+.imgSub {
+	vertical-align: sub;
+}
+.imgMiddle {
+	vertical-align: middle;
+}
+.imgTop {
+	vertical-align: top;
+}
+#calc-menu {
+    width: 100%;
+    margin: auto;
+    margin: 17px 0px 24px;
+    text-align: center;
+}
+.calcMenuItem {
+    color:white;
+}
+.calcMenuItem:hover {
+    color:yellow;
+}
+.MenuLink {
+	display: inline;
+	font-size: 1.08em;
+	font-weight: bold;
+	color: RGB(100, 226, 226);
+}
+.MenuLink :visited {color: RGB(140, 250, 243)}
+.MenuLink :hover, .MenuLink .mo: hover {color: #1862cf !important;}
+.MenuLink :active {color: RGB(255, 255, 0) !important;}
+.buttonFunction {
+	color: black;
+	font-weight: 700;
+	font-size: .85em;
+	height: 30px;
+	padding: 5px 0px;
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Lato";
+	border-radius:15px;
+	border:none;
+	background-color:white;
+}
+.buttonFunctionOptions,
+.buttonFunctionCiphers {
+	color: black !important;
+	font-weight: 700;
+	font-size: .85em;
+	height: 30px;
+	margin: 5px 0px;
+	padding: 5px 0px;
+	display: inline-block;
+	width: 148px;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Lato";
+	line-height: 16px;
+	border-radius:15px;
+	border: none;
+	background-color:white;
+}
+#SelectBaseCiphersBtn, #SelectAllCiphersBtn, #ClearAllCiphersBtn {
+    background-color: #2e2e2e;
+    color:white !important;
+}
+#cipherSelectsContainer, #cipherUpdateCancelContainer {
+    margin: 15px 0px;
+    text-align:center;
+}
+.cipherSelects {
+    display:inline;
+}
+.buttonFunctionCap {
+	display: none;
+}
+/*#BreakDown {
+	margin-top: 50px;
+}*/
+.breakdownButton {
+	margin-top: 10px;
+}
+#breakdownInject {
+    width: 100%;
+}
+#breakdownSection {
+    margin-top:5px;
+}
+#breakdownFunctionSpot, #historyFunctionSpot{
+	display: inline-grid;
+}
+#breakdownCapture, #historyCapture {
+	display: inline;
+	margin: auto;
+	text-align: center;
+}
+#calculator-advanced {
+	text-align: center;
+	padding-bottom: 500px;
+}
+#calculator-advanced table {
+	text-align: center;
+}
+.search {
+	margin: 0 0 10px;
+}
+input#SearchField {
+	max-width: 600px;
+	font-size: 1.15em;
+}
+
+#MainTable {
+	margin: 0 auto;
+	position:relative;
+	/*left:-12px;*/
+	/*float:left;*/
+}
+#MainTableRow {
+	margin-top: 15px;
+}
+#Alerts {
+	font-size: 125%;
+	color: red;
+	font-weight: bold;
+}
+.moveCipher {
+    cursor:pointer;
+    display:inline-block;
+}
+#moveCipherUp{
+    padding-right:10px;
+}
+#moveCipherDown {
+    padding-left:10px;
+}
+#moveCipherDiv {
+    font-size: 1.25em;
+    margin: 0 auto;
+	text-align:center;
+	margin-bottom: 6px;
+}
+#Gematria_Table {
+    /*float:left;*/
+}
+#GemTable {
+	background-color: rgba(16,16,16,0.5);
+	border-radius: 15px;
+	border: 2px solid RGB(77, 77, 77);
+	padding: 10px;
+	border-collapse: separate;
+	margin:  0 auto;
+	font-family: "Lato";
+}
+#GemTable td {
+	width: 88px;
+	text-align: center;
+	padding: 2px !important;
+	line-height: 18px;
+}
+.GemTableHeader {
+	vertical-align: bottom;
+	cursor:pointer;
+	/*font-weight: bold;*/
+}
+.GemTableHeader a {
+	color: inherit !important;
+	text-decoration: inherit !important;
+}
+.GemTableValue {
+	font-weight: 500;
+}
+.NumberClass:hover {
+	/*background: #222222;*/
+	cursor: pointer;
+}
+.GemTableValue .NumberClass {
+	padding: 5px;
+}
+
+.NumberClass {
+	display: inline-block;
+}
+.NumberClass a {
+	color: inherit;
+}
+
+.GemTableValue a {
+	color: inherit !important;
+	text-decoration: inherit !important;
+}
+#cipherChartTitle {
+	font-weight: bold;
+	font-size: 1.25em;
+	font-weight: 700;
+}
+.chartChar {
+	color: RGB(242, 153, 96);
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.chartVal {
+	color: RGB(200, 200, 200);
+	font-size: 1em;
+	font-weight: 500;
+	font-weight: 700;
+}
+
+#printBreakTable table {
+	margin-top: 5px;
+}
+.BreakTable {
+	border-collapse: collapse;
+	display: inline-block;
+	margin: 0px 0px 0px 0px;
+}
+.BreakTable td {
+	text-align: center;
+	min-width: 17px;
+	padding: 2px;
+}
+#print_BreakTable{
+	/*border: solid gray 2px;
+	/*border-radius: 10px;*/
+}
+.BreakChar {
+	border: 2px gray;
+	text-align: center;
+	font-size: 1.1em;
+	color: RGB(242, 153, 96);
+	background: RGB(30,30,30);
+	font-weight: 700;
+}
+.BreakValue {
+	border: 2px gray;
+	color: RGB(211, 211, 211);
+	background: RGB(25,25,25);
+	font-size: 0.95em;
+	font-weight: 500;
+}
+.BreakSum {
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 2px gray;
+	font-size: 1em;
+	background: RGB(30,30,30);
+	color: RGB(155, 155, 155);
+	font-weight: bold;
+	line-height: 5px;
+}
+.BreakSum td{
+	padding: 0px !important;
+}
+#SimpleSpot .NumberClass, .BreakSum .NumberClass {
+    cursor: text;
+}
+.BreakTotal {
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 2px gray;
+	font-weight: bold;
+	background: RGB(21,21,21);
+	font-size: 200%;
+}
+.BreakTotal .NumberClass{
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: text;
+}
+.BreakCharNG {
+	background-color: #222222;
+	color: orange;
+	font-weight: bold;
+}
+.classicBreak {
+	font-weight: 700;
+	font-size: 1.25em;
+	width: 555px;	
+	line-height: 1.5em;
+	color: white;
+}
+.nextGenText {
+	font-weight: bold;
+	font-size: 1em;
+}
+#breakdownCipherLabel {
+	margin-top: 0px;
+    display: inline-block;
+    font-weight: 700;
+    font-size:1.25em;
+    line-height:1.25em;
+    padding-bottom: 4px;
+}
+#MainNumber {
+	font-size: 200%;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px dimgray;
+}
+#ChartSpot {
+    overflow: auto;
+}
+#ChartSpot table {
+	margin:  0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: rgba(16,16,16,0.5);
+	border: solid 2px RGB(77,77,77);
+	border-radius: 15px;
+	padding: 10px;
+	border-collapse: separate;
+}
+#ChartSpot td {
+	padding: 5px;
+}
+#ChartSpot tr {
+	line-height: 15px;
+}
+#CustomLists {
+	font-size: .9em;
+	font-weight: 700;
+	line-height: 1.25em;
+}
+#CustomLists a:focus {
+	color: white;
+}
+#CustomLists a:active {
+	color: white;
+}
+: {
+    color: white;
+}
+#tablesContainerContent table th {
+	text-align: center;
+	padding: 10px;
+}
+button#userTableSave {
+	color: black;
+    font-weight: 700;
+    font-size: .85em !important;
+    height: 30px !important;
+    padding: 5px 5px !important;
+    display: inline-block;
+    width: 168px !important;
+    text-align: center !important;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    line-height: 16px;
+}
+/*button#SaveCiphers {
+	font-size: 1em !important;
+}*/
+#MiscSpot {
+	margin-top: 5px;
+	/*margin-top: -51px;*/
+ /*   padding-top: 51px;*/
+}
+#MiscSpot .buttonFunction {
+	margin: 0px 1px 0px 1px;
+}
+#MiscSpot .MatchedNumber, #MiscSpot .NumberOfMatches {
+	font-size: 1.25em;
+	line-height: 1.25em;
+	font-weight: 500;
+}
+#mostCommon {
+    margin:auto;
+}
+#HistoryTableDiv {
+    overflow:auto;
+    padding-bottom:200px;
+}
+.HistoryNav {
+	display: inline-block;
+}
+.HistoryLabel {
+	color: RGB(242, 153, 96);
+	font-weight: normal;
+	min-width: 70px;
+	max-width: 80px;
+	font-size: 0.81em;
+	padding: 5px;
+	text-align: center;
+}
+#HistoryWordPhrase {
+	color: orange;
+	font-weight: normal;
+	text-align: center;
+}
+.HistoryPhrase {
+	color: RGB(200, 200, 200);
+	text-align: right;
+	font-size: 1em;
+	font-weight: 500;
+}
+.HistorySum {
+	color: RGB(155, 155, 155);
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: 700;
+}
+.HistoryTopSum {
+	color: RGB(155, 155, 155);
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+.HistoryTable {
+	display: inline-block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.HistoryTable tr, .HistoryTable td {
+	border: solid 2px #3c3c3c;
+}
+.HistoryTable td {
+	padding: 5px 10px 5px;
+}
+.HistoryTable tr:nth-child(even) {
+	background-color: #141414 !important;
+}
+.HistoryTable tr:nth-child(odd) {
+	background-color: #0a0a0a;
+}
+.historyBtn {
+	background-color: transparent;
+    color: RGB(228, 250, 255);
+    border: none;
+    text-align: right;
+}
+.historyDrop {
+    position: relative;
+    display: inline-block;
+}
+.historyDrop:hover .historyBtn {
+	color: #1862cf;
+}
+.historyOptions {
+    display: block;
+    position: absolute;
+    min-width: 165px;
+    z-index: 1;
+    font-size: 1em;
+    background-color: rgba(16,16,16);
+    border-radius: 20px;
+    border: 2px solid RGB(77, 77, 77);
+    padding: 10px;
+    border-collapse: separate;
+}
+.historyOptions a, .TransferBtn {
+	font-size: 1em;
+    color: RGB(204, 254, 254);
+    padding: 4px 4px;
+    text-decoration: none;
+    display: block;
+}
+.HistoryPhrase .historyDrop .historyOptions {
+	display: none;
+}
+.historyOptions a:hover, .TransferBtn :hover {
+    background:#444444;
+    color:white;
+}
+/*.historyOptions a:hover {
+	color: RGB(204, 254, 254);
+    background: #232526;  
+	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+}*/
+.historyDrop:hover .historyOptions{
+    display: block;
+}
+/*.TransferBtn {
+	background-color: transparent;
+    color: RGB(228, 250, 255);
+    border: none;
+}*/
+.TransferDrop {
+    position: relative;
+    display: inline-block;
+}
+.TransferDrop:hover .TransferBtn {
+/*	background: #141E30;*/  /* fallback for old browsers */
+/*	background: -webkit-linear-gradient(to bottom, #243B55, #141E30, #243B55);*/  /* Chrome 10-25, Safari 5.1-6 */
+/*	background: linear-gradient(to bottom, #243B55, #141E30, #243B55);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*	font-weight: bold;*/
+/*  color: #1862cf;*/
+}
+.TransferOptions {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    font-size: 1em;
+    background-color: rgba(16,16,16);
+    border-radius: 20px;
+    border: 2px solid RGB(77, 77, 77);
+    padding: 10px;
+    border-collapse: separate;
+    margin-left: 91px;
+    margin-top: -70px;
+    text-align: left;
+}
+.TransferOptions a {
+	font-size: 1em;
+    color: RGB(204, 254, 254);
+    text-decoration: none;
+    display: block;
+}
+#shiftMenu {
+	width: 190px;
+}
+#moveMenu {
+	width: 222px;
+}
+/*.TransferOptions a:hover {
+	color: RGB(204, 254, 254);
+    background: #232526;  
+	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+}*/
+.TransferDrop:hover .TransferOptions {
+    display: block;
+}
+
+#OpenTable a {
+	color: lightgoldenrodyellow;
+	text-decoration: underline;
+}
+#OpenTable  {
+	color: white;
+}
+.justnumber {
+	font-weight: bold;
+}
+.InSeqList {
+	background-image: linear-gradient(45deg, #00c600, #00c600 5px, #3438358c 5px, transparent);
+}
+.InSeqDetails {
+	display: none;
+}
+.InPrimeList {
+    background-image: linear-gradient(225deg, #9966ff, #9966ff 5px, #3438358c 5px, transparent);
+}
+.InPrimeList.InSeqDetails {
+    background-image: linear-gradient(225deg, #9966ff, #9966ff 5px, #3438358c 5px, transparent), linear-gradient(225deg, #9966ff, #9966ff 5px, #3438358c 5px, transparent);
+}
+.InFibList {
+    background-image: linear-gradient(315deg, orange, orange 5px, #3438358c 5px, transparent);
+}
+.InTriList {
+    background-image: linear-gradient(225deg, teal, teal 5px, #3438358c 5px, transparent);
+}
+.InTriList.InSeqList {
+    background-image: linear-gradient(225deg, teal, teal 5px, #3438358c 5px, transparent),linear-gradient(45deg, #00c600, #00c600 5px, #3438358c 5px, transparent);
+}
+.InSquareList {
+    /*border:1px solid #808080;*/
+	outline: 1px dashed #5a5a5a !important;
+	outline-offset: -2px;
+}
+.InCubeList {
+    outline: 1px dashed white !important;
+	outline-offset: -2px;
+}
+.InPrimeList.InFibList {
+    background-image: linear-gradient(225deg, #9966ff, #9966ff 5px, #3438358c 5px, transparent), linear-gradient(315deg, orange, orange 5px, #3438358c 5px, transparent);
+}
+.InTriList.InFibList {
+    background-image: linear-gradient(225deg, teal, teal 5px, #3438358c 5px, transparent), linear-gradient(315deg, orange, orange 5px, #3438358c 5px, transparent);
+}
+.InTriList.InFibList.InSeqList {
+    background-image: linear-gradient(225deg, teal, teal 5px, #3438358c 5px, transparent), linear-gradient(315deg, orange, orange 5px, #3438358c 5px, transparent), linear-gradient(45deg, #00c600, #00c600 5px, #3438358c 5px, transparent);
+}
+#numberProperty {
+	width: 100%;
+	height: 850px;
+}
+h1#numberProperty {
+	font-size: 1em !important;
+}
+#numberProperty #HTMLSpot #TopNumber {
+	font-size: 1em !important;
+}
+#TopNumber {
+	font-family: "Lato";
+}
+.RegularLink {
+	display: none;
+}
+.mo-only {
+    display:none;
+}
+.no-mo .plus  {
+	color: #1862cf;
+}
+.no-mo .plus:hover {
+	color: white;
+}
+.no-mid {
+    display:none;
+}
+.mo {
+	display: none;
+}
+#mobile-logo {
+	width: 337px;
+}
+@supports (-webkit-touch-callout: none) {
+    .buttonFunction {
+        background-color:white!important;
+  }
+    .buttonFunctionOptions,
+    .buttonFunctionCiphers {
+        background-color:white !important;
+    }
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ---------RESPONSIVE STYLES BELOW------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:320px) and (max-width: 767px){
+	.no-mo {
+		display: none !important;
+	}
+	.no-mid {
+	    display:revert;
+	}
+	.mo {
+		display: revert;
+	}
+	/*.user-header, header, #MenuSpot {*/
+	/*	display: none;*/
+	/*}*/
+	.current-user {
+		display:  none;
+	}
+	#FirstRow {
+		margin-top: 0px;
+	}
+	#menu-dynamic {
+		position: relative;
+	}
+	#menu-icon {
+		display: block;
+		width: 50px;
+		cursor: pointer;
+		margin: 5px 0px;
+		padding: 5px;
+	    font-size: 2em;
+	    color: #47afe5;
+	}
+	#mobile-logo {
+		position: absolute;
+    	left: 6px;
+    	top: 4px;
+    	width: 128px;
+	}
+	/*.bar1, .bar2, .bar3 {*/
+	/*  width: 35px;*/
+	/*  height: 5px;*/
+	/*  background-color: #47afe5;*/
+	/*  margin: 6px 0;*/
+	/*  transition: 0.4s;*/
+	/*}*/
+	/*.change .bar1 {transform: translate(0, 11px) rotate(-45deg);}*/
+	/*.change .bar2 {opacity: 0;}*/
+	/*.change .bar3 {transform: translate(0, -11px) rotate(45deg);}*/
+	#calc-menu {
+		width: 100%;
+		margin: auto;
+		z-index: 1111;
+		display:block;
+		margin-top:15px;
+		margin-bottom:15px;
+	}
+	#optionsBtn, #ciphModBtn, #shortcutsBtn, #dateBtn, #numPropBtn, #bibleBtn, #loginBtn, .mobile-calc-menu-icon {
+	    color: #47afe5;
+	}
+	#EntryDiv {
+		width: 100%;
+		margin-bottom:10px;
+	}
+	#EntryField {
+		height: 32px;
+		font-size: 1.05em;
+		width: 76% !important;
+	}
+	#MainTableRow {
+	    overflow:auto;
+	    width:90%;
+	    margin:auto;
+	}
+	.buttonFunction {
+		padding: 0px;
+		font-size: .75em;
+	}
+	#tablesContainerOpener {
+		font-family: "Lato";
+		font-weight: bold;
+		font-size: 108%;
+		color: RGB(140, 250, 243);
+	}
+	#OptionSpot {
+		margin-top: 50px;
+	}
+	#cipherBox {
+		font-weight: bold;
+		font-size: .70em;
+	    line-height: .85em;
+	    width: 100%;
+	    text-align: left;
+	    margin-top: 5px;
+	    margin-bottom: 24px;
+	    padding: 3px;
+	}
+	#ciphMod .fancybox-button svg {
+		display: none !important;
+	}
+	#ciphMod #toph2 {
+		margin: 0px;
+	}
+	#cipherPresets {
+		width: 98%;
+	}
+	.buttonFunctionCiphers {
+		height: 33px;
+	}
+	#PresetDropdown, #PresetDropdown2 {
+		height: 33px;
+	}
+	input[type=checkbox] {
+		-ms-transform: scale(1.5); /* IE */
+		-moz-transform: scale(1.5); /* FF */
+		-webkit-transform: scale(1.5); /* Safari and Chrome */
+		-o-transform: scale(1.5); /* Opera */
+		transform: scale(1.5);
+		margin: 7px 5px 7px;
+	}
+	.fancybox-content {
+		padding: 10px 0px 10px;
+	}
+    #GemTable {
+    	border-radius: 10px;
+    }
+    #GemTable td {
+    	width: 80px;
+    	line-height:15px;
+    }
+    #GemTable, .GemTableHeader {
+    	padding: 0;
+    	font-weight: 700;
+    }
+    .GemTableHeader {
+        font-size:.8em;
+        line-height:12px;
+    }
+    .GemTableValue {
+    	font-size: 1.5em;
+    }
+    #ChartSpot table {
+        padding:0px;
+    }
+    #ChartSpot td {
+        padding: 1px 2px 1px;
+    }
+    .chartChar {
+        font-size: .85em;
+    }
+    .chartVal {
+        font-size: .8em;
+    }
+    #cipherChartTitle {
+        font-size:.85em;
+    }
+    .BreakTable td {
+        padding:1px;
+    }
+    .BreakChar {
+        font-size:.75em;
+    }
+    .BreakValue {
+    	font-size: 0.65em;
+    	font-weight: 700;
+    }
+    .BreakTotal {
+        font-size: 1.25em;
+    }
+    #printBreakTable table {
+        margin-bottom:0px !important;
+    }
+    #breakdownCipherLabel {
+        font-size:1em;
+        line-height:1.25em;
+        padding-bottom: 4px;
+    }
+    #MiscSpot {
+        overflow-x: auto !important;
+    }
+    .HistoryTable {
+        margin:  auto;
+       	margin-top: 10px;
+        /*overflow-x: scroll;*/
+        /*overflow-y: visible !important;*/
+        padding-bottom: 350px;
+        border: none !important;
+    }
+    #HistoryWordPhrase {
+        font-size: 0.70em;
+    }
+    .historyBtn {
+        font-size: 0.70em;
+    }
+    .HistoryLabel {
+    	padding: 2px !important;
+    	/*min-width: 0px;*/
+    	/*max-width: 75px;*/
+    	font-size: 0.70em;
+    }
+    .HistorySum {
+    	font-size: 0.70em;
+    }
+    .HistoryTable td {
+    	padding: 1px !important;
+    	width: 1px;
+        white-space: nowrap;
+    }
+    .historyOptions a {
+    	padding: 9px 21px;
+    }
+    th {
+    	padding: 1px;
+    	text-align: center;
+    	font-weight: bold;
+    }
+    #tablesTab {
+    	height: 100px;
+    }
+    .TransferOptions {
+        margin-left: 130px;
+        margin-top: -100px;
+    }
+    #shiftMenu {
+    	width: 300px;
+    }
+    #moveMenu {
+    	width: 175px;
+    }
+    #shortcuts {
+		width: 85%;
+		margin:auto;
+		font-size: 0.75em;
+	}
+	#shortcutsCipherDisplay {
+		width: 100%;
+	}
+}
+
+/* Cipher Box Specific for mobile */
+@media (min-width:320px) and (max-width: 530px){
+    ul#cipherBox {
+        -webkit-columns: 2;
+    }
+    #cipherHelpText {
+        font-weight:bold;
+        font-size:.8em;
+    }
+}
+@media (min-width:531px) and (max-width: 767px){
+    ul#cipherBox {
+        -webkit-columns: 3;
+    }
+}
+
+/* "Tablet" views. Larger than mobile, smaller than most desktop resolutions */
+@media (min-width:768px) and (max-width: 991px){
+	h3 {
+		font-size: 1.2em;
+		font-weight: 700;
+	}
+	.mobile-calc-menu-icon {
+		display: none;
+	}
+	#calc-menu {
+		display: block !important;
+	}
+	#EntryField {
+		width: 500px;
+	}
+	#cipherChartTitle {
+		font-size: 1em;
+	}
+	#cipherBox {
+	    font-size:1em;
+	    line-height:1.15em;
+	}
+	#ChartSpot td {
+		padding: 2px;
+	}
+	.chartChar {
+		font-size: 1.1em;
+	}
+	.chartVal {
+		font-size: .95em;
+	}
+	/* Size of the main values in the Gem Table */
+	.GemTableValue{
+		font-size: 2em;
+	}
+	.no-mid {
+	    display:none;
+	}
+	.mo-only {
+	    display:none;
+	}
+	.mo {
+	    display:revert;
+	}
+	#shortcuts {
+		width: 73%;
+		margin:auto
+	}
+}
+@media (min-width:992px) and (max-width: 1250px){
+	.mobile-calc-menu-icon {
+		display: none;
+	}
+	#calc-menu {
+		display: block !important;
+	}
+	#EntryField {
+		width: 500px;
+	}
+	.GemTableValue{
+		font-size: 2em;
+	}
+	#cipherBox {
+		width: 100%;
+		font-size: 1em;
+	}
+	#shortcuts {
+		width: 55%;
+		margin:auto
+	}
+	#shortcutsCipherDisplay {
+		width: 50%;
+		margin: auto;
+	}
+	#shortcutsOptionsDisplay {
+		width: 50%;
+		margin: auto;
+	}
+}
+@media only screen and (min-width: 768px){
+    .HistoryTable td:nth-child(1) {  
+        max-width:500px;
+    }
+}
+@media only screen and (max-width: 991px) {
+	/* Tables LEFT Side Slider Menu Styles */
+	#tablesContainer {
+	    width: 305px;
+	    height: 300px;
+	    z-index: 33333333;
+	}
+	#tablesContainerContent{
+	    width: 305px;
+	    height: 300px;
+	}
+	#tablesTab {
+		width: 25px;
+		height: 70px;
+		top: 13px;
+	}
+	/* END OF Functions LEFT Side Slider Menu */
+
+	/* Functions Right Side Slider Menu Styles */
+	#functionsContainer {
+	    width: 305px;
+	    height: 300px;
+	    z-index: 33333333;
+	}
+	#functionsContainerContent{
+	    width: 305px;
+	    height: 300px;
+	}
+	#functionsTab {
+		width: 25px;
+		height: 70px;
+		top: 13px;
+	}
+	/* END OF Functions Right Side Slider Menu */
+	#cipherBox {
+		width: 100%;
+	}
+	#tablesContainerCloser,
+	#functionsContainerCloser {
+		font-size: 2.25em;
+	}
+}
+@media only screen and (min-width: 1251px){
+	.mobile-calc-menu-icon {
+		display: none;
+	}
+	#calc-menu {
+		display: block !important;
+	}
+	.GemTableValue {
+		font-size: 2em;
+	}
+	#cipherBox {
+		width: 60%;
+		font-size: 1em;
+	}
+	#CustomLists {
+		font-size: 1.1em;
+		line-height: 1.4;
+	}
+	#shortcuts {
+		width: 39%;
+		margin:auto
+	}
+}

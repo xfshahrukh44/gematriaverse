@@ -1,0 +1,142 @@
+head {
+	color: white;
+}
+
+h2 {
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+body {
+	background-color: RGB(0, 0, 16);
+	color: white;
+}
+
+table{
+	font-family: "Bookman Old Style", Arial;
+	table-layout: fixed;
+	width: 800px;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.table_header{
+	font-size: 150%;
+}
+
+td{
+	text-align: center;
+	padding: 2px;
+}
+
+.td_name {
+	padding-bottom: 1px;
+	padding-top: 5px;
+}
+
+.td_number {
+	font-weight: bold;
+	font-size: 200%;
+	padding-top: 1px;
+	padding-bottom: 8px;
+}
+
+.Breakdown {
+	font-family: "Bookman Old Style", "Arial";
+	color: white;
+	font-size: 150%;
+}
+
+a {
+	color: #00ffff;
+}
+
+.gematria_title {
+	text-align: center;
+    font-size: 150%;
+    color: RGB(255, 255, 255);
+    padding-top: 8px;
+}
+
+.med_padding {
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.Gem_Input{
+	width: 300px;
+}
+
+.reduced{
+	color: RGB(68, 114, 196);
+}
+
+.s_exception{
+	color: RGB(142, 169, 219);
+}
+
+.kv_exception{
+	color: RGB(142, 169, 219);
+}
+
+.ksv_exception{
+	color: RGB(0, 176, 240);
+}
+
+.ordinal{
+	color: RGB(0, 153, 0);
+}
+
+.sumerian{
+	color: RGB(169, 208, 142);
+}
+
+.francis_bacon{
+	color: RGB(146, 208, 80);
+}
+
+.satanic{
+	color: RGB(255, 0, 0);
+}
+
+.jewish{
+	color: RGB(153, 102, 255);
+}
+
+.english{
+	color: RGB(255, 255, 0);
+}
+
+.septenary{
+	color: RGB(255, 153, 0);
+}
+
+.reverse_ordinal{
+	color: RGB(198, 89, 17);
+}
+
+.extra{
+	color: RGB(0, 0, 0);
+}
+
+.alw{
+	color: RGB(255, 64, 0);
+}
+
+.chaldean{
+	color: RGB(166, 166, 18);
+}
+
+.reverse_reduced{
+	color: RGB(100, 226, 226);
+}
+
+.h_exception{
+	color: RGB(80, 199, 199);
+}
