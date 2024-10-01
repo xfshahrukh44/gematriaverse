@@ -4,7 +4,10 @@
     <style>
     </style>
 @endsection
+
+
 @section('content')
+    @include('layouts.front.css')
 
 
 

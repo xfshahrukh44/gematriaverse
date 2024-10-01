@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\CipherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -287,3 +288,4 @@ Route::get('nostalgia-calculators-nextgen', [FrontController::class, 'nostalgia_
 Route::get('number-properties', [FrontController::class, 'number_properties'])->name('number-properties');
 Route::get('product-detail', [FrontController::class, 'product_detail'])->name('product-detail');
 Route::get('shop', [FrontController::class, 'shop'])->name('shop');
+Route::post('add-ciphers', [CipherController::class, 'store'])->name('add-ciphers');

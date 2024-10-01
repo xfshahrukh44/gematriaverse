@@ -4,6 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--<base href="http://localhost/gematriaverse-membership/">-->
     <base href="https://democustom-html.com/gematriaverse/">
@@ -56,7 +57,7 @@
     <link rel="stylesheet" href="{{ asset('css/inner-2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
-    @include('layouts.front.css')
+{{--    @include('layouts.front.css')--}}
     @yield('css')
 
     <title>Gematriavere | @yield('title')</title>
@@ -225,17 +226,6 @@
                             <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p class="para-1">© 2024 <a href="javascript:;">Gematriaverse </a>. <a
-                                href="javascript:;">Website development</a> powered by <a
-                                href="https://inoviodesigns.com/" target="_blank">Inovio Designs</a>, Inc.</p>
                     </div>
                 </div>
             </div>

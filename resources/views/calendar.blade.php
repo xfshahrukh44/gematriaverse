@@ -119,12 +119,12 @@
                 <div class="col-lg-12">
                     <div class="CalHeaderTop">
                     <span class="NavClass LeftNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>
+                        <a href="javascript:;" id="anchor_previous_year"><i class="fas fa-arrow-circle-left"></i></a>
                     </span>
-                        <span id="YearViewYear">2024&nbsp;<span id="YearNumber"></span>
+                        <span id="span_current_year">2024</span>
                     </span>
                         <span class="NavClass RightNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="javascript:;" id="anchor_next_year"><i class="fas fa-arrow-circle-right"></i></a>
                     </span>
                     </div>
                 </div>
@@ -257,7 +257,20 @@
 
     <script>
         $(document).ready(function () {
+            // anchor_previous_year
+            // span_current_year
+            // anchor_next_year
 
+            $('#anchor_next_year').on('click', function () {
+                year = (year > 2029) ? 2029 : (year + 1);
+                $('#span_current_year').text(year);
+                generateCalendar();
+            })
+            $('#anchor_next_year').on('click', function () {
+                year = (year < 2020) ? 2020 : (year - 1);
+                $('#span_current_year').text(year);
+                generateCalendar();
+            })
         });
     </script>
 @endsection
