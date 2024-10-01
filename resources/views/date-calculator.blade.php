@@ -4,7 +4,10 @@
 
 @section('css')
     <style>
-
+        #DurationDetailsInner {
+            padding: 16px;
+            font-size: 13px;
+        }
     </style>
 @endsection
 
@@ -170,7 +173,7 @@
                                                                     onclick="AddNewDate()" value="Add Date">Add to List</button>
                                                         </div>
                                                     </div>
-                                                    <div id="DateStr1Show" style="display: block;">
+                                                    {{-- <div id="DateStr1Show" style="display: block;">
                                                         <div id="printDateStr1">
                                                             <span id="DateStr1">(9) + (28) + (20) + (23)</span><span> =
                                                         </span><span id="DateNum1" style="color: white;"><a
@@ -205,6 +208,13 @@
                                                                     <font color="lightblue">864</font>
                                                                 </a></span></div>
                                                         </div>
+                                                    </div> --}}
+                                                    <div id="DateStr1Show" style="display: block;">
+                                                        <div id="printDateStr1">
+                                                            <span id="DateStr1"></span><span> = </span>
+                                                            <span id="DateNum1" style="color: white;"></span>
+                                                        </div>
+                                                        <div id="DateNums1"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,7 +332,7 @@
                                                         </div>
                                                     </div>
                                                     <!--<div class="row"></div>-->
-                                                    <div id="DateStr2Show" style="display: block;">
+                                                    {{-- <div id="DateStr2Show" style="display: block;">
                                                         <div id="printDateStr2">
                                                             <span id="DateStr2">(9) + (28) + (20) + (24)</span><span> =
                                                         </span><span id="DateNum2" style="color: white;"><a
@@ -357,6 +367,13 @@
                                                                     <font color="lightblue">1152</font>
                                                                 </a></span></div>
                                                         </div>
+                                                    </div> --}}
+                                                    <div id="DateStr2Show" style="display: block;">
+                                                        <div id="printDateStr2">
+                                                            <span id="DateStr2"></span><span> = </span>
+                                                            <span id="DateNum2" style="color: white;"></span>
+                                                        </div>
+                                                        <div id="DateNums2"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,8 +449,8 @@
                                                             From <font class="DurationStringMain"></font><br class="mo">
                                                             to <font class="DurationStringMain"></font> is:<br>
                                                             <font style="size: 115%">
-                                                                <a href="javascript:void()">
-                                                                    <font class="DurNumMain"></font>
+                                                                <a href="javascript:void(0)" class="">
+                                                                    <font class="DurNumMain target_number"></font>
                                                                 </a>
                                                             </font>
                                                         </div>
@@ -456,7 +473,182 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div id="ClassicTableSpot"></div>
+                                            <div id="ClassicTableSpot">
+                                                <center id="center_number_properties" hidden>
+                                                    <div id="MiscSpot"><button class="buttonFunction" onclick="Build_HistoryTable()">Show
+                                                            History</button><br>
+                                                        <object id="numberProperty" type="text/html" data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
+
+                                                            <div id="numPropAnchor">
+                                                                <div id="numPropContainer">
+                                                                    <center>
+                                                                        <h2 style="text-transform: uppercase;">Number Properties of:
+                                                                        </h2>
+                                                                        <div id="HTMLSpot">
+                                                                            <table id="TopTable">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td id="TopNumber" style="font-size: 40px !important;"></td>
+                                                                                </tr>
+                                                                                {{--                                                                    <tr>--}}
+                                                                                {{--                                                                        <td id="PrimeString" colspan="3">2 ×--}}
+                                                                                {{--                                                                            3<sup>2</sup>--}}
+                                                                                {{--                                                                        </td>--}}
+                                                                                {{--                                                                    </tr>--}}
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <div id="belowSpecials">
+                                                                                <div id="DivisorTableDiv"><span class="titles">Divisors</span>
+                                                                                    <table id="DivisorTable">
+                                                                                        <tbody>
+                                                                                        <tr></tr>
+                                                                                        <tr>
+                                                                                            <td>Count:</td>
+                                                                                            <td>List:</td>
+                                                                                            <td>Sum:</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="vertical-align: top"><b class="Linkable" id="count"></b></td>
+                                                                                            <td id="divisors_list">
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>,--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>,--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>,--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b>--}}
+                                                                                                {{--                                                                                    <br>--}}
+                                                                                                {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th--}}
+                                                                                                {{--                                                                                    Composite #--}}
+                                                                                            </td>
+                                                                                            <td style="vertical-align: top"><b class="Linkable" id="sum"></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div id="RelationTableDiv">
+                                                                                    <h2 id="number_with_suffix"></h2>
+                                                                                    <table id="RelationTable">
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Prime #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_prime"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Composite #:
+                                                                                                &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_composite"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Fibonacci #:
+                                                                                                &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_fibonacci"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Triangular #:
+                                                                                                &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_triangular"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Square #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="square"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Cube #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="cube"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Tetrahedral
+                                                                                                #:
+                                                                                                &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_tetrahedral"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_sq_pyramidal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Star #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_star"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass"> Pentagonal #:
+                                                                                                &nbsp;</td>
+                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_pentagonal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div id="ConversionsTableDiv"><span class="titles">Conversions</span>
+                                                                                    <table id="ConversionTable">
+                                                                                        <tbody>
+                                                                                        <tr>
+                                                                                            {{--                                                                                <td>From:</td>--}}
+                                                                                            <td class="conversionMiddle">Numeral
+                                                                                                system:
+                                                                                            </td>
+                                                                                            <td>To:</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            {{--                                                                                <td>-</td>--}}
+                                                                                            <td>Octal</td>
+                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="octal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td>--}}
+                                                                                            <td>Duodecimal</td>
+                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="duodecimal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td>--}}
+                                                                                            <td>Hexadecimal</td>
+                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="hexadecimal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            {{--                                                                                <td>-</td>--}}
+                                                                                            <td>Binary</td>
+                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="binary"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
+                                                                        <br><br>
+                                                                        <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
+                                                                        <br><br>
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+
+                                                        </object>
+                                                    </div>
+
+                                                </center>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div id="PlanetDiv">
@@ -590,6 +782,337 @@
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
+    <script>
+        // Greek alphabet mapping for Isopsephy values
+        const greekAlphabet = {
+            'Α': 1,  'Β': 2,  'Γ': 3,  'Δ': 4,  'Ε': 5,  'Ϝ': 6,  'Ζ': 7,  'Η': 8,  'Θ': 9,
+            'Ι': 10, 'Κ': 20, 'Λ': 30, 'Μ': 40, 'Ν': 50, 'Ξ': 60, 'Ο': 70, 'Π': 80, 'Ϙ': 90,
+            'Ρ': 100, 'Σ': 200, 'Τ': 300, 'Υ': 400, 'Φ': 500, 'Χ': 600, 'Ψ': 700, 'Ω': 800, 'ϡ': 900
+        };
+
+        // Greek alphabet mapping for Ordinal values (A=1 to Ω=24)
+        const greekOrdinalAlphabet = {
+            'Α': 1,  'Β': 2,  'Γ': 3,  'Δ': 4,  'Ε': 5,  'Ϝ': 6,  'Ζ': 7,  'Η': 8,  'Θ': 9,
+            'Ι': 10, 'Κ': 11, 'Λ': 12, 'Μ': 13, 'Ν': 14, 'Ξ': 15, 'Ο': 16, 'Π': 17, 'Ϙ': 18,
+            'Ρ': 19, 'Σ': 20, 'Τ': 21, 'Υ': 22, 'Φ': 23, 'Χ': 24, 'Ψ': 25, 'Ω': 26, 'ϡ': 27
+        };
+
+        // Function to calculate Greek Isopsephy value
+        function calculateGreekIsopsephy(input) {
+            return [...input].reduce((sum, char) => sum + (greekAlphabet[char] || 0), 0);
+        }
+
+        // Function to calculate Greek Ordinal value
+        function calculateGreekOrdinal(input) {
+            return [...input].reduce((sum, char) => sum + (greekOrdinalAlphabet[char] || 0), 0);
+        }
+
+        // Function to calculate Greek Reduction value
+        function calculateGreekReduction(input) {
+            return [...input].reduce((sum, char) => {
+                let value = greekOrdinalAlphabet[char] || 0;
+                return sum + (value ? (value > 9 ? value % 9 || 9 : value) : 0);
+            }, 0);
+        }
+
+        // Main function to calculate all values
+        function calculateGreekGematria(word) {
+            const isopsephy = calculateGreekIsopsephy(word);
+            const ordinal = calculateGreekOrdinal(word);
+            const reduction = calculateGreekReduction(word);
+
+            return {
+                isopsephy: isopsephy,
+                ordinal: ordinal,
+                reduction: reduction
+            };
+        }
+
+        function get_divisors(num) {
+            let divisors = [];
+
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    divisors.push(i);
+                }
+            }
+
+            return divisors;
+        }
+
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function getNumberSuffix(n) {
+            let lastDigit = n % 10;
+            let lastTwoDigits = n % 100;
+
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+                return `${n}th`;
+            }
+
+            switch (lastDigit) {
+                case 1:
+                    return `${n}st`;
+                case 2:
+                    return `${n}nd`;
+                case 3:
+                    return `${n}rd`;
+                default:
+                    return `${n}th`;
+            }
+        }
+
+        function getCompositePosition(num) {
+            let count = 0;  // Counter for composite numbers
+            let current = 4;  // Start from 4 because 4 is the first composite number
+
+            while (current <= num) {
+                if (!isPrime(current)) {
+                    count++; // Increment the composite count
+                }
+                current++;
+            }
+
+            if (isPrime(num)) {
+                return '';
+            }
+
+            return `${getNumberSuffix(count)} composite.`;
+        }
+
+        function nthPrime(n) {
+            let count = 0; // Count of prime numbers found
+            let num = 1; // Starting number to check for primes
+
+            while (count < n) {
+                num++;
+                if (isPrime(num)) {
+                    count++;
+                }
+            }
+
+            return num; // The n-th prime number
+        }
+
+        function isComposite(num) {
+            if (num <= 1) return false; // 0 and 1 are not composite numbers
+            let isPrime = true;
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false; // It is not a prime number
+                    break;
+                }
+            }
+
+            return !isPrime; // Return true if it's composite (not prime)
+        }
+
+        function nthComposite(n) {
+            let count = 0; // Count of composite numbers found
+            let num = 1; // Starting number to check for composites
+
+            while (count < n) {
+                num++;
+                if (isComposite(num)) {
+                    count++;
+                }
+            }
+
+            return num; // The n-th composite number
+        }
+
+        function fibonacci(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0
+            if (n === 1) return 1; // Return 1 for n = 1
+
+            let a = 0; // First Fibonacci number
+            let b = 1; // Second Fibonacci number
+            let fib = 1; // Variable to store the current Fibonacci number
+
+            for (let i = 2; i <= n; i++) {
+                fib = a + b; // Calculate the next Fibonacci number
+                a = b; // Move to the next pair
+                b = fib;
+            }
+
+            return fib; // Return the n-th Fibonacci number
+        }
+
+        function triangular(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1)) / 2; // Calculate the n-th triangular number
+        }
+
+        function tetrahedral(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1) * (n + 2)) / 6; // Calculate the n-th tetrahedral number
+        }
+
+        function squarePyramidal(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1) * (2 * n + 1)) / 6; // Calculate the n-th square pyramidal number
+        }
+
+        function starNumber(n) {
+            if (n <= 0) return 1; // Return 1 for n = 0 or negative, as the 0th star number is 1
+
+            return 6 * n * (n - 1) + 1; // Calculate the n-th star number
+        }
+
+        function pentagonal(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (3 * n - 1)) / 2; // Calculate the n-th pentagonal number
+        }
+
+        function convertNumeralSystems(n) {
+            // Ensure the input is a number
+            if (typeof n !== 'number' || n < 0) {
+                throw new Error('Input must be a non-negative number.');
+            }
+
+            // Conversions
+            const conversions = {
+                octal: n.toString(8),           // Octal
+                duodecimal: n.toString(12),     // Duodecimal
+                hexadecimal: n.toString(16),     // Hexadecimal
+                binary: n.toString(2)            // Binary
+            };
+
+            return conversions;
+        }
+
+        function number_properties (number) {
+            if (number == '') {
+                return false;
+            }
+
+            number = parseInt(number);
+
+            if (number == 0) {
+                $('#center_number_properties').prop('hidden', true);
+                return false;
+            }
+
+            let divisors = get_divisors(number);
+
+            let return_body = {
+                divisors: divisors,
+                count: divisors.length,
+                sum: divisors.reduce((acc, current) => acc + current, 0),
+                composite: getCompositePosition(number),
+                nth_prime: nthPrime(number),
+                nth_composite: nthComposite(number),
+                nth_fibonacci: fibonacci(number),
+                nth_triangular: triangular(number),
+                square: number * number,
+                cube: number * number * number,
+                nth_tetrahedral: tetrahedral(number),
+                nth_sq_pyramidal: squarePyramidal(number),
+                nth_star: starNumber(number),
+                nth_pentagonal: pentagonal(number),
+                conversions: convertNumeralSystems(number),
+            };
+
+            $('#TopNumber').text(number);
+            $('#count').text(return_body.count);
+            $('#nth_prime').text(return_body.nth_prime);
+            $('#nth_composite').text(return_body.nth_composite);
+            $('#nth_fibonacci').text(return_body.nth_fibonacci);
+            $('#nth_triangular').text(return_body.nth_triangular);
+            $('#square').text(return_body.square);
+            $('#cube').text(return_body.cube);
+            $('#nth_tetrahedral').text(return_body.nth_tetrahedral);
+            $('#nth_sq_pyramidal').text(return_body.nth_sq_pyramidal);
+            $('#nth_star').text(return_body.nth_star);
+            $('#nth_pentagonal').text(return_body.nth_pentagonal);
+
+            let string = '';
+            let count = 0;
+            for (const item of return_body.divisors) {
+                count += 1;
+                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">'+item+'</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
+            }
+            if (return_body.composite != '') {
+                string += '<br>';
+                string += '<b class="Linkable">'+return_body.composite+'</b>';
+            }
+            $('#divisors_list').html(string);
+
+            $('#sum').text(return_body.sum);
+            $('#number_with_suffix').text(getNumberSuffix(number));
+            $('#octal').text(return_body.conversions.octal);
+            $('#duodecimal').text(return_body.conversions.duodecimal);
+            $('#hexadecimal').text(return_body.conversions.hexadecimal);
+            $('#binary').text(return_body.conversions.binary);
+
+            $('#center_number_properties').prop('hidden', false);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#EntryField').on('keyup', function () {
+                let val = $(this).val();
+
+                if (val == "") {
+                    $('#isopsephy').text('0');
+                    $('#ordinal').text('0');
+                    $('#reduction').text('0');
+                }
+
+                let data = calculateGreekGematria(val);
+
+                $('#isopsephy').text(data.isopsephy);
+                $('#ordinal').text(data.ordinal);
+                $('#reduction').text(data.reduction);
+
+                return true;
+            });
+
+            $('#isopsephy').on('click', function () {
+                number_properties($(this).text());
+            });
+            $('#ordinal').on('click', function () {
+                number_properties($(this).text());
+            });
+            $('#reduction').on('click', function () {
+                number_properties($(this).text());
+            });
+
+            $('#btn_get_properties').on('click', function () {
+                let val = $('#input_get_properties').val();
+
+                if (val < 1 || val == '') {
+                    return false;
+                }
+
+                number_properties(val);
+            });
+
+            $('body').on('click', '.target_number', function () {
+                let text = $(this).text();
+                let numericText = text.replace(/\D/g, '');
+                if (numericText === '') {
+                    console.log('No numeric value found');
+                    alert('No numeric value found');
+                    return;
+                }
+                number_properties(numericText);
+            });
+        });
+    </script>
 @endsection
 
 
