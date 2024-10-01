@@ -103,10 +103,10 @@ window.addEventListener('resize', function(event) {
 	}
 });
 */
-	
+
 //Header_Load();
 
-window.addEventListener('load', (event) => Page_Launch());
+// window.addEventListener('load', (event) => Page_Launch());
 
 window.addEventListener("beforeunload", function() {
     Update_Options()
