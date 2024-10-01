@@ -13,7 +13,7 @@ a {
 }
 
 .logo-header {
-    max-width: 200px;
+    max-width: 200px !important;
 }
 
 header {
