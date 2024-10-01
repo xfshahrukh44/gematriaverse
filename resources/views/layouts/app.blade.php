@@ -154,9 +154,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>--}}
+{{--                                </li>--}}
                             </ul>
                             <div class="social">
                                 <span class="youtube">

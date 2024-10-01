@@ -4,7 +4,9 @@
 
 @section('css')
     <style>
-
+        section.table-date-calculator.py {
+            height: 100vh;
+        }
     </style>
 @endsection
 

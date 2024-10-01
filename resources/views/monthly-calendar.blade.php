@@ -97,6 +97,10 @@
             color: #7fbe00;
         }
 
+        .DayNameRow td:first-child {
+            color: white;
+        }
+
         #TopSpot {
             text-align: center;
         }
@@ -120,7 +124,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div id="TopSpot">Learn more about your Personal Date Numerology<div class="UserBirthday">February (3) 2024 (1)</div>
+            <div id="TopSpot">Learn more about your Personal Date Numerology<div class="UserBirthday">2024</div>
             </div>
         </div>
     </div>
@@ -128,19 +132,19 @@
     <section class="empty-sec py">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div>
-                </div>
+{{--                <div class="col-lg-12">--}}
+{{--                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div>--}}
+{{--                </div>--}}
                 <div class="col-lg-12">
                     <div class="CalHeaderTop">
-                    <span class="NavClass LeftNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>
+{{--                    <span class="NavClass LeftNav">--}}
+{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>--}}
+{{--                    </span>--}}
+                    <span id="YearViewYear">{{$_GET["year"]}}&nbsp;<span id="YearNumber"></span>
                     </span>
-                        <span id="YearViewYear">2024&nbsp;<span id="YearNumber">(1)</span>
-                    </span>
-                        <span class="NavClass RightNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>
-                    </span>
+{{--                    <span class="NavClass RightNav">--}}
+{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                    </span>--}}
                     </div>
                 </div>
             </div>
@@ -159,7 +163,11 @@
 
 @section('js')
     <script>
-        const year = new Date().getFullYear();
+        let year_check = '{{$_GET["year"] ?? ""}}';
+        let month = '{{$_GET["month"] ?? "1"}}';
+        month = parseInt(month) - 1;
+
+        const year = year_check !== '' ? year_check : new Date().getFullYear();
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const monthNames = [
             "January",
@@ -235,24 +243,26 @@
                     td.classList.add("EachDay");
 
                     if (day.date) {
+                        console.log(day);
+                        console.log(day.date);
                         const dayTable = document.createElement("table");
                         dayTable.classList.add("DayTable");
 
                         const dayTableBody = document.createElement("tbody");
 
-                        // Create Day Header Row
-                        const dayHeaderRow = document.createElement("tr");
-                        dayHeaderRow.classList.add("DayHeader");
-
-                        const emptyTd = document.createElement("td");
-                        dayHeaderRow.appendChild(emptyTd);
-
-                        const dateTd = document.createElement("td");
-                        dateTd.classList.add("DateClass");
-                        dateTd.textContent = day.date;
-                        dayHeaderRow.appendChild(dateTd);
-
-                        dayTableBody.appendChild(dayHeaderRow);
+                        // // Create Day Header Row
+                        // const dayHeaderRow = document.createElement("tr");
+                        // dayHeaderRow.classList.add("DayHeader");
+                        //
+                        // const emptyTd = document.createElement("td");
+                        // dayHeaderRow.appendChild(emptyTd);
+                        //
+                        // const dateTd = document.createElement("td");
+                        // dateTd.classList.add("DateClass");
+                        // dateTd.textContent = day.date;
+                        // dayHeaderRow.appendChild(dateTd);
+                        //
+                        // dayTableBody.appendChild(dayHeaderRow);
 
                         // Create Date Content Row
                         const dateContentRow = document.createElement("tr");
@@ -266,7 +276,8 @@
                         const personalSpotTd = document.createElement("td");
                         personalSpotTd.classList.add("PersonalSpot");
                         personalSpotTd.id = `PersonalSpot${index}`;
-                        personalSpotTd.textContent = `${index % 12 + 1}`; // Example content
+                        // personalSpotTd.textContent = `${index % 12 + 1}`; // Example content
+                        personalSpotTd.textContent = day.date; // Example content
 
                         dateContentRow.appendChild(calSpotTd);
                         dateContentRow.appendChild(personalSpotTd);
@@ -287,7 +298,7 @@
         }
 
         // Example of generating a month view for September
-        generateMonthView(8);
+        generateMonthView(month);
     </script>
 @endsection
 
