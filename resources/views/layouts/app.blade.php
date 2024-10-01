@@ -124,7 +124,7 @@
                                             Tools
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{route('nostalgia-calculators-date')}}">Date Calculator</a>
+                                            <a class="dropdown-item" href="{{route('date-calculator')}}">Date Calculator</a>
                                             <a class="dropdown-item" href="{{route('number-properties')}}">Number Properties</a>
                                             <a class="dropdown-item" href="{{route('calendar')}}">Personal Calendar</a>
                                             <a class="dropdown-item" href="{{route('bible-search')}}">Bible Search</a>

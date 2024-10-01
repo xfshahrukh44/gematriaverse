@@ -121,7 +121,7 @@
                     <span class="NavClass LeftNav">
                         <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>
                     </span>
-                        <span id="YearViewYear">2024&nbsp;<span id="YearNumber">(1)</span>
+                        <span id="YearViewYear">2024&nbsp;<span id="YearNumber"></span>
                     </span>
                         <span class="NavClass RightNav">
                         <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>
@@ -144,7 +144,7 @@
 
 @section('js')
     <script>
-        const year = new Date().getFullYear();
+        let year = new Date().getFullYear();
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const monthNames = [
             "January",
@@ -253,6 +253,12 @@
         }
 
         generateCalendar();
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+        });
     </script>
 @endsection
 
