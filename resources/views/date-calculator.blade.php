@@ -22,24 +22,33 @@
                                     <span class="user-id">9727</span><br>Membership level: <span
                                             class="membership-level">Enthusiast</span></div>
                                 <div class="tool-wrapper">
-                                    <script src="js/datecalcadv.js"></script>
+                                    {{-- <script src="js/datecalcadv.js"></script>
                                     <script src="js/basic/datecalcbuilders.js"></script>
                                     <script src="js/planets-1.js"></script>
                                     <script src="js/planets-2.js"></script>
-                                    <script src="js/ss.js"></script>
+                                    <script src="js/ss.js"></script> --}}
                                     <script>
                                         var maxDates = 100;
                                         var subLevel = 4
                                     </script>
-                                    <script src="js/datenumerology.js"></script>
+                                    {{-- <script src="js/datenumerology.js"></script>
                                     <script src="js/eclipses.js"></script>
                                     <script src="js/datematches.js"></script>
                                     <script src="js/load.js"></script>
                                     <script src="js/html2canvas.min.js"></script>
-                                    <script src="js/jquery.min.js"></script>
+                                    <script src="js/jquery.min.js"></script> --}}
 
-                                    <link rel="stylesheet" type="text/css"
-                                          href="css/datecalcadv.css">
+                                    {{-- <link rel="stylesheet" type="text/css"
+                                          href="css/datecalcadv.css"> --}}
+                                    @php
+                                    $currentDate = date("Y-m-d");
+                                    $currentYear = date("Y");
+                                    $currentMonth = date("m");
+                                    $currentDay = date("d");
+
+                                    $previousYear = $currentYear - 1;
+                                    $previousDate = date("Y-m-d", strtotime("-1 year"));
+                                    @endphp
                                     <div id="containerDateAdv">
                                         <div id="dateRows">
                                             <div id="firstDate">
@@ -48,25 +57,22 @@
                                                       title="Click to view Lunar/Zodiac info for selected dates"
                                                       onclick="javascript:toggleLunation()"><i
                                                             class="far fa-moon"></i></span>&nbsp;&nbsp;<span
-                                                            id="DateHeader1">Thu Sep 28 2023</span>&nbsp;&nbsp;<span
+                                                            id="DateHeader1"></span>&nbsp;&nbsp;<span
                                                             title="Click to name this date and store it on the left sidebar."
                                                             class="topIcons" onclick="javascript:toggleGridListTitle()"><i
                                                                 class="far fa-address-book"></i></span>
                                                     <div id="Date1Inputs" class="row">
                                                         <div class="mdyDiv">
                                                             <span class="monthTitle">Month:</span><br>
-                                                            <input tabindex="1" type="number" max="13" min="0" class="u_Inp"
-                                                                   id="Month1" oninput="Confirm_Dates('m')">
+                                                            <input tabindex="1" type="number" max="12" min="1" class="u_Inp" id="Month1" value="<?php echo date('m', strtotime($previousDate)); ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Day:<br>
-                                                            <input tabindex="2" type="number" max="32" min="0" class="u_Inp"
-                                                                   id="Day1" oninput="Confirm_Dates('d')">
+                                                            <input tabindex="2" type="number" max="31" min="1" class="u_Inp" id="Day1" value="<?php echo date('d', strtotime($previousDate)); ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Year:<br>
-                                                            <input tabindex="3" type="number" max="9999" min="0"
-                                                                   class="u_Inp" id="Year1" oninput="Confirm_Dates('y')">
+                                                            <input tabindex="3" type="number" max="9999" min="0" class="u_Inp" id="Year1" value="<?php echo $previousYear; ?>">
                                                         </div>
                                                     </div>
                                                     <center>
@@ -174,28 +180,28 @@
                                                             <div><span class="dateNumSpan">
                                                                 <font color="#1862cf">80</font>
                                                             </span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 1)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="white">44</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 2)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="white">26</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 3)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="white">60</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 4)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="white">24</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 5)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="yellow">271</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 6)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="yellow">94</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 11)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="lightblue">1728</font>
                                                                 </a></span><span class="dateNumSpan"><a
-                                                                            href="javascript:Change_DateNum(0, 12)">
+                                                                            href="javascript:void(0)">
                                                                     <font color="lightblue">864</font>
                                                                 </a></span></div>
                                                         </div>
@@ -204,22 +210,19 @@
                                             </div>
                                             <div id="secondDate">
                                                 <div id="mdy2">
-                                                    <span id="DateHeader2">Sat Sep 28 2024</span>
+                                                    <span id="DateHeader2"></span>
                                                     <div id="Date2Inputs" class="row">
                                                         <div class="mdyDiv">
                                                             <span class="monthTitle">Month:</span><br>
-                                                            <input tabindex="7" type="number" max="13" min="0" class="u_Inp"
-                                                                   id="Month2" oninput="Confirm_Dates('m', 2)">
+                                                            <input tabindex="7" type="number" max="12" min="1" class="u_Inp" id="Month2" value="<?php echo $currentMonth; ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Day:<br>
-                                                            <input tabindex="8" type="number" max="32" min="0" class="u_Inp"
-                                                                   id="Day2" oninput="Confirm_Dates('d', 2)">
+                                                            <input tabindex="8" type="number" max="31" min="1" class="u_Inp" id="Day2" value="<?php echo $currentDay; ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Year:<br>
-                                                            <input tabindex="9" type="number" max="9999" min="0"
-                                                                   class="u_Inp" id="Year2" oninput="Confirm_Dates('y', 2)">
+                                                            <input tabindex="9" type="number" max="9999" min="0" class="u_Inp" id="Year2" value="<?php echo $currentYear; ?>">
                                                         </div>
                                                     </div>
                                                     <center>
@@ -397,7 +400,7 @@
                                                 <!-- <br class="mo"> -->
                                                 <div id="TimeBetweenCheckbox">
                                                     <input tabindex="14" class="opt_check" type="checkbox" id="Check_End"
-                                                           value="End" onclick="Change_Options()"><span>&nbsp;Include End
+                                                           value="End"><span>&nbsp;Include End
                                                     Date?&nbsp;&nbsp;</span>
                                                 </div>
                                             </div>
@@ -408,31 +411,31 @@
                                                     <span class="DurationString">Select Durations to View:</span>
                                                 </div>
                                                 <div id="CheckBoxSpot">
-                                                    <input tabindex="15" class="opt_check" type="checkbox" id="Check_Year"
+                                                    <input tabindex="15" class="opt_check" type="checkbox" id="showYears"
                                                            value="Year"
-                                                           onclick="Change_Options()"><span>&nbsp;Year&nbsp;&nbsp;</span><br>
-                                                    <input tabindex="16" class="opt_check" type="checkbox" id="Check_Month"
+                                                        ><span>&nbsp;Year&nbsp;&nbsp;</span><br>
+                                                    <input tabindex="16" class="opt_check" type="checkbox" id="showMonths"
                                                            value="Month"
-                                                           onclick="Change_Options()"><span>&nbsp;Month&nbsp;&nbsp;</span><br>
-                                                    <input tabindex="17" class="opt_check" type="checkbox" id="Check_Week"
+                                                        ><span>&nbsp;Month&nbsp;&nbsp;</span><br>
+                                                    <input tabindex="17" class="opt_check" type="checkbox" id="showWeeks"
                                                            value="Week"
-                                                           onclick="Change_Options()"><span>&nbsp;Week&nbsp;&nbsp;</span><br>
-                                                    <input tabindex="18" class="opt_check" type="checkbox" id="Check_Day"
-                                                           value="Day" onclick="Change_Options()"
+                                                        ><span>&nbsp;Week&nbsp;&nbsp;</span><br>
+                                                    <input tabindex="18" class="opt_check" type="checkbox" id="showDays"
+                                                           value="Day"
                                                            checked=""><span>&nbsp;Day&nbsp;&nbsp;</span>
                                                 </div>
                                             </div>
                                             <div id="DurationContainer">
                                                 <div id="DurationSection">
                                                     <div id="DurationDetails">
-                                                        <div id="DurationDetailsInner">From <font
-                                                                    class="DurationStringMain">Thu Sep 28 2023</font><br
-                                                                    class="mo"> to <font class="DurationStringMain">Sat Sep 28
-                                                                2024</font> is:<br>
-                                                            <font style="size: 115%"><a
-                                                                        href="javascript:Open_NumberProperties(366)">
-                                                                    <font class="DurNumMain">366</font>
-                                                                </a> Days</font>
+                                                        <div id="DurationDetailsInner">
+                                                            From <font class="DurationStringMain"></font><br class="mo">
+                                                            to <font class="DurationStringMain"></font> is:<br>
+                                                            <font style="size: 115%">
+                                                                <a href="javascript:void()">
+                                                                    <font class="DurNumMain"></font>
+                                                                </a>
+                                                            </font>
                                                         </div>
                                                     </div>
                                                     <img decoding="async" id="watermarkDurationText"
@@ -448,51 +451,10 @@
                                             <div id="DurationTotalsSpotHolder">
                                                 <span class="DurationString">Duration Variations:</span>
                                                 <div id="DurationTotalsSpot">
-                                                    <div id="YearTable"><span><a href="javascript:Open_NumberProperties(1)">
-                                                            <font class="DurNum">1</font>
-                                                        </a> Year, </span><span><a
-                                                                    href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Days</span><br><span><a
-                                                                    href="javascript:Open_NumberProperties(1)">
-                                                            <font class="DurNum">1</font>
-                                                        </a> Year, </span><span><a
-                                                                    href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Months, <a href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Days</span><br><span><a
-                                                                    href="javascript:Open_NumberProperties(1)">
-                                                            <font class="DurNum">1</font>
-                                                        </a> Year, </span><span><a
-                                                                    href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Weeks, <a href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Days</span><br><span><a
-                                                                    href="javascript:Open_NumberProperties(12)">
-                                                            <font class="DurNum">12</font>
-                                                        </a> Months, <a href="javascript:Open_NumberProperties(0)">
-                                                            <font class="DurNum">0</font>
-                                                        </a> Days</span><br><span><a
-                                                                    href="javascript:Open_NumberProperties(52)">
-                                                            <font class="DurNum">52</font>
-                                                        </a> Weeks, <a href="javascript:Open_NumberProperties(2)">
-                                                            <font class="DurNum">2</font>
-                                                        </a> Days</span><br><span><a
-                                                                    href="javascript:Open_NumberProperties(366)">
-                                                            <font class="DurNum">366</font>
-                                                        </a> Days</span></div>
+                                                    <div id="YearTable"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- 	<div id="planetsRow">
-            <div id="planetsCheckBox">
-                <input tabindex=19 class="opt_check" type="checkbox" id="Check_Planets" value="ShowPlanets" onclick="Toggle_Planets()"><span>&nbsp; Show Planets</span>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input tabindex=19 class="opt_check" type="checkbox" id="Check_DateTable" value="ShowDateTable" onclick="Set_Options()"><span>&nbsp; Show Classic Date Table</span>
-            </div>
-        </div> -->
                                         <div class="row">
                                             <div id="ClassicTableSpot"></div>
                                         </div>
@@ -626,7 +588,8 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
 @endsection
 
 
