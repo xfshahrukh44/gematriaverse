@@ -2128,3 +2128,16 @@ th, td {
 span#YearViewYear {
     margin: 0rem 2rem;
 }
+
+#ciphMod li {
+    font-weight: 100;
+    font-size: 19px;
+}
+
+#cipherPresets span {
+    font-weight: 100;
+    font-size: 20px;
+}
+#ChartSpot tr {
+    font-size: 23px;
+}
