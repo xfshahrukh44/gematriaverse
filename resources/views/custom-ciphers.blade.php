@@ -379,6 +379,11 @@
         }
 
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             function addCipher() {
                 var cipherName = $('#NameField').val();
                 var lowerCaseValues = [];
@@ -408,7 +413,7 @@
                 };
 
                 $.ajax({
-                    url: '/your-endpoint-url',
+                    url: "{{ route('add-ciphers') }}",
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(cipherData),
