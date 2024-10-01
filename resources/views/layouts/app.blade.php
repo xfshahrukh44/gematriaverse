@@ -191,7 +191,8 @@
                         <p class="para-1">Simply put: Gematriaverse is the practice of coding numbers into
                             words. It is an ancient practice that traces back to at least the Hebrew and Greek
                             languages, in
-                            which they used letters from the alphabet as numbers. Check our What is gematria? and FAQ
+                            which they used letters from the alphabet as numbers. Check our What is gematria?
+                            and FAQ
                             pages.</p>
                     </div>
                 </div>
@@ -217,9 +218,12 @@
                             <li class="twiter"><a href="javascript:;"><img src="{{ asset('images/twiter.svg') }}"
                                         alt="" class="img-fluid"></a>
                             </li>
-                            <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a></li>
-                            <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a></li>
-                            <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a></li>
+                            <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a>
+                            </li>
+                            <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -229,185 +233,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="{{route('home')}}">
-                                <img src="{{asset('images/logo-2.png')}}" class="img-fluid logo-header" alt="">
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav m-auto">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle top-menu" href="#" id="navbarDropdown" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Home
-                                        </a>
-                                        <div class="dropdown-menu menu-bar" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{route('about')}}">About</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Calculators
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{route('calculator')}}">Calculator</a>
-                                            <a class="dropdown-item" href="{{route('greek-calculator')}}">Greek Calculator</a>
-                                            <a class="dropdown-item" href="{{route('hebrew-calculator')}}">Hebrew Calculator</a>
-                                            <a class="dropdown-item" href="{{route('nostalgia-calculators')}}">Nostalgia Calculator</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Tools
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{route('date-calculator')}}">Date Calculator</a>
-                                            <a class="dropdown-item" href="{{route('number-properties')}}">Number Properties</a>
-                                            <a class="dropdown-item" href="{{route('calendar')}}">Personal Calendar</a>
-                                            <a class="dropdown-item" href="{{route('bible-search')}}">Bible Search</a>
-                                            <a class="dropdown-item" href="{{route('custom-ciphers')}}">Custom Ciphers</a>
-                                        </div>
-                                    </li>
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link" href="blog.php">Blog</a>
-                                    </li> -->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('memberships')}}">Memberships</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('faq')}}">FAQ</a>
-                                    </li>
-                                    {{-- <li class="nav-item">
-                                        <a class="nav-link" href="{{route('shop')}}">Shop</a>
-                                    </li> --}}
-                                </ul>
-                                <div class="social">
-                                        <span class="youtube">
-                                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                        </span>
-                                    <span class="twitter-card">
-                                            <a href="#"><img src="{{asset('images/twitter-logo-2.svg')}}" class="img-fluid" alt=""></a>
-                                        </span>
-                                    <span class="shopping-cart">
-                                            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                        </span>
-                                    <span class="icons-img">
-                                            <a href="#"><img src="{{asset('images/rumble.png')}}" class="img-fluid" alt=""></a>
-                                        </span>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        @yield('content')
-
-        <footer>
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-4">
-                        <div class="footer-text">
-                            <img src="{{asset('images/logo-2.png')}}" alt="" class="img-fluid icon">
-                            <p class="para-1">Simply put: Gematriaverse is the practice of coding numbers into
-                                words. It is an ancient practice that traces back to at least the Hebrew and Greek languages, in
-                                which they used letters from the alphabet as numbers. Check our What is gematria? and FAQ
-                                pages.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-text">
-                            <ul class="anker">
-                                <li><a href="{{route('home')}}">Home</a></li>
-                                <li><a href="{{route('about')}}">About</a></li>
-                                <li><a href="{{route('memberships')}}">Memberships</a></li>
-                                <li><a href="{{route('calculator')}}">Calculator</a></li>
-                                <li><a href="{{route('date-calculator')}}">Date Calculator</a></li>
-                                <!-- <li><a href="blog.php">Blog</a></li> -->
-                                <li><a href="{{route('faq')}}">FAQ</a></li>
-                                <li><a href="{{route('contact')}}">Contact</a></li>
-                                <!-- <li><a href="javascript:;">Policies</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-text">
-                            <h3 class="heading-3">Media</h3>
-                            <ul class="icon-img">
-                                <li class="twiter"><a href="javascript:;"><img src="{{asset('images/twiter.svg')}}" alt="" class="img-fluid"></a>
-                                </li>
-                                <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a></li>
-                                <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a></li>
-                                <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p class="para-1">© 2024 <a href="javascript:;">Gematriaverse </a>. <a
-                                        href="javascript:;">Website development</a> powered by <a
-                                        href="https://inoviodesigns.com/" target="_blank">Inovio Designs</a>, Inc.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="from-group">
-
-                                <div class="row">
-                                    <div class="label-from">
-                                        <label for="">Username or Email Address</label>
-                                    </div>
-                                    <div class="col-12 p-0">
-                                        <input type="text" class="form-control" placeholder="First">
-
-                                    </div>
-                                    <div class="label-from">
-                                        <label for="">Password</label>
-                                    </div>
-                                    <div class="col-12 p-0">
-                                        <input type="text" class="form-control" placeholder="Last">
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="from-group">
-                                <button type="submit" class="btn custom-btn">Log in</button>
-                                <a href="#">Lost your password?</a>
-                            </div>
-                        </form>
+                        <p class="para-1">© 2024 <a href="javascript:;">Gematriaverse </a>. <a
+                                href="javascript:;">Website development</a> powered by <a
+                                href="https://inoviodesigns.com/" target="_blank">Inovio Designs</a>, Inc.</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+
 
 
     <!-- Modal -->
