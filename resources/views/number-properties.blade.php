@@ -34,25 +34,25 @@
                                         <table id="SeqTable">
                                             <tbody>
                                             <tr id="td_fibonacci_wrapper" hidden>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_prev">Prev</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_prev">Prev</a></td>--}}
                                                 <td class="SeqPlace">
                                                     <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_fibonacci"></a></b></div>
                                                 </td>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_next">Next</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_next">Next</a></td>--}}
                                             </tr>
                                             <tr id="td_triangular_wrapper" hidden>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_prev">Prev</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_prev">Prev</a></td>--}}
                                                 <td class="SeqPlace">
                                                     <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_triangular"></a></b></div>
                                                 </td>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_next">Next</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_next">Next</a></td>--}}
                                             </tr>
                                             <tr id="td_sq_pyramidal_wrapper" hidden>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_prev">Prev</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_prev">Prev</a></td>--}}
                                                 <td class="SeqPlace">
                                                     <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_sq_pyramidal"></a></b></div>
                                                 </td>
-                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_next">Next</a></td>
+{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_next">Next</a></td>--}}
                                             </tr>
                                             </tbody>
                                         </table>
@@ -367,11 +367,13 @@
                 index++;
             }
 
+            // Push one more Fibonacci number to ensure we have the 'next' number
+            fibs.push(fibs[index - 1] + fibs[index - 2]);
+
             if (fibs.includes(n)) {
-                // let position = fibs.indexOf(n) + 1; // 1-based index
-                let position = fibs.indexOf(n); // 1-based index
-                let previous = fibs[position - 2] || null; // If exists
-                let next = fibs[position] || null; // If exists
+                let position = fibs.indexOf(n); // 0-based index
+                let previous = fibs[position - 1] || null; // The previous Fibonacci number
+                let next = fibs[position + 1] || null; // The next Fibonacci number
 
                 return {
                     string: `${getNumberSuffix(position)} Fibonacci!`,
