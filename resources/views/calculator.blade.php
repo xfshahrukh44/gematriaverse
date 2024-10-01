@@ -7,6 +7,7 @@
 
 @section('content')
     <link rel="stylesheet" href="{{asset('css/numberstyle.css')}}">
+
     <section class="calculator-meter">
         <div class="container">
             <div class="row">
@@ -42,26 +43,30 @@
                                     <tr>
                                         <td class="GemTableValue" id="TableValue_Ordinal">
                                             <font style="color: RGB(0, 186, 0);">
-                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber"
-                                                                            onclick="javascript:Open_Properties(0)">0</b></div>
+                                                <div class="NumberClass">
+                                                    <b id="ordinal" class="justnumber">0</b>
+                                                </div>
                                             </font>
                                         </td>
                                         <td class="GemTableValue" id="TableValue_Reduction">
                                             <font style="color: RGB(88, 125, 254);">
-                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber"
-                                                                            onclick="javascript:Open_Properties(0)">0</b></div>
+                                                <div class="NumberClass">
+                                                    <b id="reduction" class="justnumber">0</b>
+                                                </div>
                                             </font>
                                         </td>
                                         <td class="GemTableValue" id="TableValue_Reverse">
                                             <font style="color: RGB(80, 235, 21);">
-                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber"
-                                                                            onclick="javascript:Open_Properties(0)">0</b></div>
+                                                <div class="NumberClass">
+                                                    <b id="reverse" class="justnumber">0</b>
+                                                </div>
                                             </font>
                                         </td>
                                         <td class="GemTableValue" id="TableValue_Reverse_Reduction">
                                             <font style="color: RGB(100, 226, 226);">
-                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber"
-                                                                            onclick="javascript:Open_Properties(0)">0</b></div>
+                                                <div class="NumberClass">
+                                                    <b id="reverse_reduction" class="justnumber">0</b>
+                                                </div>
                                             </font>
                                         </td>
                                     </tr>
@@ -72,11 +77,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div id="WordLetterCount text-center">
-                    <div class="WordLetterCount para white">(0 words, 0 letters)</div>
-                </div>
-            </div>
+{{--            <div class="row justify-content-center">--}}
+{{--                <div id="WordLetterCount text-center">--}}
+{{--                    <div class="WordLetterCount para white">(0 words, 0 letters)</div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </section>
 
@@ -109,587 +114,34 @@
                                     <!-- Calculator (Above) 1 -->
 
                                     <!-- MOBILE MENU SECTION -->
-                                    <div id="menu-dynamic">
-                                        <div id="calc-menu">
-                                            <!-- <a id="ciphModBtn" class="MenuLink" onclick="javascript:Open_Ciphers()"
-                                                data-fancybox="ciphers" data-src="#ciphMod"><span
-                                                    class="calcMenuItem">Ciphers&nbsp;</span>
-                                            </a> -->
+{{--                                    <div id="menu-dynamic">--}}
+{{--                                        <div id="calc-menu">--}}
+{{--                                            <!-- <a id="ciphModBtn" class="MenuLink" onclick="javascript:Open_Ciphers()"--}}
+{{--                                                data-fancybox="ciphers" data-src="#ciphMod"><span--}}
+{{--                                                    class="calcMenuItem">Ciphers&nbsp;</span>--}}
+{{--                                            </a> -->--}}
 
-                                            <a data-fancybox="port" class="MenuLink" href="#ciphMod">
-                                                Ciphers&nbsp;
-                                            </a>
+{{--                                            <a data-fancybox="port" class="MenuLink" href="#ciphMod">--}}
+{{--                                                Ciphers&nbsp;--}}
+{{--                                            </a>--}}
 
-                                            <span>|</span>
-                                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">
-                                                <span class="calcMenuItem">Options&nbsp;</span></a>
-                                            <span>|</span>
+{{--                                            <span>|</span>--}}
+{{--                                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">--}}
+{{--                                                <span class="calcMenuItem">Options&nbsp;</span></a>--}}
+{{--                                            <span>|</span>--}}
 
-                                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod"><span class="calcMenuItem">Shortcuts</span></a>
-                                        </div>
-                                    </div>
+{{--                                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod"><span class="calcMenuItem">Shortcuts</span></a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <!-- END MENU SECTION -->
                                     <!-- ENTRY SECTION -->
                                     <div id="EntryDiv">
                                         <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-left" style="font-size:38px"></i></button> -->
-                                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" oninput="FieldChange(EntryValue())" onkeydown="navHistTable(event)" ondrop="BuildFromText(event)" ondragenter="ShowDropTarget()" ondragleave="RemoveDropTarget()" ondragexit="RemoveDropTarget()" placeholder="Enter Word, Phrase, or #(s):">
+{{--                                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" oninput="FieldChange(EntryValue())" onkeydown="navHistTable(event)" ondrop="BuildFromText(event)" ondragenter="ShowDropTarget()" ondragleave="RemoveDropTarget()" ondragexit="RemoveDropTarget()" placeholder="Enter Word, Phrase, or #(s):">--}}
+                                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" placeholder="Enter Word, Phrase, or #(s):">
                                         <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-right" style="font-size:38px"></i></button> -->
                                     </div>
                                     <br>
-                                    <!-- END ENTRY SECTION -->
-                                    <!-- MAIN TABLE SECTION -->
-                                    <div id="MainTableRow">
-                                        <div id="MainTable">
-                                            <div id="Gematria_Table">
-                                                <table id="GemTable">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(0, event)">
-                                                                <font style="color: RGB(0, 186, 0)">Ordinal</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(1, event)">
-                                                                <font style="color: RGB(88, 125, 254)">Reduction</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(2, event)">
-                                                                <font style="color: RGB(80, 235, 21)">Reverse</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(3, event)">
-                                                                <font style="color: RGB(100, 226, 226)">Reverse
-                                                                    Reduction</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(4, event)">
-                                                                <font style="color: RGB(218, 226, 0)">Standard</font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Ordinal">
-                                                            <font style="color: RGB(0, 186, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reduction">
-                                                            <font style="color: RGB(88, 125, 254);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse">
-                                                            <font style="color: RGB(80, 235, 21);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Reduction">
-                                                            <font style="color: RGB(100, 226, 226);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Standard">
-                                                            <font style="color: RGB(218, 226, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(5, event)">
-                                                                <font style="color: RGB(153, 102, 255)">Latin</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(6, event)">
-                                                                <font style="color: RGB(169, 208, 142)">Sumerian</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(7, event)">
-                                                                <font style="color: RGB(220, 208, 148)">Reverse Sumerian
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(8, event)">
-                                                                <font style="color: RGB(93, 187, 88)">Capitals Mixed
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(9, event)">
-                                                                <font style="color: RGB(150, 244, 77)">Capitals Added
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Latin">
-                                                            <font style="color: RGB(153, 102, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Sumerian">
-                                                            <font style="color: RGB(169, 208, 142);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Sumerian">
-                                                            <font style="color: RGB(220, 208, 148);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Capitals_Mixed">
-                                                            <font style="color: RGB(93, 187, 88);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Capitals_Added">
-                                                            <font style="color: RGB(150, 244, 77);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(10, event)">
-                                                                <font style="color: RGB(111, 193, 121)">Reverse Caps
-                                                                    Mixed</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(11, event)">
-                                                                <font style="color: RGB(163, 255, 88)">Reverse Caps
-                                                                    Added</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(12, event)">
-                                                                <font style="color: RGB(253, 255, 119)">Reverse Standard
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(13, event)">
-                                                                <font style="color: RGB(255, 0, 0)">Satanic</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(14, event)">
-                                                                <font style="color: RGB(255, 0, 0)">Reverse Satanic
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Caps_Mixed">
-                                                            <font style="color: RGB(111, 193, 121);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Caps_Added">
-                                                            <font style="color: RGB(163, 255, 88);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Standard">
-                                                            <font style="color: RGB(253, 255, 119);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Satanic">
-                                                            <font style="color: RGB(255, 0, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Satanic">
-                                                            <font style="color: RGB(255, 0, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(15, event)">
-                                                                <font style="color: RGB(140, 171, 227)">Single Reduction
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(16, event)">
-                                                                <font style="color: RGB(97, 195, 244)">KV Exception
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(17, event)">
-                                                                <font style="color: RGB(70, 175, 244)">SKV Exception
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(18, event)">
-                                                                <font style="color: RGB(100, 216, 209)">Reverse Single
-                                                                    Reduction</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(19, event)">
-                                                                <font style="color: RGB(101, 224, 194)">EP Exception
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Single_Reduction">
-                                                            <font style="color: RGB(140, 171, 227);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_KV_Exception">
-                                                            <font style="color: RGB(97, 195, 244);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_SKV_Exception">
-                                                            <font style="color: RGB(70, 175, 244);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Single_Reduction">
-                                                            <font style="color: RGB(100, 216, 209);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_EP_Exception">
-                                                            <font style="color: RGB(101, 224, 194);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(20, event)">
-                                                                <font style="color: RGB(110, 226, 156)">EHP Exception
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(21, event)">
-                                                                <font style="color: RGB(154, 121, 227)">Latin Ordinal
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(22, event)">
-                                                                <font style="color: RGB(159, 99, 197)">Latin Reduction
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(23, event)">
-                                                                <font style="color: RGB(255, 204, 111)">Primes</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(24, event)">
-                                                                <font style="color: RGB(231, 180, 113)">Trigonal</font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_EHP_Exception">
-                                                            <font style="color: RGB(110, 226, 156);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Latin_Ordinal">
-                                                            <font style="color: RGB(154, 121, 227);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Latin_Reduction">
-                                                            <font style="color: RGB(159, 99, 197);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Primes">
-                                                            <font style="color: RGB(255, 204, 111);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Trigonal">
-                                                            <font style="color: RGB(231, 180, 113);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(25, event)">
-                                                                <font style="color: RGB(228, 216, 96)">Squares</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(26, event)">
-                                                                <font style="color: RGB(233, 202, 148)">Fibonacci</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(27, event)">
-                                                                <font style="color: RGB(255, 209, 145)">Reverse Primes
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(28, event)">
-                                                                <font style="color: RGB(238, 191, 112)">Reverse Trigonal
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(29, event)">
-                                                                <font style="color: RGB(240, 225, 112)">Reverse Squares
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Squares">
-                                                            <font style="color: RGB(228, 216, 96);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Fibonacci">
-                                                            <font style="color: RGB(233, 202, 148);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Primes">
-                                                            <font style="color: RGB(255, 209, 145);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Trigonal">
-                                                            <font style="color: RGB(238, 191, 112);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Reverse_Squares">
-                                                            <font style="color: RGB(240, 225, 112);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(30, event)">
-                                                                <font style="color: RGB(166, 166, 99)">Chaldean</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(31, event)">
-                                                                <font style="color: RGB(255, 153, 77)">Septenary</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(32, event)">
-                                                                <font style="color: RGB(255, 126, 255)">Keypad</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(33, event)">
-                                                                <font style="color: RGB(255, 64, 0)">English Qaballa
-                                                                </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(34, event)">
-                                                                <font style="color: RGB(255, 88, 0)">Cipher X</font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Chaldean">
-                                                            <font style="color: RGB(166, 166, 99);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Septenary">
-                                                            <font style="color: RGB(255, 153, 77);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Keypad">
-                                                            <font style="color: RGB(255, 126, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_English_Qaballa">
-                                                            <font style="color: RGB(255, 64, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Cipher_X">
-                                                            <font style="color: RGB(255, 88, 0);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(35, event)">
-                                                                <font style="color: RGB(255, 93, 73)">Trigrammaton
-                                                                    Qabalah</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(36, event)">
-                                                                <font style="color: RGB(191, 195, 127)">Alphanumeric
-                                                                    Qabbala</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(37, event)">
-                                                                <font style="color: RGB(239, 154, 174)">Alphanumeric
-                                                                    Satanic</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(38, event)">
-                                                                <font style="color: RGB(255, 255, 255)">test</font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(39, event)">
-                                                                <font style="color: RGB(255, 255, 255)">joan</font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Trigrammaton_Qabalah">
-                                                            <font style="color: RGB(255, 93, 73);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Alphanumeric_Qabbala">
-                                                            <font style="color: RGB(191, 195, 127);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Alphanumeric_Satanic">
-                                                            <font style="color: RGB(239, 154, 174);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_test">
-                                                            <font style="color: RGB(255, 255, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_joan">
-                                                            <font style="color: RGB(255, 255, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(40, event)">
-                                                                <font style="color: RGB(255, 255, 255)"></font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(41, event)">
-                                                                <font style="color: RGB(2, 28999, 255)">Chaos </font>
-                                                            </div>
-                                                        </td>
-                                                        <td class="GemTableHeader">
-                                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(42, event)">
-                                                                <font style="color: RGB(255, 255, 255)">Pi</font>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td class="GemTableValue InFibList" id="TableValue_">
-                                                            <font style="color: RGB(255, 255, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Chaos_">
-                                                            <font style="color: RGB(2, 28999, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                        <td class="GemTableValue InFibList" id="TableValue_Pi">
-                                                            <font style="color: RGB(255, 255, 255);">
-                                                                <div class="NumberClass"><b id="finalBreakNum" class="justnumber" onclick="javascript:Open_Properties(34)">34</b>
-                                                                </div>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END MAIN TABLE SECTION -->
                                 </div>
                             </div>
                             <!-- END FIRST ROW -->
@@ -700,59 +152,6 @@
                                     <span id="SimpleSpot" class="nextGenText"></span>
                                     <div style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                                         <div id="printBreakTable" style="display:table-cell; width: 100%;">
-                                            <table id="breakdownInject" style="display:inline;">
-                                                <tbody>
-                                                <tr>
-                                                    <td><span class="nextGenText">"1212112112asas" = <font style="color: RGB(0, 186, 0);">
-                                                                <div class="NumberClass">54</div>
-                                                            </font>
-                                                            <font style="color: RGB(0, 186, 0)">(Ordinal)</font>
-                                                        </span><br>
-                                                        <table class="BreakTable">
-                                                            <tbody>
-                                                            <tr>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">2</td>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">2</td>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">2</td>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">1</td>
-                                                                <td class="BreakCharNG">2</td>
-                                                                <td class="BreakCharNG">a</td>
-                                                                <td class="BreakCharNG">s</td>
-                                                                <td class="BreakCharNG">a</td>
-                                                                <td class="BreakCharNG">s</td>
-                                                                <td class="BreakTotal" rowspan="2">
-                                                                    <font style="color: RGB(0, 186, 0);">
-                                                                        <div class="NumberClass">54</div>
-                                                                    </font>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">2</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">2</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">2</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">2</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">19</td>
-                                                                <td class="BreakValue">1</td>
-                                                                <td class="BreakValue">19</td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
                                             <div id="watermarkBreakGuy" style="display:none;"><img decoding="async" src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator" width="28" style="margin-top: 10px; margin-right:0px; float:right; opacity:.25;">
                                             </div>
                                             <center>
@@ -831,16 +230,16 @@
                                                 <td class="chartVal">25</td>
                                                 <td class="chartVal">26</td>
                                             </tr>
-                                            <tr>
-                                                <td id="cipherChartTitle" colspan="13"><span id="moveCipherUp" class="moveCipher" onclick="javascript:MoveCipher(undefined, 1)"><i class="fas fa-chevron-circle-up"></i></span>
-                                                    <font style="color: RGB(0, 186, 0)">Ordinal</font> <span id="moveCipherDown" class="moveCipher" onclick="javascript:MoveCipher(undefined, 2)"><i class="fas fa-chevron-circle-down"></i></span>
-                                                </td>
-                                            </tr>
+{{--                                            <tr>--}}
+{{--                                                <td id="cipherChartTitle" colspan="13"><span id="moveCipherUp" class="moveCipher" onclick="javascript:MoveCipher(undefined, 1)"><i class="fas fa-chevron-circle-up"></i></span>--}}
+{{--                                                    <font style="color: RGB(0, 186, 0)">Ordinal</font> <span id="moveCipherDown" class="moveCipher" onclick="javascript:MoveCipher(undefined, 2)"><i class="fas fa-chevron-circle-down"></i></span>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
                                             </tbody>
                                         </table>
                                     </div> <!-- END CIPHER CHART SECTION -->
                                     <!-- HISTORY SECTION -->
-                                    <center>
+                                    <center id="center_number_properties" hidden>
                                         <div id="MiscSpot"><button class="buttonFunction" onclick="Build_HistoryTable()">Show
                                                 History</button><br>
                                             <object id="numberProperty" type="text/html" data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
@@ -854,17 +253,13 @@
                                                                 <table id="TopTable">
                                                                     <tbody>
                                                                     <tr>
-                                                                        <td><a class="RegularLink" href="javascript:Open_Properties(17)">17</a>
-                                                                        </td>
-                                                                        <td id="TopNumber">18</td>
-                                                                        <td><a class="RegularLink" href="javascript:Open_Properties(19)">19</a>
-                                                                        </td>
+                                                                        <td id="TopNumber" style="font-size: 40px !important;"></td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td id="PrimeString" colspan="3">2 ×
-                                                                            3<sup>2</sup>
-                                                                        </td>
-                                                                    </tr>
+{{--                                                                    <tr>--}}
+{{--                                                                        <td id="PrimeString" colspan="3">2 ×--}}
+{{--                                                                            3<sup>2</sup>--}}
+{{--                                                                        </td>--}}
+{{--                                                                    </tr>--}}
                                                                     </tbody>
                                                                 </table>
                                                                 <div id="belowSpecials">
@@ -878,90 +273,90 @@
                                                                                 <td>Sum:</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td style="vertical-align: top"><b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>
+                                                                                <td style="vertical-align: top"><b class="Linkable" id="count"></b></td>
+                                                                                <td id="divisors_list">
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>,--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>,--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>,--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b>--}}
+{{--                                                                                    <br>--}}
+{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th--}}
+{{--                                                                                    Composite #--}}
                                                                                 </td>
-                                                                                <td id="FullDivisorList"><b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,
-                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,
-                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>,
-                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>,
-                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>,
-                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b><br><b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th
-                                                                                    Composite #
-                                                                                </td>
-                                                                                <td style="vertical-align: top"><b class="Linkable"><a href="javascript:Open_Properties(39)">39</a></b>
+                                                                                <td style="vertical-align: top"><b class="Linkable" id="sum"></b>
                                                                                 </td>
                                                                             </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                     <div id="RelationTableDiv">
-                                                                        <h2>18th</h2>
+                                                                        <h2 id="number_with_suffix"></h2>
                                                                         <table id="RelationTable">
                                                                             <tbody>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Prime #:
                                                                                     &nbsp;
                                                                                 </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(61)">61</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_prime"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Composite #:
                                                                                     &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(28)">28</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_composite"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Fibonacci #:
                                                                                     &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(2584)">2584</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_fibonacci"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Triangular #:
                                                                                     &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(171)">171</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_triangular"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Square #:
                                                                                     &nbsp;
                                                                                 </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(324)">324</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="square"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Cube #:
                                                                                     &nbsp;
                                                                                 </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(5832)">5832</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="cube"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Tetrahedral
                                                                                     #:
                                                                                     &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(1140)">1140</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_tetrahedral"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td class="RelativeClass"> Square
-                                                                                    Pyramidal
-                                                                                    #: &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(2109)">2109</a></b>
+                                                                                <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_sq_pyramidal"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Star #:
                                                                                     &nbsp;
                                                                                 </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(1837)">1837</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_star"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td class="RelativeClass"> Pentagonal #:
                                                                                     &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:Open_Properties(477)">477</a></b>
+                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_pentagonal"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             </tbody>
@@ -971,36 +366,34 @@
                                                                         <table id="ConversionTable">
                                                                             <tbody>
                                                                             <tr>
-                                                                                <td>From:</td>
+{{--                                                                                <td>From:</td>--}}
                                                                                 <td class="conversionMiddle">Numeral
                                                                                     system:
                                                                                 </td>
                                                                                 <td>To:</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>-</td>
+{{--                                                                                <td>-</td>--}}
                                                                                 <td>Octal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(22)">22</a></b>
+                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="octal"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(20)">20</a></b>
-                                                                                </td>
+{{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td>--}}
                                                                                 <td>Duodecimal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(16)">16</a></b>
+                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="duodecimal"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(24)">24</a></b>
-                                                                                </td>
+{{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td>--}}
                                                                                 <td>Hexadecimal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(12)">12</a></b>
+                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="hexadecimal"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>-</td>
+{{--                                                                                <td>-</td>--}}
                                                                                 <td>Binary</td>
-                                                                                <td><b class="Linkable"><a href="javascript:Open_Properties(10010)">10010</a></b>
+                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="binary"></a></b>
                                                                                 </td>
                                                                             </tr>
                                                                             </tbody>
@@ -1008,9 +401,9 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input tabindex="0" id="NumberField" autofocus="" onkeydown="CheckEnter(event)" type="number" placeholder="Enter #">
+                                                            <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
                                                             <br><br>
-                                                            <button tabindex="1" id="NumberButton" class="buttonFunction" onclick="NavNumber()">Get Properties</button>
+                                                            <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
                                                             <br><br>
                                                         </center>
                                                     </div>
@@ -1376,7 +769,343 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript"></script>
+    <script>
+        // Gematria mapping for English alphabet
+        const alphabet = {
+            a: 1,  b: 2,  c: 3,  d: 4,  e: 5,  f: 6,  g: 7,  h: 8,  i: 9,  j: 10,
+            k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20,
+            u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
+        };
+
+        // Function to calculate Ordinal value
+        function calculateOrdinal(input) {
+            return [...input].reduce((sum, char) => sum + (alphabet[char.toLowerCase()] || 0), 0);
+        }
+
+        // Function to calculate Reduction value (also known as Pythagorean)
+        function calculateReduction(input) {
+            return [...input].reduce((sum, char) => {
+                let value = alphabet[char.toLowerCase()] || 0;
+                return sum + (value ? (value > 9 ? value - 9 : value) : 0);
+            }, 0);
+        }
+
+        // Function to calculate Reverse Ordinal value
+        function calculateReverseOrdinal(input) {
+            return [...input].reduce((sum, char) => {
+                let reverseValue = 27 - (alphabet[char.toLowerCase()] || 0);
+                return sum + (reverseValue > 0 ? reverseValue : 0);
+            }, 0);
+        }
+
+        // Function to calculate Reverse Reduction value
+        function calculateReverseReduction(input) {
+            return [...input].reduce((sum, char) => {
+                let reverseValue = 27 - (alphabet[char.toLowerCase()] || 0);
+                reverseValue = reverseValue > 9 ? reverseValue - 9 : reverseValue;
+                return sum + (reverseValue > 0 ? reverseValue : 0);
+            }, 0);
+        }
+
+        // Main function to calculate all values
+        function calculateGematria(word) {
+            const ordinal = calculateOrdinal(word);
+            const reduction = calculateReduction(word);
+            const reverse = calculateReverseOrdinal(word);
+            const reverseReduction = calculateReverseReduction(word);
+
+            return {
+                ordinal: ordinal,
+                reduction: reduction,
+                reverse: reverse,
+                reverseReduction: reverseReduction
+            };
+        }
+
+        function get_divisors(num) {
+            let divisors = [];
+
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    divisors.push(i);
+                }
+            }
+
+            return divisors;
+        }
+
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function getNumberSuffix(n) {
+            let lastDigit = n % 10;
+            let lastTwoDigits = n % 100;
+
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+                return `${n}th`;
+            }
+
+            switch (lastDigit) {
+                case 1:
+                    return `${n}st`;
+                case 2:
+                    return `${n}nd`;
+                case 3:
+                    return `${n}rd`;
+                default:
+                    return `${n}th`;
+            }
+        }
+
+        function getCompositePosition(num) {
+            let count = 0;  // Counter for composite numbers
+            let current = 4;  // Start from 4 because 4 is the first composite number
+
+            while (current <= num) {
+                if (!isPrime(current)) {
+                    count++; // Increment the composite count
+                }
+                current++;
+            }
+
+            if (isPrime(num)) {
+                return '';
+            }
+
+            return `${getNumberSuffix(count)} composite.`;
+        }
+
+        function nthPrime(n) {
+            let count = 0; // Count of prime numbers found
+            let num = 1; // Starting number to check for primes
+
+            while (count < n) {
+                num++;
+                if (isPrime(num)) {
+                    count++;
+                }
+            }
+
+            return num; // The n-th prime number
+        }
+
+        function isComposite(num) {
+            if (num <= 1) return false; // 0 and 1 are not composite numbers
+            let isPrime = true;
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false; // It is not a prime number
+                    break;
+                }
+            }
+
+            return !isPrime; // Return true if it's composite (not prime)
+        }
+
+        function nthComposite(n) {
+            let count = 0; // Count of composite numbers found
+            let num = 1; // Starting number to check for composites
+
+            while (count < n) {
+                num++;
+                if (isComposite(num)) {
+                    count++;
+                }
+            }
+
+            return num; // The n-th composite number
+        }
+
+        function fibonacci(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0
+            if (n === 1) return 1; // Return 1 for n = 1
+
+            let a = 0; // First Fibonacci number
+            let b = 1; // Second Fibonacci number
+            let fib = 1; // Variable to store the current Fibonacci number
+
+            for (let i = 2; i <= n; i++) {
+                fib = a + b; // Calculate the next Fibonacci number
+                a = b; // Move to the next pair
+                b = fib;
+            }
+
+            return fib; // Return the n-th Fibonacci number
+        }
+
+        function triangular(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1)) / 2; // Calculate the n-th triangular number
+        }
+
+        function tetrahedral(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1) * (n + 2)) / 6; // Calculate the n-th tetrahedral number
+        }
+
+        function squarePyramidal(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (n + 1) * (2 * n + 1)) / 6; // Calculate the n-th square pyramidal number
+        }
+
+        function starNumber(n) {
+            if (n <= 0) return 1; // Return 1 for n = 0 or negative, as the 0th star number is 1
+
+            return 6 * n * (n - 1) + 1; // Calculate the n-th star number
+        }
+
+        function pentagonal(n) {
+            if (n <= 0) return 0; // Return 0 for n = 0 or negative
+
+            return (n * (3 * n - 1)) / 2; // Calculate the n-th pentagonal number
+        }
+
+        function convertNumeralSystems(n) {
+            // Ensure the input is a number
+            if (typeof n !== 'number' || n < 0) {
+                throw new Error('Input must be a non-negative number.');
+            }
+
+            // Conversions
+            const conversions = {
+                octal: n.toString(8),           // Octal
+                duodecimal: n.toString(12),     // Duodecimal
+                hexadecimal: n.toString(16),     // Hexadecimal
+                binary: n.toString(2)            // Binary
+            };
+
+            return conversions;
+        }
+
+        function number_properties (number) {
+            if (number == '') {
+                return false;
+            }
+
+            number = parseInt(number);
+
+            if (number == 0) {
+                $('#center_number_properties').prop('hidden', true);
+                return false;
+            }
+
+            let divisors = get_divisors(number);
+
+            let return_body = {
+                divisors: divisors,
+                count: divisors.length,
+                sum: divisors.reduce((acc, current) => acc + current, 0),
+                composite: getCompositePosition(number),
+                nth_prime: nthPrime(number),
+                nth_composite: nthComposite(number),
+                nth_fibonacci: fibonacci(number),
+                nth_triangular: triangular(number),
+                square: number * number,
+                cube: number * number * number,
+                nth_tetrahedral: tetrahedral(number),
+                nth_sq_pyramidal: squarePyramidal(number),
+                nth_star: starNumber(number),
+                nth_pentagonal: pentagonal(number),
+                conversions: convertNumeralSystems(number),
+            };
+
+            $('#TopNumber').text(number);
+            $('#count').text(return_body.count);
+            $('#nth_prime').text(return_body.nth_prime);
+            $('#nth_composite').text(return_body.nth_composite);
+            $('#nth_fibonacci').text(return_body.nth_fibonacci);
+            $('#nth_triangular').text(return_body.nth_triangular);
+            $('#square').text(return_body.square);
+            $('#cube').text(return_body.cube);
+            $('#nth_tetrahedral').text(return_body.nth_tetrahedral);
+            $('#nth_sq_pyramidal').text(return_body.nth_sq_pyramidal);
+            $('#nth_star').text(return_body.nth_star);
+            $('#nth_pentagonal').text(return_body.nth_pentagonal);
+
+            let string = '';
+            let count = 0;
+            for (const item of return_body.divisors) {
+                count += 1;
+                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">'+item+'</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
+            }
+            if (return_body.composite != '') {
+                string += '<br>';
+                string += '<b class="Linkable">'+return_body.composite+'</b>';
+            }
+            $('#divisors_list').html(string);
+
+            $('#sum').text(return_body.sum);
+            $('#number_with_suffix').text(getNumberSuffix(number));
+            $('#octal').text(return_body.conversions.octal);
+            $('#duodecimal').text(return_body.conversions.duodecimal);
+            $('#hexadecimal').text(return_body.conversions.hexadecimal);
+            $('#binary').text(return_body.conversions.binary);
+
+            $('#center_number_properties').prop('hidden', false);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#EntryField').on('keyup', function () {
+                let val = $(this).val();
+
+                if (val == "") {
+
+                    $('#ordinal').text('0');
+                    $('#reduction').text('0');
+                    $('#reverse').text('0');
+                    $('#reverse_reduction').text('0');
+                }
+
+                let data = calculateGematria(val);
+
+                $('#ordinal').text(data.ordinal);
+                $('#reduction').text(data.reduction);
+                $('#reverse').text(data.reverse);
+                $('#reverse_reduction').text(data.reverseReduction);
+
+                return true;
+            });
+
+            $('#ordinal').on('click', function () {
+                number_properties($(this).text());
+            });
+            $('#reduction').on('click', function () {
+                number_properties($(this).text());
+            });
+            $('#reverse').on('click', function () {
+                number_properties($(this).text());
+            });
+            $('#reverse_reduction').on('click', function () {
+                number_properties($(this).text());
+            });
+
+            $('#btn_get_properties').on('click', function () {
+                let val = $('#input_get_properties').val();
+
+                if (val < 1 || val == '') {
+                    return false;
+                }
+
+                number_properties(val);
+            });
+
+            $('body').on('click', '.target_number', function () {
+                number_properties($(this).text());
+            });
+        });
+    </script>
 @endsection
 
 
