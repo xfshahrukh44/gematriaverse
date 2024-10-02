@@ -18,7 +18,7 @@
             justify-content: center;
             gap: 1rem;
             text-align: center;
-            width: 100%;
+            width: 75%;
         }
 
         .card {
@@ -118,6 +118,20 @@
             background: #7fbe00;
             color: white;
         }
+
+        td.EachDay {
+            border: solid #7fbe00;
+        }
+
+        .PersonalSpot {
+            font-size: 30px;
+            width: 50%;
+            color: black;
+        }
+
+        .CalSpot {
+            font-size: 20px;
+        }
     </style>
 @endsection
 
@@ -140,6 +154,8 @@
 {{--                    <span class="NavClass LeftNav">--}}
 {{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>--}}
 {{--                    </span>--}}
+                    <span id="YearViewYear">{{\Carbon\Carbon::createFromFormat('m', $_GET['month'])->format('F')}}</span>
+                    <br>
                     <span id="YearViewYear">{{$_GET["year"]}}&nbsp;<span id="YearNumber"></span>
                     </span>
 {{--                    <span class="NavClass RightNav">--}}
@@ -162,6 +178,32 @@
 @endsection
 
 @section('js')
+    <script>
+        function calculateGematria(month, day, year) {
+            // Convert year into two parts
+            const yearFirstPart = Math.floor(year / 100); // first two digits of the year
+            const yearSecondPart = year % 100; // last two digits of the year
+
+            // Sum up digits of the year
+            const yearDigitsSum = year.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+
+            // First calculation: month + day + first two digits of year + last two digits of year
+            const calc1 = month + day + yearFirstPart + yearSecondPart;
+
+            // Second calculation: month + day + sum of year digits
+            const calc2 = month + day + yearDigitsSum;
+
+            // Third calculation: sum of digits in month, day, and sum of year digits
+            const calc3 = (month.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0)) +
+                (day.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0)) +
+                yearDigitsSum;
+
+            // Fourth calculation: month + day + last two digits of year
+            const calc4 = month + day + yearSecondPart;
+
+            return [calc1, calc2, calc3, calc4];
+        }
+    </script>
     <script>
         let year_check = '{{$_GET["year"] ?? ""}}';
         let month = '{{$_GET["month"] ?? "1"}}';
@@ -268,10 +310,11 @@
                         const dateContentRow = document.createElement("tr");
                         dateContentRow.classList.add("DateContent");
 
+                        let numeric_results = calculateGematria(month+1, day.date, year);
                         const calSpotTd = document.createElement("td");
                         calSpotTd.classList.add("CalSpot");
                         calSpotTd.id = `CalSpot${index}`;
-                        calSpotTd.innerHTML = `52<br>16<br>16<br>32<br>`; // Example content
+                        calSpotTd.innerHTML = `${numeric_results[0]}<br>${numeric_results[1]}<br>${numeric_results[2]}<br>${numeric_results[3]}<br>`; // Example content
 
                         const personalSpotTd = document.createElement("td");
                         personalSpotTd.classList.add("PersonalSpot");

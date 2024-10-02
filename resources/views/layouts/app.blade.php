@@ -75,12 +75,21 @@
                     </span>
                 </div>
                 <div class="log-in">
-                    <span>
-                        <a href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-user-plus"></i></a>
-                    </span>
-                    <span>
-                        <a href="{{ route('admin.dashboard') }}">log in<i class="fa-solid fa-right-to-bracket"></i></a>
-                    </span>
+                    @if(!\Illuminate\Support\Facades\Auth::check())
+                        <span>
+                            <a href="{{ route('signin') }}"><i class="fa-solid fa-user-plus"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ route('signin') }}">log in<i class="fa-solid fa-right-to-bracket"></i></a>
+                        </span>
+                    @else
+                        <span>
+                            <a href="{{ route('account') }}"><i class="fa-solid fa-user-plus"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ route('account') }}">Dashboard<i class="fa-solid fa-right-to-bracket"></i></a>
+                        </span>
+                    @endif
                 </div>
             </div>
         </div>
