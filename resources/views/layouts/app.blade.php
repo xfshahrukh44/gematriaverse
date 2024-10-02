@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="{{ asset('css/inner-2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
-{{--    @include('layouts.front.css')--}}
+    {{--    @include('layouts.front.css') --}}
     @yield('css')
 
     <title>Gematriavere | @yield('title')</title>
