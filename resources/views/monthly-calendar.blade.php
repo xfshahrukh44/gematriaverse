@@ -18,7 +18,7 @@
             justify-content: center;
             gap: 1rem;
             text-align: center;
-            width: 100%;
+            width: 75%;
         }
 
         .card {
@@ -97,6 +97,10 @@
             color: #7fbe00;
         }
 
+        .DayNameRow td:first-child {
+            color: white;
+        }
+
         #TopSpot {
             text-align: center;
         }
@@ -114,13 +118,27 @@
             background: #7fbe00;
             color: white;
         }
+
+        td.EachDay {
+            border: solid #7fbe00;
+        }
+
+        .PersonalSpot {
+            font-size: 30px;
+            width: 50%;
+            color: black;
+        }
+
+        .CalSpot {
+            font-size: 20px;
+        }
     </style>
 @endsection
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div id="TopSpot">Learn more about your Personal Date Numerology<div class="UserBirthday">February (3) 2024 (1)</div>
+            <div id="TopSpot">Learn more about your Personal Date Numerology<div class="UserBirthday">2024</div>
             </div>
         </div>
     </div>
@@ -128,19 +146,21 @@
     <section class="empty-sec py">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div>
-                </div>
+{{--                <div class="col-lg-12">--}}
+{{--                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div>--}}
+{{--                </div>--}}
                 <div class="col-lg-12">
                     <div class="CalHeaderTop">
-                    <span class="NavClass LeftNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>
+{{--                    <span class="NavClass LeftNav">--}}
+{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>--}}
+{{--                    </span>--}}
+                    <span id="YearViewYear">{{\Carbon\Carbon::createFromFormat('m', $_GET['month'])->format('F')}}</span>
+                    <br>
+                    <span id="YearViewYear">{{$_GET["year"]}}&nbsp;<span id="YearNumber"></span>
                     </span>
-                        <span id="YearViewYear">2024&nbsp;<span id="YearNumber">(1)</span>
-                    </span>
-                        <span class="NavClass RightNav">
-                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>
-                    </span>
+{{--                    <span class="NavClass RightNav">--}}
+{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>--}}
+{{--                    </span>--}}
                     </div>
                 </div>
             </div>
@@ -159,7 +179,37 @@
 
 @section('js')
     <script>
-        const year = new Date().getFullYear();
+        function calculateGematria(month, day, year) {
+            // Convert year into two parts
+            const yearFirstPart = Math.floor(year / 100); // first two digits of the year
+            const yearSecondPart = year % 100; // last two digits of the year
+
+            // Sum up digits of the year
+            const yearDigitsSum = year.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+
+            // First calculation: month + day + first two digits of year + last two digits of year
+            const calc1 = month + day + yearFirstPart + yearSecondPart;
+
+            // Second calculation: month + day + sum of year digits
+            const calc2 = month + day + yearDigitsSum;
+
+            // Third calculation: sum of digits in month, day, and sum of year digits
+            const calc3 = (month.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0)) +
+                (day.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0)) +
+                yearDigitsSum;
+
+            // Fourth calculation: month + day + last two digits of year
+            const calc4 = month + day + yearSecondPart;
+
+            return [calc1, calc2, calc3, calc4];
+        }
+    </script>
+    <script>
+        let year_check = '{{$_GET["year"] ?? ""}}';
+        let month = '{{$_GET["month"] ?? "1"}}';
+        month = parseInt(month) - 1;
+
+        const year = year_check !== '' ? year_check : new Date().getFullYear();
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const monthNames = [
             "January",
@@ -235,38 +285,42 @@
                     td.classList.add("EachDay");
 
                     if (day.date) {
+                        console.log(day);
+                        console.log(day.date);
                         const dayTable = document.createElement("table");
                         dayTable.classList.add("DayTable");
 
                         const dayTableBody = document.createElement("tbody");
 
-                        // Create Day Header Row
-                        const dayHeaderRow = document.createElement("tr");
-                        dayHeaderRow.classList.add("DayHeader");
-
-                        const emptyTd = document.createElement("td");
-                        dayHeaderRow.appendChild(emptyTd);
-
-                        const dateTd = document.createElement("td");
-                        dateTd.classList.add("DateClass");
-                        dateTd.textContent = day.date;
-                        dayHeaderRow.appendChild(dateTd);
-
-                        dayTableBody.appendChild(dayHeaderRow);
+                        // // Create Day Header Row
+                        // const dayHeaderRow = document.createElement("tr");
+                        // dayHeaderRow.classList.add("DayHeader");
+                        //
+                        // const emptyTd = document.createElement("td");
+                        // dayHeaderRow.appendChild(emptyTd);
+                        //
+                        // const dateTd = document.createElement("td");
+                        // dateTd.classList.add("DateClass");
+                        // dateTd.textContent = day.date;
+                        // dayHeaderRow.appendChild(dateTd);
+                        //
+                        // dayTableBody.appendChild(dayHeaderRow);
 
                         // Create Date Content Row
                         const dateContentRow = document.createElement("tr");
                         dateContentRow.classList.add("DateContent");
 
+                        let numeric_results = calculateGematria(month+1, day.date, year);
                         const calSpotTd = document.createElement("td");
                         calSpotTd.classList.add("CalSpot");
                         calSpotTd.id = `CalSpot${index}`;
-                        calSpotTd.innerHTML = `52<br>16<br>16<br>32<br>`; // Example content
+                        calSpotTd.innerHTML = `${numeric_results[0]}<br>${numeric_results[1]}<br>${numeric_results[2]}<br>${numeric_results[3]}<br>`; // Example content
 
                         const personalSpotTd = document.createElement("td");
                         personalSpotTd.classList.add("PersonalSpot");
                         personalSpotTd.id = `PersonalSpot${index}`;
-                        personalSpotTd.textContent = `${index % 12 + 1}`; // Example content
+                        // personalSpotTd.textContent = `${index % 12 + 1}`; // Example content
+                        personalSpotTd.textContent = day.date; // Example content
 
                         dateContentRow.appendChild(calSpotTd);
                         dateContentRow.appendChild(personalSpotTd);
@@ -287,7 +341,7 @@
         }
 
         // Example of generating a month view for September
-        generateMonthView(8);
+        generateMonthView(month);
     </script>
 @endsection
 

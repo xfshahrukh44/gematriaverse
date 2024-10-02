@@ -77,12 +77,21 @@
                     </span>
                 </div>
                 <div class="log-in">
-                    <span>
-                        <a href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-user-plus"></i></a>
-                    </span>
-                    <span>
-                        <a href="{{ route('admin.dashboard') }}">log in<i class="fa-solid fa-right-to-bracket"></i></a>
-                    </span>
+                    @if(!\Illuminate\Support\Facades\Auth::check())
+                        <span>
+                            <a href="{{ route('signin') }}"><i class="fa-solid fa-user-plus"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ route('signin') }}">log in<i class="fa-solid fa-right-to-bracket"></i></a>
+                        </span>
+                    @else
+                        <span>
+                            <a href="{{ route('account') }}"><i class="fa-solid fa-user-plus"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ route('account') }}">Dashboard<i class="fa-solid fa-right-to-bracket"></i></a>
+                        </span>
+                    @endif
                 </div>
             </div>
         </div>
@@ -156,9 +165,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>--}}
+{{--                                </li>--}}
                             </ul>
                             <div class="social">
                                 <span class="youtube">
@@ -194,7 +203,8 @@
                         <p class="para-1">Simply put: Gematriaverse is the practice of coding numbers into
                             words. It is an ancient practice that traces back to at least the Hebrew and Greek
                             languages, in
-                            which they used letters from the alphabet as numbers. Check our What is gematria? and FAQ
+                            which they used letters from the alphabet as numbers. Check our What is gematria?
+                            and FAQ
                             pages.</p>
                     </div>
                 </div>
@@ -220,15 +230,20 @@
                             <li class="twiter"><a href="javascript:;"><img src="{{ asset('images/twiter.svg') }}"
                                         alt="" class="img-fluid"></a>
                             </li>
-                            <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a></li>
-                            <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a></li>
-                            <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a></li>
+                            <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a>
+                            </li>
+                            <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+
 
 
     <!-- Modal -->

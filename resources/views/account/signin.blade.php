@@ -48,13 +48,7 @@
                                 @endif
                             </div>
 
-                            <!-- <div class="form-group">
-                                <label>Phone*</label>
-                                <input type="text" class="form-control {{ $errors->registerForm->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" required>
-                                @if ($errors->registerForm->has('phone'))
-    <small class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('phone') }}</small>
-    @endif
-                                            </div> -->
+
 
                             <div class="form-group">
                                 <label>Email Address*</label>
@@ -67,13 +61,7 @@
                                 @endif
                             </div>
 
-                            <!-- <div class="form-group">
-                                <label>Address*</label>
-                                <input type="text" class="form-control {{ $errors->registerForm->has('address') ? ' is-invalid' : '' }}" name="address" id="address" required>
-                                @if ($errors->registerForm->has('address'))
-    <small class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('address') }}</small>
-    @endif
-                                            </div> -->
+
                             <div class="form-group">
                                 <label>Password*</label>
                                 <input type="password"
@@ -84,14 +72,6 @@
                                         class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('password') }}</small>
                                 @endif
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label>Confirm Password*</label>
-                                <input type="password" class="form-control" name="password_confirmation" id="signup-password" required>
-                                @if ($errors->registerForm->has('password_confirmation'))
-    <small class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('password_confirmation') }}</small>
-    @endif
-                                            </div> -->
 
                             <button class="btn proceed_button3 btn-primary" type="submit">Sign Up</button>
 
@@ -126,16 +106,7 @@
                                         class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->first('password') }}</small>
                                 @endif
                             </div>
-                            <!-- <div class="form-group"> -->
-                            <!-- <label class="remember"><input type="checkbox"> Remember me </label> -->
-                            <!-- <a href="{{ url('password/reset') }}" class="pull-right forg_text"> Forgot password? </a> -->
-                            <!-- </div> -->
                             <button class="btn proceed_button3 btn-primary" type="submit">Login</button>
-                            <!-- <span>or</span>
-                                        <div class="social-group">
-                                            <button class="loginBtn loginBtn--facebook">Login with Facebook</button>
-                                            <button class="loginBtn loginBtn--google">Login with Google</button>
-                                        </div> -->
                         </form>
                     </div>
 
@@ -148,6 +119,7 @@
         </div>
     </section>
 @endsection
+
 @section('js')
     <script>
         $("#phone").on("keypress keyup blur", function(event) {

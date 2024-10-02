@@ -454,7 +454,7 @@ footer .footer-text .anker li {
   ::-webkit-scrollbar-thumb {
     background-color: #7fbe00;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(45deg, #317009, #7fbe00);
