@@ -288,4 +288,9 @@ Route::get('nostalgia-calculators-nextgen', [FrontController::class, 'nostalgia_
 Route::get('number-properties', [FrontController::class, 'number_properties'])->name('number-properties');
 Route::get('product-detail', [FrontController::class, 'product_detail'])->name('product-detail');
 Route::get('shop', [FrontController::class, 'shop'])->name('shop');
-Route::post('add-ciphers', [CipherController::class, 'store'])->name('add-ciphers');
+Route::post('add-ciphers', [CipherController::class, 'store'])->name('ciphers.store');
+Route::get('ciphers', [CipherController::class, 'index'])->name('ciphers.index');
+Route::post('move-ciphers-up', [CipherController::class, 'moveUp'])->name('ciphers.move');
+Route::get('ciphers/{id}', [CipherController::class, 'show'])->name('ciphers.show');
+Route::post('ciphers/{id}/edit', [CipherController::class, 'update'])->name('ciphers.update');
+Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name('ciphers.destroy');
