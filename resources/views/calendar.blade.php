@@ -199,7 +199,7 @@
 
                 const title = document.createElement("h2");
                 title.classList.add("card--title");
-                title.innerHTML = `<a href="{{route('monthly-calendar')}}" ><span class="index">  ${month + 1}. </span> ${
+                title.innerHTML = `<a href="{{route('monthly-calendar')}}?year=`+year+`&month=`+(month+1)+`" ><span class="index">  ${month + 1}. </span> ${
                     monthNames[month]
                 }</a>`;
                 card.appendChild(title);
@@ -261,14 +261,18 @@
             // span_current_year
             // anchor_next_year
 
-            $('#anchor_next_year').on('click', function () {
-                year = (year > 2029) ? 2029 : (year + 1);
+            $('body').on('click', '#anchor_next_year', function () {
+                year = (year >= 2029) ? 2029 : (year + 1);
                 $('#span_current_year').text(year);
+
+                $('.wrapper').html('');
                 generateCalendar();
             })
-            $('#anchor_next_year').on('click', function () {
-                year = (year < 2020) ? 2020 : (year - 1);
+            $('#anchor_previous_year').on('click', function () {
+                year = (year <= 2020) ? 2020 : (year - 1);
                 $('#span_current_year').text(year);
+
+                $('.wrapper').html('');
                 generateCalendar();
             })
         });
