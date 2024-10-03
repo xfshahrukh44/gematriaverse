@@ -175,7 +175,7 @@
                                     <!-- MOBILE MENU SECTION -->
                                     <div id="menu-dynamic">
                                         <div id="calc-menu">
-                                            <a data-fancybox="port" class="MenuLink" href="#ciphMod">
+                                            <a data-fancybox="" class="MenuLink" href="#ciphMod">
                                                 Ciphers&nbsp;
                                             </a>
                                             {{-- <span>|</span>
