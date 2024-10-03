@@ -294,3 +294,4 @@ Route::post('move-ciphers-up', [CipherController::class, 'moveUp'])->name('ciphe
 Route::get('ciphers/{id}', [CipherController::class, 'show'])->name('ciphers.show');
 Route::post('ciphers/{id}/edit', [CipherController::class, 'update'])->name('ciphers.update');
 Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name('ciphers.destroy');
+Route::post('save-ciphers', [CipherController::class, 'saveCipherSettings'])->name('ciphers.saveciphers');

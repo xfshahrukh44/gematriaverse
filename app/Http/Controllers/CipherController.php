@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cipher;
+use App\CipherSetting;
 
 class CipherController extends Controller
 {
@@ -122,6 +123,54 @@ class CipherController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => true, 'message' => 'Failed to delete cipher. Please try again.'], 500);
         }
+    }
+
+    public function saveCipherSettings(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'ciphers' => 'required|array',
+        ]);
+
+        $user_id = $request->input('user_id');
+        $ciphers = $request->input('ciphers');
+        $excludedCiphers = ['D0', 'D1', 'D2', 'D3'];
+
+        foreach ($ciphers as $cipher) {
+            $cipher_id = $cipher['cipher_id'];
+            $status = $cipher['status'];
+
+            if (!in_array($cipher_id, $excludedCiphers)) {
+                $existingSetting = CipherSetting::where('user_id', $user_id)
+                    ->where('cipher_id', $cipher_id)
+                    ->first();
+
+                if ($existingSetting) {
+                    $existingSetting->update(['status' => $status]);
+                } else {
+                    CipherSetting::create([
+                        'user_id' => $user_id,
+                        'cipher_id' => $cipher_id,
+                        'status' => $status,
+                    ]);
+                }
+            } else {
+                $existingSetting = CipherSetting::where('user_id', $user_id)
+                    ->where('cipher_id', $cipher_id)
+                    ->first();
+
+                if ($existingSetting) {
+                    $existingSetting->update(['status' => $status]);
+                } else {
+                    CipherSetting::create([
+                        'user_id' => $user_id,
+                        'cipher_id' => $cipher_id,
+                        'status' => $status,
+                    ]);
+                }
+            }
+        }
+        return response()->json(['success' => true]);
     }
 
 }

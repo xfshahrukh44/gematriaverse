@@ -61,4 +61,9 @@ class User extends Authenticatable
        }
        return $is_admin;
     }
+
+    public function cipherSettings()
+    {
+        return $this->hasMany(CipherSetting::class);
+    }
 }

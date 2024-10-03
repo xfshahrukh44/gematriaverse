@@ -3,6 +3,13 @@
 @section('title', 'Calculator')
 
 @section('css')
+<style>
+    .WordLetterCount {
+        color: #e9e0e0;
+        font-size: 22px;
+        font-weight: 100;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -18,7 +25,7 @@
                                 <table id="GemTable">
                                     <tbody>
                                     <tr>
-                                        <td class="GemTableHeader">
+                                        {{-- <td class="GemTableHeader">
                                             <div class="GemTableHeader" onclick="javascript:MoveCipherClick(0, event)">
                                                 <font style="color: RGB(0, 186, 0)">Ordinal</font>
                                             </div>
@@ -37,38 +44,90 @@
                                             <div class="GemTableHeader" onclick="javascript:MoveCipherClick(3, event)">
                                                 <font style="color: RGB(100, 226, 226)">Reverse Reduction</font>
                                             </div>
-                                        </td>
+                                        </td> --}}
+                                        <!-- Loop through ciphers from DB and render them dynamically -->
+                                        @foreach ($ciphers as $cipher)
+                                                @php
+                                                    $rgb = json_decode($cipher['rgb_values'], true);
+                                                    $red = $rgb['red'] ?? 0;
+                                                    $green = $rgb['green'] ?? 0;
+                                                    $blue = $rgb['blue'] ?? 0;
+                                                @endphp
+                                            <td class="GemTableHeader">
+                                                <div class="GemTableHeader" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
+                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                        {{ $cipher['name'] }}
+                                                    </font>
+                                                </div>
+                                            </td>
+                                        @endforeach
                                     </tr>
                                     <tr></tr>
                                     <tr>
-                                        <td class="GemTableValue" id="TableValue_Ordinal">
+                                        {{-- <td class="GemTableValue">
                                             <font style="color: RGB(0, 186, 0);">
                                                 <div class="NumberClass">
                                                     <b id="ordinal" class="justnumber">0</b>
                                                 </div>
                                             </font>
                                         </td>
-                                        <td class="GemTableValue" id="TableValue_Reduction">
+                                        <td class="GemTableValue">
                                             <font style="color: RGB(88, 125, 254);">
                                                 <div class="NumberClass">
                                                     <b id="reduction" class="justnumber">0</b>
                                                 </div>
                                             </font>
                                         </td>
-                                        <td class="GemTableValue" id="TableValue_Reverse">
+                                        <td class="GemTableValue">
                                             <font style="color: RGB(80, 235, 21);">
                                                 <div class="NumberClass">
                                                     <b id="reverse" class="justnumber">0</b>
                                                 </div>
                                             </font>
                                         </td>
-                                        <td class="GemTableValue" id="TableValue_Reverse_Reduction">
+                                        <td class="GemTableValue">
                                             <font style="color: RGB(100, 226, 226);">
                                                 <div class="NumberClass">
                                                     <b id="reverse_reduction" class="justnumber">0</b>
                                                 </div>
                                             </font>
-                                        </td>
+                                        </td> --}}
+                                        <!-- Loop through the other ciphers dynamically -->
+                                        @foreach ($ciphers as $cipher)
+                                                @php
+                                                    $rgb = json_decode($cipher['rgb_values'], true);
+                                                    $red = $rgb['red'] ?? 0;
+                                                    $green = $rgb['green'] ?? 0;
+                                                    $blue = $rgb['blue'] ?? 0;
+                                                @endphp
+                                            <td class="GemTableValue">
+                                                <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                    <div class="NumberClass">
+                                                        @if ($cipher['id'] == 'D0')
+                                                            <b id="ordinal" class="justnumber">
+                                                                0
+                                                            </b>
+                                                        @elseif($cipher['id'] == 'D1')
+                                                            <b id="reduction" class="justnumber">
+                                                                0
+                                                            </b>
+                                                        @elseif($cipher['id'] == 'D2')
+                                                            <b id="reverse" class="justnumber">
+                                                                0
+                                                            </b>
+                                                        @elseif($cipher['id'] == 'D3')
+                                                            <b id="reverse_reduction" class="justnumber">
+                                                                0
+                                                            </b>
+                                                        @else
+                                                            <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number">
+                                                                0
+                                                            </b>
+                                                        @endif
+                                                    </div>
+                                                </font>
+                                            </td>
+                                        @endforeach
                                     </tr>
                                     </tbody>
                                 </table>
@@ -114,25 +173,22 @@
                                     <!-- Calculator (Above) 1 -->
 
                                     <!-- MOBILE MENU SECTION -->
-{{--                                    <div id="menu-dynamic">--}}
-{{--                                        <div id="calc-menu">--}}
-{{--                                            <!-- <a id="ciphModBtn" class="MenuLink" onclick="javascript:Open_Ciphers()"--}}
-{{--                                                data-fancybox="ciphers" data-src="#ciphMod"><span--}}
-{{--                                                    class="calcMenuItem">Ciphers&nbsp;</span>--}}
-{{--                                            </a> -->--}}
+                                    <div id="menu-dynamic">
+                                        <div id="calc-menu">
+                                            <a data-fancybox="port" class="MenuLink" href="#ciphMod">
+                                                Ciphers&nbsp;
+                                            </a>
+                                            {{-- <span>|</span>
+                                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">
+                                                <span class="calcMenuItem">Options&nbsp;</span>
+                                            </a>
+                                            <span>|</span>
+                                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod">
+                                                <span class="calcMenuItem">Shortcuts</span>
+                                            </a> --}}
+                                        </div>
+                                    </div>
 
-{{--                                            <a data-fancybox="port" class="MenuLink" href="#ciphMod">--}}
-{{--                                                Ciphers&nbsp;--}}
-{{--                                            </a>--}}
-
-{{--                                            <span>|</span>--}}
-{{--                                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">--}}
-{{--                                                <span class="calcMenuItem">Options&nbsp;</span></a>--}}
-{{--                                            <span>|</span>--}}
-
-{{--                                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod"><span class="calcMenuItem">Shortcuts</span></a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
                                     <!-- END MENU SECTION -->
                                     <!-- ENTRY SECTION -->
                                     <div id="EntryDiv">
@@ -155,7 +211,7 @@
                                             <div id="watermarkBreakGuy" style="display:none;"><img decoding="async" src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator" width="28" style="margin-top: 10px; margin-right:0px; float:right; opacity:.25;">
                                             </div>
                                             <center>
-                                                <font style="color: RGB(0, 186, 0)">Ordinal</font><table id="breakdownCipherLabel" style="width:100%; display: inline;">
+                                                <table id="breakdownCipherLabel" style="width:100%; display: inline;">
 
                                                 </table>
                                             </center>
@@ -163,78 +219,19 @@
                                         </div>
                                     </div>
                                     <div id="WordLetterCount">
-                                        <div class="WordLetterCount">(1 word, 4 letters)</div>
+                                        <div class="WordLetterCount">(0 word, 0 letters)</div>
                                     </div> <!-- END BREAKDOWN SECTION -->
                                     <!-- CIPHER CHART SECTION -->
                                     <div id="ChartSpot">
                                         <table>
                                             <tbody>
-                                            <tr></tr>
-                                            <tr>
-                                                <td class="chartChar">a</td>
-                                                <td class="chartChar">b</td>
-                                                <td class="chartChar">c</td>
-                                                <td class="chartChar">d</td>
-                                                <td class="chartChar">e</td>
-                                                <td class="chartChar">f</td>
-                                                <td class="chartChar">g</td>
-                                                <td class="chartChar">h</td>
-                                                <td class="chartChar">i</td>
-                                                <td class="chartChar">j</td>
-                                                <td class="chartChar">k</td>
-                                                <td class="chartChar">l</td>
-                                                <td class="chartChar">m</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="chartVal">1</td>
-                                                <td class="chartVal">2</td>
-                                                <td class="chartVal">3</td>
-                                                <td class="chartVal">4</td>
-                                                <td class="chartVal">5</td>
-                                                <td class="chartVal">6</td>
-                                                <td class="chartVal">7</td>
-                                                <td class="chartVal">8</td>
-                                                <td class="chartVal">9</td>
-                                                <td class="chartVal">10</td>
-                                                <td class="chartVal">11</td>
-                                                <td class="chartVal">12</td>
-                                                <td class="chartVal">13</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="chartChar">n</td>
-                                                <td class="chartChar">o</td>
-                                                <td class="chartChar">p</td>
-                                                <td class="chartChar">q</td>
-                                                <td class="chartChar">r</td>
-                                                <td class="chartChar">s</td>
-                                                <td class="chartChar">t</td>
-                                                <td class="chartChar">u</td>
-                                                <td class="chartChar">v</td>
-                                                <td class="chartChar">w</td>
-                                                <td class="chartChar">x</td>
-                                                <td class="chartChar">y</td>
-                                                <td class="chartChar">z</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="chartVal">14</td>
-                                                <td class="chartVal">15</td>
-                                                <td class="chartVal">16</td>
-                                                <td class="chartVal">17</td>
-                                                <td class="chartVal">18</td>
-                                                <td class="chartVal">19</td>
-                                                <td class="chartVal">20</td>
-                                                <td class="chartVal">21</td>
-                                                <td class="chartVal">22</td>
-                                                <td class="chartVal">23</td>
-                                                <td class="chartVal">24</td>
-                                                <td class="chartVal">25</td>
-                                                <td class="chartVal">26</td>
-                                            </tr>
-{{--                                            <tr>--}}
-{{--                                                <td id="cipherChartTitle" colspan="13"><span id="moveCipherUp" class="moveCipher" onclick="javascript:MoveCipher(undefined, 1)"><i class="fas fa-chevron-circle-up"></i></span>--}}
-{{--                                                    <font style="color: RGB(0, 186, 0)">Ordinal</font> <span id="moveCipherDown" class="moveCipher" onclick="javascript:MoveCipher(undefined, 2)"><i class="fas fa-chevron-circle-down"></i></span>--}}
-{{--                                                </td>--}}
-{{--                                            </tr>--}}
+                                                <tr></tr>
+                                                <tr id="alphabetRow"></tr>
+                                                <tr id="valueRow"></tr>
+                                                <tr>
+                                                    <td id="cipherChartTitle" colspan="50">
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div> <!-- END CIPHER CHART SECTION -->
@@ -432,151 +429,55 @@
                                     <span id="cipherHelpText">Can't find a cipher? <a href="faq.php">See the FAQ</a> or <a href="ciphers.php">Ciphers</a> page.</span>
                                     <br><br class="no-mo">
                                     <ul id="cipherBox">
-                                        <li><input type="checkbox" id="Cipher0" checked="">
-                                            <font style="color: RGB(0, 186, 0)">Ordinal</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher1" checked="">
-                                            <font style="color: RGB(88, 125, 254)">Reduction</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher2" checked="">
-                                            <font style="color: RGB(80, 235, 21)">Reverse</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher3" checked="">
-                                            <font style="color: RGB(100, 226, 226)">Reverse Reduction</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher4" checked="">
-                                            <font style="color: RGB(218, 226, 0)">Standard</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher5" checked="">
-                                            <font style="color: RGB(153, 102, 255)">Latin</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher6" checked="">
-                                            <font style="color: RGB(169, 208, 142)">Sumerian</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher7" checked="">
-                                            <font style="color: RGB(220, 208, 148)">Reverse Sumerian</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher8" checked="">
-                                            <font style="color: RGB(93, 187, 88)">Capitals Mixed</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher9" checked="">
-                                            <font style="color: RGB(150, 244, 77)">Capitals Added</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher10" checked="">
-                                            <font style="color: RGB(111, 193, 121)">Reverse Caps Mixed</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher11" checked="">
-                                            <font style="color: RGB(163, 255, 88)">Reverse Caps Added</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher12" checked="">
-                                            <font style="color: RGB(253, 255, 119)">Reverse Standard</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher13" checked="">
-                                            <font style="color: RGB(255, 0, 0)">Satanic</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher14" checked="">
-                                            <font style="color: RGB(255, 0, 0)">Reverse Satanic</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher15" checked="">
-                                            <font style="color: RGB(140, 171, 227)">Single Reduction</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher16" checked="">
-                                            <font style="color: RGB(97, 195, 244)">KV Exception</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher17" checked="">
-                                            <font style="color: RGB(70, 175, 244)">SKV Exception</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher18" checked="">
-                                            <font style="color: RGB(100, 216, 209)">Reverse Single Reduction</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher19" checked="">
-                                            <font style="color: RGB(101, 224, 194)">EP Exception</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher20" checked="">
-                                            <font style="color: RGB(110, 226, 156)">EHP Exception</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher21" checked="">
-                                            <font style="color: RGB(154, 121, 227)">Latin Ordinal</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher22" checked="">
-                                            <font style="color: RGB(159, 99, 197)">Latin Reduction</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher23" checked="">
-                                            <font style="color: RGB(255, 204, 111)">Primes</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher24" checked="">
-                                            <font style="color: RGB(231, 180, 113)">Trigonal</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher25" checked="">
-                                            <font style="color: RGB(228, 216, 96)">Squares</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher26" checked="">
-                                            <font style="color: RGB(233, 202, 148)">Fibonacci</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher27" checked="">
-                                            <font style="color: RGB(255, 209, 145)">Reverse Primes</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher28" checked="">
-                                            <font style="color: RGB(238, 191, 112)">Reverse Trigonal</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher29" checked="">
-                                            <font style="color: RGB(240, 225, 112)">Reverse Squares</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher30" checked="">
-                                            <font style="color: RGB(166, 166, 99)">Chaldean</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher31" checked="">
-                                            <font style="color: RGB(255, 153, 77)">Septenary</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher32" checked="">
-                                            <font style="color: RGB(255, 126, 255)">Keypad</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher33" checked="">
-                                            <font style="color: RGB(255, 64, 0)">English Qaballa</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher34" checked="">
-                                            <font style="color: RGB(255, 88, 0)">Cipher X</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher35" checked="">
-                                            <font style="color: RGB(255, 93, 73)">Trigrammaton Qabalah</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher36" checked="">
-                                            <font style="color: RGB(191, 195, 127)">Alphanumeric Qabbala</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher37" checked="">
-                                            <font style="color: RGB(239, 154, 174)">Alphanumeric Satanic</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher38" checked="">
-                                            <font style="color: RGB(255, 255, 255)">test</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher39" checked="">
-                                            <font style="color: RGB(255, 255, 255)">joan</font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher40" checked="">
-                                            <font style="color: RGB(255, 255, 255)"></font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher41" checked="">
-                                            <font style="color: RGB(2, 28999, 255)">Chaos </font>
-                                        </li>
-                                        <li><input type="checkbox" id="Cipher42" checked="">
-                                            <font style="color: RGB(255, 255, 255)">Pi</font>
-                                        </li>
+                                        {{-- <li><input type="checkbox" id="CipherD0" checked=""><font style="color: RGB(0, 186, 0)">Ordinal</font></li>
+                                        <li><input type="checkbox" id="CipherD1" checked=""><font style="color: RGB(88, 125, 254)">Reduction</font></li>
+                                        <li><input type="checkbox" id="CipherD2" checked=""><font style="color: RGB(80, 235, 21)">Reverse</font></li>
+                                        <li><input type="checkbox" id="CipherD3" checked=""><font style="color: RGB(100, 226, 226)">Reverse Reduction</font></li> --}}
+                                        @foreach ($ciphersAll as $item)
+                                            <li>
+                                                <input type="checkbox" id="Cipher{{ $item['id'] }}" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}>
+                                                @php
+                                                    $rgb = json_decode($item['rgb_values'], true);
+                                                    $red = $rgb['red'] ?? 0;
+                                                    $green = $rgb['green'] ?? 0;
+                                                    $blue = $rgb['blue'] ?? 0;
+                                                @endphp
+                                                <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                    {{ $item['name'] }}
+                                                </font>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </center>
+
                                 <div id="cipherSelectsContainer">
-                                    <div class="cipherSelects"><button class="buttonFunctionCiphers" id="SelectBaseCiphersBtn" onclick="javascript:SelBaseCiphers()">Select
-                                            Base</button></div>
-                                    <div class="cipherSelects"><button class="buttonFunctionCiphers" id="SelectAllCiphersBtn" onclick="javascript:SelAllCiphers(true)">Select
-                                            All</button></div>
-                                    <div class="cipherSelects"><button class="buttonFunctionCiphers" id="ClearAllCiphersBtn" onclick="javascript:SelAllCiphers(false)">Clear All</button></div>
+                                    <div class="cipherSelects">
+                                        <button class="buttonFunctionCiphers" id="SelectBaseCiphersBtn" onclick="SelBaseCiphers()">Select Base</button>
+                                    </div>
+                                    <div class="cipherSelects">
+                                        <button class="buttonFunctionCiphers" id="SelectAllCiphersBtn" onclick="SelAllCiphers(true)">Select All</button>
+                                    </div>
+                                    <div class="cipherSelects">
+                                        <button class="buttonFunctionCiphers" id="ClearAllCiphersBtn" onclick="SelAllCiphers(false)">Clear All</button>
+                                    </div>
                                 </div>
                                 <div id="cipherUpdateCancelContainer">
+                                    @if (Auth::check())
+                                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+                                    @else
+                                        @php
+                                            if (!session()->has('temp_id')) {
+                                                session(['temp_id' => uniqid('temp_', true)]);
+                                            }
+                                        @endphp
+                                        <input type="hidden" name="user_id" id="user_id" value="{{ session('temp_id') }}">
+                                    @endif
                                     <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Close_Ciphers(); jQuery.fancybox.close();">
                                         <!--<img decoding="async" src="tools/calculator-advanced/img/save-icon.png" class="imgTop" width="16">-->Update
                                     </button>
-                                    <button class="buttonFunctionCiphers" id="CancelCiphers" onclick="javascript:Cancel_Ciphers()">Cancel</button>
+                                    <button class="buttonFunctionCiphers" id="CancelCiphers" onclick="Cancel_Ciphers()">Cancel</button>
                                 </div>
-                                <center>
+                                {{-- <center>
                                     <div id="cipherPresets">
                                         <h2>Cipher Presets</h2>
                                         <span>The checked ciphers above will save as your: </span><select name="SavePresets" id="PresetDropdown">
@@ -590,7 +491,7 @@
                                         </select> <button class="buttonFunctionCiphers" id="LoadCiphers" onclick="javascript:Load_Preset()">Load</button><br><br>
                                     </span>
                                     </div>
-                                </center>
+                                </center> --}}
                                 <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
                                         <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
                                     </svg></button>
@@ -769,13 +670,181 @@
 @endsection
 
 @section('js')
+    {{-- <script>
+        @foreach ($ciphers as $cipher)
+            var isSelected = @json($userCipherStatuses[$cipher->id] ?? 0);
+
+            if (isSelected) {
+                document.getElementById('Cipher{{ $cipher->id }}').checked = true;
+            } else {
+                document.getElementById('Cipher{{ $cipher->id }}').checked = false;
+            }
+        @endforeach
+    </script> --}}
     <script>
+
+        function SelBaseCiphers() {
+            // Select base ciphers by checking specific IDs
+            document.getElementById('CipherD0').checked = true;
+            document.getElementById('CipherD1').checked = true;
+            document.getElementById('CipherD2').checked = true;
+            document.getElementById('CipherD3').checked = true;
+
+            var checkboxes = document.querySelectorAll('#cipherBox input[type="checkbox"]');
+
+            checkboxes.forEach(function(checkbox) {
+                if (!['CipherD0', 'CipherD1', 'CipherD2', 'CipherD3'].includes(checkbox.id)) {
+                    checkbox.checked = false;
+                }
+            });
+        }
+
+        // Function to select or clear all ciphers
+        function SelAllCiphers(selectAll) {
+            // Get all checkbox elements in the cipher list
+            var checkboxes = document.querySelectorAll('#cipherBox input[type="checkbox"]');
+
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = selectAll;
+            });
+        }
+
+        function saveCiphers() {
+            var userId = $('#user_id').val();
+            var ciphersStatus = [];
+            var checkboxes = document.querySelectorAll('#cipherBox input[type="checkbox"]');
+
+            checkboxes.forEach(function(checkbox) {
+                var cipherId = checkbox.id.replace('Cipher', '');
+                var status = checkbox.checked ? 1 : 0;
+
+                ciphersStatus.push({
+                    cipher_id: cipherId,
+                    status: status
+                });
+            });
+
+            var data = {
+                user_id: userId,
+                ciphers: ciphersStatus
+            };
+
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "{{ route('ciphers.saveciphers') }}",
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response) {
+                    if (response.success) {
+                        swal("Success!", "Cipher settings saved successfully!", "success");
+                        // jQuery.fancybox.close();
+                    } else {
+                        swal("Error!", "Error saving cipher settings", "error");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    swal("Error!", "An error occurred while saving the cipher settings.", "error");
+                }
+            });
+        }
+
+        document.getElementById('SaveCiphers').addEventListener('click', function() {
+            saveCiphers();
+        });
+
+        function Cancel_Ciphers() {
+            location.reload();
+        }
+
+        function MoveCipherClick(cipherId, event) {
+            const ciphers = @json($ciphers);
+            const selectedCipher = ciphers.find(cipher => cipher.id == cipherId);
+
+            if (selectedCipher) {
+                const smallAlphabet = JSON.parse(selectedCipher.small_alphabet);
+                const capitalAlphabet = JSON.parse(selectedCipher.capital_alphabet);
+                const rgbValues = JSON.parse(selectedCipher.rgb_values);
+
+                const alphabetToShow = smallAlphabet;
+
+                const alphabetKeys = Object.keys(alphabetToShow);
+                const alphabetValues = Object.values(alphabetToShow);
+
+                document.getElementById('alphabetRow').innerHTML = '';
+                document.getElementById('valueRow').innerHTML = '';
+
+                alphabetKeys.forEach((char, index) => {
+                    const charCell = document.createElement('td');
+                    charCell.classList.add('chartChar');
+                    charCell.textContent = char;
+                    document.getElementById('alphabetRow').appendChild(charCell);
+
+                    const valueCell = document.createElement('td');
+                    valueCell.classList.add('chartVal');
+                    valueCell.textContent = alphabetValues[index];
+                    document.getElementById('valueRow').appendChild(valueCell);
+                });
+
+                const cipherTitle = selectedCipher.name;
+                document.getElementById('cipherChartTitle').innerHTML = `
+                    <font id="cipherTitleFont" style="color: rgb(${rgbValues.red}, ${rgbValues.green}, ${rgbValues.blue})">${cipherTitle}</font>
+                `;
+            }
+        }
+
+        window.onload = function() {
+
+            const firstCipherId = "{{ $first_ciphers['id'] }}";
+            MoveCipherClick(firstCipherId, event);
+        };
+
         // Gematria mapping for English alphabet
         const alphabet = {
             a: 1,  b: 2,  c: 3,  d: 4,  e: 5,  f: 6,  g: 7,  h: 8,  i: 9,  j: 10,
             k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20,
             u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
         };
+
+        var small_alphabets = {};
+
+        @foreach ($ciphers as $cipher)
+            var cipherId = "{{ $cipher['id'] }}";
+
+            if (cipherId != 'D0' && cipherId != 'D1' && cipherId != 'D2' && cipherId != 'D3') {
+                var alphabetData = @json(json_decode($cipher['small_alphabet']));
+                small_alphabets[cipherId] = alphabetData;
+            }
+        @endforeach
+
+
+        console.log(small_alphabets);
+
+        function calculateOrdinalCiphers(input, cipherId) {
+            return [...input].reduce((sum, char) => {
+                var alphabetData = small_alphabets[cipherId];
+
+                // Ensure alphabetData is an object
+                if (alphabetData && typeof alphabetData === 'object') {
+                    var charValue = alphabetData[char.toLowerCase()];
+
+                    // If a value exists for the character, add it to the sum (parse it as an integer)
+                    return sum + (charValue !== undefined ? parseInt(charValue, 10) : 0);
+                }
+
+                return sum;
+            }, 0);
+        }
+
+
+        // Function to calculate Ordinal value
+        // function calculateOrdinalCiphers(input) {
+        //     return [...input].reduce((sum, char) => sum + (alphabet[char.toLowerCase()] || 0), 0);
+        // }
 
         // Function to calculate Ordinal value
         function calculateOrdinal(input) {
@@ -808,17 +877,19 @@
         }
 
         // Main function to calculate all values
-        function calculateGematria(word) {
+        function calculateGematria(word, id = '') {
             const ordinal = calculateOrdinal(word);
             const reduction = calculateReduction(word);
             const reverse = calculateReverseOrdinal(word);
             const reverseReduction = calculateReverseReduction(word);
+            const ordinalCiphers = calculateOrdinalCiphers(word, id);
 
             return {
                 ordinal: ordinal,
                 reduction: reduction,
                 reverse: reverse,
-                reverseReduction: reverseReduction
+                reverseReduction: reverseReduction,
+                ordinalCiphers: ordinalCiphers
             };
         }
 
@@ -1060,20 +1131,50 @@
             $('#EntryField').on('keyup', function () {
                 let val = $(this).val();
 
-                if (val == "") {
+                let wordCount = val ? val.split(/\s+/).length : 0;
 
-                    $('#ordinal').text('0');
-                    $('#reduction').text('0');
-                    $('#reverse').text('0');
-                    $('#reverse_reduction').text('0');
+                let letterCount = val.replace(/[^a-zA-Z]/g, '').length;
+
+                $('#WordLetterCount .WordLetterCount').text('(' + wordCount + ' word' + (wordCount !== 1 ? 's' : '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
+
+                if (val == "") {
+                    @foreach ($ciphers as $cipher)
+                        var cipherId = "{{ $cipher['id'] }}";
+                        if (cipherId == 'D0') {
+                            $('#ordinal').text('0');
+                        } else if (cipherId == 'D1') {
+                            $('#reduction').text('0');
+                        } else if (cipherId == 'D2') {
+                            $('#reverse').text('0');
+                        } else if (cipherId == 'D3') {
+                            $('#reverse_reduction').text('0');
+                        } else {
+                            $('#cipher_' + cipherId).text('0');
+                        }
+                    @endforeach
                 }
 
                 let data = calculateGematria(val);
 
-                $('#ordinal').text(data.ordinal);
-                $('#reduction').text(data.reduction);
-                $('#reverse').text(data.reverse);
-                $('#reverse_reduction').text(data.reverseReduction);
+                @foreach ($ciphers as $cipher)
+                    var cipherId = "{{ $cipher['id'] }}";
+                    if (cipherId == 'D0') {
+                        $('#ordinal').text(data.ordinal);
+                    } else if (cipherId == 'D1') {
+                        $('#reduction').text(data.reduction);
+                    } else if (cipherId == 'D2') {
+                        $('#reverse').text(data.reverse);
+                    } else if (cipherId == 'D3') {
+                        $('#reverse_reduction').text(data.reverseReduction);
+                    } else {
+                        let data1 = calculateGematria(val, cipherId);
+                        $('#cipher_' + cipherId).text(data1.ordinalCiphers);
+                    }
+                @endforeach
+                // $('#ordinal').text(data.ordinal);
+                // $('#reduction').text(data.reduction);
+                // $('#reverse').text(data.reverse);
+                // $('#reverse_reduction').text(data.reverseReduction);
 
                 return true;
             });
