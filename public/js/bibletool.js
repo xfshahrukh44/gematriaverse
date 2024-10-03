@@ -104,7 +104,7 @@ function LoadBooks() {
 	allBooks = []
 
 	//After the allBooks array is cleared, call the bookdetails PHP function
-	xhttp.open("GET", "tools/bible-search/php/bookdetails.php?");
+	xhttp.open("GET", "https://gematrinator.com/tools/bible-search/php/bookdetails.php?");
 	xhttp.send();
 	xhttp.onreadystatechange = function() {
 
@@ -146,7 +146,7 @@ function RetrieveDetails(impVal) {
 	delete OpenVerse
 	//Queries the SQL database for Verse data
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", "tools/bible-search/php/versedetails.php?verse=" + impVal);
+	xhttp.open("GET", "https://gematrinator.com/tools/bible-search/php/versedetails.php?verse=" + impVal);
 	lastSearch = "retrieve"
 	xhttp.send();
 	xhttp.onreadystatechange = function() {
@@ -255,7 +255,7 @@ function RunNumberPHP() {
 	let dropSpot = document.getElementById("DropHere")
 	let cString = CipherString()
 
-	xhttp.open("GET", "tools/bible-search/php/kjvquery.php?number=" + lastQueryArr[0] + "&verses=" + lastQueryArr[1] + "&type=" + lastQueryArr[2] + "&group=" + lastQueryArr[3] + "&ciphers=" + cString);
+	xhttp.open("GET", "https://gematrinator.com/tools/bible-search/php/kjvquery.php?number=" + lastQueryArr[0] + "&verses=" + lastQueryArr[1] + "&type=" + lastQueryArr[2] + "&group=" + lastQueryArr[3] + "&ciphers=" + cString);
 	xhttp.send();
 	lastSearch = "number"; lastBack = "number"
 	dropSpot.innerHTML = "Trying to load..."
@@ -302,7 +302,7 @@ function RunBookPHP() {
 	let dropSpot = document.getElementById("DropHere")
 
 	//Queries the SQL database for Cipher data
-	xhttp.open("GET", "tools/bible-search/php/standardquery.php?book=" + lastQueryArr[0] + "&chapter=" + lastQueryArr[1] + "&verses=" + lastQueryArr[2] + "&group=" + lastQueryArr[3]);
+	xhttp.open("GET", "https://gematrinator.com/tools/bible-search/php/standardquery.php?book=" + lastQueryArr[0] + "&chapter=" + lastQueryArr[1] + "&verses=" + lastQueryArr[2] + "&group=" + lastQueryArr[3]);
 	xhttp.send(); initBuild = true
 	lastSearch = "book"; lastBack = "book"
 	dropSpot.innerHTML = "Trying to load..."
@@ -349,7 +349,7 @@ function SearchByVerseNumber () {
 	let dropSpot = document.getElementById("DropHere")
 
 	lastQueryArr = []
-	let qString = "tools/bible-search/php/versebynumber.php?num=" + numVal + "&verses=" + o_Verses
+	let qString = "https://gematrinator.com/tools/bible-search/php/versebynumber.php?num=" + numVal + "&verses=" + o_Verses
 	xhttp.open("GET", qString);
 	dropSpot.innerHTML = "Trying to load..."
 	lastSearch = "versenumber"; lastBack = "versenumber"
@@ -406,7 +406,7 @@ function SearchNextLastNumber (impVal = 0) {
 	let cString = CipherString()
 
 	if (impVal == 0) {groupNum--} else {groupNum++}
-	xhttp.open("GET", "tools/bible-search/php/kjvquery.php?number=" + lastQueryArr[0] + "&verses=" + lastQueryArr[1] + "&type=" + lastQueryArr[2] + "&ciphers=" + cString + "&group=" + groupNum);
+	xhttp.open("GET", "https://gematrinator.com/tools/bible-search/php/kjvquery.php?number=" + lastQueryArr[0] + "&verses=" + lastQueryArr[1] + "&type=" + lastQueryArr[2] + "&ciphers=" + cString + "&group=" + groupNum);
 	xhttp.send();
 	xhttp.onreadystatechange = function() {
 

@@ -54,256 +54,26 @@
                                                                             <div id="bookSelector">
                                                                                 <label>Book</label>
                                                                                 <br>
-                                                                                <select id="SelectBook"
-                                                                                        onchange="javascript:Change_Selection(0), hide(this)">
-                                                                                    <option value="Any Book">Any Book
-                                                                                    </option>
-                                                                                    <option value="Old Testament">Old
-                                                                                        Testament
-                                                                                    </option>
-                                                                                    <option value="New Testament">New
-                                                                                        Testament
-                                                                                    </option>
-                                                                                    <option value="1 Chronicles">1
-                                                                                        Chronicles
-                                                                                    </option>
-                                                                                    <option value="1 Corinthians">1
-                                                                                        Corinthians
-                                                                                    </option>
-                                                                                    <option value="1 John">1 John
-                                                                                    </option>
-                                                                                    <option value="1 Kings">1 Kings
-                                                                                    </option>
-                                                                                    <option value="1 Peter">1 Peter
-                                                                                    </option>
-                                                                                    <option value="1 Samuel">1 Samuel
-                                                                                    </option>
-                                                                                    <option value="1 Thessalonians">1
-                                                                                        Thessalonians
-                                                                                    </option>
-                                                                                    <option value="1 Timothy">1
-                                                                                        Timothy
-                                                                                    </option>
-                                                                                    <option value="2 Chronicles">2
-                                                                                        Chronicles
-                                                                                    </option>
-                                                                                    <option value="2 Corinthians">2
-                                                                                        Corinthians
-                                                                                    </option>
-                                                                                    <option value="2 John">2 John
-                                                                                    </option>
-                                                                                    <option value="2 Kings">2 Kings
-                                                                                    </option>
-                                                                                    <option value="2 Peter">2 Peter
-                                                                                    </option>
-                                                                                    <option value="2 Samuel">2 Samuel
-                                                                                    </option>
-                                                                                    <option value="2 Thessalonians">2
-                                                                                        Thessalonians
-                                                                                    </option>
-                                                                                    <option value="2 Timothy">2
-                                                                                        Timothy
-                                                                                    </option>
-                                                                                    <option value="3 John">3 John
-                                                                                    </option>
-                                                                                    <option value="Acts">Acts</option>
-                                                                                    <option value="Amos">Amos</option>
-                                                                                    <option value="Colossians">
-                                                                                        Colossians
-                                                                                    </option>
-                                                                                    <option value="Daniel">Daniel
-                                                                                    </option>
-                                                                                    <option value="Deuteronomy">
-                                                                                        Deuteronomy
-                                                                                    </option>
-                                                                                    <option value="Ecclesiastes">
-                                                                                        Ecclesiastes
-                                                                                    </option>
-                                                                                    <option value="Ephesians">
-                                                                                        Ephesians
-                                                                                    </option>
-                                                                                    <option value="Esther">Esther
-                                                                                    </option>
-                                                                                    <option value="Exodus">Exodus
-                                                                                    </option>
-                                                                                    <option value="Ezekiel">Ezekiel
-                                                                                    </option>
-                                                                                    <option value="Ezra">Ezra</option>
-                                                                                    <option value="Galatians">
-                                                                                        Galatians
-                                                                                    </option>
-                                                                                    <option value="Genesis">Genesis
-                                                                                    </option>
-                                                                                    <option value="Habakkuk">Habakkuk
-                                                                                    </option>
-                                                                                    <option value="Haggai">Haggai
-                                                                                    </option>
-                                                                                    <option value="Hebrews">Hebrews
-                                                                                    </option>
-                                                                                    <option value="Hosea">Hosea</option>
-                                                                                    <option value="Isaiah">Isaiah
-                                                                                    </option>
-                                                                                    <option value="James">James</option>
-                                                                                    <option value="Jeremiah">Jeremiah
-                                                                                    </option>
-                                                                                    <option value="Job">Job</option>
-                                                                                    <option value="Joel">Joel</option>
-                                                                                    <option value="John">John</option>
-                                                                                    <option value="Jonah">Jonah</option>
-                                                                                    <option value="Joshua">Joshua
-                                                                                    </option>
-                                                                                    <option value="Jude">Jude</option>
-                                                                                    <option value="Judges">Judges
-                                                                                    </option>
-                                                                                    <option value="Lamentations">
-                                                                                        Lamentations
-                                                                                    </option>
-                                                                                    <option value="Leviticus">
-                                                                                        Leviticus
-                                                                                    </option>
-                                                                                    <option value="Luke">Luke</option>
-                                                                                    <option value="Malachi">Malachi
-                                                                                    </option>
-                                                                                    <option value="Mark">Mark</option>
-                                                                                    <option value="Matthew">Matthew
-                                                                                    </option>
-                                                                                    <option value="Micah">Micah</option>
-                                                                                    <option value="Nahum">Nahum</option>
-                                                                                    <option value="Nehemiah">Nehemiah
-                                                                                    </option>
-                                                                                    <option value="Numbers">Numbers
-                                                                                    </option>
-                                                                                    <option value="Obadiah">Obadiah
-                                                                                    </option>
-                                                                                    <option value="Philemon">Philemon
-                                                                                    </option>
-                                                                                    <option value="Philippians">
-                                                                                        Philippians
-                                                                                    </option>
-                                                                                    <option value="Proverbs">Proverbs
-                                                                                    </option>
-                                                                                    <option value="Psalms">Psalms
-                                                                                    </option>
-                                                                                    <option value="Revelation">
-                                                                                        Revelation
-                                                                                    </option>
-                                                                                    <option value="Romans">Romans
-                                                                                    </option>
-                                                                                    <option value="Ruth">Ruth</option>
-                                                                                    <option value="Song of Solomon">Song
-                                                                                        of Solomon
-                                                                                    </option>
-                                                                                    <option value="Titus">Titus</option>
-                                                                                    <option value="Zechariah">
-                                                                                        Zechariah
-                                                                                    </option>
-                                                                                    <option value="Zephaniah">
-                                                                                        Zephaniah
-                                                                                    </option>
+                                                                                <select id="select_book">
+
                                                                                 </select>
                                                                             </div>
                                                                             <div id="chapterSelector">
                                                                                 <label>Chapter</label>
                                                                                 <br>
-                                                                                <select class="form-select form-select-sm"
-                                                                                        id="SelectChapter"
-                                                                                        onchange="javascript:Change_Selection(1)">
-                                                                                    <option value="All">All</option>
-                                                                                    <option value="1">1</option>
-                                                                                    <option value="2">2</option>
-                                                                                    <option value="3">3</option>
-                                                                                    <option value="4">4</option>
-                                                                                    <option value="5">5</option>
-                                                                                    <option value="6">6</option>
-                                                                                    <option value="7">7</option>
-                                                                                    <option value="8">8</option>
-                                                                                    <option value="9">9</option>
-                                                                                    <option value="10">10</option>
-                                                                                    <option value="11">11</option>
-                                                                                    <option value="12">12</option>
-                                                                                    <option value="13">13</option>
-                                                                                    <option value="14">14</option>
-                                                                                    <option value="15">15</option>
-                                                                                    <option value="16">16</option>
-                                                                                    <option value="17">17</option>
-                                                                                    <option value="18">18</option>
-                                                                                    <option value="19">19</option>
-                                                                                    <option value="20">20</option>
-                                                                                    <option value="21">21</option>
-                                                                                    <option value="22">22</option>
-                                                                                    <option value="23">23</option>
-                                                                                    <option value="24">24</option>
-                                                                                    <option value="25">25</option>
-                                                                                    <option value="26">26</option>
-                                                                                    <option value="27">27</option>
-                                                                                    <option value="28">28</option>
-                                                                                    <option value="29">29</option>
-                                                                                    <option value="30">30</option>
-                                                                                    <option value="31">31</option>
-                                                                                    <option value="32">32</option>
-                                                                                    <option value="33">33</option>
-                                                                                    <option value="34">34</option>
-                                                                                    <option value="35">35</option>
-                                                                                    <option value="36">36</option>
-                                                                                    <option value="37">37</option>
-                                                                                    <option value="38">38</option>
-                                                                                    <option value="39">39</option>
-                                                                                    <option value="40">40</option>
-                                                                                    <option value="41">41</option>
-                                                                                    <option value="42">42</option>
-                                                                                    <option value="43">43</option>
-                                                                                    <option value="44">44</option>
-                                                                                    <option value="45">45</option>
-                                                                                    <option value="46">46</option>
-                                                                                    <option value="47">47</option>
-                                                                                    <option value="48">48</option>
-                                                                                    <option value="49">49</option>
-                                                                                    <option value="50">50</option>
+                                                                                <select class="form-select form-select-sm" id="select_chapter">
+
                                                                                 </select>
                                                                             </div>
                                                                             <div id="verseSelector">
                                                                                 <label>Verse</label>
                                                                                 <br>
-                                                                                <select class="form-select form-select-sm"
-                                                                                        id="SelectVerse">
-                                                                                    <option value="All">All</option>
-                                                                                    <option value="1">1</option>
-                                                                                    <option value="2">2</option>
-                                                                                    <option value="3">3</option>
-                                                                                    <option value="4">4</option>
-                                                                                    <option value="5">5</option>
-                                                                                    <option value="6">6</option>
-                                                                                    <option value="7">7</option>
-                                                                                    <option value="8">8</option>
-                                                                                    <option value="9">9</option>
-                                                                                    <option value="10">10</option>
-                                                                                    <option value="11">11</option>
-                                                                                    <option value="12">12</option>
-                                                                                    <option value="13">13</option>
-                                                                                    <option value="14">14</option>
-                                                                                    <option value="15">15</option>
-                                                                                    <option value="16">16</option>
-                                                                                    <option value="17">17</option>
-                                                                                    <option value="18">18</option>
-                                                                                    <option value="19">19</option>
-                                                                                    <option value="20">20</option>
-                                                                                    <option value="21">21</option>
-                                                                                    <option value="22">22</option>
-                                                                                    <option value="23">23</option>
-                                                                                    <option value="24">24</option>
-                                                                                    <option value="25">25</option>
-                                                                                    <option value="26">26</option>
-                                                                                    <option value="27">27</option>
-                                                                                    <option value="28">28</option>
-                                                                                    <option value="29">29</option>
-                                                                                    <option value="30">30</option>
-                                                                                    <option value="31">31</option>
+                                                                                <select class="form-select form-select-sm" id="select_verse">
+
                                                                                 </select>
                                                                             </div>
-                                                                            <button class="buttonFunction" type="button"
-                                                                                    id="BibleSearchButton"
-                                                                                    onclick="SearchByBook()"
-                                                                                    value="Add Date">SEARCH
+                                                                            <button class="buttonFunction" type="button" id="btn_search_by_chapter" value="Add Date">
+                                                                                SEARCH
                                                                             </button>
                                                                             <div class="mo-only"><br>
                                                                                 <script>
@@ -332,18 +102,17 @@
                                                                         <div id="phraseValueSearchSection">
                                                                             <label>Enter Word, Phrase, or Number</label>
                                                                             <br>
-                                                                            <input id="wordPhraseNumber"
-                                                                                   oninput="Confirm_Same()"
+                                                                            <input id="input_query"
                                                                                    class="form-control form-control-sm"
                                                                                    type="text" tabindex="1">
                                                                             <script>
-                                                                                var input = document.getElementById("wordPhraseNumber");
-                                                                                input.addEventListener("keypress", function (event) {
-                                                                                    if (event.key === "Enter") {
-                                                                                        event.preventDefault();
-                                                                                        document.getElementById("WPNSearchButton").click();
-                                                                                    }
-                                                                                });
+                                                                                // var input = document.getElementById("wordPhraseNumber");
+                                                                                // input.addEventListener("keypress", function (event) {
+                                                                                //     if (event.key === "Enter") {
+                                                                                //         event.preventDefault();
+                                                                                //         document.getElementById("WPNSearchButton").click();
+                                                                                //     }
+                                                                                // });
                                                                             </script>
                                                                             <!----- MOBILE Options Check Boxes ----------->
                                                                             <!--<ul class="mo-only">-->
@@ -359,36 +128,26 @@
                                                                             <!--	<li><input tabindex=4 type="checkbox" id="Match_Any" value="Match Any" title="If multiple items are being searched, ANY match will populate in the list below." onclick="Change_Options(0)" checked><span title="If multiple items are being searched, ANY match will populate in the list below."> Match Any</span></input></li>-->
                                                                             <!--	<li><input tabindex=5 type="checkbox" id="Match_All" value="Match All" title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below." onclick="Change_Options(1)"><span title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below."> Match All</span></input></li>-->
                                                                             <!--</ul>-->
-                                                                            <button id="WPNSearchButton"
-                                                                                    class="buttonFunction"
-                                                                                    onclick="SearchByNumber()"
+                                                                            <button id="btn_search_by_query"
                                                                                     value="SearchNumber">SEARCH
                                                                             </button>
-                                                                            <br>
-                                                                            <input tabindex="4" type="checkbox"
-                                                                                   id="Match_Any" value="Match Any"
-                                                                                   title="If multiple items are being searched, ANY match will populate in the list below."
-                                                                                   onclick="Change_Options(0)"
-                                                                                   checked=""><span
-                                                                                    title="If multiple items are being searched, ANY match will populate in the list below."> Match Any</span>
-                                                                            <input tabindex="5" type="checkbox"
-                                                                                   id="Match_All" value="Match All"
-                                                                                   title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below."
-                                                                                   onclick="Change_Options(1)"><span
-                                                                                    title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below."> Match All</span>
-                                                                            <input tabindex="3" type="checkbox"
-                                                                                   id="Include_Verses" value="Verses"
-                                                                                   title="Includes the Verse name in the Gematria calculation.
-
-					Example: If checked, 'Genesis 1:1' + 'In the beginning God created the heaven and the earth.'
-
-					instead of just the verse 'In the beginning God created the heaven and the earth.'"
-                                                                                   onclick="Change_Options()"><span
-                                                                                    title="Includes the Verse name in the Gematria calculation.
-
-					Example: If checked, 'Genesis 1:1' + 'In the beginning God created the heaven and the earth.'
-
-					instead of just the verse 'In the beginning God created the heaven and the earth.'"> Include Verse Name</span>
+{{--                                                                            <br>--}}
+{{--                                                                            <input tabindex="4" type="checkbox"--}}
+{{--                                                                                   id="Match_Any" value="Match Any"--}}
+{{--                                                                                   title="If multiple items are being searched, ANY match will populate in the list below."--}}
+{{--                                                                                   onclick="Change_Options(0)"--}}
+{{--                                                                                   checked=""><span--}}
+{{--                                                                                    title="If multiple items are being searched, ANY match will populate in the list below."> Match Any</span>--}}
+{{--                                                                            <input tabindex="5" type="checkbox"--}}
+{{--                                                                                   id="Match_All" value="Match All"--}}
+{{--                                                                                   title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below."--}}
+{{--                                                                                   onclick="Change_Options(1)"><span--}}
+{{--                                                                                    title="If multiple items are being searched, ALL matches MUST be present to render a result in the list below."> Match All</span>--}}
+{{--                                                                            <input tabindex="3" type="checkbox"--}}
+{{--                                                                                   id="Include_Verses" value="Verses"--}}
+{{--                                                                                   title="Includes the Verse name in the Gematria calculation.Example: If checked, 'Genesis 1:1' + 'In the beginning God created the heaven and the earth.'instead of just the verse 'In the beginning God created the heaven and the earth.'"--}}
+{{--                                                                                   onclick="Change_Options()"><span--}}
+{{--                                                                                    title="Includes the Verse name in the Gematria calculation. Example: If checked, 'Genesis 1:1' + 'In the beginning God created the heaven and the earth.' instead of just the verse 'In the beginning God created the heaven and the earth.'"> Include Verse Name</span>--}}
                                                                             <div class="mo-only"><br>
                                                                                 <script>
                                                                                     function myFunction2(x) {
@@ -410,51 +169,51 @@
                                                                     </div>
                                                                 </div>
                                                                 <div id="secondRow" class="row">
-                                                                    <div class="col-xs-12 col-lg-6">
-                                                                        <h3 class="mo-only"
-                                                                            onclick="myFunction3(this), verseNumberSearchShow()">
-                                                                            <span> + </span>Verse Number Search</h3>
-                                                                        <h3 class="no-mo">Verse Number Search</h3>
-                                                                        <div id="verseNumberSearchSection">
-                                                                            <label>Enter Verse Number</label>
-                                                                            <br>
-                                                                            <input id="verseNumber"
-                                                                                   class="form-control form-control-sm"
-                                                                                   type="number" tabindex="1">
-                                                                            <script>
-                                                                                var input = document.getElementById("verseNumber");
-                                                                                input.addEventListener("keypress", function (event) {
-                                                                                    if (event.key === "Enter") {
-                                                                                        event.preventDefault();
-                                                                                        document.getElementById("verseSearchButton").click();
-                                                                                    }
-                                                                                });
-                                                                            </script>
-                                                                            <button id="verseSearchButton"
-                                                                                    class="buttonFunction"
-                                                                                    onclick="SearchByVerseNumber()"
-                                                                                    value="Search Verse Number">SEARCH
-                                                                            </button>
-                                                                            <div class="mo-only"><br>
-                                                                                <script>
-                                                                                    function myFunction3(x) {
-                                                                                        x.classList.toggle("change");
-                                                                                    }
-                                                                                </script>
-                                                                                <script>
-                                                                                    function verseNumberSearchShow() {
-                                                                                        var x = document.getElementById("verseNumberSearchSection");
-                                                                                        if (x.style.display === "block") {
-                                                                                            x.style.display = "none";
-                                                                                        } else {
-                                                                                            x.style.display = "block";
-                                                                                        }
-                                                                                    }
-                                                                                </script>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="options" class="col-xs-12 col-lg-6">
+{{--                                                                    <div class="col-xs-12 col-lg-6">--}}
+{{--                                                                        <h3 class="mo-only"--}}
+{{--                                                                            onclick="myFunction3(this), verseNumberSearchShow()">--}}
+{{--                                                                            <span> + </span>Verse Number Search</h3>--}}
+{{--                                                                        <h3 class="no-mo">Verse Number Search</h3>--}}
+{{--                                                                        <div id="verseNumberSearchSection">--}}
+{{--                                                                            <label>Enter Verse Number</label>--}}
+{{--                                                                            <br>--}}
+{{--                                                                            <input id="verseNumber"--}}
+{{--                                                                                   class="form-control form-control-sm"--}}
+{{--                                                                                   type="number" tabindex="1">--}}
+{{--                                                                            <script>--}}
+{{--                                                                                var input = document.getElementById("verseNumber");--}}
+{{--                                                                                input.addEventListener("keypress", function (event) {--}}
+{{--                                                                                    if (event.key === "Enter") {--}}
+{{--                                                                                        event.preventDefault();--}}
+{{--                                                                                        document.getElementById("verseSearchButton").click();--}}
+{{--                                                                                    }--}}
+{{--                                                                                });--}}
+{{--                                                                            </script>--}}
+{{--                                                                            <button id="verseSearchButton"--}}
+{{--                                                                                    class="buttonFunction"--}}
+{{--                                                                                    onclick="SearchByVerseNumber()"--}}
+{{--                                                                                    value="Search Verse Number">SEARCH--}}
+{{--                                                                            </button>--}}
+{{--                                                                            <div class="mo-only"><br>--}}
+{{--                                                                                <script>--}}
+{{--                                                                                    function myFunction3(x) {--}}
+{{--                                                                                        x.classList.toggle("change");--}}
+{{--                                                                                    }--}}
+{{--                                                                                </script>--}}
+{{--                                                                                <script>--}}
+{{--                                                                                    function verseNumberSearchShow() {--}}
+{{--                                                                                        var x = document.getElementById("verseNumberSearchSection");--}}
+{{--                                                                                        if (x.style.display === "block") {--}}
+{{--                                                                                            x.style.display = "none";--}}
+{{--                                                                                        } else {--}}
+{{--                                                                                            x.style.display = "block";--}}
+{{--                                                                                        }--}}
+{{--                                                                                    }--}}
+{{--                                                                                </script>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+                                                                    <div id="options" class="col-md-6 offset-md-3 mb-4">
                                                                         <h3 class="mo-only"
                                                                             onclick="myFunction4(this), optionsShow()">
                                                                             <span> + </span>Options</h3>
@@ -530,8 +289,8 @@
 
                                                                 <div id="resultsContainer" class="row">
                                                                     <center>
-                                                                        <div id="DropHere" class="col-xs-12">31 results
-                                                                            for Book 'Genesis: Chapter 1' found
+                                                                        <div id="DropHere" class="col-xs-12">
+{{--                                                                            31 results for Book 'Genesis: Chapter 1' found--}}
                                                                             <table id="MainTable" class="table">
                                                                                 <thead>
                                                                                 <tr>
@@ -1095,9 +854,230 @@
 @endsection
 
 @section('js')
-    <script src="{{asset('js/bibletool.js')}}"></script>
-    <script src="{{asset('js/cipherbuilder.js')}}"></script>
-    <script src="{{asset('js/load.js')}}"></script>
+{{--    <script src="{{asset('js/bibletool.js')}}"></script>--}}
+{{--    <script src="{{asset('js/cipherbuilder.js')}}"></script>--}}
+{{--    <script src="{{asset('js/load.js')}}"></script>--}}
+    <script>
+        $(document).ready(() => {
+            let headers = {
+                'accept':'application/json',
+                'api-key':'b2b1fcabd2cedd206131d848c2a7c759'
+            };
+
+            const get_books = () => {
+                $.ajax({
+                    url: 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books',
+                    method: 'GET',
+                    headers: headers,
+                    success: (data) => {
+                        if (data.data) {
+                            return set_books(data.data);
+                        }
+
+                        return set_books([]);
+                    },
+                    error: (error) => {
+                        return set_books([]);
+                    },
+                });
+            }
+
+            const set_books = (books) => {
+                let selector = $('#select_book');
+                selector.html('<option value="">Select book</option>');
+
+                for (const book of books) {
+                    selector.append('<option value="'+book.id+'">'+book.name+'</option>');
+                }
+            }
+
+            const get_chapters = (book_id) => {
+                $.ajax({
+                    url: 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books/'+book_id+'/chapters',
+                    method: 'GET',
+                    headers: headers,
+                    success: (data) => {
+                        if (data.data) {
+                            return set_chapters(data.data);
+                        }
+
+                        return set_chapters([]);
+                    },
+                    error: (error) => {
+                        return set_chapters([]);
+                    },
+                });
+            }
+
+            const set_chapters = (chapters) => {
+                let selector = $('#select_chapter');
+                selector.html('<option value="">Select chapter</option>');
+
+                for (const chapter of chapters) {
+                    selector.append('<option value="'+chapter.id+'">'+chapter.number+'</option>');
+                }
+            }
+
+            const get_verses = (chapter_id) => {
+                $.ajax({
+                    url: 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/chapters/'+chapter_id+'/verses',
+                    method: 'GET',
+                    headers: headers,
+                    success: (data) => {
+                        if (data.data) {
+                            return set_verses(data.data);
+                        }
+
+                        return set_verses([]);
+                    },
+                    error: (error) => {
+                        return set_verses([]);
+                    },
+                });
+            }
+
+            const set_verses = (verses) => {
+                let selector = $('#select_verse');
+                selector.html('<option value="">Select verse</option>');
+
+                let count = 1;
+                for (const verse of verses) {
+                    selector.append('<option value="'+verse.id+'">'+count+'</option>');
+                    count += 1;
+                }
+            }
+
+            const get_verse_detail = (verse_id) => {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/' + verse_id,
+                        method: 'GET',
+                        headers: headers,
+                        success: function(data) {
+                            resolve(data.data); // Resolve the Promise with the data
+                        },
+                        error: function(error) {
+                            reject(error); // Handle the error
+                        }
+                    });
+                });
+            }
+
+            const search_verses = (query) => {
+                if (query === '') {
+                    return false;
+                }
+
+                $.ajax({
+                    url: 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/search',
+                    method: 'GET',
+                    headers: headers,
+                    data: {
+                        query: query,
+                        limit: 40
+                    },
+                    success: (data) => {
+                        if (data.data.verses) {
+                            return submit_verses(data.data.verses);
+                        }
+
+                        return submit_verses([]);
+                    },
+                    error: (error) => {
+                        return submit_verses([]);
+                    },
+                });
+            }
+
+            const submit_verses = (verses) => {
+                console.log(verses);
+
+                //your code here
+            }
+
+            $('#select_book').on('change', function () {
+                $('#select_chapter').val('').trigger('change');
+
+                if ($(this).val() === '') {
+                    return false;
+                }
+
+                return get_chapters($(this).val());
+            });
+
+            $('#select_chapter').on('change', function () {
+                $('#select_verse').val('').trigger('change');
+
+                if ($(this).val() === '') {
+                    return false;
+                }
+
+                return get_verses($(this).val());
+            });
+
+            $('#btn_search_by_chapter').on('click', function () {
+                let selected_chapter = $('#select_chapter').val();
+                let selected_verse = $('#select_verse').val();
+
+                if (selected_chapter === '') {
+                    return false;
+                }
+
+                let url = (selected_verse === '') ?
+                    'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/chapters/'+selected_chapter+'/verses'
+                    : 'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/' + selected_verse;
+
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    headers: headers,
+                    success: (data) => {
+                        let result = [];
+                        if (selected_verse === '') {
+                            for (const item of data.data) {
+                                get_verse_detail(item.id).then(res => {
+                                    result.push(res);
+
+                                    if (data.data.length === result.length) {
+                                        result = result.sort((a, b) => {
+                                            const numA = parseInt(a.id.split('.').pop());
+                                            const numB = parseInt(b.id.split('.').pop());
+                                            if (numA < numB) {
+                                                return -1;
+                                            }
+                                            if (numA > numB) {
+                                                return 1;
+                                            }
+                                            return 0; // equal
+                                        });
+
+                                        submit_verses(result);
+                                    }
+                                });
+                            }
+                        } else {
+                            submit_verses([data.data]);
+                        }
+                    },
+                    error: (error) => {
+                        submit_verses([]);
+                    },
+                });
+
+            });
+
+            $('#btn_search_by_query').on('click', function () {
+                let val = $('#input_query').val();
+                if (val === '') {
+                    return false;
+                }
+
+                return search_verses(val);
+            });
+
+            get_books();
+        });
+    </script>
 @endsection
 
 
