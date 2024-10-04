@@ -845,12 +845,6 @@
             }, 0);
         }
 
-
-        // Function to calculate Ordinal value
-        // function calculateOrdinalCiphers(input) {
-        //     return [...input].reduce((sum, char) => sum + (alphabet[char.toLowerCase()] || 0), 0);
-        // }
-
         // Function to calculate Ordinal value
         function calculateOrdinal(input) {
             return [...input].reduce((sum, char) => sum + (alphabet[char.toLowerCase()] || 0), 0);

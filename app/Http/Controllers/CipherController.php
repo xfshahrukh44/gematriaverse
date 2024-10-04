@@ -173,4 +173,51 @@ class CipherController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function changeCiphers(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required',
+            'cipher_id' => 'required',
+            'status' => 'required',
+        ]);
+
+        $user_id = $request->input('user_id');
+        $cipher_id = $request->input('cipher_id');
+        $status = $request->input('status');
+        $excludedCiphers = ['D0', 'D1', 'D2', 'D3'];
+
+        if (!in_array($cipher_id, $excludedCiphers)) {
+            $existingSetting = CipherSetting::where('user_id', $user_id)
+                ->where('cipher_id', $cipher_id)
+                ->first();
+
+            if ($existingSetting) {
+                $existingSetting->update(['status' => $status]);
+            } else {
+                CipherSetting::create([
+                    'user_id' => $user_id,
+                    'cipher_id' => $cipher_id,
+                    'status' => $status,
+                ]);
+            }
+        } else {
+            $existingSetting = CipherSetting::where('user_id', $user_id)
+                ->where('cipher_id', $cipher_id)
+                ->first();
+
+            if ($existingSetting) {
+                $existingSetting->update(['status' => $status]);
+            } else {
+                CipherSetting::create([
+                    'user_id' => $user_id,
+                    'cipher_id' => $cipher_id,
+                    'status' => $status,
+                ]);
+            }
+        }
+
+        return response()->json(['success' => true]);
+    }
+
+
 }

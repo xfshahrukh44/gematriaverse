@@ -221,15 +221,34 @@
                                                                         <div id="optionsSection">
                                                                             <button class="buttonFunction width150"><a
                                                                                         id="ciphModBtn"
-                                                                                        onclick="javascript:Open_Ciphers()"
-                                                                                        data-fancybox="ciphers"
+                                                                                        data-fancybox=""
                                                                                         data-src="#ciphMod">Ciphers</a>
                                                                             </button>
                                                                             <!-- CIPHER MODAL -->
                                                                             <div id="ciphMod" class="ciphMod">
                                                                                 <center>
                                                                                     <h2 id="toph2">Ciphers</h2>
-                                                                                    <ul id="cipherBox"></ul>
+                                                                                    @if (Auth::check())
+                                                                                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+                                                                                    @else
+                                                                                        @php
+                                                                                            if (!session()->has('temp_id')) {
+                                                                                                session(['temp_id' => uniqid('temp_', true)]);
+                                                                                            }
+                                                                                        @endphp
+                                                                                        <input type="hidden" name="user_id" id="user_id" value="{{ session('temp_id') }}">
+                                                                                    @endif
+                                                                                    <ul id="cipherBox">
+                                                                                        @foreach ($ciphersAll as $item)
+                                                                                            @php
+                                                                                                $rgb = json_decode($item['rgb_values'], true);
+                                                                                                $red = $rgb['red'] ?? 0;
+                                                                                                $green = $rgb['green'] ?? 0;
+                                                                                                $blue = $rgb['blue'] ?? 0;
+                                                                                            @endphp
+                                                                                            <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                        @endforeach
+                                                                                     </ul>
                                                                                 </center>
                                                                                 <center>
                                                                                     <!-- <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Update_Ciphers(), jQuery.fancybox.close();"><img decoding="async" src="tools/calculator/img/save-icon.png" class="imgTop" width="16">Update</button> -->
@@ -290,545 +309,21 @@
                                                                 <div id="resultsContainer" class="row">
                                                                     <center>
                                                                         <div id="DropHere" class="col-xs-12">
-{{--                                                                            31 results for Book 'Genesis: Chapter 1' found--}}
                                                                             <table id="MainTable" class="table">
                                                                                 <thead>
                                                                                 <tr>
                                                                                     <th>Verse</th>
-                                                                                    <th>Ordinal</th>
+                                                                                    {{-- <th>Ordinal</th>
                                                                                     <th>Reduction</th>
                                                                                     <th>Reverse</th>
-                                                                                    <th>Reverse Reduction</th>
+                                                                                    <th>Reverse Reduction</th> --}}
+                                                                                    @foreach ($ciphers as $cipher)
+                                                                                    <th>{{ $cipher['name'] }}</th>
+                                                                                    @endforeach
                                                                                 </tr>
                                                                                 </thead>
-                                                                                <tbody>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:1')">Genesis
-                                                                                            1:1</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">411</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">222</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">777</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">219</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:2')">Genesis
-                                                                                            1:2</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1238</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">509</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1732</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">562</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:3')">Genesis
-                                                                                            1:3</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">408</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">192</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">699</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">222</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:4')">Genesis
-                                                                                            1:4</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">706</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">310</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1076</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">347</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:5')">Genesis
-                                                                                            1:5</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">908</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">431</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1549</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">469</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:6')">Genesis
-                                                                                            1:6</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">967</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">400</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1382</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">500</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:7')">Genesis
-                                                                                            1:7</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1266</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">564</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1866</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">633</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:8')">Genesis
-                                                                                            1:8</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">713</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">344</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1231</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">358</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:9')">Genesis
-                                                                                            1:9</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1047</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">435</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1599</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">519</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:10')">Genesis
-                                                                                            1:10</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">968</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">419</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1597</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">499</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:11')">Genesis
-                                                                                            1:11</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1523</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">677</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2149</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">763</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:12')">Genesis
-                                                                                            1:12</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1493</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">656</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2179</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">757</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:13')">Genesis
-                                                                                            1:13</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">443</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">218</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">664</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">205</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:14')">Genesis
-                                                                                            1:14</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1371</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">606</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2085</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">681</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:15')">Genesis
-                                                                                            1:15</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">897</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">384</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1236</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">408</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:16')">Genesis
-                                                                                            1:16</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1130</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">464</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1570</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">535</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:17')">Genesis
-                                                                                            1:17</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">684</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">306</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">963</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">297</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:18')">Genesis
-                                                                                            1:18</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1025</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">422</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1405</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">478</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:19')">Genesis
-                                                                                            1:19</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">472</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">220</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">662</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">203</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:20')">Genesis
-                                                                                            1:20</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1404</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">594</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2025</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">666</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:21')">Genesis
-                                                                                            1:21</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1786</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">751</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2480</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">860</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:22')">Genesis
-                                                                                            1:22</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1124</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">431</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1495</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">532</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:23')">Genesis
-                                                                                            1:23</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">433</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">217</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">674</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">197</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:24')">Genesis
-                                                                                            1:24</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1274</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">581</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2020</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">697</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:25')">Genesis
-                                                                                            1:25</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1412</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">620</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2206</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">730</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:26')">Genesis
-                                                                                            1:26</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">2149</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">934</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">3089</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">1028</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:27')">Genesis
-                                                                                            1:27</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">734</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">392</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1453</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">418</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:28')">Genesis
-                                                                                            1:28</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">2128</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">904</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2948</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">977</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:29')">Genesis
-                                                                                            1:29</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1642</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">769</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2462</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">797</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:30')">Genesis
-                                                                                            1:30</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1676</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">740</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">2239</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">754</font>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><a class="verLink"
-                                                                                           href="javascript:OpenDetails('Genesis_1:31')">Genesis
-                                                                                            1:31</a></td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(0, 186, 0)">1031</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(88, 125, 254)">464</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(80, 235, 21)">1534</font>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <font style="color: RGB(100, 226, 226)">472</font>
-                                                                                    </td>
-                                                                                </tr>
+                                                                                <tbody id="cipher-body">
+                                                                                    <!-- Rows will be dynamically inserted here by JavaScript -->
                                                                                 </tbody>
                                                                             </table>
                                                                         </div>
@@ -858,6 +353,38 @@
 {{--    <script src="{{asset('js/cipherbuilder.js')}}"></script>--}}
 {{--    <script src="{{asset('js/load.js')}}"></script>--}}
     <script>
+
+        function Change_Ciphers(cipherId) {
+            let userId = $('#user_id').val();
+            let isChecked = document.getElementById('Cipher' + cipherId).checked;
+            let status = isChecked ? 1 : 0;
+
+            $.ajax({
+                url: "{{ route('ciphers.change') }}", // Laravel route to update the status
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}', // CSRF token for security
+                    user_id: userId,
+                    cipher_id: cipherId,
+                    status: status
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Cipher status updated successfully');
+                    } else {
+                        console.log('Failed to update cipher status');
+                    }
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        }
+
+        function Cancel_Ciphers() {
+            location.reload();
+        }
+
         $(document).ready(() => {
             let headers = {
                 'accept':'application/json',
@@ -991,9 +518,61 @@
 
             const submit_verses = (verses) => {
                 console.log(verses);
+                verses.forEach((response) => {
+                    if(response == ''){
+                        return false;
+                    }
 
-                //your code here
-            }
+                    let resp_content = (!response.content) ? response.text : response.content;
+
+                    let content = stripTagsAndExtras(resp_content);
+                    let data = calculateGematria(content);
+                    const mergedResponse = {
+                        ...response,
+                        gematriaData: data
+                    };
+
+                    appendGematriaDataToTable([mergedResponse]);
+                });
+            };
+
+            const appendGematriaDataToTable = (responses) => {
+                const tableBody = document.querySelector('#MainTable tbody');
+
+                responses.forEach(response => {
+                    const { id } = response;
+                    const gematriaData = response.gematriaData;
+
+                    const newRow = document.createElement('tr');
+
+                    const verseCell = document.createElement('td');
+                    const verseLink = document.createElement('a');
+                    verseLink.className = 'verLink';
+                    verseLink.href = `javascript:OpenDetails('${id}')`;
+                    verseLink.textContent = response.reference;
+                    verseCell.appendChild(verseLink);
+                    newRow.appendChild(verseCell);
+
+                    gematriaData.forEach(data => {
+                        const key = Object.keys(data)[0]; // Get the cipher key (D0, D1, etc.)
+                        const value = data[key].value; // Get the value
+                        const rgb = data[key].rgb; // Get the RGB values
+
+                        // Create a new table cell
+                        const valueCell = document.createElement('td');
+                        const fontElement = document.createElement('font');
+                        fontElement.style.color = `RGB(${rgb.red}, ${rgb.green}, ${rgb.blue})`; // Set font color
+                        fontElement.textContent = value; // Set the text content to the value
+                        valueCell.appendChild(fontElement); // Append the font element to the cell
+                        newRow.appendChild(valueCell); // Append the cell to the row
+                    });
+
+                    // Append the new row to the table body
+                    tableBody.appendChild(newRow);
+                });
+            };
+
+
 
             $('#select_book').on('change', function () {
                 $('#select_chapter').val('').trigger('change');
@@ -1034,6 +613,7 @@
                     success: (data) => {
                         let result = [];
                         if (selected_verse === '') {
+                            $('#cipher-body').html(``);
                             for (const item of data.data) {
                                 get_verse_detail(item.id).then(res => {
                                     result.push(res);
@@ -1056,6 +636,7 @@
                                 });
                             }
                         } else {
+                            $('#cipher-body').html(``);
                             submit_verses([data.data]);
                         }
                     },
@@ -1076,6 +657,158 @@
             });
 
             get_books();
+
+            function stripTagsAndExtras(input) {
+                // Step 1: Remove HTML tags
+                let stripped = input.replace(/<\/?[^>]+(>|$)/g, "");
+
+                // Step 2: Remove encoded slashes (like \")
+                stripped = stripped.replace(/\\+/g, "");
+
+                // Step 3: Remove numeric values
+                stripped = stripped.replace(/\d+/g, "");
+
+                return stripped.trim();
+            }
+
+
+            let alphabet = @json($D0);
+            let alphabet1 = @json($D1);
+            let alphabet2 = @json($D2);
+            let alphabet3 = @json($D3);
+
+            var small_alphabets = {};
+
+            @foreach ($ciphers as $cipher)
+                var cipherId = "{{ $cipher['id'] }}";
+
+                if (cipherId != 'D0' && cipherId != 'D1' && cipherId != 'D2' && cipherId != 'D3') {
+                    var alphabetData = @json(json_decode($cipher['small_alphabet']));
+                    small_alphabets[cipherId] = alphabetData;
+                }
+            @endforeach
+
+            function calculateOrdinalCiphers(input, cipherId) {
+                return [...input].reduce((sum, char) => {
+                    var alphabetData = small_alphabets[cipherId];
+
+                    // Ensure alphabetData is an object
+                    if (alphabetData && typeof alphabetData === 'object') {
+                        var charValue = alphabetData[char.toLowerCase()];
+
+                        // If a value exists for the character, add it to the sum (parse it as an integer)
+                        return sum + (charValue !== undefined ? parseInt(charValue, 10) : 0);
+                    }
+
+                    return sum;
+                }, 0);
+            }
+
+            // Function to calculate Ordinal value
+            function calculateOrdinal(input) {
+                return [...input].reduce((sum, char) => sum + (alphabet[char.toLowerCase()] || 0), 0);
+            }
+
+            // Function to calculate Reduction value (also known as Pythagorean)
+            function calculateReduction(input) {
+                return [...input].reduce((sum, char) => {
+                    let value = alphabet1[char.toLowerCase()] || 0;
+                    return sum + (value ? (value > 9 ? value - 9 : value) : 0);
+                }, 0);
+            }
+
+            // Function to calculate Reverse Ordinal value
+            function calculateReverseOrdinal(input) {
+                return [...input].reduce((sum, char) => {
+                    let reverseValue = 27 - (alphabet2[char.toLowerCase()] || 0);
+                    return sum + (reverseValue > 0 ? reverseValue : 0);
+                }, 0);
+            }
+
+            // Function to calculate Reverse Reduction value
+            function calculateReverseReduction(input) {
+                return [...input].reduce((sum, char) => {
+                    let reverseValue = 27 - (alphabet3[char.toLowerCase()] || 0);
+                    reverseValue = reverseValue > 9 ? reverseValue - 9 : reverseValue;
+                    return sum + (reverseValue > 0 ? reverseValue : 0);
+                }, 0);
+            }
+
+            // Main function to calculate all values
+            function calculateGematria(word, id = '') {
+                const ordinal = calculateOrdinal(word);
+                const reduction = calculateReduction(word);
+                const reverse = calculateReverseOrdinal(word);
+                const reverseReduction = calculateReverseReduction(word);
+                var cipherResults = {};
+                var d0Exists = false;
+                var d1Exists = false;
+                var d2Exists = false;
+                var d3Exists = false;
+
+                const rgbValues = {
+                    'D0': { red: "0", green: "186", blue: "0" },
+                    'D1': { red: "88", green: "125", blue: "245" },
+                    'D2': { red: "80", green: "235", blue: "21" },
+                    'D3': { red: "100", green: "226", blue: "226" }
+                };
+
+                @foreach ($ciphers as $cipher)
+                    var id = "{{ $cipher['id'] }}";
+
+                    if (id == 'D0') {
+                        d0Exists = true;
+                    }
+                    if (id == 'D1') {
+                        d1Exists = true;
+                    }
+                    if (id == 'D2') {
+                        d2Exists = true;
+                    }
+                    if (id == 'D3') {
+                        d3Exists = true;
+                    }
+
+                    if (id != 'D0' && id != 'D1' && id != 'D2' && id != 'D3') {
+                        var name = "{{ $cipher['name'] }}";
+                        var rgb_values = @json($cipher['rgb_values']);
+                        var red = rgb_values.red;
+                        var green = rgb_values.green;
+                        var blue = rgb_values.blue;
+                        var cipher_name = "{{ $cipher['name'] }}";
+                        var ordinalCiphers = calculateOrdinalCiphers(word, id);
+
+                        cipherResults[`${id}`] = {
+                            value: ordinalCiphers,
+                            rgb: { red, green, blue },
+                            name: name
+                        };
+                    }
+                @endforeach
+
+                let finalArr = [];
+
+                if (d0Exists) {
+                    finalArr.push({ 'D0': { value: ordinal, rgb: rgbValues['D0'], name: 'Ordinal' } });
+                }
+                if(d1Exists){
+                    finalArr.push({ 'D1': { value: reduction, rgb: rgbValues['D1'], name: 'Reduction' } });
+                }
+                if(d2Exists){
+                    finalArr.push({ 'D2': { value: reverse, rgb: rgbValues['D2'], name: 'Reverse' } });
+                }
+                if(d3Exists){
+                    finalArr.push({ 'D3': { value: reverseReduction, rgb: rgbValues['D3'], name: 'Reverse Reduction' } });
+                }
+
+                finalArr.push(
+                    ...Object.entries(cipherResults).map(([key, { value, rgb, name }]) => ({
+                        [key]: { value, rgb, name }
+                    }))
+                );
+                return finalArr;
+            }
+
         });
     </script>
 @endsection

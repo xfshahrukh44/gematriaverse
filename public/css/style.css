@@ -2131,7 +2131,10 @@ span#YearViewYear {
 
 #ciphMod li {
     font-weight: 100;
-    font-size: 19px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #cipherPresets span {
