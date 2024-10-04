@@ -15,9 +15,9 @@ class CipherSettingsSeeder extends Seeder
      */
     public function run()
     {
-        $userId = Session::get('unique_user_id', function() {
+        $userId = Session::get('temp_id', function() {
             $uniqueId = 'temp_' . uniqid();
-            Session::put('unique_user_id', $uniqueId); // Store it in session
+            Session::put('temp_id', $uniqueId); // Store it in session
             return $uniqueId;
         });
 
