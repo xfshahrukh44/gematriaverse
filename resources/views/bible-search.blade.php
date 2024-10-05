@@ -228,16 +228,16 @@
                                                                             <div id="ciphMod" class="ciphMod">
                                                                                 <center>
                                                                                     <h2 id="toph2">Ciphers</h2>
-                                                                                    @if (Auth::check())
+                                                                                    {{-- @if (Auth::check()) --}}
                                                                                         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
-                                                                                    @else
-                                                                                        @php
+                                                                                    {{-- @else --}}
+                                                                                        {{-- @php
                                                                                             if (!session()->has('temp_id')) {
                                                                                                 session(['temp_id' => uniqid('temp_', true)]);
                                                                                             }
                                                                                         @endphp
                                                                                         <input type="hidden" name="user_id" id="user_id" value="{{ session('temp_id') }}">
-                                                                                    @endif
+                                                                                    @endif --}}
                                                                                     <ul id="cipherBox">
                                                                                         @foreach ($ciphersAll as $item)
                                                                                             @php
@@ -246,9 +246,13 @@
                                                                                                 $green = $rgb['green'] ?? 0;
                                                                                                 $blue = $rgb['blue'] ?? 0;
                                                                                             @endphp
-                                                                                            <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                            @if ($user_id == '')
+                                                                                                <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" checked disabled> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                            @else
+                                                                                                <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                            @endif
                                                                                         @endforeach
-                                                                                     </ul>
+                                                                                    </ul>
                                                                                 </center>
                                                                                 <center>
                                                                                     <!-- <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Update_Ciphers(), jQuery.fancybox.close();"><img decoding="async" src="tools/calculator/img/save-icon.png" class="imgTop" width="16">Update</button> -->
