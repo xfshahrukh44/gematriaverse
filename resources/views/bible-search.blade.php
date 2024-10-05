@@ -245,13 +245,21 @@
                                                                                                 $red = $rgb['red'] ?? 0;
                                                                                                 $green = $rgb['green'] ?? 0;
                                                                                                 $blue = $rgb['blue'] ?? 0;
+                                                                                                $status = $item['ci_settings']['status'] ?? null; // Use null if not set
                                                                                             @endphp
                                                                                             @if ($user_id == '')
-                                                                                                <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" checked disabled> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                                <li>
+                                                                                                    <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers('{{ $item['id'] }}')" checked disabled>
+                                                                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
+                                                                                                </li>
                                                                                             @else
-                                                                                                <li><input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers({{ $item['id'] }})" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font></li>
+                                                                                                <li>
+                                                                                                    <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" onclick="Change_Ciphers('{{ $item['id'] }}')" {{ $status == 1 ? 'checked' : '' }}>
+                                                                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
+                                                                                                </li>
                                                                                             @endif
                                                                                         @endforeach
+
                                                                                     </ul>
                                                                                 </center>
                                                                                 <center>
@@ -508,13 +516,15 @@
                         limit: 40
                     },
                     success: (data) => {
-                        if (data.data.verses) {
+                        if (data.data.verses && data.data.verses.length > 0) {
                             return submit_verses(data.data.verses);
+                        } else {
+                            $('#cipher-body').html('<tr><td colspan="999" style=" text-align: center; ">Not Results found</td></tr>'); // Show not found message
+                            return submit_verses([]);
                         }
-
-                        return submit_verses([]);
                     },
                     error: (error) => {
+                        $('#cipher-body').html('<tr><td colspan="999" style=" text-align: center; ">Not Results found</td></tr>');
                         return submit_verses([]);
                     },
                 });
@@ -652,6 +662,7 @@
             });
 
             $('#btn_search_by_query').on('click', function () {
+                $('#cipher-body').html(``);
                 let val = $('#input_query').val();
                 if (val === '') {
                     return false;

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class RegisterController extends Controller
@@ -32,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/'; 
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -75,9 +76,9 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
-        
-        Session::flash('message', 'New Account Created Successfully'); 
-        Session::flash('alert-class', 'alert-success'); 
+
+        Session::flash('message', 'New Account Created Successfully');
+        Session::flash('alert-class', 'alert-success');
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }
@@ -111,5 +112,36 @@ class RegisterController extends Controller
             ->causedBy($user)
             ->log('Registered');
         $user->assignRole('user');
+
+        DB::table('cipher_settings')->insert([
+            [
+                'user_id' => $user->id,
+                'cipher_id' => 'D0',
+                'status' => 1,
+                'created_at' => '2024-10-02 14:00:32',
+                'updated_at' => '2024-10-03 16:02:02',
+            ],
+            [
+                'user_id' => $user->id,
+                'cipher_id' => 'D1',
+                'status' => 1,
+                'created_at' => '2024-10-02 14:00:32',
+                'updated_at' => '2024-10-02 17:19:46',
+            ],
+            [
+                'user_id' => $user->id,
+                'cipher_id' => 'D2',
+                'status' => 1,
+                'created_at' => '2024-10-02 14:00:32',
+                'updated_at' => '2024-10-02 17:19:46',
+            ],
+            [
+                'user_id' => $user->id,
+                'cipher_id' => 'D3',
+                'status' => 1,
+                'created_at' => '2024-10-02 14:00:32',
+                'updated_at' => '2024-10-02 17:19:46',
+            ],
+        ]);
     }
 }
