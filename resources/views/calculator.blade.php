@@ -441,6 +441,7 @@
                                                     $red = $rgb['red'] ?? 0;
                                                     $green = $rgb['green'] ?? 0;
                                                     $blue = $rgb['blue'] ?? 0;
+                                                    $status = $item['ci_settings']['status'] ?? null;
                                                 @endphp
                                                 {{-- <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
                                                     {{ $item['name'] }}
