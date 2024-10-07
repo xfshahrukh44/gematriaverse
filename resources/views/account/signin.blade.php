@@ -73,7 +73,7 @@
                                 @endif
                             </div>
 
-                            <button class="btn proceed_button3 btn-primary" type="submit">Sign Up</button>
+                            <button class="btn custom-btn" type="submit">Sign Up</button>
 
                         </form>
                     </div>
@@ -106,7 +106,7 @@
                                         class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->first('password') }}</small>
                                 @endif
                             </div>
-                            <button class="btn proceed_button3 btn-primary" type="submit">Login</button>
+                            <button class="btn custom-btn" type="submit">Login</button>
                         </form>
                     </div>
 
