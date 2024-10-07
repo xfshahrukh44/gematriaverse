@@ -434,23 +434,34 @@
                                         <li><input type="checkbox" id="CipherD2" checked=""><font style="color: RGB(80, 235, 21)">Reverse</font></li>
                                         <li><input type="checkbox" id="CipherD3" checked=""><font style="color: RGB(100, 226, 226)">Reverse Reduction</font></li> --}}
                                         @foreach ($ciphersAll as $item)
-                                            <li>
-                                                <input type="checkbox" id="Cipher{{ $item['id'] }}" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}>
+                                            {{-- <li>
+                                                <input type="checkbox" id="Cipher{{ $item['id'] }}" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> --}}
                                                 @php
                                                     $rgb = json_decode($item['rgb_values'], true);
                                                     $red = $rgb['red'] ?? 0;
                                                     $green = $rgb['green'] ?? 0;
                                                     $blue = $rgb['blue'] ?? 0;
                                                 @endphp
-                                                <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                {{-- <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
                                                     {{ $item['name'] }}
-                                                </font>
-                                            </li>
+                                                </font> --}}
+                                                @if ($user_id == '')
+                                                    <li>
+                                                        <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" checked disabled>
+                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" {{ $status == 1 ? 'checked' : '' }}>
+                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
+                                                    </li>
+                                                @endif
+                                            {{-- </li> --}}
                                         @endforeach
                                     </ul>
                                 </center>
 
-                                <div id="cipherSelectsContainer">
+                                <div id="cipherSelectsContainer" style="{{ Auth::check() ? '' : 'display: none' }}">
                                     <div class="cipherSelects">
                                         <button class="buttonFunctionCiphers" id="SelectBaseCiphersBtn" onclick="SelBaseCiphers()">Select Base</button>
                                     </div>
@@ -461,22 +472,15 @@
                                         <button class="buttonFunctionCiphers" id="ClearAllCiphersBtn" onclick="SelAllCiphers(false)">Clear All</button>
                                     </div>
                                 </div>
+
                                 <div id="cipherUpdateCancelContainer">
                                     @if (Auth::check())
                                         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
-                                    @else
-                                        @php
-                                            if (!session()->has('temp_id')) {
-                                                session(['temp_id' => uniqid('temp_', true)]);
-                                            }
-                                        @endphp
-                                        <input type="hidden" name="user_id" id="user_id" value="{{ session('temp_id') }}">
                                     @endif
-                                    <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Close_Ciphers(); jQuery.fancybox.close();">
-                                        <!--<img decoding="async" src="tools/calculator-advanced/img/save-icon.png" class="imgTop" width="16">-->Update
-                                    </button>
+                                    <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Close_Ciphers(); jQuery.fancybox.close();">Update</button>
                                     <button class="buttonFunctionCiphers" id="CancelCiphers" onclick="Cancel_Ciphers()">Cancel</button>
                                 </div>
+
                                 {{-- <center>
                                     <div id="cipherPresets">
                                         <h2>Cipher Presets</h2>

@@ -150,10 +150,7 @@ class FrontController extends Controller
     public function calculator ()
     {
 
-        if (!session()->has('temp_id')) {
-            session(['temp_id' => uniqid('temp_', true)]);
-        }
-        $user_id = Auth::check() ? Auth::user()->id : session('temp_id');
+        $user_id = Auth::check() ? Auth::user()->id : '';
 
         $staticCiphers = [
             [
@@ -196,7 +193,41 @@ class FrontController extends Controller
         $D3 = array_map('intval', json_decode($staticCiphers[3]['small_alphabet'], true));
 
         // All Ciphers
+        $tempArr = [];
         $ci_settings = CipherSetting::where('user_id', $user_id)->get();
+
+        if ($ci_settings->isEmpty()) {  // Use isEmpty() for Eloquent collections
+            $tempArr = [
+                [
+                    'user_id' => 'temp',
+                    'cipher_id' => 'D0',
+                    'status' => 1,
+                    'created_at' => '2024-10-02 14:00:32',
+                    'updated_at' => '2024-10-03 16:02:02',
+                ],
+                [
+                    'user_id' => 'temp',
+                    'cipher_id' => 'D1',
+                    'status' => 1,
+                    'created_at' => '2024-10-02 14:00:32',
+                    'updated_at' => '2024-10-02 17:19:46',
+                ],
+                [
+                    'user_id' => 'temp',
+                    'cipher_id' => 'D2',
+                    'status' => 1,
+                    'created_at' => '2024-10-02 14:00:32',
+                    'updated_at' => '2024-10-02 17:19:46',
+                ],
+                [
+                    'user_id' => 'temp',
+                    'cipher_id' => 'D3',
+                    'status' => 1,
+                    'created_at' => '2024-10-02 14:00:32',
+                    'updated_at' => '2024-10-02 17:19:46',
+                ],
+            ];
+        }
 
         $updatedCiphers = $staticCiphers;
 
@@ -210,7 +241,11 @@ class FrontController extends Controller
 
         $ciphers_temp1 = Cipher::with('ci_settings')->get();
         $ciphersFromDBArray = $ciphers_temp1->toArray();
-        $ciphersAll = array_merge($updatedCiphers, $ciphersFromDBArray);
+        if($user_id == ''){
+            $ciphersAll = array_merge($updatedCiphers);
+        }else{
+            $ciphersAll = array_merge($updatedCiphers, $ciphersFromDBArray);
+        }
 
         // Filter cipher status 1
         $filteredStaticCiphers = array_filter($staticCiphers, function ($cipher) use ($user_id) {
@@ -225,11 +260,14 @@ class FrontController extends Controller
                     ->where('status', 1);
             })->get();
         $ciphersFromDBArray = $ciphers_temp2->toArray();
-        $ciphers = array_merge($filteredStaticCiphers, $ciphersFromDBArray);
+        if($user_id == ''){
+            $ciphers = array_merge($updatedCiphers);
+        }else{
+            $ciphers = array_merge($filteredStaticCiphers, $ciphersFromDBArray);
+        }
+
         $first_ciphers = $ciphers[0];
-        // $userCiphers = CipherSetting::where('user_id', $user_id)->get();
-        // $userCipherStatuses = $userCiphers->pluck('status', 'cipher_id')->toArray();
-        return view('calculator', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3'));
+        return view('calculator', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
     }
     public function calendar ()
     {
