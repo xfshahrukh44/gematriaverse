@@ -61,41 +61,41 @@
                             <div id="Gematria_Table">
                                 <table id="GemTable">
                                     <tbody>
-                                    <tr id="tr_cipher_names">
-{{--                                        <td class="GemTableHeader">--}}
-{{--                                            <div class="GemTableHeader">--}}
-{{--                                                <font style="color: RGB(139, 200, 163)">Greek Isopsephy</font>--}}
-{{--                                            </div>--}}
-{{--                                        </td>--}}
-{{--                                        <td class="GemTableHeader">--}}
-{{--                                            <div class="GemTableHeader">--}}
-{{--                                                <font style="color: RGB(149, 199, 139)">Greek Ordinal</font>--}}
-{{--                                            </div>--}}
-{{--                                        </td>--}}
-{{--                                        <td class="GemTableHeader">--}}
-{{--                                            <div class="GemTableHeader">--}}
-{{--                                                <font style="color: RGB(156, 201, 171)">Greek Reduction</font>--}}
-{{--                                            </div>--}}
-{{--                                        </td>--}}
-                                    </tr>
-                                    <tr></tr>
-                                    <tr id="tr_cipher_values">
-{{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Isopsephy">--}}
-{{--                                            <font style="color: RGB(139, 200, 163);">--}}
-{{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="isopsephy">0</b></div>--}}
-{{--                                            </font>--}}
-{{--                                        </td>--}}
-{{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Ordinal">--}}
-{{--                                            <font style="color: RGB(149, 199, 139);">--}}
-{{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="ordinal">0</b></div>--}}
-{{--                                            </font>--}}
-{{--                                        </td>--}}
-{{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Reduction">--}}
-{{--                                            <font style="color: RGB(156, 201, 171);">--}}
-{{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="reduction">0</b></div>--}}
-{{--                                            </font>--}}
-{{--                                        </td>--}}
-                                    </tr>
+                                        <tr id="tr_cipher_names">
+    {{--                                        <td class="GemTableHeader">--}}
+    {{--                                            <div class="GemTableHeader">--}}
+    {{--                                                <font style="color: RGB(139, 200, 163)">Greek Isopsephy</font>--}}
+    {{--                                            </div>--}}
+    {{--                                        </td>--}}
+    {{--                                        <td class="GemTableHeader">--}}
+    {{--                                            <div class="GemTableHeader">--}}
+    {{--                                                <font style="color: RGB(149, 199, 139)">Greek Ordinal</font>--}}
+    {{--                                            </div>--}}
+    {{--                                        </td>--}}
+    {{--                                        <td class="GemTableHeader">--}}
+    {{--                                            <div class="GemTableHeader">--}}
+    {{--                                                <font style="color: RGB(156, 201, 171)">Greek Reduction</font>--}}
+    {{--                                            </div>--}}
+    {{--                                        </td>--}}
+                                        </tr>
+                                        <tr></tr>
+                                        <tr id="tr_cipher_values">
+    {{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Isopsephy">--}}
+    {{--                                            <font style="color: RGB(139, 200, 163);">--}}
+    {{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="isopsephy">0</b></div>--}}
+    {{--                                            </font>--}}
+    {{--                                        </td>--}}
+    {{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Ordinal">--}}
+    {{--                                            <font style="color: RGB(149, 199, 139);">--}}
+    {{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="ordinal">0</b></div>--}}
+    {{--                                            </font>--}}
+    {{--                                        </td>--}}
+    {{--                                        <td class="GemTableValue InSeqList" id="TableValue_Greek_Reduction">--}}
+    {{--                                            <font style="color: RGB(156, 201, 171);">--}}
+    {{--                                                <div class="NumberClass"><b class="justnumber" onclick="javascript:void(0);" id="reduction">0</b></div>--}}
+    {{--                                            </font>--}}
+    {{--                                        </td>--}}
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -1047,19 +1047,9 @@
             $('#EntryField').on('keyup', function () {
                 let val = $(this).val();
 
-                if (val == "") {
-                    $('#isopsephy').text('0');
-                    $('#ordinal').text('0');
-                    $('#reduction').text('0');
-                }
-
                 countWordsAndLetters(val);
                 generate_cipher_queue(val);
                 calculateGematria(val);
-
-                // $('#isopsephy').text(data.isopsephy);
-                // $('#ordinal').text(data.ordinal);
-                // $('#reduction').text(data.reduction);
 
                 return true;
             });
