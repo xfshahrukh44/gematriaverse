@@ -435,7 +435,7 @@
     <section class="derek">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="video_calculator">
                         <h2>CALCULATOR TUTORIAL</h2>
                         <iframe title="Gematriaverse Calculator Tutorial" width="500" height="281"
@@ -443,6 +443,8 @@
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen="" data-gtm-yt-inspected-10="true"></iframe>
                     </div>
+                </div>
+                <div class="col-lg-6">
                     <div class="video_calculator">
                         <h2>DATE CALCULATOR TUTORIAL</h2>
                         <iframe title="Date Calculator Instructions" width="500" height="281"

@@ -31,7 +31,7 @@
     <section class="about-history-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="about-history-section-text">
                         <h2 class="heading-2">THE HISTORY<span class="d-block">OF Gematriaverse</span></h2>
                         <p class="para-1">Hello. My name is Derek Tikkuri. My skepticism about the world as it is presented to us dates back to the 9/11 attacks in 2001, when I was just a junior in high school.</p>
@@ -40,11 +40,11 @@
                         <p class="para-1">Almost immediately after doing so, I began noticing that not only was this code relevant to the news and the many fake stories I learned were being run, but also to events in my own real life. My fascination only grew as more and more revealed itself, and here in 2022 I have never been as passionate about not only sharing my discoveries, but giving people the ability to easily find their own as well.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-history-section-img">
-                        <img src="{{asset('images/gem-512x512-1-374x512.png')}}" alt="" class="img-fluid">
-                    </div>
-                </div>
+{{--                <div class="col-lg-6">--}}
+{{--                    <div class="about-history-section-img">--}}
+{{--                        <img src="{{asset('images/gem-512x512-1-374x512.png')}}" alt="" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-lg-12">
                     <div class="about-history-section-bottom text-center">
                         <h3 class="heading-3">DEDICATED TO...</h3>
