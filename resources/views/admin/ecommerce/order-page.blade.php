@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @push('before-css')
   <link href="{{asset('assets/css/pages/order-page.css')}}" rel="stylesheet" type="text/css">
 @endpush
@@ -21,7 +21,7 @@
                       </div>
                       <button class="btn btn-primary disabled"><span>Pending</span></button>
                     </li>
-					
+
                     <li class="non-active">
                       <div class="white-bg">
                         <div class="circle-top"><div class="circle-1"></div>
@@ -37,7 +37,7 @@
                         </div>
                       </div>
                       <button class="btn btn-primary"><span>Pending</span></button></li>
-					
+
                     <li class="active-link">
                       <div class="white-bg">
                         <div class="circle-top"><div class="circle-1"></div>
@@ -98,7 +98,7 @@
               <table class="table product-table color-table primary-table">
                 <thead>
                 <tr>
-				
+
                   <th>ID </th>
                   <th>Product</th>
                   <th>&nbsp;</th>
@@ -113,12 +113,12 @@
       $total_variation = 0
       ?>
 
-				@foreach($order_products as $order_product)	
+				@foreach($order_products as $order_product)
 						<?php $product = App\Product::where('id',$order_product->order_products_product_id)->first(); // Helper::returnRow("products_header","id = ".$order_product->order_products_product_id); ?>
 					<tr>
-					
+
             <td>{{ $order_product->order_products_id }}</td>
-            <td> <img src="{{asset($product->image)}}" alt="" title=""> </td> 
+            <td> <img src="{{asset($product->image)}}" alt="" title=""> </td>
               <td class="text-dark weight-600">
               {{$order_product->order_products_name}}
               @php
@@ -127,7 +127,7 @@
               @endphp
               <?php  $toppingtotal += $value->price?>
               @foreach($variants as $key => $value)
-              
+
               <?php  $toppingtotal += $value->price?>
               <p class="mb-0"> {{ $value->attribute }} - {{ $value->attribute_val }} - ${{$value->attribute_price}}</p>
               @php
@@ -144,14 +144,14 @@
               <td>${{$order_product->order_products_subtotal}}</td>
 
 					</tr>
-				
-			<?php $subtotal+= $order_product->order_products_qty * $order_product->order_products_price; 
-      
-        
+
+			<?php $subtotal+= $order_product->order_products_qty * $order_product->order_products_price;
+
+
 
       ?>
 				@endforeach
-             
+
 
                 <tr>
                   <td colspan="2" class="custom-product">&nbsp;</td>

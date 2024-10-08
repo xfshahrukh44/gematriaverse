@@ -42,11 +42,11 @@ class LoginController extends Controller
                select('img_path')
                ->where('table_name','=','logo')
                ->first();
-       
+
           $favicon = imagetable::
                            select('img_path')
                            ->where('table_name','=','favicon')
-                           ->first();  
+                           ->first();
 
         View()->share('logo',$logo);
         View()->share('favicon',$favicon);
@@ -58,17 +58,17 @@ class LoginController extends Controller
             ->performedOn($user)
             ->causedBy($user)
             ->log('LoggedIn');
-        
+
           if(auth()->user()->isAdmin() == true) {
-               return redirect('admin/dashboard');
+            return redirect()->route('admin.dashboard');
           } else {
 
-                Session::flash('message', 'You have logged In  Successfully'); 
-                Session::flash('alert-class', 'alert-success'); 
+                Session::flash('message', 'You have logged In  Successfully');
+                Session::flash('alert-class', 'alert-success');
                return redirect('account');
-          }     
-            
-         
+          }
+
+
     }
 
     public function logout(Request $request)
@@ -83,5 +83,5 @@ class LoginController extends Controller
 
         return redirect('/login');
     }
-    
+
 }

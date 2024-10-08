@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
 @push('before-css')
     <link rel="stylesheet" href="{{asset('assets/css/datatables.min.css')}}">
 @endpush

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @push('before-css')
     <link rel="stylesheet" href="{{asset('plugins/vendors/dropify/dist/css/dropify.min.css')}}">
 @endpush

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('after-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -14,7 +14,7 @@
                 <div class="white-box card">
                     <div class="card-body">
                         <h3 class="box-title pull-left">Users List</h3>
-                        
+
                         <div class="clearfix"></div>
                         <hr>
                         <div class="row">

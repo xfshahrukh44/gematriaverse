@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @push('before-css')
     <link rel="stylesheet" href="{{asset('plugins/vendors/dropify/dist/css/dropify.min.css')}}">
 @endpush
@@ -131,7 +131,7 @@
                     }
                 },
                 });
-            
+
         }
 
         function getval(sel)
@@ -140,7 +140,7 @@
             let value = sel.value;
 
             // alert(value);
-            
+
             $.ajax({
             url: "{{ route('get-attributes')}}",
                 type:"POST",

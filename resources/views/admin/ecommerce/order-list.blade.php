@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -53,7 +53,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                     @foreach($orders as $item) 
+                                     @foreach($orders as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td class="text-dark weight-600">
@@ -63,7 +63,7 @@
                                                 <td>{{ $item->order_status }}</td>
                                                 <td>{{date('d F, Y h:m a',strtotime($item->created_at))}}</td>
                                                 <td class="text-center">
-                                                    
+
                                                 <!--    <a title="View Invoice" data-toggle="tooltip" href="{{ url('/invoice/' . $item->id) }}" target="_blank">
                                                 <i class="fas fa-file"></i></a> -->
                                                 <a title="View Detail" data-toggle="tooltip" href="{{ url('admin/order/detail/' . $item->id) }}" class="btn btn-primary btn-sm">
@@ -78,7 +78,7 @@
                                                             </a></td> -->
                                             </tr>
                                     @endforeach
-                              
+
                                 </tbody>
                             </table>
                         </div>

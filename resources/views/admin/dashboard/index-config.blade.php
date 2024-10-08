@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
-    
+
 @endpush
 
 @section('content')
@@ -42,7 +42,7 @@
                               @csrf
                               <div class="form-body">
                                     <div class="row">
-                                        <?php 
+                                        <?php
                                             $_getConfig = DB::table('m_flag')->where('is_active','1')->where('is_config','1')->get();
                                         ?>
                                         @foreach($_getConfig as $_Config)
@@ -118,5 +118,5 @@
 @endsection
 
 @push('js')
-    
+
 @endpush
