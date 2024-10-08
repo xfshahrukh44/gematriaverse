@@ -23,19 +23,19 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="parent-section">
-                        <h1 class="heading-1">
+                        <h1 class="heading-1" style="font-size: 52px !important;">
                             Hello World, Welcome to
                         </h1>
                         <figure>
-                            <img src="{{asset('images/logo.png')}}" class="img-fluid" alt="">
+                            <img style="max-width: 75% !important;" src="{{asset('images/logo.png')}}" class="img-fluid" alt="">
                         </figure>
                         <div class="cta-buttons">
-                        <span>
-                            <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
-                        </span>
                             <span>
-                            <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
-                        </span>
+                                <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
+                            </span>
+                            <span>
+                                <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
+                            </span>
                         </div>
                     </div>
                 </div>

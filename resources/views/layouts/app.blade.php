@@ -131,6 +131,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('calculator') }}">Calculator</a>
+                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">Date Calculator</a>
                                         <a class="dropdown-item" href="{{ route('greek-calculator') }}">Greek
                                             Calculator</a>
                                         <a class="dropdown-item" href="{{ route('hebrew-calculator') }}">Hebrew
@@ -146,7 +147,6 @@
                                         Tools
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">Date Calculator</a>
                                         <a class="dropdown-item" href="{{ route('number-properties') }}">Number
                                             Properties</a>
                                         <a class="dropdown-item" href="{{ route('calendar') }}">Personal Calendar</a>
