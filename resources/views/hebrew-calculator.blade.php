@@ -1149,7 +1149,6 @@
             });
 
             $('body').on('click', '.target_number', function () {
-                alert()
                 number_properties($(this).text());
             });
         });
