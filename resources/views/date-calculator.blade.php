@@ -21,7 +21,8 @@
                     <div class="wpb_column vc_column_container vc_col-sm-12 text-center">
                         <div class="vc_column-inner ">
                             <div class="wpb_wrapper">
-                                <div class="current-user">Username: <span class="user-name">Mersdecodes</span><br>User ID:
+                                <div class="current-user">Username: <span class="user-name">Mersdecodes</span><br>User
+                                    ID:
                                     <span class="user-id">9727</span><br>Membership level: <span
                                             class="membership-level">Enthusiast</span></div>
                                 <div class="tool-wrapper">
@@ -44,13 +45,13 @@
                                     {{-- <link rel="stylesheet" type="text/css"
                                           href="css/datecalcadv.css"> --}}
                                     @php
-                                    $currentDate = date("Y-m-d");
-                                    $currentYear = date("Y");
-                                    $currentMonth = date("m");
-                                    $currentDay = date("d");
+                                        $currentDate = date("Y-m-d");
+                                        $currentYear = date("Y");
+                                        $currentMonth = date("m");
+                                        $currentDay = date("d");
 
-                                    $previousYear = $currentYear - 1;
-                                    $previousDate = date("Y-m-d", strtotime("-1 year"));
+                                        $previousYear = $currentYear - 1;
+                                        $previousDate = date("Y-m-d", strtotime("-1 year"));
                                     @endphp
                                     <div id="containerDateAdv">
                                         <div id="dateRows">
@@ -58,28 +59,37 @@
                                                 <div id="mdy1">
                                                 <span class="topIcons"
                                                       title="Click to view Lunar/Zodiac info for selected dates"
-                                                      onclick="javascript:toggleLunation()"><i
-                                                            class="far fa-moon"></i></span>&nbsp;&nbsp;<span
+                                                      onclick="javascript:toggleLunation()">
+{{--                                                    <i class="far fa-moon"></i>--}}
+                                                    </span>&nbsp;&nbsp;<span
                                                             id="DateHeader1"></span>&nbsp;&nbsp;<span
                                                             title="Click to name this date and store it on the left sidebar."
-                                                            class="topIcons" onclick="javascript:toggleGridListTitle()"><i
-                                                                class="far fa-address-book"></i></span>
+                                                            class="topIcons" onclick="javascript:toggleGridListTitle()">
+{{--                                                        <i class="far fa-address-book"></i>--}}
+                                                    </span>
                                                     <div id="Date1Inputs" class="row">
                                                         <div class="mdyDiv">
                                                             <span class="monthTitle">Month:</span><br>
-                                                            <input tabindex="1" type="number" max="12" min="1" class="u_Inp" id="Month1" value="<?php echo date('m', strtotime($previousDate)); ?>">
+                                                            <input tabindex="1" type="number" max="12" min="1"
+                                                                   class="u_Inp" id="Month1"
+                                                                   value="<?php echo date('m', strtotime($previousDate)); ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Day:<br>
-                                                            <input tabindex="2" type="number" max="31" min="1" class="u_Inp" id="Day1" value="<?php echo date('d', strtotime($previousDate)); ?>">
+                                                            <input tabindex="2" type="number" max="31" min="1"
+                                                                   class="u_Inp" id="Day1"
+                                                                   value="<?php echo date('d', strtotime($previousDate)); ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Year:<br>
-                                                            <input tabindex="3" type="number" max="9999" min="0" class="u_Inp" id="Year1" value="<?php echo $previousYear; ?>">
+                                                            <input tabindex="3" type="number" max="9999" min="0"
+                                                                   class="u_Inp" id="Year1"
+                                                                   value="<?php echo $previousYear; ?>">
                                                         </div>
                                                     </div>
                                                     <center>
-                                                        <table id="lunationDate1" class="TopTable" style="display:none;">
+                                                        <table id="lunationDate1" class="TopTable"
+                                                               style="display:none;">
                                                             <thead>
                                                             <tr>
                                                                 <th>Eclipse</th>
@@ -100,34 +110,41 @@
                                                                                                          id="NewMoon1"
                                                                                                          src="tools/date-calculator-advanced/img/NewMoon.png"
                                                                                                          style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaxingCrescent" id="WaxingCrescent1"
+                                                                                title="WaxingCrescent"
+                                                                                id="WaxingCrescent1"
                                                                                 src="tools/date-calculator-advanced/img/WaxingCrescent.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
                                                                                 title="FirstQuarter" id="FirstQuarter1"
                                                                                 src="tools/date-calculator-advanced/img/FirstQuarter.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaxingGibbous" id="WaxingGibbous1"
+                                                                                title="WaxingGibbous"
+                                                                                id="WaxingGibbous1"
                                                                                 src="tools/date-calculator-advanced/img/WaxingGibbous.png"
                                                                                 style="height: 25px; width: 25px; display: inline-block;"><img
                                                                                 title="FullMoon" id="FullMoon1"
                                                                                 src="tools/date-calculator-advanced/img/FullMoon.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaningGibbous" id="WaningGibbous1"
+                                                                                title="WaningGibbous"
+                                                                                id="WaningGibbous1"
                                                                                 src="tools/date-calculator-advanced/img/WaningGibbous.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
                                                                                 title="LastQuarter" id="LastQuarter1"
                                                                                 src="tools/date-calculator-advanced/img/LastQuarter.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaningCrescent" id="WaningCrescent1"
+                                                                                title="WaningCrescent"
+                                                                                id="WaningCrescent1"
                                                                                 src="tools/date-calculator-advanced/img/WaningCrescent.png"
                                                                                 style="height: 25px; width: 25px; display: none;"></span><br><span
-                                                                            id="SarosSpot1" style="color:red;">&nbsp;</span>
+                                                                            id="SarosSpot1"
+                                                                            style="color:red;">&nbsp;</span>
                                                                 </td>
                                                                 <td class="SignCell" id="SignSpot1">
                                                                     <font>
-                                                                        <div class="SignDropdown"><button
+                                                                        <div class="SignDropdown">
+                                                                            <button
                                                                                     onclick="OpenSignDropdown(0)"
-                                                                                    class="SignButton">Libra</button>
+                                                                                    class="SignButton">Libra
+                                                                            </button>
                                                                             <div id="SignDropdown0"
                                                                                  class="SignDropdown-content"><span
                                                                                         class="astrologyLabel">Symbol:</span>
@@ -165,12 +182,14 @@
                                                     <div id="titleAddGridList1" style="display:none;">
                                                         <div class="dateTitle">
                                                             <span>Title:</span><br>
-                                                            <input tabindex="4" class="u_Inp" id="DateTitle1" maxlength="15"
+                                                            <input tabindex="4" class="u_Inp" id="DateTitle1"
+                                                                   maxlength="15"
                                                                    oninput="Confirm_Title(1)">
                                                         </div>
                                                         <div class="dateTitleLess">
                                                             <button tabindex="6" id="AddDate1" class="AddToList"
-                                                                    onclick="AddNewDate()" value="Add Date">Add to List</button>
+                                                                    onclick="AddNewDate()" value="Add Date">Add to List
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     {{-- <div id="DateStr1Show" style="display: block;">
@@ -224,19 +243,26 @@
                                                     <div id="Date2Inputs" class="row">
                                                         <div class="mdyDiv">
                                                             <span class="monthTitle">Month:</span><br>
-                                                            <input tabindex="7" type="number" max="12" min="1" class="u_Inp" id="Month2" value="<?php echo $currentMonth; ?>">
+                                                            <input tabindex="7" type="number" max="12" min="1"
+                                                                   class="u_Inp" id="Month2"
+                                                                   value="<?php echo $currentMonth; ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Day:<br>
-                                                            <input tabindex="8" type="number" max="31" min="1" class="u_Inp" id="Day2" value="<?php echo $currentDay; ?>">
+                                                            <input tabindex="8" type="number" max="31" min="1"
+                                                                   class="u_Inp" id="Day2"
+                                                                   value="<?php echo $currentDay; ?>">
                                                         </div>
                                                         <div class="mdyDiv">
                                                             Year:<br>
-                                                            <input tabindex="9" type="number" max="9999" min="0" class="u_Inp" id="Year2" value="<?php echo $currentYear; ?>">
+                                                            <input tabindex="9" type="number" max="9999" min="0"
+                                                                   class="u_Inp" id="Year2"
+                                                                   value="<?php echo $currentYear; ?>">
                                                         </div>
                                                     </div>
                                                     <center>
-                                                        <table id="lunationDate2" class="TopTable" style="display:none;">
+                                                        <table id="lunationDate2" class="TopTable"
+                                                               style="display:none;">
                                                             <thead>
                                                             <tr>
                                                                 <th>Eclipse</th>
@@ -257,34 +283,41 @@
                                                                                                          id="NewMoon2"
                                                                                                          src="tools/date-calculator-advanced/img/NewMoon.png"
                                                                                                          style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaxingCrescent" id="WaxingCrescent2"
+                                                                                title="WaxingCrescent"
+                                                                                id="WaxingCrescent2"
                                                                                 src="tools/date-calculator-advanced/img/WaxingCrescent.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
                                                                                 title="FirstQuarter" id="FirstQuarter2"
                                                                                 src="tools/date-calculator-advanced/img/FirstQuarter.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaxingGibbous" id="WaxingGibbous2"
+                                                                                title="WaxingGibbous"
+                                                                                id="WaxingGibbous2"
                                                                                 src="tools/date-calculator-advanced/img/WaxingGibbous.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
                                                                                 title="FullMoon" id="FullMoon2"
                                                                                 src="tools/date-calculator-advanced/img/FullMoon.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaningGibbous" id="WaningGibbous2"
+                                                                                title="WaningGibbous"
+                                                                                id="WaningGibbous2"
                                                                                 src="tools/date-calculator-advanced/img/WaningGibbous.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
                                                                                 title="LastQuarter" id="LastQuarter2"
                                                                                 src="tools/date-calculator-advanced/img/LastQuarter.png"
                                                                                 style="height: 25px; width: 25px; display: none;"><img
-                                                                                title="WaningCrescent" id="WaningCrescent2"
+                                                                                title="WaningCrescent"
+                                                                                id="WaningCrescent2"
                                                                                 src="tools/date-calculator-advanced/img/WaningCrescent.png"
                                                                                 style="height: 25px; width: 25px; display: inline-block;"></span><br><span
-                                                                            id="SarosSpot2" style="color:red;">&nbsp;</span>
+                                                                            id="SarosSpot2"
+                                                                            style="color:red;">&nbsp;</span>
                                                                 </td>
                                                                 <td class="SignCell" id="SignSpot2">
                                                                     <font>
-                                                                        <div class="SignDropdown"><button
+                                                                        <div class="SignDropdown">
+                                                                            <button
                                                                                     onclick="OpenSignDropdown(1)"
-                                                                                    class="SignButton">Libra</button>
+                                                                                    class="SignButton">Libra
+                                                                            </button>
                                                                             <div id="SignDropdown1"
                                                                                  class="SignDropdown-content"><span
                                                                                         class="astrologyLabel">Symbol:</span>
@@ -328,7 +361,8 @@
                                                         <div class="dateTitleLess">
                                                             <button tabindex="12" id="AddDate2" class="AddToList"
                                                                     onclick="AddNewDate(2)" value="Add Date">Add to
-                                                                List</button>
+                                                                List
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <!--<div class="row"></div>-->
@@ -398,13 +432,20 @@
                                                 <!-- <div id="AddSubYMWD"> -->
                                                 <br class="mo-only">
                                                 <div class="mdyDiv">Years:<br><input type="number" max="2020" min="0"
-                                                                                     class="u_Inp" id="YearAdd" value="0" oninput="SetDatesAlt()"></div>
+                                                                                     class="u_Inp" id="YearAdd"
+                                                                                     value="0" oninput="SetDatesAlt()">
+                                                </div>
                                                 <div class="mdyDiv">Months:<br><input type="number" max="24000" min="0"
-                                                                                      class="u_Inp" id="MonthAdd" value="0" oninput="SetDatesAlt()"></div>
+                                                                                      class="u_Inp" id="MonthAdd"
+                                                                                      value="0" oninput="SetDatesAlt()">
+                                                </div>
                                                 <div class="mdyDiv">Weeks:<br><input type="number" max="100000" min="0"
-                                                                                     class="u_Inp" id="WeekAdd" value="0" oninput="SetDatesAlt()"></div>
+                                                                                     class="u_Inp" id="WeekAdd"
+                                                                                     value="0" oninput="SetDatesAlt()">
+                                                </div>
                                                 <div class="mdyDiv">Days:<br><input type="number" max="700000" min="0"
-                                                                                    class="u_Inp" id="DayAdd" value="0" oninput="SetDatesAlt()"></div>
+                                                                                    class="u_Inp" id="DayAdd" value="0"
+                                                                                    oninput="SetDatesAlt()"></div>
                                                 <!-- </div> -->
                                             </div>
                                         </div>
@@ -416,7 +457,8 @@
                                                 <div class="DurHead">Time Between Dates:</div>
                                                 <!-- <br class="mo"> -->
                                                 <div id="TimeBetweenCheckbox">
-                                                    <input tabindex="14" class="opt_check" type="checkbox" id="Check_End"
+                                                    <input tabindex="14" class="opt_check" type="checkbox"
+                                                           id="Check_End"
                                                            value="End"><span>&nbsp;Include End
                                                     Date?&nbsp;&nbsp;</span>
                                                 </div>
@@ -428,15 +470,18 @@
                                                     <span class="DurationString">Select Durations to View:</span>
                                                 </div>
                                                 <div id="CheckBoxSpot">
-                                                    <input tabindex="15" class="opt_check" type="checkbox" id="showYears"
+                                                    <input tabindex="15" class="opt_check" type="checkbox"
+                                                           id="showYears"
                                                            value="Year"
-                                                        ><span>&nbsp;Year&nbsp;&nbsp;</span><br>
-                                                    <input tabindex="16" class="opt_check" type="checkbox" id="showMonths"
+                                                    ><span>&nbsp;Year&nbsp;&nbsp;</span><br>
+                                                    <input tabindex="16" class="opt_check" type="checkbox"
+                                                           id="showMonths"
                                                            value="Month"
-                                                        ><span>&nbsp;Month&nbsp;&nbsp;</span><br>
-                                                    <input tabindex="17" class="opt_check" type="checkbox" id="showWeeks"
+                                                    ><span>&nbsp;Month&nbsp;&nbsp;</span><br>
+                                                    <input tabindex="17" class="opt_check" type="checkbox"
+                                                           id="showWeeks"
                                                            value="Week"
-                                                        ><span>&nbsp;Week&nbsp;&nbsp;</span><br>
+                                                    ><span>&nbsp;Week&nbsp;&nbsp;</span><br>
                                                     <input tabindex="18" class="opt_check" type="checkbox" id="showDays"
                                                            value="Day"
                                                            checked=""><span>&nbsp;Day&nbsp;&nbsp;</span>
@@ -475,20 +520,27 @@
                                         <div class="row">
                                             <div id="ClassicTableSpot">
                                                 <center id="center_number_properties" hidden>
-                                                    <div id="MiscSpot"><button class="buttonFunction" onclick="Build_HistoryTable()">Show
-                                                            History</button><br>
-                                                        <object id="numberProperty" type="text/html" data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
+                                                    <div id="MiscSpot">
+                                                        <button class="buttonFunction" onclick="Build_HistoryTable()">
+                                                            Show
+                                                            History
+                                                        </button>
+                                                        <br>
+                                                        <object id="numberProperty" type="text/html"
+                                                                data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
 
                                                             <div id="numPropAnchor">
                                                                 <div id="numPropContainer">
                                                                     <center>
-                                                                        <h2 style="text-transform: uppercase;">Number Properties of:
+                                                                        <h2 style="text-transform: uppercase;">Number
+                                                                            Properties of:
                                                                         </h2>
                                                                         <div id="HTMLSpot">
                                                                             <table id="TopTable">
                                                                                 <tbody>
                                                                                 <tr>
-                                                                                    <td id="TopNumber" style="font-size: 40px !important;"></td>
+                                                                                    <td id="TopNumber"
+                                                                                        style="font-size: 40px !important;"></td>
                                                                                 </tr>
                                                                                 {{--                                                                    <tr>--}}
                                                                                 {{--                                                                        <td id="PrimeString" colspan="3">2 ×--}}
@@ -498,7 +550,8 @@
                                                                                 </tbody>
                                                                             </table>
                                                                             <div id="belowSpecials">
-                                                                                <div id="DivisorTableDiv"><span class="titles">Divisors</span>
+                                                                                <div id="DivisorTableDiv"><span
+                                                                                            class="titles">Divisors</span>
                                                                                     <table id="DivisorTable">
                                                                                         <tbody>
                                                                                         <tr></tr>
@@ -508,7 +561,9 @@
                                                                                             <td>Sum:</td>
                                                                                         </tr>
                                                                                         <tr>
-                                                                                            <td style="vertical-align: top"><b class="Linkable" id="count"></b></td>
+                                                                                            <td style="vertical-align: top">
+                                                                                                <b class="Linkable"
+                                                                                                   id="count"></b></td>
                                                                                             <td id="divisors_list">
                                                                                                 {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,--}}
                                                                                                 {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,--}}
@@ -520,7 +575,9 @@
                                                                                                 {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th--}}
                                                                                                 {{--                                                                                    Composite #--}}
                                                                                             </td>
-                                                                                            <td style="vertical-align: top"><b class="Linkable" id="sum"></b>
+                                                                                            <td style="vertical-align: top">
+                                                                                                <b class="Linkable"
+                                                                                                   id="sum"></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         </tbody>
@@ -531,78 +588,137 @@
                                                                                     <table id="RelationTable">
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                            <td class="RelativeClass"> Prime #:
+                                                                                            <td class="RelativeClass">
+                                                                                                Prime #:
                                                                                                 &nbsp;
                                                                                             </td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_prime"></a></b>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_prime"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
-                                                                                            <td class="RelativeClass"> Composite #:
-                                                                                                &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_composite"></a></b>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td class="RelativeClass"> Fibonacci #:
-                                                                                                &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_fibonacci"></a></b>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td class="RelativeClass"> Triangular #:
-                                                                                                &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_triangular"></a></b>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td class="RelativeClass"> Square #:
+                                                                                            <td class="RelativeClass">
+                                                                                                Composite #:
                                                                                                 &nbsp;
                                                                                             </td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="square"></a></b>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_composite"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
-                                                                                            <td class="RelativeClass"> Cube #:
+                                                                                            <td class="RelativeClass">
+                                                                                                Fibonacci #:
                                                                                                 &nbsp;
                                                                                             </td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="cube"></a></b>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_fibonacci"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
-                                                                                            <td class="RelativeClass"> Tetrahedral
+                                                                                            <td class="RelativeClass">
+                                                                                                Triangular #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_triangular"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass">
+                                                                                                Square #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="square"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass">
+                                                                                                Cube #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="cube"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass">
+                                                                                                Tetrahedral
                                                                                                 #:
-                                                                                                &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_tetrahedral"></a></b>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_sq_pyramidal"></a></b>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td class="RelativeClass"> Star #:
                                                                                                 &nbsp;
                                                                                             </td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_star"></a></b>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_tetrahedral"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
-                                                                                            <td class="RelativeClass"> Pentagonal #:
-                                                                                                &nbsp;</td>
-                                                                                            <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_pentagonal"></a></b>
+                                                                                            <td class="RelativeClass">
+                                                                                                Square Pyramidal #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_sq_pyramidal"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass">
+                                                                                                Star #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_star"></a></b>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="RelativeClass">
+                                                                                                Pentagonal #:
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td class="RelativeNum"><b
+                                                                                                        class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="nth_pentagonal"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
-                                                                                <div id="ConversionsTableDiv"><span class="titles">Conversions</span>
+                                                                                <div id="ConversionsTableDiv"><span
+                                                                                            class="titles">Conversions</span>
                                                                                     <table id="ConversionTable">
                                                                                         <tbody>
                                                                                         <tr>
                                                                                             {{--                                                                                <td>From:</td>--}}
-                                                                                            <td class="conversionMiddle">Numeral
+                                                                                            <td class="conversionMiddle">
+                                                                                                Numeral
                                                                                                 system:
                                                                                             </td>
                                                                                             <td>To:</td>
@@ -610,25 +726,37 @@
                                                                                         <tr>
                                                                                             {{--                                                                                <td>-</td>--}}
                                                                                             <td>Octal</td>
-                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="octal"></a></b>
+                                                                                            <td><b class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="octal"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
                                                                                             {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td>--}}
                                                                                             <td>Duodecimal</td>
-                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="duodecimal"></a></b>
+                                                                                            <td><b class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="duodecimal"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
                                                                                             {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td>--}}
                                                                                             <td>Hexadecimal</td>
-                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="hexadecimal"></a></b>
+                                                                                            <td><b class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="hexadecimal"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>
                                                                                             {{--                                                                                <td>-</td>--}}
                                                                                             <td>Binary</td>
-                                                                                            <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="binary"></a></b>
+                                                                                            <td><b class="Linkable"><a
+                                                                                                            href="javascript:void(0);"
+                                                                                                            class="target_number"
+                                                                                                            id="binary"></a></b>
                                                                                             </td>
                                                                                         </tr>
                                                                                         </tbody>
@@ -636,9 +764,13 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
+                                                                        <input tabindex="0" id="input_get_properties"
+                                                                               autofocus="" type="number"
+                                                                               placeholder="Enter #">
                                                                         <br><br>
-                                                                        <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
+                                                                        <button tabindex="1" id="btn_get_properties"
+                                                                                class="buttonFunction">Get Properties
+                                                                        </button>
                                                                         <br><br>
                                                                     </center>
                                                                 </div>
@@ -780,19 +912,19 @@
 @endsection
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
     <script>
         // Greek alphabet mapping for Isopsephy values
         const greekAlphabet = {
-            'Α': 1,  'Β': 2,  'Γ': 3,  'Δ': 4,  'Ε': 5,  'Ϝ': 6,  'Ζ': 7,  'Η': 8,  'Θ': 9,
+            'Α': 1, 'Β': 2, 'Γ': 3, 'Δ': 4, 'Ε': 5, 'Ϝ': 6, 'Ζ': 7, 'Η': 8, 'Θ': 9,
             'Ι': 10, 'Κ': 20, 'Λ': 30, 'Μ': 40, 'Ν': 50, 'Ξ': 60, 'Ο': 70, 'Π': 80, 'Ϙ': 90,
             'Ρ': 100, 'Σ': 200, 'Τ': 300, 'Υ': 400, 'Φ': 500, 'Χ': 600, 'Ψ': 700, 'Ω': 800, 'ϡ': 900
         };
 
         // Greek alphabet mapping for Ordinal values (A=1 to Ω=24)
         const greekOrdinalAlphabet = {
-            'Α': 1,  'Β': 2,  'Γ': 3,  'Δ': 4,  'Ε': 5,  'Ϝ': 6,  'Ζ': 7,  'Η': 8,  'Θ': 9,
+            'Α': 1, 'Β': 2, 'Γ': 3, 'Δ': 4, 'Ε': 5, 'Ϝ': 6, 'Ζ': 7, 'Η': 8, 'Θ': 9,
             'Ι': 10, 'Κ': 11, 'Λ': 12, 'Μ': 13, 'Ν': 14, 'Ξ': 15, 'Ο': 16, 'Π': 17, 'Ϙ': 18,
             'Ρ': 19, 'Σ': 20, 'Τ': 21, 'Υ': 22, 'Φ': 23, 'Χ': 24, 'Ψ': 25, 'Ω': 26, 'ϡ': 27
         };
@@ -994,7 +1126,7 @@
             return conversions;
         }
 
-        function number_properties (number) {
+        function number_properties(number) {
             if (number == '') {
                 return false;
             }
@@ -1043,11 +1175,11 @@
             let count = 0;
             for (const item of return_body.divisors) {
                 count += 1;
-                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">'+item+'</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
+                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">' + item + '</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
             }
             if (return_body.composite != '') {
                 string += '<br>';
-                string += '<b class="Linkable">'+return_body.composite+'</b>';
+                string += '<b class="Linkable">' + return_body.composite + '</b>';
             }
             $('#divisors_list').html(string);
 
