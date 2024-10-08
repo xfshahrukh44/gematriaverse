@@ -73,7 +73,7 @@
             <div class="top-header">
                 <div class="guest">
                     <span>
-                        Hi, Guest!
+                        Hi, {{ Auth::user()->name }}!
                     </span>
                 </div>
                 <div class="log-in">
