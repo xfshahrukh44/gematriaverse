@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -76,7 +76,7 @@
                                                         'title' => 'Delete Page',
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
-                                                
+
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

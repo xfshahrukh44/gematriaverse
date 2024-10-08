@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 <link rel="stylesheet" href="{{asset('plugins/vendors/dropify/dist/css/dropify.min.css')}}">
 @push('after-css')
     <style>
@@ -248,7 +248,7 @@
                                         <button type="submit" class="btn btn-primary">
                                         <i class="la la-check-square-o"></i> Save
                                         </button>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                         </form>

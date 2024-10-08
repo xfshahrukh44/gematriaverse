@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -55,13 +55,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($attributes as $item)    
+                                    @foreach($attributes as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->attributes->name }}</td>
                                         <td>{{ $item->value }}</td>
-                                        <td> 
-                                            
+                                        <td>
+
                                         <a href="{{ url('/admin/attributes-value/' . $item->id . '/edit') }}"
                                                    title="Edit Page">
                                                     <button class="btn btn-primary btn-sm">
@@ -80,10 +80,10 @@
                                                         'title' => 'Delete Page',
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
-                                                
+
                                             {!! Form::close() !!}</td>
                                     </tr>
-                                    @endforeach  
+                                    @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -60,7 +60,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>
 
-                                            
+
                                                 <a href="{{ url('/admin/blog/' . $item->id . '/edit') }}"
                                                    title="Edit Blog">
                                                     <button class="btn btn-primary btn-sm">

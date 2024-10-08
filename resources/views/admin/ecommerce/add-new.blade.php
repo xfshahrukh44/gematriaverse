@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
 @push('before-css')
   <!-- This page CSS -->
   <!-- chartist CSS -->

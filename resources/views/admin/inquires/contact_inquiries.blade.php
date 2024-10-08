@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -50,7 +50,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($contact_inquiries as $item)   
+                                    @foreach($contact_inquiries as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->form_name }}</td>
@@ -58,7 +58,7 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->notes }}</td>
                                         <td>
-                                        
+
                                             <a href="{{ url('/admin/contact/inquiries/'.$item->id) }}"
                                                title="View Language">
                                                 <button class="btn btn-info btn-sm">
@@ -72,8 +72,8 @@
                                                     <i class="fa fa-trash-o"></i> Delete
                                                 </button>
                                             </a>
-                                        </td>  
-                                    </tr> 
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>

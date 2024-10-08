@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -47,9 +47,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($newsletter_inquiries as $item)    
+                                    @foreach($newsletter_inquiries as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>                                 
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->newsletter_email }}</td>
                                         <td>
                                             <a href="{{ url('/admin/newsletter/inquiries/delete',$item->id) }}" title="View Language">
@@ -58,7 +58,7 @@
                                                 </button>
                                             </a>
                                         </td>
-                                    </tr> 
+                                    </tr>
                                     @endforeach
                                 </tbody>
                                 </tbody>

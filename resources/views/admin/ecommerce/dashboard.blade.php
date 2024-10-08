@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
 @push('before-css')
     <!-- This page CSS -->
     <!-- chartist CSS -->
@@ -354,7 +353,7 @@
 
 
     <script>
-        // MAterial Date picker    
+        // MAterial Date picker
 
         jQuery('#datepicker-inline').datepicker({
             todayHighlight: true
