@@ -9,7 +9,7 @@
 @section('content')
     <center>
         <table>
-            <tbody>
+             <tbody>
             <tr>
                 <td colspan="4">
                     <font size="2" color="Orange">Click a cipher name to see the breakdown.</font>
