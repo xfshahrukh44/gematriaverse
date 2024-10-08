@@ -337,4 +337,9 @@ class FrontController extends Controller
     {
         return view('shop');
     }
+
+    public function anagramCalculator (Request $request)
+    {
+        return view('anagram-calculator');
+    }
 }

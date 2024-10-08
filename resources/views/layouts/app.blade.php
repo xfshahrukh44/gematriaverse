@@ -137,7 +137,7 @@
                                         <a class="dropdown-item" href="{{ route('hebrew-calculator') }}">Hebrew
                                             Calculator</a>
                                         <a class="dropdown-item"
-                                            href="{{ route('nostalgia-calculators') }}">Nostalgia Calculator</a>
+                                            href="{{ route('nostalgia-calculators') }}">Nostalgia Calculators</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -151,8 +151,8 @@
                                             Properties</a>
                                         <a class="dropdown-item" href="{{ route('calendar') }}">Personal Calendar</a>
                                         <a class="dropdown-item" href="{{ route('bible-search') }}">Bible Search</a>
-                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">Custom
-                                            Ciphers</a>
+                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">Custom Ciphers</a>
+                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">Anagram Generator</a>
                                     </div>
                                 </li>
                                 <!-- <li class="nav-item">
