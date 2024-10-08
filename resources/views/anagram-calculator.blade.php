@@ -62,7 +62,7 @@
 
 @section('content')
     <!-- section-1 -->
-    <section class="gematriaverse-section" style="height: 60vh !important;">
+    <section class="gematriaverse-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 py-5">
