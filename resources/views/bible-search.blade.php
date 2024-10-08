@@ -292,7 +292,483 @@
                                                                                     DATA</a></button>
                                                                             <!-- The Book Data Modal -->
                                                                             <div id="bookDatMod" class="bookDatMod">
-                                                                                <div id="bookDataBox"></div>
+                                                                                <div id="bookDataBox">
+                                                                                    <table id="bookDatTable" class="table">
+                                                                                        <thead>
+                                                                                           <tr>
+                                                                                              <td>Book</td>
+                                                                                              <td>Number</td>
+                                                                                              <td>Verses</td>
+                                                                                              <td>Chapters</td>
+                                                                                              <td>Longest Chapter</td>
+                                                                                           </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                           <tr>
+                                                                                              <td>1 Chronicles</td>
+                                                                                              <td>1</td>
+                                                                                              <td>942</td>
+                                                                                              <td>29</td>
+                                                                                              <td>81</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Corinthians</td>
+                                                                                              <td>2</td>
+                                                                                              <td>437</td>
+                                                                                              <td>16</td>
+                                                                                              <td>58</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 John</td>
+                                                                                              <td>3</td>
+                                                                                              <td>105</td>
+                                                                                              <td>5</td>
+                                                                                              <td>29</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Kings</td>
+                                                                                              <td>4</td>
+                                                                                              <td>816</td>
+                                                                                              <td>22</td>
+                                                                                              <td>66</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Peter</td>
+                                                                                              <td>5</td>
+                                                                                              <td>105</td>
+                                                                                              <td>5</td>
+                                                                                              <td>25</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Samuel</td>
+                                                                                              <td>6</td>
+                                                                                              <td>810</td>
+                                                                                              <td>31</td>
+                                                                                              <td>58</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Thessalonians</td>
+                                                                                              <td>7</td>
+                                                                                              <td>89</td>
+                                                                                              <td>5</td>
+                                                                                              <td>28</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>1 Timothy</td>
+                                                                                              <td>8</td>
+                                                                                              <td>113</td>
+                                                                                              <td>6</td>
+                                                                                              <td>25</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Chronicles</td>
+                                                                                              <td>9</td>
+                                                                                              <td>822</td>
+                                                                                              <td>36</td>
+                                                                                              <td>42</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Corinthians</td>
+                                                                                              <td>10</td>
+                                                                                              <td>257</td>
+                                                                                              <td>13</td>
+                                                                                              <td>33</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 John</td>
+                                                                                              <td>11</td>
+                                                                                              <td>13</td>
+                                                                                              <td>1</td>
+                                                                                              <td>13</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Kings</td>
+                                                                                              <td>12</td>
+                                                                                              <td>719</td>
+                                                                                              <td>25</td>
+                                                                                              <td>44</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Peter</td>
+                                                                                              <td>13</td>
+                                                                                              <td>61</td>
+                                                                                              <td>3</td>
+                                                                                              <td>22</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Samuel</td>
+                                                                                              <td>14</td>
+                                                                                              <td>695</td>
+                                                                                              <td>24</td>
+                                                                                              <td>51</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Thessalonians</td>
+                                                                                              <td>15</td>
+                                                                                              <td>47</td>
+                                                                                              <td>3</td>
+                                                                                              <td>12</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>2 Timothy</td>
+                                                                                              <td>16</td>
+                                                                                              <td>83</td>
+                                                                                              <td>4</td>
+                                                                                              <td>26</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>3 John</td>
+                                                                                              <td>17</td>
+                                                                                              <td>14</td>
+                                                                                              <td>1</td>
+                                                                                              <td>14</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Acts</td>
+                                                                                              <td>18</td>
+                                                                                              <td>1007</td>
+                                                                                              <td>28</td>
+                                                                                              <td>60</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Amos</td>
+                                                                                              <td>19</td>
+                                                                                              <td>146</td>
+                                                                                              <td>9</td>
+                                                                                              <td>27</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Colossians</td>
+                                                                                              <td>20</td>
+                                                                                              <td>95</td>
+                                                                                              <td>4</td>
+                                                                                              <td>29</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Daniel</td>
+                                                                                              <td>21</td>
+                                                                                              <td>357</td>
+                                                                                              <td>12</td>
+                                                                                              <td>49</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Deuteronomy</td>
+                                                                                              <td>22</td>
+                                                                                              <td>959</td>
+                                                                                              <td>34</td>
+                                                                                              <td>68</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Ecclesiastes</td>
+                                                                                              <td>23</td>
+                                                                                              <td>222</td>
+                                                                                              <td>12</td>
+                                                                                              <td>29</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Ephesians</td>
+                                                                                              <td>24</td>
+                                                                                              <td>155</td>
+                                                                                              <td>6</td>
+                                                                                              <td>33</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Esther</td>
+                                                                                              <td>25</td>
+                                                                                              <td>167</td>
+                                                                                              <td>10</td>
+                                                                                              <td>32</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Exodus</td>
+                                                                                              <td>26</td>
+                                                                                              <td>1213</td>
+                                                                                              <td>40</td>
+                                                                                              <td>51</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Ezekiel</td>
+                                                                                              <td>27</td>
+                                                                                              <td>1273</td>
+                                                                                              <td>48</td>
+                                                                                              <td>63</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Ezra</td>
+                                                                                              <td>28</td>
+                                                                                              <td>280</td>
+                                                                                              <td>10</td>
+                                                                                              <td>70</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Galatians</td>
+                                                                                              <td>29</td>
+                                                                                              <td>149</td>
+                                                                                              <td>6</td>
+                                                                                              <td>31</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Genesis</td>
+                                                                                              <td>30</td>
+                                                                                              <td>1533</td>
+                                                                                              <td>50</td>
+                                                                                              <td>67</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Habakkuk</td>
+                                                                                              <td>31</td>
+                                                                                              <td>56</td>
+                                                                                              <td>3</td>
+                                                                                              <td>20</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Haggai</td>
+                                                                                              <td>32</td>
+                                                                                              <td>38</td>
+                                                                                              <td>2</td>
+                                                                                              <td>23</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Hebrews</td>
+                                                                                              <td>33</td>
+                                                                                              <td>303</td>
+                                                                                              <td>13</td>
+                                                                                              <td>40</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Hosea</td>
+                                                                                              <td>34</td>
+                                                                                              <td>197</td>
+                                                                                              <td>14</td>
+                                                                                              <td>23</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Isaiah</td>
+                                                                                              <td>35</td>
+                                                                                              <td>1292</td>
+                                                                                              <td>66</td>
+                                                                                              <td>38</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>James</td>
+                                                                                              <td>36</td>
+                                                                                              <td>108</td>
+                                                                                              <td>5</td>
+                                                                                              <td>27</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Jeremiah</td>
+                                                                                              <td>37</td>
+                                                                                              <td>1364</td>
+                                                                                              <td>52</td>
+                                                                                              <td>64</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Job</td>
+                                                                                              <td>38</td>
+                                                                                              <td>1070</td>
+                                                                                              <td>42</td>
+                                                                                              <td>41</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Joel</td>
+                                                                                              <td>39</td>
+                                                                                              <td>73</td>
+                                                                                              <td>3</td>
+                                                                                              <td>32</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>John</td>
+                                                                                              <td>40</td>
+                                                                                              <td>879</td>
+                                                                                              <td>21</td>
+                                                                                              <td>71</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Jonah</td>
+                                                                                              <td>41</td>
+                                                                                              <td>48</td>
+                                                                                              <td>4</td>
+                                                                                              <td>17</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Joshua</td>
+                                                                                              <td>42</td>
+                                                                                              <td>658</td>
+                                                                                              <td>24</td>
+                                                                                              <td>63</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Jude</td>
+                                                                                              <td>43</td>
+                                                                                              <td>25</td>
+                                                                                              <td>1</td>
+                                                                                              <td>25</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Judges</td>
+                                                                                              <td>44</td>
+                                                                                              <td>618</td>
+                                                                                              <td>21</td>
+                                                                                              <td>57</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Lamentations</td>
+                                                                                              <td>45</td>
+                                                                                              <td>154</td>
+                                                                                              <td>5</td>
+                                                                                              <td>66</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Leviticus</td>
+                                                                                              <td>46</td>
+                                                                                              <td>859</td>
+                                                                                              <td>27</td>
+                                                                                              <td>59</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Luke</td>
+                                                                                              <td>47</td>
+                                                                                              <td>1151</td>
+                                                                                              <td>24</td>
+                                                                                              <td>80</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Malachi</td>
+                                                                                              <td>48</td>
+                                                                                              <td>55</td>
+                                                                                              <td>4</td>
+                                                                                              <td>18</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Mark</td>
+                                                                                              <td>49</td>
+                                                                                              <td>678</td>
+                                                                                              <td>16</td>
+                                                                                              <td>72</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Matthew</td>
+                                                                                              <td>50</td>
+                                                                                              <td>1071</td>
+                                                                                              <td>28</td>
+                                                                                              <td>75</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Micah</td>
+                                                                                              <td>51</td>
+                                                                                              <td>105</td>
+                                                                                              <td>7</td>
+                                                                                              <td>20</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Nahum</td>
+                                                                                              <td>52</td>
+                                                                                              <td>47</td>
+                                                                                              <td>3</td>
+                                                                                              <td>19</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Nehemiah</td>
+                                                                                              <td>53</td>
+                                                                                              <td>406</td>
+                                                                                              <td>13</td>
+                                                                                              <td>73</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Numbers</td>
+                                                                                              <td>54</td>
+                                                                                              <td>1288</td>
+                                                                                              <td>36</td>
+                                                                                              <td>89</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Obadiah</td>
+                                                                                              <td>55</td>
+                                                                                              <td>21</td>
+                                                                                              <td>1</td>
+                                                                                              <td>21</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Philemon</td>
+                                                                                              <td>56</td>
+                                                                                              <td>25</td>
+                                                                                              <td>1</td>
+                                                                                              <td>25</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Philippians</td>
+                                                                                              <td>57</td>
+                                                                                              <td>104</td>
+                                                                                              <td>4</td>
+                                                                                              <td>30</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Proverbs</td>
+                                                                                              <td>58</td>
+                                                                                              <td>915</td>
+                                                                                              <td>31</td>
+                                                                                              <td>36</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Psalms</td>
+                                                                                              <td>59</td>
+                                                                                              <td>2461</td>
+                                                                                              <td>150</td>
+                                                                                              <td>176</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Revelation</td>
+                                                                                              <td>60</td>
+                                                                                              <td>404</td>
+                                                                                              <td>22</td>
+                                                                                              <td>29</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Romans</td>
+                                                                                              <td>61</td>
+                                                                                              <td>433</td>
+                                                                                              <td>16</td>
+                                                                                              <td>39</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Ruth</td>
+                                                                                              <td>62</td>
+                                                                                              <td>85</td>
+                                                                                              <td>4</td>
+                                                                                              <td>23</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Song of Solomon</td>
+                                                                                              <td>63</td>
+                                                                                              <td>117</td>
+                                                                                              <td>8</td>
+                                                                                              <td>17</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Titus</td>
+                                                                                              <td>64</td>
+                                                                                              <td>46</td>
+                                                                                              <td>3</td>
+                                                                                              <td>16</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Zechariah</td>
+                                                                                              <td>65</td>
+                                                                                              <td>211</td>
+                                                                                              <td>14</td>
+                                                                                              <td>23</td>
+                                                                                           </tr>
+                                                                                           <tr>
+                                                                                              <td>Zephaniah</td>
+                                                                                              <td>66</td>
+                                                                                              <td>53</td>
+                                                                                              <td>3</td>
+                                                                                              <td>20</td>
+                                                                                           </tr>
+                                                                                        </tbody>
+                                                                                     </table>
+                                                                                </div>
                                                                             </div>
                                                                             <div class="no-mo"></div>
                                                                             <div class="mo"><br>
@@ -320,8 +796,13 @@
 
                                                                 <div id="resultsContainer" class="row">
                                                                     <center>
+                                                                        <input type="hidden" name="chapterId" id="chapterId">
+                                                                        <input type="hidden" name="selectedVerse" id="selectedVerse">
                                                                         <div id="DropHere" class="col-xs-12">
-                                                                            <table id="MainTable" class="table">
+                                                                            <table id="MainTableVerse" class="table">
+
+                                                                            </table>
+                                                                            <table id="MainTableDefault" class="table">
                                                                                 <thead>
                                                                                 <tr>
                                                                                     <th>Verse</th>
@@ -365,7 +846,7 @@
 {{--    <script src="{{asset('js/cipherbuilder.js')}}"></script>--}}
 {{--    <script src="{{asset('js/load.js')}}"></script>--}}
     <script>
-
+        let savedHTML, saveQuery;
         function Change_Ciphers(cipherId) {
             let userId = $('#user_id').val();
             let isChecked = document.getElementById('Cipher' + cipherId).checked;
@@ -397,7 +878,221 @@
             location.reload();
         }
 
-        $(document).ready(() => {
+        function OpenDetails(impVal){
+            savedHTML = $('#MainTableDefault').length ? $('#MainTableDefault').html() : $('#MainTable').html();
+            console.log(savedHTML);
+            //Activated when a user clicks on the name of a Bible verse
+            dropSpot = document.getElementById("DropHere")
+            dropSpot.innerHTML = 'Loading...<p><button class="btn btn-primary" onclick="BuildResultTable()">Go Back</button>'
+            lastRetrieve = impVal
+            RetrieveDetails(impVal, savedHTML)
+        }
+
+        function RetrieveDetails(impVal, html) {
+            var resArr, tArr;
+
+            // Create a new XMLHttpRequest object
+            var xhttp = new XMLHttpRequest();
+
+            // Configure it: GET-request for the URL
+            xhttp.open("GET", "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/" + impVal, true);
+
+            // Set the necessary headers, including the API key
+            xhttp.setRequestHeader('accept', 'application/json');
+            xhttp.setRequestHeader('api-key', 'b2b1fcabd2cedd206131d848c2a7c759');
+
+            // Track the state changes of the request
+            xhttp.onreadystatechange = function() {
+                // Check if the request is completed (readyState 4) and the response status is OK (status 200)
+                if (this.readyState == 4 && this.status == 200) {
+                    // Parse the JSON response
+                    var response = JSON.parse(xhttp.responseText);
+
+                    // Assuming response.data contains the required information
+                    if (response.data) {
+                        resArr = response.data;
+
+                        // Call BuildVerseTable to update your UI
+                        BuildVerseTable(resArr, html);
+                    }
+                }
+            };
+
+            // Send the request
+            xhttp.send();
+        }
+
+        function BuildVerseTable(OpenVerse, html) {
+            // Assuming resArr contains the details of the verse.
+            if (!OpenVerse) {
+                return;
+            }
+
+            // Extract data from OpenVerse (adjust according to API response structure)
+            const verseData = OpenVerse.content;
+            const verseTitle = OpenVerse.reference;
+            const nextVerse = OpenVerse.next.id;
+            let prevVerse;
+            if (OpenVerse.previous && Object.keys(OpenVerse.previous).length > 0) {
+                prevVerse = `<td><button class="buttonFunction width137" onclick="OpenDetails('${OpenVerse.previous.id}')">${OpenVerse.previous.id} <span><i style="font-size:1em;" class="fa"></i></span></button></td>`;
+            } else {
+                prevVerse = '<td></td>';
+            }
+
+
+            const verseDataClean = stripTagsAndExtras1(OpenVerse.content);
+            const analyzeSentences = analyzeSentence(verseDataClean);
+
+            let splitString = OpenVerse.id.split('.');
+
+            // Update the table with the verse information
+            let tableHTML = `
+            <table id="MainTableVerse" class="table">
+                <tbody>
+                    <tr>
+                        <td colspan="5"><button id="backToResultsBtn" class="buttonFunction" onclick="RunLastQuery()">BACK TO RESULTS</button></td>
+                    </tr>
+                    <tr>
+                        <th>Characters:</th>
+                        <th>Letters:</th>
+                        <th>Words:</th>
+                    </tr>
+                    <tr>
+                        <td>${analyzeSentences.totalCharacters}</td>
+                        <td>${analyzeSentences.totalLetters}</td>
+                        <td>${analyzeSentences.totalWords}</td>
+                    </tr>
+                    <tr>
+                        ${prevVerse}
+                        <td></td>
+                        <td><button class="buttonFunction width137" onclick="OpenDetails('${nextVerse}')">${nextVerse} <span><i style="font-size:1em;" class="fa"></i></span></button></td>
+                    </tr>
+                    <tr>
+                        <th colspan="3"><span class="verseTitle">${verseTitle}</span></th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span class="verseText">${verseDataClean}</span></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+            <table id="MainTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Verse</th>
+                        <th>Ordinal</th>
+                        <th>Reduction</th>
+                        <th>Reverse Reduction</th>
+                    </tr>
+                </thead>
+                <tbody id="cipher-body">
+                </tbody>
+            </table>
+            `;
+
+
+            // Find the target table and insert the HTML
+            const tableBody = document.getElementById("DropHere");
+
+            if (tableBody) {
+                tableBody.innerHTML = tableHTML;
+                let selected_chapter = OpenVerse.chapterId;
+                let selected_verse = OpenVerse.id;
+                fetchVersesBySelected(selected_chapter, selected_verse);
+            } else {
+                console.error('Element with id "DropHere" not found in the DOM');
+            }
+        }
+
+        $(window).on('load', function() {
+            fetchVersesBySelected('GEN.1', '');
+        });
+
+        function fetchVersesBySelected(selected_chapter, selected_verse) {
+            if (selected_chapter === '') {
+                return false;
+            }
+
+            let url = (selected_verse === '') ?
+                'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/chapters/' + selected_chapter + '/verses' :
+                'https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/' + selected_verse;
+
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+
+            for (let key in headers) {
+                xhttp.setRequestHeader(key, headers[key]);
+            }
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    let data = JSON.parse(this.responseText);
+                    let result = [];
+
+                    if (selected_verse === '') {
+                        $('#cipher-body').html('');
+
+                        for (const item of data.data) {
+                            get_verse_detail(item.id).then(res => {
+                                result.push(res);
+
+                                if (data.data.length === result.length) {
+                                    result = result.sort((a, b) => {
+                                        const numA = parseInt(a.id.split('.').pop());
+                                        const numB = parseInt(b.id.split('.').pop());
+                                        return numA - numB;
+                                    });
+
+                                    submit_verses(result);
+                                }
+                            });
+                        }
+                    } else {
+                        $('#cipher-body').html('');
+                        submit_verses([data.data]);
+                    }
+                } else if (this.readyState === 4 && this.status !== 200) {
+                    submit_verses([]);
+                }
+            };
+
+            xhttp.send();
+        }
+
+        function RunLastQuery() {
+            let newHtml = `
+                <table id="MainTableVerse" class="table">
+
+                </table>
+                <table id="MainTableDefault" class="table">
+                    ${savedHTML}
+                </table>
+            `;
+            $('#DropHere').html(newHtml);
+        }
+
+        function analyzeSentence(sentence) {
+            let trimmedSentence = sentence.trim();
+            let totalCharacters = trimmedSentence.length;
+            let totalLetters = (trimmedSentence.match(/[a-zA-Z]/g) || []).length;
+            let totalWords = (trimmedSentence.match(/\S+/g) || []).length;
+
+            return {
+                totalCharacters: totalCharacters,
+                totalLetters: totalLetters,
+                totalWords: totalWords
+            };
+        }
+
+        function stripTagsAndExtras1(input) {
+            let stripped = input.replace(/<\/?[^>]+(>|$)/g, "");
+            stripped = stripped.replace(/\\+/g, "");
+            stripped = stripped.replace(/\d+/g, "");
+
+            return stripped.trim();
+        }
+
+        // $(document).ready(() => {
             let headers = {
                 'accept':'application/json',
                 'api-key':'b2b1fcabd2cedd206131d848c2a7c759'
@@ -531,7 +1226,6 @@
             }
 
             const submit_verses = (verses) => {
-                console.log(verses);
                 verses.forEach((response) => {
                     if(response == ''){
                         return false;
@@ -552,6 +1246,7 @@
 
             const appendGematriaDataToTable = (responses) => {
                 const tableBody = document.querySelector('#MainTable tbody');
+                const tableBodyDefault = document.querySelector('#MainTableDefault tbody');
 
                 responses.forEach(response => {
                     const { id } = response;
@@ -582,7 +1277,12 @@
                     });
 
                     // Append the new row to the table body
-                    tableBody.appendChild(newRow);
+                    if(tableBody){
+                        tableBody.appendChild(newRow);
+                    }
+                    if(tableBodyDefault){
+                        tableBodyDefault.appendChild(newRow);
+                    }
                 });
             };
 
@@ -626,8 +1326,15 @@
                     headers: headers,
                     success: (data) => {
                         let result = [];
+                        $('#chapterId').val(selected_chapter);
+                        $('#selectedVerse').val(selected_verse);
                         if (selected_verse === '') {
+                            $('#select_chapter').val('').change();
+                            $('#select_verse').val('').change();
+                            $('#input_query').val('')
+                            $('#MainTableVerse').html(``);
                             $('#cipher-body').html(``);
+
                             for (const item of data.data) {
                                 get_verse_detail(item.id).then(res => {
                                     result.push(res);
@@ -650,6 +1357,10 @@
                                 });
                             }
                         } else {
+                            $('#select_chapter').val('').change();
+                            $('#select_verse').val('').change();
+                            $('#input_query').val('');
+                            $('#MainTableVerse').html(``);
                             $('#cipher-body').html(``);
                             submit_verses([data.data]);
                         }
@@ -824,7 +1535,7 @@
                 return finalArr;
             }
 
-        });
+        // });
     </script>
 @endsection
 

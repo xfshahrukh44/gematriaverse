@@ -205,6 +205,10 @@ input[type='checkbox'] {
 	#MainTable tr{
 		font-size: 0.85em;
 	}
+    #MainTableDefault tr {
+        width: 100%;
+        margin-top: 5px;
+    }
 	ul#cipherBox  {
 		columns: 1;
 		-webkit-columns: 1;
@@ -237,6 +241,11 @@ input[type='checkbox'] {
 }
 
 #MainTable {
+	width: 100%;
+	margin-top: 5px;
+}
+
+#MainTableDefault {
 	width: 100%;
 	margin-top: 5px;
 }
@@ -281,6 +290,13 @@ ul {
 	text-align: center;
 	background-color: none !important;
 }
+#MainTableDefault thead tr {
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	text-align: center;
+	background-color: none !important;
+}
 thead  {
 	background-color: transparent !important;
 }
@@ -301,8 +317,15 @@ td {
 	font-size: 1.5em;
 	font-weight: 500;
 }
+#MainTableDefault tr {
+	font-size: 1.5em;
+	font-weight: 500;
+}
 
 #MainTable tr:hover {
+	background-color: #333333;
+}
+#MainTableDefault tr:hover {
 	background-color: #333333;
 }
 
