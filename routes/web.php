@@ -296,6 +296,16 @@ Route::post('ciphers/{id}/edit', [CipherController::class, 'update'])->name('cip
 Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name('ciphers.destroy');
 Route::post('save-ciphers', [CipherController::class, 'saveCipherSettings'])->name('ciphers.saveciphers');
 Route::post('change-ciphers', [CipherController::class, 'changeCiphers'])->name('ciphers.change');
+Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->name('anagram.generator');
+
+
 Route::get('mutate-session', function () {
     session()->put($_GET['key'], $_GET['value']);
 })->name('mutate-session');
+
+
+Route::get('get-anagrams', function () {
+    $string = $_GET['string'];
+    $response = file_get_contents("http://www.anagramica.com/all/:" . $string);
+    return response()->json($response);
+})->name('get-anagrams');
