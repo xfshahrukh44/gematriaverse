@@ -231,24 +231,180 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="tool-wrapper">
-                        <!-- <script src="js/numberproperties.js"></script>
-                        <script src="js/newfunctions.js"></script>
-                        <script src="js/buildfunctions.js"></script>
-                        <script src="js/matchfunctions.js"></script>
-                        <script src="js/historyfunctions.js"></script>
-                        <script src="js/ss.js"></script> -->
-                        <script type="text/javascript">
-                            const maxHistory = 1000,
-                                HistoryEnabled = true,
-                                TablesEnabled = true
-                        </script>
-                        <link rel="stylesheet" type="text/css" href="css/advcalcstyles-1-00012.css">
-                        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                        <script src="js/cipherbuilder.js"></script>
-                        <script src="js/html2canvas.min.js"></script>
-                        <script src="js/load.js"></script> -->
-                    </div>
+                    <center id="center_number_properties" hidden>
+                        <div id="MiscSpot"><button class="buttonFunction" onclick="Build_HistoryTable()">Show
+                                History</button><br>
+                            <object id="numberProperty" type="text/html" data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
+
+                                <div id="numPropAnchor">
+                                    <div id="numPropContainer">
+                                        <center>
+                                            <h2 style="text-transform: uppercase;">Number Properties of:
+                                            </h2>
+                                            <div id="HTMLSpot">
+                                                <table id="TopTable">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td id="TopNumber" style="font-size: 40px !important;"></td>
+                                                    </tr>
+                                                    {{--                                                                    <tr>--}}
+                                                    {{--                                                                        <td id="PrimeString" colspan="3">2 ×--}}
+                                                    {{--                                                                            3<sup>2</sup>--}}
+                                                    {{--                                                                        </td>--}}
+                                                    {{--                                                                    </tr>--}}
+                                                    </tbody>
+                                                </table>
+                                                <div id="belowSpecials">
+                                                    <div id="DivisorTableDiv"><span class="titles">Divisors</span>
+                                                        <table id="DivisorTable">
+                                                            <tbody>
+                                                            <tr></tr>
+                                                            <tr>
+                                                                <td>Count:</td>
+                                                                <td>List:</td>
+                                                                <td>Sum:</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: top"><b class="Linkable" id="count"></b></td>
+                                                                <td id="divisors_list">
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>,--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>,--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>,--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b>--}}
+                                                                    {{--                                                                                    <br>--}}
+                                                                    {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th--}}
+                                                                    {{--                                                                                    Composite #--}}
+                                                                </td>
+                                                                <td style="vertical-align: top"><b class="Linkable" id="sum"></b>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div id="RelationTableDiv">
+                                                        <h2 id="number_with_suffix"></h2>
+                                                        <table id="RelationTable">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Prime #:
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_prime"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Composite #:
+                                                                    &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_composite"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Fibonacci #:
+                                                                    &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_fibonacci"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Triangular #:
+                                                                    &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_triangular"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Square #:
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="square"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Cube #:
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="cube"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Tetrahedral
+                                                                    #:
+                                                                    &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_tetrahedral"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_sq_pyramidal"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Star #:
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_star"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="RelativeClass"> Pentagonal #:
+                                                                    &nbsp;</td>
+                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_pentagonal"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div id="ConversionsTableDiv"><span class="titles">Conversions</span>
+                                                        <table id="ConversionTable">
+                                                            <tbody>
+                                                            <tr>
+                                                                {{--                                                                                <td>From:</td>--}}
+                                                                <td class="conversionMiddle">Numeral
+                                                                    system:
+                                                                </td>
+                                                                <td>To:</td>
+                                                            </tr>
+                                                            <tr>
+                                                                {{--                                                                                <td>-</td>--}}
+                                                                <td>Octal</td>
+                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="octal"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td>--}}
+                                                                <td>Duodecimal</td>
+                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="duodecimal"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td>--}}
+                                                                <td>Hexadecimal</td>
+                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="hexadecimal"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                {{--                                                                                <td>-</td>--}}
+                                                                <td>Binary</td>
+                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="binary"></a></b>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
+                                            <br><br>
+                                            <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
+                                            <br><br>
+                                        </center>
+                                    </div>
+                                </div>
+
+                            </object>
+                        </div>
+
+                    </center>
                 </div>
             </div>
         </div>
@@ -993,6 +1149,7 @@
             });
 
             $('body').on('click', '.target_number', function () {
+                alert()
                 number_properties($(this).text());
             });
         });
