@@ -186,7 +186,7 @@
                                                         </div>
 
                                                         <fieldset>
-                                                            <legend>Password change</legend>
+                                                            <legend style="font-family: Pixeboy !important;">Password change</legend>
 
                                                             <div class="row">
                                                                 <div class="col-lg-6">
