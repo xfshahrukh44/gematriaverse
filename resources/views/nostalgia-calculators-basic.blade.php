@@ -3,7 +3,7 @@
 @section('title', 'Basic nostalgia calculator')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href={{asset('"css/Calculator3.css"')}}>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/Calculator3.css')}}">
 @endsection
 
 @section('content')
