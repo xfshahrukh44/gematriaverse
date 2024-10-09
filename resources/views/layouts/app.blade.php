@@ -130,14 +130,26 @@
                                         Calculators
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('calculator') }}">Calculator</a>
-                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">Date Calculator</a>
-                                        <a class="dropdown-item" href="{{ route('greek-calculator') }}">Greek
-                                            Calculator</a>
-                                        <a class="dropdown-item" href="{{ route('hebrew-calculator') }}">Hebrew
-                                            Calculator</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('nostalgia-calculators') }}">Nostalgia Calculators</a>
+                                        <a class="dropdown-item" href="{{ route('calculator') }}">
+                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
+                                            Calculator
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">
+                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
+                                            Date Calculator
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('greek-calculator') }}">
+                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
+                                            Greek Calculator
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('hebrew-calculator') }}">
+                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
+                                            Hebrew Calculator
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('nostalgia-calculators') }}">
+                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
+                                            Nostalgia Calculators
+                                        </a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -147,12 +159,28 @@
                                         Tools
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('number-properties') }}">Number
-                                            Properties</a>
-                                        <a class="dropdown-item" href="{{ route('calendar') }}">Personal Calendar</a>
-                                        <a class="dropdown-item" href="{{ route('bible-search') }}">Bible Search</a>
-                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">Custom Ciphers</a>
-                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">Anagram Generator</a>
+                                        <a class="dropdown-item" href="{{ route('number-properties') }}" style="padding-left: 14px;">
+                                            <i class="fas fa-1" style="font-size: 8px;"></i>
+                                            <i class="fas fa-2" style="font-size: 8px;"></i>
+                                            <i class="fas fa-3 mr-2" style="font-size: 8px;"></i>
+                                            Number Properties
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('calendar') }}">
+                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i>
+                                            Personal Calendar
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('bible-search') }}">
+                                            <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
+                                            Bible Search
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">
+                                            <i class="fas fa-wand-magic-sparkles mr-1" style="font-size: 14px;"></i>
+                                            Custom Ciphers
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">
+                                            <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
+                                            Anagram Generator
+                                        </a>
                                     </div>
                                 </li>
                                 <!-- <li class="nav-item">
