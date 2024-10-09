@@ -117,11 +117,10 @@
                                 <h5>Date Calculator</h5>
 {{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-{{--                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
 {{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-                                <li> Access Unlocked </li>
 
                                 <h5>Bible Search Tool </h5>
                                 <li> Access Unlocked </li>
@@ -166,10 +165,9 @@
 {{--                                <li> Import up to 12 Created Ciphers into Calculator</li>--}}
 
                                 <h5>Date Calculator</h5>
-                                <li> Access Unlocked </li>
 {{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-{{--                                <li>Planetary Table <strong>Unlocked</strong></li>--}}
+                                <li>Planetary Table <strong>Unlocked</strong></li>
 {{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
