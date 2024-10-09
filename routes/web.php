@@ -309,3 +309,8 @@ Route::get('get-anagrams', function () {
     $response = file_get_contents("http://www.anagramica.com/all/:" . $string);
     return response()->json($response);
 })->name('get-anagrams');
+
+
+//Route::get('temp', function () {
+//    dd('here');
+//})->name('temp');

@@ -62,7 +62,7 @@
 
 @section('content')
     <!-- section-1 -->
-    <section class="gematriaverse-section">
+    <section class="gematriaverse-section" style="padding: 120px 0px;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 py-5">
@@ -123,8 +123,11 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <button id="btn_calculate_anagrams" class="btn form-btn full-width" type="submit" style="width: 100% !important;">Anagrams</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="btn_calculate_words" class="btn form-btn full-width" type="submit" style="width: 100% !important;">Words</button>
                                 </div>
 {{--                                <button class="btn form-btn full-width" type="submit">Words</button>--}}
                             </div>
@@ -155,6 +158,31 @@
 
 @section('js')
     <script>
+        let dictionary_words = [];
+        fetch('{{ url('/english-dictionary-words.json') }}')
+            .then(res => res.json())
+            .then((data) => {
+                dictionary_words = data.words;
+            });
+
+        function areAnagrams(str1, str2) {
+            return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+        }
+
+        function canFormWord(word, availableLetters) {
+            let letterCount = availableLetters.split('').reduce((count, letter) => {
+                count[letter] = (count[letter] || 0) + 1;
+                return count;
+            }, {});
+
+            for (let char of word) {
+                if (!letterCount[char]) return false;
+                letterCount[char]--;
+            }
+            return true;
+        }
+    </script>
+    <script>
         $('#btn_calculate_anagrams').on('click', function () {
             let string = $('#input_anagram_query').val();
             if (string === '') {
@@ -167,49 +195,106 @@
             let min_length = $('#input_min_length').val();
             let max_length = $('#input_max_length').val();
 
-            $.ajax({
-                url: '{{route("get-anagrams")}}',
-                method: 'GET',
-                data: {
-                    string: string.replaceAll(' ', '')
-                },
-                success: (data) => {
-                    data = JSON.parse(data).all;
+            let spaceless_string = string.replaceAll(' ', '');
 
-                    $('#ul_result').html('');
+            if (!dictionary_words.length) {
+                alert('Dictionary not loaded yet.');
+                return;
+            }
 
-                    //max number of anagrams
-                    if (max_anagrams && max_anagrams < data.length) {
-                        data.length = max_anagrams;
-                    }
-
-                    if (min_length) {
-                        data = data.filter((item) => item.length >= min_length);
-                    }
-
-                    if (max_length) {
-                        data = data.filter((item) => item.length <= max_length);
-                    }
-
-                    for (const item of data) {
-                        $('#ul_result').append('<li>'+item+'</li>');
-                    }
-
-
-                    $('#result_wrapper').prop('hidden', false);
-
-                    return true;
-                },
-                error: (error) => {
-                    $('#result_wrapper').prop('hidden', true);
-
-                    return false;
-                },
+            let anagrams = dictionary_words.filter(word => {
+                let spaceless_word = word.replaceAll(' ', '');
+                return areAnagrams(spaceless_string, spaceless_word);
             });
 
-            $('#result_wrapper').prop('hidden', true);
+            //problem: this always returns empty array
+            console.log(anagrams);
 
-            return false;
+
+            if (max_anagrams && max_anagrams < anagrams.length) {
+                anagrams = anagrams.slice(0, max_anagrams);
+            }
+
+            if (min_length) {
+                anagrams = anagrams.filter((item) => item.length >= min_length);
+            }
+
+            if (max_length) {
+                anagrams = anagrams.filter((item) => item.length <= max_length);
+            }
+
+            $('#ul_result').html('');
+            if (anagrams.length > 0) {
+                for (const item of anagrams) {
+                    $('#ul_result').append('<li>'+item+'</li>');
+                }
+
+                $('#result_wrapper').prop('hidden', false);
+
+                return true;
+            } else {
+                $('#result_wrapper').prop('hidden', false);
+                $('#h4_result').html(`No anagrams of "`+string+`" found.`);
+
+                return false;
+            }
+        });
+
+        $('#btn_calculate_words').on('click', function () {
+            let string = $('#input_anagram_query').val();
+            if (string === '') {
+                return false;
+            }
+
+            $('#h4_result').html(`Words of "`+string+`"`);
+
+            let max_anagrams = $('#input_max_anagrams').val();
+            let min_length = $('#input_min_length').val();
+            let max_length = $('#input_max_length').val();
+
+            let spaceless_string = string.replaceAll(' ', '');
+
+            if (!dictionary_words.length) {
+                alert('Dictionary not loaded yet.');
+                return;
+            }
+
+            let possibleWords = dictionary_words.filter(word => {
+                let spaceless_word = word.replaceAll(' ', ''); // Remove spaces if any
+                return canFormWord(spaceless_word, spaceless_string);
+            });
+
+            if (max_anagrams && max_anagrams < possibleWords.length) {
+                possibleWords = possibleWords.slice(0, max_anagrams);
+            }
+
+            if (min_length) {
+                possibleWords = possibleWords.filter(word => word.length >= min_length);
+            }
+
+            if (max_length) {
+                possibleWords = possibleWords.filter(word => word.length <= max_length);
+            }
+
+            possibleWords.sort((a, b) => b.length - a.length);
+
+            console.log(possibleWords);
+
+            $('#ul_result').html('');
+            if (possibleWords.length > 0) {
+                for (const item of possibleWords) {
+                    $('#ul_result').append('<li>'+item+'</li>');
+                }
+
+                $('#result_wrapper').prop('hidden', false);
+
+                return true;
+            } else {
+                $('#result_wrapper').prop('hidden', false);
+                $('#h4_result').html(`No words of "`+string+`" found.`);
+
+                return false;
+            }
         });
     </script>
 @endsection
