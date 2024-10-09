@@ -1,0 +1,64 @@
+{
+  "subscriptions": {
+    "mystic": {
+      "price": 16.99,
+      "features": {
+        "calculators": {
+          "breakdown_screenshot": true
+        },
+        "nostalgia_calculators": true,
+        "custom_ciphers": {
+          "limit": 20
+        },
+        "date_calculator": true,
+        "bible_search": true,
+        "calendar": true
+      }
+    },
+    "enthusiast": {
+      "price": 10.61,
+      "features": {
+        "calculators": {
+          "breakdown_screenshot": false
+        },
+        "nostalgia_calculators": true,
+        "custom_ciphers": {
+          "limit": 20
+        },
+        "date_calculator": true,
+        "bible_search": true,
+        "calendar": true
+      }
+    },
+    "casual": {
+      "price": 6.04,
+      "features": {
+        "calculators": {
+          "breakdown_screenshot": false
+        },
+        "nostalgia_calculators": true,
+        "custom_ciphers": {
+          "limit": 20
+        },
+        "date_calculator": true,
+        "bible_search": true,
+        "calendar": true
+      }
+    },
+    "free": {
+      "price": 0.00,
+      "features": {
+        "calculators": {
+          "breakdown_screenshot": false
+        },
+        "nostalgia_calculators": false,
+        "custom_ciphers": {
+          "limit": 0
+        },
+        "date_calculator": true,
+        "bible_search": false,
+        "calendar": false
+      }
+    }
+  }
+}

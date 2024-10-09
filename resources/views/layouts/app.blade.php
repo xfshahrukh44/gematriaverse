@@ -72,9 +72,11 @@
         <div class="container">
             <div class="top-header">
                 <div class="guest">
-                    <span>
-                        Hi, {{ Auth::user()->name }}!
-                    </span>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <span>
+                            Hi, {{ Auth::user()->name }}!
+                        </span>
+                    @endif
                 </div>
                 <div class="log-in">
                     @if (!\Illuminate\Support\Facades\Auth::check())
@@ -160,9 +162,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('number-properties') }}" style="padding-left: 14px;">
-                                            <i class="fas fa-1" style="font-size: 8px;"></i>
                                             <i class="fas fa-2" style="font-size: 8px;"></i>
-                                            <i class="fas fa-3 mr-2" style="font-size: 8px;"></i>
+                                            <i class="fas fa-3" style="font-size: 8px;"></i>
+                                            <i class="fas fa-1 mr-2" style="font-size: 8px;"></i>
                                             Number Properties
                                         </a>
                                         <a class="dropdown-item" href="{{ route('calendar') }}">

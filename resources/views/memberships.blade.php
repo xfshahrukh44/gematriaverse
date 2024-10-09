@@ -57,26 +57,29 @@
                             <h4>Ad Free Experience!</h4>
                             <ul>
                                 <h5>Gematriaverse Calculator</h5>
-                                <li><strong>Match</strong> to Database (<strong>25/Day</strong>)</li>
-                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>
-                                <li><strong><a style="color: #0dd300;" href="#">All
-                                            Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Session + History (500 Entries Each)</li>
-                                <li>4 Custom Tables (500 Entries Each)</li>
-                                <li>No Watermark on Screenshots</li>
-                                <li>Save Your User Preferences</li>
-                                <li>Set Your Default Ciphers + Presets</li>
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
+{{--                                <li><strong>Match</strong> to Database (<strong>25/Day</strong>)</li>--}}
+{{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Session + History (500 Entries Each)</li>--}}
+{{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
+{{--                                <li>No Watermark on Screenshots</li>--}}
+{{--                                <li>Save Your User Preferences</li>--}}
+{{--                                <li>Set Your Default Ciphers + Presets</li>--}}
+                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+
                                 <h5>Create-A-Cipher </h5>
                                 <li>Create up to 20 Custom Ciphers</li>
-                                <li>Import 3 Created Ciphers into Calculator</li>
+{{--                                <li>Import 3 Created Ciphers into Calculator</li>--}}
+
                                 <h5>Date Calculator</h5>
-                                <li> Save 25 Recent Dates Unlocked</li>
+{{--                                <li> Save 25 Recent Dates Unlocked</li>--}}
+                                <li> Access Unlocked </li>
+
                                 <h5>Bible Search Tool</h5>
                                 <li> Access Unlocked </li>
+
                                 <h5>Personal Calendar</h5>
-                                <li> ccess Unlocked </li>
+                                <li> Access Unlocked </li>
                             </ul>
                             <a href="#" class="btn white-btn">Get Started</a>
 
@@ -97,31 +100,32 @@
                             <h4>Ad Free Experience!</h4>
                             <ul>
                                 <h5>Gematriaverse Calculator </h5>
-                                <li><strong>Match</strong> to Database (<strong>75/Day</strong>)</li>
-                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>
-                                <li><strong><a style="color: #0dd300;" href="#">All
-                                            Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Session + History (500 Entries Each)</li>
-                                <li>4 Custom Tables (500 Entries Each)</li>
-                                <li>No Watermark on Screenshots</li>
-                                <li>Save Your User Preferences</li>
-                                <li>Set Your Default Ciphers + Presets</li>
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
+{{--                                <li><strong>Match</strong> to Database (<strong>75/Day</strong>)</li>--}}
+{{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Session + History (500 Entries Each)</li>--}}
+{{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
+{{--                                <li>No Watermark on Screenshots</li>--}}
+{{--                                <li>Save Your User Preferences</li>--}}
+{{--                                <li>Set Your Default Ciphers + Presets</li>--}}
+                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+
                                 <h5>Create-A-Cipher </h5>
                                 <li> Create up to 20 Custom Ciphers</li>
-                                <li>Import up to 7 Created Ciphers into Calculator</li>
+{{--                                <li>Import up to 7 Created Ciphers into Calculator</li>--}}
+
                                 <h5>Date Calculator</h5>
-                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
-                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
+{{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+                                <li> Access Unlocked </li>
+
                                 <h5>Bible Search Tool </h5>
                                 <li> Access Unlocked </li>
+
                                 <h5>Personal Calendar</h5>
                                 <li> Access Unlocked </li>
                             </ul>
@@ -145,36 +149,37 @@
 
                             <ul>
                                 <h5>Gematriaverse Calculator</h5>
-                                <li><strong>Match</strong> to Database (<strong>Unlimited</strong>)</li>
-                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>
-                                <li><strong><a style="color: #0dd300;" href="#">All
-                                            Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Session + History (500 Entries Each)</li>
-                                <li>4 Custom Tables (500 Entries Each)</li>
-                                <li>Screenshots of History + Breakdown</li>
-                                <li>Save Your User Preferences</li>
-                                <li>Set Your Default Ciphers + Presets</li>
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
+{{--                                <li><strong>Match</strong> to Database (<strong>Unlimited</strong>)</li>--}}
+{{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Session + History (500 Entries Each)</li>--}}
+{{--                                <li>History (500 Entries)</li>--}}
+{{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
+{{--                                <li>Screenshots of History + Breakdown</li>--}}
+                                <li>Screenshots of Breakdown</li>
+{{--                                <li>Save Your User Preferences</li>--}}
+{{--                                <li>Set Your Default Ciphers + Presets</li>--}}
+                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+
                                 <h5>Create-A-Cipher </h5>
                                 <li>Create up to 20 Custom Ciphers</li>
-                                <li> Import up to 12 Created Ciphers into Calculator</li>
+{{--                                <li> Import up to 12 Created Ciphers into Calculator</li>--}}
+
                                 <h5>Date Calculator</h5>
-                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
-                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Planetary Table <strong>Unlocked</strong></li>
-                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
-                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong>
-                                </li>
-                                <li>Date Matrix <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+                                <li> Access Unlocked </li>
+{{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Planetary Table <strong>Unlocked</strong></li>--}}
+{{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li>Date Matrix <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+
                                 <h5>Bible Search Tool</h5>
                                 <li> Access Unlocked </li>
+
                                 <h5>Personal Calendar</h5>
-                                <li>
-                                    Access Unlocked
-                                </li>
+                                <li>Access Unlocked</li>
                             </ul>
 
                             <a href="#" class="btn white-btn">Get Started</a>
@@ -196,17 +201,18 @@
                         <div class="experiencial">
                             <h4>Gematriaverse Calculator</h4>
                             <ul>
-                                <li><strong>Match</strong> to Database (10/Day)</li>
-                                <li><strong>Match</strong> to Session/History&nbsp;(<strong>Unlimited</strong>)</li>
-                                <li>Session + History (50 Entries Each)</li>
-                                <li><strong><a style="color: #0dd300;" href="#">31 of 38 Ciphers</a> Unlocked <i
-                                                class="fas fa-lock-open"></i></strong></li>
+{{--                                <li><strong>Match</strong> to Database (10/Day)</li>--}}
+{{--                                <li><strong>Match</strong> to Session/History&nbsp;(<strong>Unlimited</strong>)</li>--}}
+{{--                                <li>Session + History (50 Entries Each)</li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="#">31 of 38 Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+                                <li> Basic Access</li>
+
                                 <h5>Date Calculator</h5>
                                 <li> Basic Access</li>
+
                                 <h5>Bible Search</h5>
-                                <li>
-                                    Locked
-                                </li>
+                                <li>Locked</li>
+
                                 <h5>Personal Calendar</h5>
                                 <li>Locked </li>
 
