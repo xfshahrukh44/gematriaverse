@@ -183,7 +183,10 @@ span.banner-text {
 .simple-easy-section.py {
     background: #151518;
 }
-
+.icons span i {
+    margin-right: -10px;
+    margin-top: 10px;
+}
 .py {
     padding-top: 60px;
     padding-bottom: 60px;

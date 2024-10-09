@@ -9,7 +9,8 @@ use App\post;
 use App\banner;
 use App\imagetable;
 use DB;
-use Mail;use View;
+use Mail;
+use View;
 use Session;
 use App\Http\Helpers\UserSystemInfoHelper;
 use App\Http\Traits\HelperTrait;
@@ -19,33 +20,33 @@ use App\Page;
 use Image;
 
 class HomeController extends Controller
-{   
+{
     use HelperTrait;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-     // use Helper;
-     
+    // use Helper;
+
     public function __construct()
     {
         //$this->middleware('auth');
 
         $logo = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','logo')
-                     ->first();
-             
-        $favicon = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','favicon')
-                     ->first(); 
-        
-        View()->share('logo',$logo);
-        View()->share('favicon',$favicon);
+            select('img_path')
+            ->where('table_name', '=', 'logo')
+            ->first();
 
-    } 
+        $favicon = imagetable::
+            select('img_path')
+            ->where('table_name', '=', 'favicon')
+            ->first();
+
+        View()->share('logo', $logo);
+        View()->share('favicon', $favicon);
+
+    }
 
     /**
      * Show the application dashboard.
@@ -53,63 +54,55 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-       $page = DB::table('pages')->where('id', 1)->first();
- 
-       return view('welcome', compact('page'));
+    {
+        $page = DB::table('pages')->where('id', 1)->first();
+        $section = DB::table('section')->where('page_id', 1)->get();
+        return view('welcome', compact('page', 'section'));
     }
-
- 
-
 
     public function careerSubmit(Request $request)
     {
-
-       
         inquiry::create($request->all());
-
-
-        return response()->json(['message'=>'Thank you for contacting us. We will get back to you asap', 'status' => true]);
+        return response()->json(['message' => 'Thank you for contacting us. We will get back to you asap', 'status' => true]);
         return back();
     }
 
-    public function newsletterSubmit(Request $request){
-
-        $is_email = newsletter::where('newsletter_email',$request->newsletter_email)->count();
-        if($is_email == 0) {        
+    public function newsletterSubmit(Request $request)
+    {
+        $is_email = newsletter::where('newsletter_email', $request->newsletter_email)->count();
+        if ($is_email == 0) {
             $inquiry = new newsletter;
             $inquiry->newsletter_email = $request->newsletter_email;
             $inquiry->save();
-            return response()->json(['message'=>'Thank you for contacting us. We will get back to you asap', 'status' => true]);
-            
-        }else{
-            return response()->json(['message'=>'Email already exists', 'status' => false]);
+            return response()->json(['message' => 'Thank you for contacting us. We will get back to you asap', 'status' => true]);
+        } else {
+            return response()->json(['message' => 'Email already exists', 'status' => false]);
         }
-            
     }
 
-    public function updateContent(Request $request){
+    public function updateContent(Request $request)
+    {
         $id = $request->input('id');
         $keyword = $request->input('keyword');
         $htmlContent = $request->input('htmlContent');
-        if($keyword == 'page'){
+        if ($keyword == 'page') {
             $update = DB::table('pages')
-                        ->where('id', $id)
-                        ->update(array('content' => $htmlContent));
+                ->where('id', $id)
+                ->update(array('content' => $htmlContent));
 
-            if($update){
-                return response()->json(['message'=>'Content Updated Successfully', 'status' => true]);
-            }else{
-                return response()->json(['message'=>'Error Occurred', 'status' => false]);
+            if ($update) {
+                return response()->json(['message' => 'Content Updated Successfully', 'status' => true]);
+            } else {
+                return response()->json(['message' => 'Error Occurred', 'status' => false]);
             }
-        }else if($keyword == 'section'){
+        } else if ($keyword == 'section') {
             $update = DB::table('section')
-                        ->where('id', $id)
-                        ->update(array('value' => $htmlContent));
-            if($update){
-                return response()->json(['message'=>'Content Updated Successfully', 'status' => true]);
-            }else{
-                return response()->json(['message'=>'Error Occurred', 'status' => false]);
+                ->where('id', $id)
+                ->update(array('value' => $htmlContent));
+            if ($update) {
+                return response()->json(['message' => 'Content Updated Successfully', 'status' => true]);
+            } else {
+                return response()->json(['message' => 'Error Occurred', 'status' => false]);
             }
         }
     }

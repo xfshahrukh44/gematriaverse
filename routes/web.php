@@ -264,6 +264,9 @@ Route::resource('traning-videos', 'TraningVideosController');
 Route::resource('upcomingclasses', 'UpcomingclassesController');
 
 
+Route::resource('admin/faq', 'Admin\FaqController');
+
+
 //===================== Front Routes =====================//
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('about', [FrontController::class, 'about'])->name('about');

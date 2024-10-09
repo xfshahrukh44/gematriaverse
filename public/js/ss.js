@@ -25,7 +25,7 @@ function OpenHistoryImg() {
 
 	if ( jQuery(element).length == 0) {return}
 	html2canvas(jQuery(element)[0], {allowTaint: true, scale: 1, backgroundColor: null, width: jQuery(element).outerWidth() + 0, height: jQuery(element).outerHeight()} ).then((canvas) => {
-	    
+
 	    imageURL = canvas.toDataURL("image/png");
 	    imgName = "history_" + getTimestamp()+".png";
 

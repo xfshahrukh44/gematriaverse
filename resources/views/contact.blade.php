@@ -26,72 +26,59 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-team">
-                        <h1>Contact the Team</h1>
-                        <p>Have questions? Need to contact Gematriaverse ? Please use one of the emails below or the
-                            form on this page. We will do our best to review the emails and contacts that come in, but
-                            please, have patience. We appreciate that!
-
-                            Thank you! 😊</p>
+                        <h1>
+                            {!! $section[0]->value !!}
+                        </h1>
+                        {!! $section[1]->value !!}
                         <div class="web-relate">
-                            <div class="icon-1">
-                                <i class="fa-regular fa-envelope"></i>
-                            </div>
-                            <div class="email_web">
-                                <h2>Website Related</h2>
-                                <a href="<?php echo EMAIL_HREF; ?>"><?php echo EMAIL; ?></a>
-                            </div>
+                            {!! $section[2]->value !!}
                         </div>
                         <div class="web-relate">
-                            <div class="icon-1">
-                                <i class="fa-regular fa-envelope"></i>
-                            </div>
-
-                            <div class="email_web">
-                                <h2>General Inquiries</h2>
-                                <a href="<?php echo EMAIL_HREF; ?>"><?php echo EMAIL; ?></a>
-                            </div>
+                            {!! $section[3]->value !!}
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6">
                     <div class="form-contact">
-                        <div class="from-group">
-                            <div class="label-from">
-                                <label for="">Name</label>
+                        <div id="contactformsresult"></div>
+                        <form id="contactform" action="{{ route('contactUsSubmit') }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="from-group">
+                                <div class="label-from">
+                                    <label for="">Name</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" name="fname" class="form-control" placeholder="First">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="lname" class="form-control" placeholder="Last">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="First">
+                            <div class="from-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">Email</label>
+                                        <input type="text" name="email" class="form-control" placeholder="First">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">Phone</label>
+                                        <input type="text" name="phone" class="form-control" placeholder="Last">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="from-group">
+                                <label for="">Message</label>
+                                <textarea name="notes" class="form-control" id="" rows="5"></textarea>
+                            </div>
+                            <div class="from-group">
+                                <button type="submit" class="btn custom-btn mt-4">Submit</button>
+                            </div>
+                        </form>
 
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Last">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="from-group">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="">Email</label>
-                                    <input type="text" class="form-control" placeholder="First">
-                                </div>
-                                <div class="col-6">
-                                    <label for="">Phone</label>
-                                    <input type="text" class="form-control" placeholder="Last">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="from-group">
-                            <label for="">Message</label>
-                            <textarea name="" class="form-control" id="" rows="5"></textarea>
-                        </div>
-                        <div class="from-group">
-                            <button type="submit" class="btn custom-btn mt-4" >Submit</button>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -99,7 +86,32 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#contactform').on('submit', function(e) {
+                e.preventDefault();
+                // alert('hogaya');
+                $('#contactformsresult').html('');
+
+                $.ajax({
+                    url: "{{ route('contactUsSubmit') }}",
+                    type: "POST",
+                    data: $("#contactform").serialize(),
+
+                    success: function(response) {
+                        if (response.status) {
+                            document.getElementById("contactform").reset();
+                            $('#contactformsresult').html("<div class='alert alert-success'>" +
+                                response
+                                .message + "</div>");
+                        } else {
+                            $('#contactformsresult').html("<div class='alert alert-danger'>" +
+                                response
+                                .message + "</div>");
+                        }
+                    },
+                });
+            });
+        });
+    </script>
 @endsection
-
-

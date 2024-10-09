@@ -77,7 +77,7 @@
                     </span>
                 </div>
                 <div class="log-in">
-                    @if(!\Illuminate\Support\Facades\Auth::check())
+                    @if (!\Illuminate\Support\Facades\Auth::check())
                         <span>
                             <a href="{{ route('signin') }}"><i class="fa-solid fa-user-plus"></i></a>
                         </span>
@@ -131,7 +131,8 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('calculator') }}">Calculator</a>
-                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">Date Calculator</a>
+                                        <a class="dropdown-item" href="{{ route('date-calculator') }}">Date
+                                            Calculator</a>
                                         <a class="dropdown-item" href="{{ route('greek-calculator') }}">Greek
                                             Calculator</a>
                                         <a class="dropdown-item" href="{{ route('hebrew-calculator') }}">Hebrew
@@ -151,8 +152,10 @@
                                             Properties</a>
                                         <a class="dropdown-item" href="{{ route('calendar') }}">Personal Calendar</a>
                                         <a class="dropdown-item" href="{{ route('bible-search') }}">Bible Search</a>
-                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">Custom Ciphers</a>
-                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">Anagram Generator</a>
+                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">Custom
+                                            Ciphers</a>
+                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">Anagram
+                                            Generator</a>
                                     </div>
                                 </li>
                                 <!-- <li class="nav-item">
@@ -164,9 +167,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                                 </li>
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>--}}
-{{--                                </li>--}}
+                                {{--                                <li class="nav-item"> --}}
+                                {{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a> --}}
+                                {{--                                </li> --}}
                             </ul>
                             <div class="social">
                                 <span class="youtube">
