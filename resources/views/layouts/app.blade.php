@@ -77,7 +77,7 @@
                     </span>
                 </div>
                 <div class="log-in">
-                    @if(!\Illuminate\Support\Facades\Auth::check())
+                    @if (!\Illuminate\Support\Facades\Auth::check())
                         <span>
                             <a href="{{ route('signin') }}"><i class="fa-solid fa-user-plus"></i></a>
                         </span>
@@ -192,9 +192,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
                                 </li>
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>--}}
-{{--                                </li>--}}
+                                {{--                                <li class="nav-item"> --}}
+                                {{--                                    <a class="nav-link" href="{{ route('shop') }}">Shop</a> --}}
+                                {{--                                </li> --}}
                             </ul>
                             <div class="social">
                                 <span class="youtube">

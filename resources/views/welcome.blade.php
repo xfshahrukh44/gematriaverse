@@ -12,10 +12,9 @@
     <section class="hero-section">
 
         <div class="parent-video">
-            <video class="lazy" poster=""
-                   src="{{asset('images/video-bg.mp4')}}" preload="auto" autoplay muted loop width="100%"
-                   height="100%">
-                <source src="{{asset('images/video-bg.mp4')}}" type="video/mp4">
+            <video class="lazy" poster="" src="{{ asset('images/video-bg.mp4') }}" preload="auto" autoplay muted loop
+                width="100%" height="100%">
+                <source src="{{ asset('images/video-bg.mp4') }}" type="video/mp4">
             </video>
         </div>
 
@@ -27,7 +26,8 @@
                             Hello World, Welcome to
                         </h1>
                         <figure>
-                            <img style="max-width: 75% !important;" src="{{asset('images/logo.png')}}" class="img-fluid" alt="">
+                            <img style="max-width: 75% !important;" src="{{ asset('images/logo.png') }}" class="img-fluid"
+                                alt="">
                         </figure>
                         <div class="cta-buttons">
                             <span>
@@ -48,8 +48,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="wpb_wrapper">
-                    <span class="banner-text">UNCOVERING <span style="color:black;">THE</span> COSMIC MYSTERIES OF
-                        LANGUAGE AND TIME</span>
+                        <span class="banner-text">UNCOVERING <span style="color:black;">THE</span> COSMIC MYSTERIES OF
+                            LANGUAGE AND TIME</span>
                     </div>
                 </div>
             </div>
@@ -61,86 +61,23 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="custom-content">
-                        <h2 class="heading-2 white">
-                            Simple & Easy.
-                            <span class="d-block">
-                            Powerful & Profound.
-                        </span>
-                        </h2>
-                        <p class="white">
-                            Gematriaverse is continuously bettering all of the tools on the website. From
-                            deeper
-                            functionality to more mobile-responsive designs, Gematriaverse is bringing you
-                            the
-                            powerful mysticism of <a href="#">Gematriaverse</a>, Date Numerology, and
-                            Number Properties.
-                        </p>
 
-
+                        {!! $section[0]->value !!}
                         <div class="horizontals-btns">
-                        <span>
-                            <a href="#" class="btn custom-btn">JOIN</a>
-                        </span>
                             <span>
-                            <a href="#" class="btn custom-btn">FAQ</a>
-                        </span>
+                                <a href="#" class="btn custom-btn">JOIN</a>
+                            </span>
+                            <span>
+                                <a href="#" class="btn custom-btn">FAQ</a>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="custom-content">
 
-                        <ul class="list-content">
-                            <li>
-                                <div class="icons">
-                                <span>
-                                    <i class="fa-solid fa-calculator"></i>
-                                </span>
-                                </div>
-                                <div class="cotent">
-                                    <h3 class="heading-3">
-                                        Gematriaverse Calculator
-                                    </h3>
-                                    <p class="para white">
-                                        The Web’s Best Gematriaverse Calculator just got better!
+                        {!! $section[1]->value !!}
 
-                                        (And it’s still improving!)
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icons">
-                                <span>
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </span>
-                                </div>
-                                <div class="cotent">
-                                    <h3 class="heading-3">
-                                        Date Calculator
-                                    </h3>
-                                    <p class="para white">
-                                        Here you will be able to explore different date numerology and even check the
-                                        time between two separate dates.
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icons">
-                                <span>
-                                    <i class="fa-solid fa-hashtag"></i>
-                                </span>
-                                </div>
-                                <div class="cotent">
-                                    <h3 class="heading-3">
-                                        Number Properties
-                                    </h3>
-                                    <p class="para white">
-                                        Learn the special properties and essences of numbers by finding out if they are
-                                        prime numbers, triangular numbers, etc.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
 
                     </div>
                 </div>
@@ -153,7 +90,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="wpb_wrapper">
-                        <span class="banner-text">JOIN THE COMMUNITY FOR EXCLUSIVE ACCESS & <span style="color:yellow;">AD FREE</span> EXPERIENCETHE</span>
+                        {!! $section[2]->value !!}
                     </div>
                 </div>
             </div>
@@ -166,7 +103,7 @@
                 <div class="col-lg-12">
                     <div class="testi-parents">
                         <figure>
-                            <img src="{{asset('images/row-bg.png')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('images/row-bg.png') }}" class="img-fluid" alt="">
                         </figure>
                         <div class="testi-content">
                             <p class="para white">
@@ -174,8 +111,8 @@
                                 of hiding it may be even older.”
                             </p>
                             <span>
-                            – Gematriaverse
-                        </span>
+                                – Gematriaverse
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -217,8 +154,5 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript">
-    </script>
+    <script type="text/javascript"></script>
 @endsection
-
-

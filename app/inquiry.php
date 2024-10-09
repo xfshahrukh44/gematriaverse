@@ -27,5 +27,5 @@ class Inquiry extends Model
      */
   protected $fillable = ['fname', 'lname', 'email', 'notes', 'phone', 'time', 'date', 'classes', 'form_name'];
 
-    
+
 }

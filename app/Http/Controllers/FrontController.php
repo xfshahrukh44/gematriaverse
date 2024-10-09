@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Auth;
+use App\Faq;
 use App\Cipher;
 use App\CipherSetting;
-use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
-    public function about ()
+    public function about()
     {
-        return view('about');
+        $page = DB::table('pages')->where('id', 1)->first();
+        $section = DB::table('section')->where('page_id', 2)->get();
+        return view('about', compact('page', 'section'));
     }
-    public function bible_search ()
+    public function bible_search()
     {
         // if (!session()->has('temp_id')) {
         //     session(['temp_id' => uniqid('temp_', true)]);
@@ -110,28 +113,28 @@ class FrontController extends Controller
 
         $ciphers_temp1 = Cipher::with('ci_settings')->get();
         $ciphersFromDBArray = $ciphers_temp1->toArray();
-        if($user_id == ''){
+        if ($user_id == '') {
             $ciphersAll = array_merge($updatedCiphers);
-        }else{
+        } else {
             $ciphersAll = array_merge($updatedCiphers, $ciphersFromDBArray);
         }
 
         // Filter cipher status 1
         $filteredStaticCiphers = array_filter($staticCiphers, function ($cipher) use ($user_id) {
             return CipherSetting::where('user_id', $user_id)
-                                ->where('cipher_id', $cipher['id'])
-                                ->where('status', 1)
-                                ->exists();
+                ->where('cipher_id', $cipher['id'])
+                ->where('status', 1)
+                ->exists();
         });
 
         $ciphers_temp2 = Cipher::whereHas('cipherSettings', function ($query) use ($user_id) {
-                $query->where('user_id', $user_id)
-                    ->where('status', 1);
-            })->get();
+            $query->where('user_id', $user_id)
+                ->where('status', 1);
+        })->get();
         $ciphersFromDBArray = $ciphers_temp2->toArray();
-        if($user_id == ''){
+        if ($user_id == '') {
             $ciphers = array_merge($updatedCiphers);
-        }else{
+        } else {
             $ciphers = array_merge($filteredStaticCiphers, $ciphersFromDBArray);
         }
 
@@ -139,15 +142,15 @@ class FrontController extends Controller
 
         return view('bible-search', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
     }
-    public function blog ()
+    public function blog()
     {
         return view('blog');
     }
-    public function blog_detail ()
+    public function blog_detail()
     {
         return view('blog-detail');
     }
-    public function calculator ()
+    public function calculator()
     {
 
         $user_id = Auth::check() ? Auth::user()->id : '';
@@ -241,104 +244,109 @@ class FrontController extends Controller
 
         $ciphers_temp1 = Cipher::with('ci_settings')->get();
         $ciphersFromDBArray = $ciphers_temp1->toArray();
-        if($user_id == ''){
+        if ($user_id == '') {
             $ciphersAll = array_merge($updatedCiphers);
-        }else{
+        } else {
             $ciphersAll = array_merge($updatedCiphers, $ciphersFromDBArray);
         }
 
         // Filter cipher status 1
         $filteredStaticCiphers = array_filter($staticCiphers, function ($cipher) use ($user_id) {
             return CipherSetting::where('user_id', $user_id)
-                                ->where('cipher_id', $cipher['id'])
-                                ->where('status', 1)
-                                ->exists();
+                ->where('cipher_id', $cipher['id'])
+                ->where('status', 1)
+                ->exists();
         });
 
         $ciphers_temp2 = Cipher::whereHas('cipherSettings', function ($query) use ($user_id) {
-                $query->where('user_id', $user_id)
-                    ->where('status', 1);
-            })->get();
+            $query->where('user_id', $user_id)
+                ->where('status', 1);
+        })->get();
         $ciphersFromDBArray = $ciphers_temp2->toArray();
-        if($user_id == ''){
+        if ($user_id == '') {
             $ciphers = array_merge($updatedCiphers);
-        }else{
+        } else {
             $ciphers = array_merge($filteredStaticCiphers, $ciphersFromDBArray);
         }
 
         $first_ciphers = $ciphers[0];
         return view('calculator', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
     }
-    public function calendar ()
+    public function calendar()
     {
         return view('calendar');
     }
-    public function contact ()
+    public function contact()
     {
-        return view('contact');
+        $page = DB::table('pages')->where('id', 1)->first();
+        $section = DB::table('section')->where('page_id', 4)->get();
+        return view('contact', compact('section', 'page'));
     }
-    public function custom_ciphers ()
+    public function custom_ciphers()
     {
         return view('custom-ciphers');
     }
-    public function date_calculator ()
+    public function date_calculator()
     {
         return view('date-calculator');
     }
-    public function faq ()
+    public function faq(Request $request)
     {
-        return view('faq');
+        $page = DB::table('pages')->where('id', 1)->first();
+        $section = DB::table('section')->where('page_id', 3)->get();
+        $faqs = Faq::all();
+        return view('faq', compact('faqs', 'section', 'page'));
     }
-    public function greek_calculator ()
+    public function greek_calculator()
     {
         return view('greek-calculator');
     }
-    public function hebrew_calculator ()
+    public function hebrew_calculator()
     {
         return view('hebrew-calculator');
     }
-    public function memberships ()
+    public function memberships()
     {
         return view('memberships');
     }
-    public function monthly_calendar ()
+    public function monthly_calendar()
     {
         return view('monthly-calendar');
     }
-    public function nostalgia_calculators ()
+    public function nostalgia_calculators()
     {
         return view('nostalgia-calculators');
     }
-    public function nostalgia_calculators_basic ()
+    public function nostalgia_calculators_basic()
     {
         return view('nostalgia-calculators-basic');
     }
-    public function nostalgia_calculators_classic ()
+    public function nostalgia_calculators_classic()
     {
         return view('nostalgia-calculators-classic');
     }
-    public function nostalgia_calculators_date ()
+    public function nostalgia_calculators_date()
     {
         return view('nostalgia-calculators-date');
     }
-    public function nostalgia_calculators_nextgen ()
+    public function nostalgia_calculators_nextgen()
     {
         return view('nostalgia-calculators-nextgen');
     }
-    public function number_properties ()
+    public function number_properties()
     {
         return view('number-properties');
     }
-    public function product_detail ()
+    public function product_detail()
     {
         return view('product-detail');
     }
-    public function shop ()
+    public function shop()
     {
         return view('shop');
     }
 
-    public function anagramCalculator (Request $request)
+    public function anagramCalculator(Request $request)
     {
         return view('anagram-calculator');
     }

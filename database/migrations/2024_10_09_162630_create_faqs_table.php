@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateFaqsTable extends Migration
 {
@@ -15,9 +16,9 @@ class CreateFaqsTable extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('questions')->nullable();
-            $table->string('answer')->nullable();
-            });
+            $table->string('question')->nullable();
+            $table->longText('answer')->nullable();
+        });
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateFaqsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('faqs');
+        Schema::dropIfExists('faqs');
     }
 }
