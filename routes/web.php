@@ -152,7 +152,7 @@ Auth::routes();
 //===================== Account Area Routes =====================//
 
 
-Route::get('signin', 'GuestController@signin')->name('signin');
+Route::any('signin', 'GuestController@signin')->name('signin');
 Route::get('signup', 'GuestController@signup')->name('signup');
 Route::get('account', 'LoggedInController@account')->name('account');
 Route::get('orders', 'LoggedInController@orders')->name('orders');

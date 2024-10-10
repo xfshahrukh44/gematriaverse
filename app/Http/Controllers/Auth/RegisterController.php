@@ -12,6 +12,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\DB;
 use Session;
+use Stripe;
+use Stripe\Customer;
+use Stripe\Charge;
 
 class RegisterController extends Controller
 {
@@ -91,11 +94,45 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        if($data['plan'] != "free"){
+            try {
+                try {
+                    Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+                    $customer = \Stripe\Customer::create(array(
+                        'email' => $data['email'],
+                        'name' => $data['name'],
+                        'description' => "Client Created From Website",
+                        'source'  => $data['stripeToken'],
+                    ));
+                } catch (Exception $e) {
+                    return redirect()->back()->with('stripe_error', $e->getMessage());
+                }
+
+                try {
+                    $charge = \Stripe\Charge::create(array(
+                        'customer' => $customer->id,
+                        'amount'   => (int)$data['price'] * 100,
+                        'currency' => 'USD',
+                        'description' => "Payment From Website",
+                        'metadata' => array("name" => $data['name'], "email" => $data['email']),
+                    ));
+                } catch (Exception $e) {
+                    return redirect()->back()->with('stripe_error', $e->getMessage());
+                }
+            } catch (Exception $e) {
+                return redirect()->back()->with('stripe_error', $e->getMessage());
+            }
+        }
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'plan' => $data['plan'],
         ]);
+
+        return $user;
     }
 
     protected function registered(Request $request, $user)

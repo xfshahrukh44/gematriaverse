@@ -4,6 +4,130 @@
 
 @section('css')
     <style>
+        .payment-accordion img {
+            display: inline-block;
+            margin-left: 10px;
+            background-color: white;
+        }
+        form#order-place .form-control {
+            border-width: 1px;
+            border-color: rgb(150, 163, 218);
+            border-style: solid;
+            border-radius: 8px;
+            background-color: transparent;
+            height: 54px;
+            padding-left: 15px;
+            color: black;
+        }
+        form#order-place textarea.form-control {
+            height: auto !important;
+        }
+
+        .checkoutPage {
+            padding: 50px 0px;
+        }
+        .checkoutPage .section-heading h3{
+            margin-bottom: 30px;
+        }
+        .YouOrder {
+            background-color: #c91d22;
+            color: white;
+            padding: 25px;
+            padding-bottom: 2px;
+            min-height: 300px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+        .amount-wrapper {
+            padding-top: 12px;
+            border-top: 2px solid white;
+            text-align: left;
+            margin-top: 90px;
+        }
+
+        .amount-wrapper h2 {
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .amount-wrapper h3 {
+            display: FLEX;
+            justify-content: SPACE-BETWEEN;
+            font-size: 22px;
+            border-top: 2px solid white;
+            padding-top: 10px;
+            margin-top: 14px;
+        }
+        .checkoutPage span.invalid-feedback strong {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            padding: 5px 15px;
+            border-radius: 6px;
+        }
+        .payment-accordion .btn-link {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 19px;
+            color: black;
+        }
+
+        .payment-accordion .card-header {
+            padding: 0px !important;
+        }
+        .payment-accordion .card-header:first-child{
+            border-radius: 0px;
+        }
+        .payment-accordion .card{
+            border-radius: 0px;
+        }
+        .form-group.hide {
+            display: none;
+        }
+        .StripeElement {
+            box-sizing: border-box;
+            height: 40px;
+            padding: 10px 12px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 #e6ebf1;
+            -webkit-transition: box-shadow 150ms ease;
+            transition: box-shadow 150ms ease;
+            border-width: 1px;
+            border-color: rgb(150, 163, 218);
+            border-style: solid;
+            margin-bottom: 10px;
+        }
+
+        .StripeElement--focus {
+            box-shadow: 0 1px 3px 0 #cfd7df;
+        }
+
+        .StripeElement--invalid {
+            border-color: #fa755a;
+        }
+
+        .StripeElement--webkit-autofill {
+            background-color: #fefde5 !important;
+        }
+        div#card-errors {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            display: block;
+            width: 100%;
+
+            font-size: 15px;
+            padding: 5px 15px;
+            border-radius: 6px;
+            display: none;
+            margin-bottom: 10px;
+        }
 
     </style>
 @endsection
@@ -30,9 +154,9 @@
                         <p>What ability level are you?</p>
                         <p>Gematriaverse  offers a few different membership plans that give you deeper access into the
                             tools that are not available to the general public. Bolster up your <a
-                                    href="#">calculator</a> to assist
+                                    href="javascript:void(0)">calculator</a> to assist
                             your explorations into Gematria, Dates, and even an all new Bible Search.</p>
-                        <p>Looking for the OLD <a href="#">CALCULATOR</a>? Casual, Enthusiast, and Mystic Memberships
+                        <p>Looking for the OLD <a href="javascript:void(0)">CALCULATOR</a>? Casual, Enthusiast, and Mystic Memberships
                             will unlock the
                             Nostalgia Calculators! Although the database match is only available in our main
                             calculator, the Nostalgia Calculator gives you the same look, feel, and layout as years
@@ -59,7 +183,7 @@
                                 <h5>Gematriaverse Calculator</h5>
 {{--                                <li><strong>Match</strong> to Database (<strong>25/Day</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
-{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
@@ -81,7 +205,7 @@
                                 <h5>Personal Calendar</h5>
                                 <li> Access Unlocked </li>
                             </ul>
-                            <a href="#" class="btn white-btn">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">Get Started</a>
 
                         </div>
                     </div>
@@ -102,7 +226,7 @@
                                 <h5>Gematriaverse Calculator </h5>
 {{--                                <li><strong>Match</strong> to Database (<strong>75/Day</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
-{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
@@ -130,7 +254,7 @@
                                 <li> Access Unlocked </li>
                             </ul>
 
-                            <a href="#" class="btn white-btn">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription">Get Started</a>
 
                         </div>
                     </div>
@@ -151,7 +275,7 @@
                                 <h5>Gematriaverse Calculator</h5>
 {{--                                <li><strong>Match</strong> to Database (<strong>Unlimited</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
-{{--                                <li><strong><a style="color: #0dd300;" href="#">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>History (500 Entries)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
@@ -182,7 +306,7 @@
                                 <li>Access Unlocked</li>
                             </ul>
 
-                            <a href="#" class="btn white-btn">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription">Get Started</a>
 
                         </div>
                     </div>
@@ -204,7 +328,7 @@
 {{--                                <li><strong>Match</strong> to Database (10/Day)</li>--}}
 {{--                                <li><strong>Match</strong> to Session/History&nbsp;(<strong>Unlimited</strong>)</li>--}}
 {{--                                <li>Session + History (50 Entries Each)</li>--}}
-{{--                                <li><strong><a style="color: #0dd300;" href="#">31 of 38 Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">31 of 38 Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
                                 <li> Basic Access</li>
 
                                 <h5>Date Calculator</h5>
@@ -219,7 +343,7 @@
                             </ul>
 
 
-                            <a href="#" class="btn white-btn">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -229,7 +353,15 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).on('click', '.btn-subscription', function () {
+        const plan = $(this).data('plan');
+
+        // Redirect to the signin route with the plan as a query parameter
+        const url = "{{ route('signin') }}" + '?plan=' + plan;
+        window.location.href = url;
+    });
+    </script>
 @endsection
 
 

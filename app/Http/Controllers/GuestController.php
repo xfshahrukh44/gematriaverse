@@ -17,9 +17,10 @@ use App\Http\Traits\HelperTrait;
 
 use App\orders;
 use App\orders_products;
+use Illuminate\Support\Facades\File;
 
 class GuestController extends Controller
-{	
+{
 	use HelperTrait;
     /**
      * Create a new controller instance.
@@ -27,7 +28,7 @@ class GuestController extends Controller
      * @return void
      */
 	 // use Helper;
-	 
+
     public function __construct()
     {
 		 $this->middleware('guest');
@@ -35,27 +36,36 @@ class GuestController extends Controller
                      select('img_path')
                      ->where('table_name','=','logo')
                      ->first();
-             
+
 		$favicon = imagetable::
                      select('img_path')
                      ->where('table_name','=','favicon')
-                     ->first();	 
+                     ->first();
 
         View()->share('logo',$logo);
 		View()->share('favicon',$favicon);
     }
-	
-	public function signin()
+
+	public function signin(Request $request)
     {
-		return view('account.signin'); 
-		
+        $path = public_path('subscriptions.json');
+
+        if (File::exists($path)) {
+            $json = File::get($path);
+            $subscriptions = json_decode($json, true);
+            $plan = $request->query('plan');
+            $price = $subscriptions['subscriptions'][$plan]['price'] ?? 0;
+            return view('account.signin', compact('price', 'plan'));
+        }else{
+            return view('account.signin');
+        }
+
 	}
-	
+
 	public function signup()
-    {		 
-		return view('account.signup'); 
+    {
+		return view('account.signup');
 	}
-	
-	
-}	
-	
+
+
+}
