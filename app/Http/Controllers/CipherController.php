@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cipher;
 use App\CipherSetting;
+use App\User;
+use Illuminate\Support\Facades\File;
+use Auth;
 
 class CipherController extends Controller
 {
+    protected $subscriptions;
+
+    public function __construct()
+    {
+        $path = public_path('subscriptions.json');
+        $json = File::get($path);
+        $this->subscriptions = json_decode($json, true);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -22,9 +34,17 @@ class CipherController extends Controller
             return response()->json(['error'=> true,'message' => 'A cipher with this name already exists.'], 409); // 409 Conflict
         }
 
+        $plan = Auth::user()->plan ?? 'free';
+        $cipher_count_user = Auth::user()->cipher_count ?? 0;
+        $limit = $this->subscriptions['subscriptions'][$plan]['features']['custom_ciphers']['limit'];
+        if($limit == $cipher_count_user){
+            return response()->json(['error'=> true, 'message' => 'The custom cipher limit has been reached.'], 409);
+        }
+
         $prority = Cipher::max('prority') + 1;
 
         $chipers = Cipher::create([
+            'user_id' => Auth::user()->id,
             'name' => $request->name,
             'small_alphabet' => json_encode($request->small_alphabet),
             'capital_alphabet' => json_encode($request->capital_alphabet),
@@ -32,12 +52,21 @@ class CipherController extends Controller
             'prority' => $prority,
         ]);
 
-        return response()->json(['success'=> true,'message' => 'Cipher added successfully!'], 201);
+        if($ciphers){
+            $user = new User;
+            $user->cipher_count += 1;
+            $user->save();
+
+            return response()->json(['success'=> true,'message' => 'Cipher added successfully!'], 201);
+        }else{
+            return response()->json(['error'=> true,'message' => 'Cipher added failed!'], 500);
+        }
+
     }
 
     public function index()
     {
-        $ciphers = Cipher::orderBy('prority', 'ASC')->get();
+        $ciphers = Cipher::orderBy('prority', 'ASC')->where('user_id', Auth::user()->id)->get();
         return response()->json($ciphers);
     }
 
