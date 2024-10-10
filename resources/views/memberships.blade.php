@@ -205,7 +205,7 @@
                                 <h5>Personal Calendar</h5>
                                 <li> Access Unlocked </li>
                             </ul>
-                            <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">{{ Auth::user()->plan == "casual" ? "Upgrade" : "Get Started"  }}</a>
 
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                                 <li> Access Unlocked </li>
                             </ul>
 
-                            <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "enthusiast" ? "Upgrade" : "Get Started"  }}</a>
 
                         </div>
                     </div>
@@ -304,7 +304,7 @@
                                 <li>Access Unlocked</li>
                             </ul>
 
-                            <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "mystic" ? "Upgrade" : "Get Started"  }}</a>
 
                         </div>
                     </div>
@@ -341,7 +341,7 @@
                             </ul>
 
 
-                            <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription">Get Started</a>
+                            <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "free" ? "Upgrade" : "Get Started"  }}</a>
                         </div>
                     </div>
                 </div>
