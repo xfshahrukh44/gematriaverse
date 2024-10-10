@@ -368,8 +368,8 @@ section.derek {
 /* membership pg css start */
 
 .membership {
-    background-image: url(../images/membership.jpg);
-    height: 350px;
+    color: white;
+    height: 132px;
 }
 
 .membership_price {

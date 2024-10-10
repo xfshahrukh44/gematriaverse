@@ -10,9 +10,7 @@
         "custom_ciphers": {
           "limit": 20
         },
-        "date_calculator": {
-          "planetary_table": true
-        },
+        "date_calculator": true,
         "bible_search": true,
         "calendar": true
       }
@@ -27,9 +25,7 @@
         "custom_ciphers": {
           "limit": 20
         },
-        "date_calculator": {
-          "planetary_table": true
-        },
+        "date_calculator": true,
         "bible_search": true,
         "calendar": true
       }
@@ -56,7 +52,9 @@
           "breakdown_screenshot": false
         },
         "nostalgia_calculators": false,
-        "custom_ciphers": false,
+        "custom_ciphers": {
+          "limit": 0
+        },
         "date_calculator": true,
         "bible_search": false,
         "calendar": false

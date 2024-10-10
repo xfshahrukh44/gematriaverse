@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cipher extends Model
 {
     protected $fillable = [
+        'user_id',
         'name',
         'small_alphabet',
         'capital_alphabet',

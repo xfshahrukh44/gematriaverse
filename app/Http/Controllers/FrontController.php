@@ -8,9 +8,39 @@ use App\Cipher;
 use App\CipherSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class FrontController extends Controller
 {
+
+    protected $subscriptions;
+
+    public function __construct()
+    {
+        $path = public_path('subscriptions.json');
+        $json = File::get($path);
+        $this->subscriptions = json_decode($json, true);
+    }
+
+    protected function hasAccessToFeature($feature)
+    {
+        $plan = Auth::user()->plan ?? 'free';
+
+        if (isset($this->subscriptions['subscriptions'][$plan]['features'][$feature])) {
+            $featureData = $this->subscriptions['subscriptions'][$plan]['features'][$feature];
+
+            if (is_bool($featureData)) {
+                return $featureData;
+            }
+
+            if (is_array($featureData)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function about()
     {
         $page = DB::table('pages')->where('id', 1)->first();
@@ -19,9 +49,9 @@ class FrontController extends Controller
     }
     public function bible_search()
     {
-        // if (!session()->has('temp_id')) {
-        //     session(['temp_id' => uniqid('temp_', true)]);
-        // }
+        if (!$this->hasAccessToFeature('bible_search')) {
+            return view('locked', ['title' => 'Bible Search']);
+        }
         $user_id = Auth::check() ? Auth::user()->id : '';
 
         $staticCiphers = [
@@ -152,7 +182,9 @@ class FrontController extends Controller
     }
     public function calculator()
     {
-
+        if (!$this->hasAccessToFeature('calculators')) {
+            return view('locked', ['title' => 'Calculators']);
+        }
         $user_id = Auth::check() ? Auth::user()->id : '';
 
         $staticCiphers = [
@@ -274,7 +306,11 @@ class FrontController extends Controller
     }
     public function calendar()
     {
-        return view('calendar');
+        if ($this->hasAccessToFeature('calendar')) {
+            return view('calendar');
+        }else{
+            return view('locked', ['title' => 'Calendar']);
+        }
     }
     public function contact()
     {
@@ -284,6 +320,9 @@ class FrontController extends Controller
     }
     public function custom_ciphers()
     {
+        if (!$this->hasAccessToFeature('custom_ciphers')) {
+            return view('locked', ['title' => 'Custom Cipher']);
+        }
         return view('custom-ciphers');
     }
     public function date_calculator()
@@ -322,6 +361,9 @@ class FrontController extends Controller
     }
     public function nostalgia_calculators()
     {
+        if (!$this->hasAccessToFeature('nostalgia_calculators')) {
+            return view('locked', ['title' => 'Nostalgia Calculators']);
+        }
         return view('nostalgia-calculators');
     }
     public function nostalgia_calculators_basic()
