@@ -315,5 +315,5 @@ Route::get('get-anagrams', function () {
 
 
 //Route::get('temp', function () {
-//    dd('here');
+//    get_subscription();
 //})->name('temp');

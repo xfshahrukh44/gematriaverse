@@ -517,6 +517,136 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        @if($planetary_table)
+                                            <div class="row py-5">
+                                                <div class="col-md-4 offset-md-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-center">
+                                                            <h4>Planetary table</h4>
+                                                        </div>
+
+                                                        <div class="col-md-4 offset-md-4">
+                                                            <table class="table table-sm table-striped table-bordered">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th colspan="2">
+                                                                            <img src="{{asset('images/Moon.png')}}" alt="">
+    {{--                                                                        <br>--}}
+                                                                            Moon
+                                                                        </th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Phases (Synodic)</th>
+                                                                        <th>Orbits (Sidereal)</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td id="phases_moon">
+                                                                            <b style="color: yellow;">12</b>m,
+                                                                            <b style="color: yellow;">11</b>d
+                                                                        </td>
+                                                                        <td id="orbits_moon">
+                                                                            <b style="color: yellow;">13</b>m,
+                                                                            <b style="color: yellow;">10</b>d
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <table class="table table-sm table-striped table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Mercury.png')}}" alt="">
+                                                                            <br>
+                                                                            Mercury
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Venus.png')}}" alt="">
+                                                                            <br>
+                                                                            Venus
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Earth.png')}}" alt="">
+                                                                            <br>
+                                                                            Earth
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Mars.png')}}" alt="">
+                                                                            <br>
+                                                                            Mars
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Jupiter.png')}}" alt="">
+                                                                            <br>
+                                                                            Jupiter
+                                                                        </th>
+                                                                        <th>
+                                                                            <img src="{{asset('images/Saturn.png')}}" alt="">
+                                                                            <br>
+                                                                            Saturn
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Orbits</td>
+                                                                        <td id="orbits_mercury">
+    {{--                                                                        <b style="color: yellow;">4</b>y,--}}
+    {{--                                                                        <b style="color: yellow;">14</b>d--}}
+                                                                        </td>
+                                                                        <td id="orbits_venus">
+    {{--                                                                        <b style="color: yellow;">1</b>y,--}}
+    {{--                                                                        <b style="color: yellow;">141</b>d--}}
+                                                                        </td>
+                                                                        <td id="orbits_earth">
+    {{--                                                                        <b style="color: lightblue;">1</b>y,--}}
+    {{--                                                                        <b style="color: lightblue;">0</b>d--}}
+                                                                        </td>
+                                                                        <td id="orbits_mars">
+    {{--                                                                        <b style="color: yellow;">320</b>d left--}}
+                                                                        </td>
+                                                                        <td id="orbits_jupiter">
+    {{--                                                                        <b style="color: yellow;">3966</b>d left--}}
+                                                                        </td>
+                                                                        <td id="orbits_saturn">
+    {{--                                                                        <b style="color: yellow;">10393</b>d left--}}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Planet days</td>
+                                                                        <td id="planet_days_mercury">
+    {{--                                                                        <b style="color: yellow;">2</b>--}}
+                                                                        </td>
+                                                                        <td id="planet_days_venus">
+    {{--                                                                        <b style="color: yellow;">3</b>--}}
+                                                                        </td>
+                                                                        <td id="planet_days_earth">
+    {{--                                                                        <b style="color: lightblue;">366</b>--}}
+                                                                        </td>
+                                                                        <td id="planet_days_mars">
+    {{--                                                                        <b style="color: yellow;">356</b>--}}
+                                                                        </td>
+                                                                        <td id="planet_days_jupiter">
+    {{--                                                                        <b style="color: yellow;">884</b>--}}
+                                                                        </td>
+                                                                        <td id="planet_days_saturn">
+    {{--                                                                        <b style="color: yellow;">833</b>--}}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+
                                         <div class="row">
                                             <div id="ClassicTableSpot">
                                                 <center id="center_number_properties" hidden>
@@ -914,6 +1044,108 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
+
+    @if($planetary_table)
+        <script>
+            $('#Month1, #Day1, #Year1, #Month2, #Day2, #Year2').on('keyup change', function () {
+                let Month1 = $('#Month1').val();
+                let Day1 = $('#Day1').val();
+                let Year1 = $('#Year1').val();
+                let Month2 = $('#Month2').val();
+                let Day2 = $('#Day2').val();
+                let Year2 = $('#Year2').val();
+
+                if (
+                    Month1 == '' ||
+                    Day1 == '' ||
+                    Year1 == '' ||
+                    Month2 == '' ||
+                    Day2 == '' ||
+                    Year2 == ''
+                ) { return false; }
+
+                let planet_colors = {
+                    mercury: 'yellow',
+                    venus: 'yellow',
+                    earth: 'lightblue',
+                    mars: 'yellow',
+                    jupiter: 'yellow',
+                    saturn: 'yellow',
+                };
+
+                let date1 = new Date(Year1, Month1 - 1, Day1);
+                let date2 = new Date(Year2, Month2 - 1, Day2);
+                let diffInTime = date2.getTime() - date1.getTime();
+                let diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+                let orbitalPeriods = {
+                    mercury: 88,
+                    venus: 225,
+                    earth: 365.25, // Accounting for leap years
+                    mars: 687,
+                    jupiter: 4333,
+                    saturn: 10759
+                };
+                let dayLengths = {
+                    mercury: 182.65, // Adjusted value for Mercury
+                    venus: 117.84,   // Adjusted value for Venus
+                    earth: 1,        // Earth day
+                    mars: 1.03,      // Mars day (accurate)
+                    jupiter: 0.4137, // Adjusted value for Jupiter
+                    saturn: 0.439    // Adjusted value for Saturn
+                };
+
+                for (let planet in orbitalPeriods) {
+                    let totalOrbits = Math.floor(diffInDays / orbitalPeriods[planet]);
+                    let remainingDays = diffInDays % orbitalPeriods[planet];
+
+                    // orbits_jupiter
+                    // planet_days_jupiter
+                    if (totalOrbits > 0) {
+                        // output.orbits[planet] = `${totalOrbits}y, ${remainingDays}d`;
+                        $('#orbits_' + planet).html(`<b style="color: `+planet_colors[planet]+`;">`+parseInt(totalOrbits)+`</b>y,
+                                        <b style="color: `+planet_colors[planet]+`;">`+parseInt(remainingDays)+`</b>d`);
+                    } else {
+                        let daysLeft = orbitalPeriods[planet] - remainingDays;
+                        // output.orbits[planet] = `${daysLeft}d left`; // Display days left until completing the first orbit
+                        $('#orbits_' + planet).html(`<b style="color: `+planet_colors[planet]+`;">`+parseInt(daysLeft)+`</b>d left`)
+                    }
+
+                    let planetDays = Math.floor(diffInDays / dayLengths[planet]);
+                    // output.planet_days[planet] = remainingDays; // Example for calculating "planet days"
+                    $('#planet_days_' + planet).html(`<b style="color: `+planet_colors[planet]+`;">`+parseInt(planetDays)+`</b>`);
+                }
+
+
+                const synodicMonth = 29.53;
+                const siderealMonth = 27.32;
+                let synodicCycles = diffInDays / synodicMonth;
+                let siderealCycles = diffInDays / siderealMonth;
+                let synodicMonths = Math.floor(synodicCycles);
+                let synodicRemainingDays = Math.round((synodicCycles - synodicMonths) * synodicMonth);
+                let siderealMonths = Math.floor(siderealCycles);
+                let siderealRemainingDays = Math.round((siderealCycles - siderealMonths) * siderealMonth);
+                if (synodicRemainingDays >= synodicMonth) {
+                    synodicMonths++;
+                    synodicRemainingDays -= synodicMonth;
+                }
+                if (siderealRemainingDays >= siderealMonth) {
+                    siderealMonths++;
+                    siderealRemainingDays -= siderealMonth;
+                }
+
+                $('#phases_moon').html(`<b style="color: yellow;">`+synodicMonths+`</b>m,
+                                        <b style="color: yellow;">`+synodicRemainingDays+`</b>d`);
+                $('#orbits_moon').html(`<b style="color: yellow;">`+siderealMonths+`</b>m,
+                                        <b style="color: yellow;">`+siderealRemainingDays+`</b>d`);
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#Month1').trigger('change');
+            });
+        </script>
+    @endif
+
     <script>
         // Greek alphabet mapping for Isopsephy values
         const greekAlphabet = {

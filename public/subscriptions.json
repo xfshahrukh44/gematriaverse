@@ -61,6 +61,19 @@
         "bible_search": false,
         "calendar": false
       }
+    },
+    "guest": {
+      "price": 0.00,
+      "features": {
+        "calculators": {
+          "breakdown_screenshot": false
+        },
+        "nostalgia_calculators": false,
+        "custom_ciphers": false,
+        "date_calculator": false,
+        "bible_search": false,
+        "calendar": false
+      }
     }
   }
 }

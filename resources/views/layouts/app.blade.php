@@ -37,6 +37,7 @@
         rel="stylesheet">
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @font-face {
             font-family: Pixeboy;
@@ -343,6 +344,7 @@
 
     <!-- SweetAlert JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('js/custom.js') }}"></script>
 
@@ -374,6 +376,18 @@
 
 
     @yield('js')
+
+    @if(session()->has('success'))
+        <script>
+            toastr.success('{{session()->get('success')}}');
+        </script>
+    @endif
+
+    @if(session()->has('error'))
+        <script>
+            toastr.error('{{session()->get('error')}}');
+        </script>
+    @endif
 
 </body>
 
