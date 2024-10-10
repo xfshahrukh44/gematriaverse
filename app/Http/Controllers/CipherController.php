@@ -52,15 +52,11 @@ class CipherController extends Controller
             'prority' => $prority,
         ]);
 
-        if($ciphers){
-            $user = new User;
-            $user->cipher_count += 1;
-            $user->save();
+        $user = Auth::user();
+        $user->cipher_count += 1;
+        $user->save();
 
-            return response()->json(['success'=> true,'message' => 'Cipher added successfully!'], 201);
-        }else{
-            return response()->json(['error'=> true,'message' => 'Cipher added failed!'], 500);
-        }
+        return response()->json(['success'=> true,'message' => 'Cipher added successfully!'], 201);
 
     }
 
@@ -148,6 +144,10 @@ class CipherController extends Controller
 
         try {
             $cipher->delete();
+
+            $user = Auth::user();
+            $user->cipher_count -= 1;
+            $user->save();
             return response()->json(['success' => true, 'message' => 'Cipher deleted successfully!'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => true, 'message' => 'Failed to delete cipher. Please try again.'], 500);

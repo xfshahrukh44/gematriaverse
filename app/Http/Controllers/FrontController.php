@@ -172,6 +172,7 @@ class FrontController extends Controller
 
         return view('bible-search', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
     }
+
     public function blog()
     {
         return view('blog');
@@ -219,6 +220,14 @@ class FrontController extends Controller
                 "capital_alphabet" => '{"Z":"0","Y":"0","X":"0","W":"0","V":"0","U":"0","T":"0","S":"0","R":"0","Q":"0","P":"0","O":"0","N":"0","M":"0","L":"0","K":"0","J":"0","I":"0","H":"0","G":"0","F":"0","E":"0","D":"0","C":"0","B":"0","A":"0"}',
                 "rgb_values" => '{"red":"100","green":"226","blue":"226"}',
                 "prority" => 0,
+            ],
+            [
+                "id" => 'D4',
+                "name" => "Chaldean Numerology",
+                "small_alphabet" => '{"a":1,"b":2,"c":3,"d":4,"e":5,"f":8,"g":3,"h":5,"i":1,"j":1,"k":2,"l":3,"m":4,"n":5,"o":7,"p":8,"q":1,"r":2,"s":3,"t":4,"u":6,"v":6,"w":6,"x":5,"y":1,"z":7}',
+                "capital_alphabet" => '{"A":1,"B":2,"C":3,"D":4,"E":5,"F":8,"G":3,"H":5,"I":1,"J":1,"K":2,"L":3,"M":4,"N":5,"O":7,"P":8,"Q":1,"R":2,"S":3,"T":4,"U":6,"V":6,"W":6,"X":5,"Y":1,"Z":7}',
+                "rgb_values" => '{"red":"251","green":"250","blue":"255"}',
+                "prority" => 0,
             ]
         ];
 
@@ -257,6 +266,13 @@ class FrontController extends Controller
                 [
                     'user_id' => 'temp',
                     'cipher_id' => 'D3',
+                    'status' => 1,
+                    'created_at' => '2024-10-02 14:00:32',
+                    'updated_at' => '2024-10-02 17:19:46',
+                ],
+                [
+                    'user_id' => 'temp',
+                    'cipher_id' => 'D4',
                     'status' => 1,
                     'created_at' => '2024-10-02 14:00:32',
                     'updated_at' => '2024-10-02 17:19:46',
