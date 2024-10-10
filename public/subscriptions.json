@@ -10,7 +10,9 @@
         "custom_ciphers": {
           "limit": 20
         },
-        "date_calculator": true,
+        "date_calculator": {
+          "planetary_table": true
+        },
         "bible_search": true,
         "calendar": true
       }
@@ -19,13 +21,15 @@
       "price": 10.61,
       "features": {
         "calculators": {
-          "breakdown_screenshot": false
+          "breakdown_screenshot": true
         },
         "nostalgia_calculators": true,
         "custom_ciphers": {
           "limit": 20
         },
-        "date_calculator": true,
+        "date_calculator": {
+          "planetary_table":  true
+        },
         "bible_search": true,
         "calendar": true
       }
@@ -34,7 +38,7 @@
       "price": 6.04,
       "features": {
         "calculators": {
-          "breakdown_screenshot": false
+          "breakdown_screenshot": true
         },
         "nostalgia_calculators": true,
         "custom_ciphers": {

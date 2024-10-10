@@ -187,6 +187,7 @@
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
+                                    <li>Screenshots of Breakdown</li>
 {{--                                <li>Save Your User Preferences</li>--}}
 {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
                                 <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
@@ -230,6 +231,7 @@
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
+                                    <li>Screenshots of Breakdown</li>
 {{--                                <li>Save Your User Preferences</li>--}}
 {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
                                 <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
