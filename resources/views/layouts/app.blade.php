@@ -161,7 +161,8 @@
                                         Tools
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('number-properties') }}" style="padding-left: 14px;">
+                                        <a class="dropdown-item" href="{{ route('number-properties') }}"
+                                            style="padding-left: 14px;">
                                             <i class="fas fa-2" style="font-size: 8px;"></i>
                                             <i class="fas fa-3" style="font-size: 8px;"></i>
                                             <i class="fas fa-1 mr-2" style="font-size: 8px;"></i>
@@ -200,17 +201,21 @@
                             </ul>
                             <div class="social">
                                 <span class="youtube">
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="{{ App\Http\Traits\HelperTrait::returnFlag(1964) }}"><i
+                                            class="fa-brands fa-youtube"></i></a>
                                 </span>
                                 <span class="twitter-card">
-                                    <a href="#"><img src="{{ asset('images/twitter-logo-2.svg') }}"
-                                            class="img-fluid" alt=""></a>
+                                    <a href="{{ App\Http\Traits\HelperTrait::returnFlag(1960) }}"><img
+                                            src="{{ asset('images/twitter-logo-2.svg') }}" class="img-fluid"
+                                            alt=""></a>
                                 </span>
                                 <span class="shopping-cart">
-                                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i
+                                            class="fa-solid fa-cart-shopping"></i></a>
                                 </span>
                                 <span class="icons-img">
-                                    <a href="#"><img src="{{ asset('images/rumble.png') }}" class="img-fluid"
+                                    <a href="{{ App\Http\Traits\HelperTrait::returnFlag(1974) }}"><img
+                                            src="{{ asset('images/rumble.png') }}" class="img-fluid"
                                             alt=""></a>
                                 </span>
                             </div>
@@ -256,14 +261,14 @@
                     <div class="footer-text">
                         <h3 class="heading-3">Media</h3>
                         <ul class="icon-img">
-                            <li class="twiter"><a href="javascript:;"><img src="{{ asset('images/twiter.svg') }}"
+                            <li class="twiter"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1960) }}"><img src="{{ asset('images/twiter.svg') }}"
                                         alt="" class="img-fluid"></a>
                             </li>
-                            <li class="youtube"><a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            <li class="youtube"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1964) }}"><i class="fab fa-youtube"></i></a>
                             </li>
-                            <li class="discord"><a href="javascript:;"><i class="fab fa-discord"></i></a>
+                            <li class="discord"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i class="fab fa-discord"></i></a>
                             </li>
-                            <li class="square"><a href="javascript:;"><i class="fas fa-pen-square"></i></a>
+                            <li class="square"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i class="fas fa-pen-square"></i></a>
                             </li>
                         </ul>
                     </div>
