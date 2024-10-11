@@ -465,7 +465,11 @@ class FrontController extends Controller
         }
 
         $first_ciphers = $ciphers[0];
-        return view('calculator', compact('ciphers', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
+
+        $calculator = get_feature('calculators');
+        $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
+
+        return view('calculator', compact('ciphers', 'breakdown_screenshot', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
     }
     public function calendar()
     {
@@ -508,11 +512,17 @@ class FrontController extends Controller
     }
     public function greek_calculator()
     {
-        return view('greek-calculator');
+        $calculator = get_feature('calculators');
+        $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
+
+        return view('greek-calculator', compact('breakdown_screenshot'));
     }
     public function hebrew_calculator()
     {
-        return view('hebrew-calculator');
+        $calculator = get_feature('calculators');
+        $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
+
+        return view('hebrew-calculator', compact('breakdown_screenshot'));
     }
     public function memberships()
     {
