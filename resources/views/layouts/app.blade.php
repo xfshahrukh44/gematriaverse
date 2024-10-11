@@ -41,7 +41,7 @@
     <style>
         @font-face {
             font-family: Pixeboy;
-            src: url('{{ url('fonts/Pixeboy.ttf') }}');
+            src: url('{{ url('fonts/manteka.ttf') }}');
         }
 
         body {
