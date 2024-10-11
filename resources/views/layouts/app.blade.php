@@ -169,10 +169,10 @@
                                             <i class="fas fa-1 mr-2" style="font-size: 8px;"></i>
                                             Number Properties
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('calendar') }}">
-                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i>
-                                            Personal Calendar
-                                        </a>
+{{--                                        <a class="dropdown-item" href="{{ route('calendar') }}">--}}
+{{--                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i>--}}
+{{--                                            Personal Calendar--}}
+{{--                                        </a>--}}
                                         <a class="dropdown-item" href="{{ route('bible-search') }}">
                                             <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
                                             Bible Search
@@ -186,6 +186,12 @@
                                             Anagram Generator
                                         </a>
                                     </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('calendar') }}">Calendar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Holidays</a>
                                 </li>
                                 <!-- <li class="nav-item">
                                         <a class="nav-link" href="blog.php">Blog</a>
@@ -251,6 +257,7 @@
                             <li><a href="{{ route('memberships') }}">Memberships</a></li>
                             <li><a href="{{ route('calculator') }}">Calculator</a></li>
                             <li><a href="{{ route('date-calculator') }}">Date Calculator</a></li>
+                            <li><a href="{{ route('calendar') }}">Calendar</a></li>
                             <!-- <li><a href="blog.php">Blog</a></li> -->
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
                             <li><a href="{{ route('contact') }}">Contact</a></li>

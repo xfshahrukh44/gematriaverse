@@ -542,12 +542,12 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td id="phases_moon">
-                                                                            <b style="color: yellow;">12</b>m,
-                                                                            <b style="color: yellow;">11</b>d
+{{--                                                                            <b style="color: yellow;">12</b>m,--}}
+{{--                                                                            <b style="color: yellow;">11</b>d--}}
                                                                         </td>
                                                                         <td id="orbits_moon">
-                                                                            <b style="color: yellow;">13</b>m,
-                                                                            <b style="color: yellow;">10</b>d
+{{--                                                                            <b style="color: yellow;">13</b>m,--}}
+{{--                                                                            <b style="color: yellow;">10</b>d--}}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
