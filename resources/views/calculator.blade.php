@@ -24,111 +24,108 @@
                             <div id="Gematria_Table">
                                 <table id="GemTable">
                                     <tbody>
-                                    <tr>
-                                        {{-- <td class="GemTableHeader">
-                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(0, event)">
-                                                <font style="color: RGB(0, 186, 0)">Ordinal</font>
-                                            </div>
-                                        </td>
-                                        <td class="GemTableHeader">
-                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(1, event)">
-                                                <font style="color: RGB(88, 125, 254)">Reduction</font>
-                                            </div>
-                                        </td>
-                                        <td class="GemTableHeader">
-                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(2, event)">
-                                                <font style="color: RGB(80, 235, 21)">Reverse</font>
-                                            </div>
-                                        </td>
-                                        <td class="GemTableHeader">
-                                            <div class="GemTableHeader" onclick="javascript:MoveCipherClick(3, event)">
-                                                <font style="color: RGB(100, 226, 226)">Reverse Reduction</font>
-                                            </div>
-                                        </td> --}}
-                                        <!-- Loop through ciphers from DB and render them dynamically -->
-                                        @foreach ($ciphers as $cipher)
-                                                @php
-                                                    $rgb = json_decode($cipher['rgb_values'], true);
-                                                    $red = $rgb['red'] ?? 0;
-                                                    $green = $rgb['green'] ?? 0;
-                                                    $blue = $rgb['blue'] ?? 0;
-                                                @endphp
-                                            <td class="GemTableHeader">
-                                                <div class="GemTableHeader change-cipher" data-id="{{ $cipher['id'] }}" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
-                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                                        {{ $cipher['name'] }}
-                                                    </font>
-                                                </div>
-                                            </td>
+                                        @foreach (array_chunk($ciphers, 5) as $cipherChunk)
+                                            <tr>
+                                                @foreach ($cipherChunk as $index => $cipher)
+                                                    @php
+                                                        $rgb = json_decode($cipher['rgb_values'], true);
+                                                        $red = $rgb['red'] ?? 0;
+                                                        $green = $rgb['green'] ?? 0;
+                                                        $blue = $rgb['blue'] ?? 0;
+                                                    @endphp
+                                                    <td class="GemTableHeader">
+                                                        <div class="GemTableHeader change-cipher" data-id="{{ $cipher['id'] }}" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
+                                                            <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $cipher['name'] }}</font>
+                                                        </div>
+                                                    </td>
+                                                @endforeach
+
+                                                @for ($i = count($cipherChunk); $i < 5; $i++)
+                                                    <td class="GemTableHeader" style="display: none;">
+                                                        <!-- Empty placeholder if fewer than 5 ciphers in this row -->
+                                                    </td>
+                                                @endfor
+                                            </tr>
+
+                                            <tr>
+                                                @foreach ($cipherChunk as $index => $cipher)
+                                                    @php
+                                                        $rgb = json_decode($cipher['rgb_values'], true);
+                                                        $red = $rgb['red'] ?? 0;
+                                                        $green = $rgb['green'] ?? 0;
+                                                        $blue = $rgb['blue'] ?? 0;
+                                                    @endphp
+                                                    <td class="GemTableValue" id="TableValue_{{ $cipher['name'] }}">
+                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                            <div class="NumberClass">
+                                                                @if ($cipher['id'] == 'D0')
+                                                                    <b id="ordinal" class="justnumber" onclick="Open_Properties(0)">0</b>
+                                                                @elseif($cipher['id'] == 'D1')
+                                                                    <b id="reduction" class="justnumber" onclick="Open_Properties(1)">0</b>
+                                                                @elseif($cipher['id'] == 'D2')
+                                                                    <b id="reverse" class="justnumber" onclick="Open_Properties(2)">0</b>
+                                                                @elseif($cipher['id'] == 'D3')
+                                                                    <b id="reverse_reduction" class="justnumber" onclick="Open_Properties(3)">0</b>
+                                                                @else
+                                                                    <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number" onclick="Open_Properties({{ $cipher['id'] }})">0</b>
+                                                                @endif
+                                                            </div>
+                                                        </font>
+                                                    </td>
+                                                @endforeach
+
+                                                @for ($i = count($cipherChunk); $i < 5; $i++)
+                                                    <td class="GemTableValue" style="display: none;">
+                                                        <!-- Empty placeholder if fewer than 5 values in this row -->
+                                                    </td>
+                                                @endfor
+                                            </tr>
                                         @endforeach
-                                    </tr>
-                                    <tr></tr>
-                                    <tr>
-                                        {{-- <td class="GemTableValue">
-                                            <font style="color: RGB(0, 186, 0);">
-                                                <div class="NumberClass">
-                                                    <b id="ordinal" class="justnumber">0</b>
-                                                </div>
-                                            </font>
-                                        </td>
-                                        <td class="GemTableValue">
-                                            <font style="color: RGB(88, 125, 254);">
-                                                <div class="NumberClass">
-                                                    <b id="reduction" class="justnumber">0</b>
-                                                </div>
-                                            </font>
-                                        </td>
-                                        <td class="GemTableValue">
-                                            <font style="color: RGB(80, 235, 21);">
-                                                <div class="NumberClass">
-                                                    <b id="reverse" class="justnumber">0</b>
-                                                </div>
-                                            </font>
-                                        </td>
-                                        <td class="GemTableValue">
-                                            <font style="color: RGB(100, 226, 226);">
-                                                <div class="NumberClass">
-                                                    <b id="reverse_reduction" class="justnumber">0</b>
-                                                </div>
-                                            </font>
-                                        </td> --}}
-                                        <!-- Loop through the other ciphers dynamically -->
-                                        @foreach ($ciphers as $cipher)
+                                        {{-- <tr>
+                                            @foreach ($ciphers as $cipher)
                                                 @php
                                                     $rgb = json_decode($cipher['rgb_values'], true);
                                                     $red = $rgb['red'] ?? 0;
                                                     $green = $rgb['green'] ?? 0;
                                                     $blue = $rgb['blue'] ?? 0;
                                                 @endphp
-                                            <td class="GemTableValue">
-                                                <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                                    <div class="NumberClass">
-                                                        @if ($cipher['id'] == 'D0')
-                                                            <b id="ordinal" class="justnumber">
-                                                                0
-                                                            </b>
-                                                        @elseif($cipher['id'] == 'D1')
-                                                            <b id="reduction" class="justnumber">
-                                                                0
-                                                            </b>
-                                                        @elseif($cipher['id'] == 'D2')
-                                                            <b id="reverse" class="justnumber">
-                                                                0
-                                                            </b>
-                                                        @elseif($cipher['id'] == 'D3')
-                                                            <b id="reverse_reduction" class="justnumber">
-                                                                0
-                                                            </b>
-                                                        @else
-                                                            <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number">
-                                                                0
-                                                            </b>
-                                                        @endif
+                                                <td class="GemTableHeader">
+                                                    <div class="GemTableHeader change-cipher" data-id="{{ $cipher['id'] }}" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
+                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                            {{ $cipher['name'] }}
+                                                        </font>
                                                     </div>
-                                                </font>
-                                            </td>
-                                        @endforeach
-                                    </tr>
+                                                </td>
+                                            @endforeach
+                                        </tr>
+
+                                        <tr>
+                                            @foreach ($ciphers as $cipher)
+                                                @php
+                                                    $rgb = json_decode($cipher['rgb_values'], true);
+                                                    $red = $rgb['red'] ?? 0;
+                                                    $green = $rgb['green'] ?? 0;
+                                                    $blue = $rgb['blue'] ?? 0;
+                                                @endphp
+                                                <td class="GemTableValue" id="TableValue_{{ $cipher['name'] }}">
+                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                        <div class="NumberClass">
+                                                            @if ($cipher['id'] == 'D0')
+                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(0)">0</b>
+                                                            @elseif($cipher['id'] == 'D1')
+                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(1)">0</b>
+                                                            @elseif($cipher['id'] == 'D2')
+                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(2)">0</b>
+                                                            @elseif($cipher['id'] == 'D3')
+                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(3)">0</b>
+                                                            @else
+                                                                <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number" onclick="Open_Properties({{ $cipher['id'] }})">0</b>
+                                                            @endif
+                                                        </div>
+                                                    </font>
+                                                </td>
+                                            @endforeach
+                                        </tr> --}}
                                     </tbody>
                                 </table>
                             </div>
@@ -160,7 +157,7 @@
                                 HistoryEnabled = true,
                                 TablesEnabled = true
                         </script>
-                        <link rel="stylesheet" type="text/css" href="css/advcalcstyles-1-00012.css">
+                        <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
                         <script src="js/cipherbuilder.js"></script>
                         <script src="js/html2canvas.min.js"></script>
