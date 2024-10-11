@@ -35,7 +35,7 @@ class CipherController extends Controller
         }
 
         $plan = Auth::user()->plan ?? 'free';
-        $cipher_count_user = Auth::user()->cipher_count ?? 0;
+        $cipher_count_user = Cipher::where('user_id', Auth::user()->id)->count();
         $limit = $this->subscriptions['subscriptions'][$plan]['features']['custom_ciphers']['limit'];
         if($limit == $cipher_count_user){
             return response()->json(['error'=> true, 'message' => 'The custom cipher limit has been reached.'], 409);
@@ -52,9 +52,9 @@ class CipherController extends Controller
             'prority' => $prority,
         ]);
 
-        $user = Auth::user();
-        $user->cipher_count += 1;
-        $user->save();
+        // $user = Auth::user();
+        // $user->cipher_count += 1;
+        // $user->save();
 
         return response()->json(['success'=> true,'message' => 'Cipher added successfully!'], 201);
 
@@ -145,9 +145,9 @@ class CipherController extends Controller
         try {
             $cipher->delete();
 
-            $user = Auth::user();
-            $user->cipher_count -= 1;
-            $user->save();
+            // $user = Auth::user();
+            // $user->cipher_count -= 1;
+            // $user->save();
             return response()->json(['success' => true, 'message' => 'Cipher deleted successfully!'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => true, 'message' => 'Failed to delete cipher. Please try again.'], 500);
