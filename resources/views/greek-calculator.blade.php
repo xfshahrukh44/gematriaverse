@@ -789,7 +789,7 @@
             }
             $('#tbody_cipher_queue').append(first_string);
             $('#tbody_cipher_queue').append(second_string);
-            $('#tr_cipher_queue').html(`<span class="nextGenText">"test" =
+            $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
                                             <font style="color: `+cipher_colors[active_cipher]+`;">
                                                 <div class="NumberClass view-number">64</div>
                                             </font>
