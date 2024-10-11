@@ -446,9 +446,9 @@
     <div id="ciphMod" class="ciphMod fancybox-content" style="display: none; margin-bottom: 6px; background-color: black !important;">
         <center>
             <h2 id="toph2">Ciphers</h2>
-            <span id="cipherHelpText">Can't find a cipher? <a
-                        href="{{route('faq')}}">See the FAQ</a> or <a
-                        href="{{route('home')}}">Ciphers</a> page.</span>
+{{--            <span id="cipherHelpText">Can't find a cipher? <a--}}
+{{--                        href="{{route('faq')}}">See the FAQ</a> or <a--}}
+{{--                        href="{{route('home')}}">Ciphers</a> page.</span>--}}
             <br><br class="no-mo">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -851,7 +851,7 @@
             $('#tbody_cipher_queue').append(second_string);
             $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
                                             <font style="color: `+cipher_colors[active_cipher]+`;">
-                                                <div class="NumberClass view-number">64</div>
+                                                <div class="NumberClass view-number">`+total+`</div>
                                             </font>
                                             <font style="color: `+cipher_colors[active_cipher]+`;">(`+active_cipher+`)</font>
                                         </span>

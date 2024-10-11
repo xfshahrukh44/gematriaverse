@@ -436,7 +436,7 @@
                             <div id="ciphMod" class="ciphMod fancybox-content" style="display: none; margin-bottom: 6px;">
                                 <center>
                                     <h2 id="toph2">Ciphers</h2>
-                                    <span id="cipherHelpText">Can't find a cipher? <a href="faq.php">See the FAQ</a> or <a href="ciphers.php">Ciphers</a> page.</span>
+{{--                                    <span id="cipherHelpText">Can't find a cipher? <a href="faq.php">See the FAQ</a> or <a href="ciphers.php">Ciphers</a> page.</span>--}}
                                     <br><br class="no-mo">
                                     <ul id="cipherBox">
                                         {{-- <li><input type="checkbox" id="CipherD0" checked=""><font style="color: RGB(0, 186, 0)">Ordinal</font></li>
