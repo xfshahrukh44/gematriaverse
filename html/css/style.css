@@ -1,6 +1,6 @@
 body {
     /* font-family: "Work Sans", sans-serif; */
-    font-family: Pixeboy;
+    font-family: manteka;
 }
 
 p {
@@ -8,12 +8,12 @@ p {
 }
 
 @font-face {
-    font-family: Pixeboy;
+    font-family: manteka;
     src: url('../fonts/Pixeboy.ttf');
 }
 
 h1.heading-1 {
-    font-family: Pixeboy;
+    font-family: manteka;
     font-size: 70px;
     font-weight: 500;
     color: #fff !important;
@@ -36,7 +36,7 @@ header {
 
 header .nav-link {
     color: #ffffff !important;
-    font-family: Pixeboy;
+    font-family: manteka;
     font-size: 22px;
 }
 
