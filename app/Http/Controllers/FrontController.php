@@ -365,11 +365,17 @@ class FrontController extends Controller
     }
     public function greek_calculator()
     {
-        return view('greek-calculator');
+        $calculator = get_feature('calculators');
+        $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
+
+        return view('greek-calculator', compact('breakdown_screenshot'));
     }
     public function hebrew_calculator()
     {
-        return view('hebrew-calculator');
+        $calculator = get_feature('calculators');
+        $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
+
+        return view('hebrew-calculator', compact('breakdown_screenshot'));
     }
     public function memberships()
     {

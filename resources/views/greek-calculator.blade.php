@@ -108,38 +108,60 @@
                     <div id="printBreakTable" style="display:table-cell; width: 100%;">
                         <div id="watermarkBreakGuy" style="display:none;"><img decoding="async" src="/tools/calculator-advanced/img/gem-guy-flip.png" alt="gematrinator" width="28" style="margin-top: 10px; margin-right:0px; float:right; opacity:.25;">
                         </div>
-                        <center>
+                        <center id="center_printBreakTable">
                             <input type="hidden" name="cipher_id" id="cipher_id" value="D0">
                             <table id="breakdownCipherLabel" style="width:100%; display: inline;">
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <table class="BreakTable">
-                                            <tbody id="tbody_cipher_queue">
-{{--                                                <tr>--}}
-{{--                                                    <td class="BreakCharNG">t</td>--}}
-{{--                                                    <td class="BreakCharNG">e</td>--}}
-{{--                                                    <td class="BreakCharNG">s</td>--}}
-{{--                                                    <td class="BreakCharNG">t</td>--}}
-{{--                                                    <td class="BreakTotal" rowspan="2">--}}
-{{--                                                        <font style="color: rgb(0, 186, 0);">--}}
-{{--                                                            <div class="NumberClass view-number">64</div>--}}
-{{--                                                        </font>--}}
-{{--                                                    </td>--}}
-{{--                                                </tr>--}}
-{{--                                                <tr>--}}
-{{--                                                    <td class="BreakValue">20</td>--}}
-{{--                                                    <td class="BreakValue">5</td>--}}
-{{--                                                    <td class="BreakValue">19</td>--}}
-{{--                                                    <td class="BreakValue">20</td>--}}
-{{--                                                </tr>--}}
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td id="tr_cipher_queue">
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <table id="breakdownCipherLabel" style="width:100%; display: inline;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="BreakTable">
+                                                <tbody id="tbody_cipher_queue">
+    {{--                                                <tr>--}}
+    {{--                                                    <td class="BreakCharNG">t</td>--}}
+    {{--                                                    <td class="BreakCharNG">e</td>--}}
+    {{--                                                    <td class="BreakCharNG">s</td>--}}
+    {{--                                                    <td class="BreakCharNG">t</td>--}}
+    {{--                                                    <td class="BreakTotal" rowspan="2">--}}
+    {{--                                                        <font style="color: rgb(0, 186, 0);">--}}
+    {{--                                                            <div class="NumberClass view-number">64</div>--}}
+    {{--                                                        </font>--}}
+    {{--                                                    </td>--}}
+    {{--                                                </tr>--}}
+    {{--                                                <tr>--}}
+    {{--                                                    <td class="BreakValue">20</td>--}}
+    {{--                                                    <td class="BreakValue">5</td>--}}
+    {{--                                                    <td class="BreakValue">19</td>--}}
+    {{--                                                    <td class="BreakValue">20</td>--}}
+    {{--                                                </tr>--}}
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </center>
+
+                        @if($breakdown_screenshot == true)
+                            <center>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <a href="#" id="btn_breakdown_screenshot">Screenshot</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        @endif
                         <span id="watermarkBreakText" style="display:none; float: right; margin-right: 0px; margin-top: -18px;opacity:.25;position: relative; "><img decoding="async" src="/tools/calculator-advanced/img/gematrinator-just-text-200px.png" alt="gematrinator logo" width="85"></span>
                     </div>
                 </div>
@@ -627,6 +649,34 @@
 @endsection
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn_breakdown_screenshot').on('click', function() {
+                if ($('#tbody_cipher_queue').html() == '') {
+                    return false;
+                }
+
+                html2canvas(document.querySelector('#center_printBreakTable'), {
+                    backgroundColor: '#000' // Set the background color to black
+                }).then(function(canvas) {
+                    // Convert canvas to a data URL (base64 image)
+                    var imageURL = canvas.toDataURL("image/png");
+
+                    // Create a temporary link element for downloading
+                    var link = document.createElement('a');
+                    link.href = imageURL;
+                    link.download = 'capture.png'; // Specify the download file name
+
+                    // Trigger the download by simulating a click on the link
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            });
+        });
+    </script>
+
     <script>
         let ciphers = {};
 
@@ -739,6 +789,13 @@
             }
             $('#tbody_cipher_queue').append(first_string);
             $('#tbody_cipher_queue').append(second_string);
+            $('#tr_cipher_queue').html(`<span class="nextGenText">"test" =
+                                            <font style="color: `+cipher_colors[active_cipher]+`;">
+                                                <div class="NumberClass view-number">64</div>
+                                            </font>
+                                            <font style="color: `+cipher_colors[active_cipher]+`;">(`+active_cipher+`)</font>
+                                        </span>
+                                        <br>`);
 
             return true;
         }
