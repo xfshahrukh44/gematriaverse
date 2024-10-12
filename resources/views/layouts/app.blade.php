@@ -50,7 +50,11 @@
         }
 
         p {
-            font-size: 20px;
+            font-size: 14px;
+        }
+
+        a.dropdown-item {
+            font-size: 12px !important;
         }
     </style>
 
