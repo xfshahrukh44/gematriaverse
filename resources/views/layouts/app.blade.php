@@ -40,17 +40,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @font-face {
-            font-family: Pixeboy;
-            src: url('{{ url('fonts/manteka.ttf') }}');
+            font-family: manteka;
+            src: url('{{ url('fonts/manteka.otf') }}');
         }
 
         body {
             /* font-family: "Work Sans", sans-serif; */
-            font-family: Pixeboy;
+            font-family: manteka;
         }
 
         p {
-            font-size: 20px;
+            font-size: 14px;
+        }
+
+        a.dropdown-item {
+            font-size: 12px !important;
         }
     </style>
 
@@ -149,10 +153,10 @@
                                             <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
                                             Hebrew Calculator
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('nostalgia-calculators') }}">
-                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
-                                            Nostalgia Calculators
-                                        </a>
+{{--                                        <a class="dropdown-item" href="{{ route('nostalgia-calculators') }}">--}}
+{{--                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>--}}
+{{--                                            Nostalgia Calculators--}}
+{{--                                        </a>--}}
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">

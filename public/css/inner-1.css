@@ -104,7 +104,7 @@ footer {
     color: #fff;
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 footer .footer-text .anker li a::before {
@@ -135,7 +135,7 @@ footer .footer-text .anker li a::before {
 footer .footer-text .anker li a {
     position: relative;
     padding: 5px 17px;
-    font-size: 15px;
+    font-size: 12px;
     border: 0;
     text-align: left !important;
     transition: .28s;
