@@ -420,9 +420,11 @@
                                     <!-- END HISTORY SECTION -->
                                 </div>
                             </div>
-                            <div id="membershipText" class="row gads">
-                                <span><a href=/memberships>Become a Member</a> for an ad-free experience</span>
-                            </div>
+                            @if(Auth::user()->plan == "free")
+                                <div id="membershipText" class="row gads">
+                                    <span><a href="{{ route('membership') }}">Become a Member</a> for an ad-free experience</span>
+                                </div>
+                            @endif
 
                             <div id="NumberSpot"></div>
                             <br><br>
@@ -864,7 +866,7 @@
 
                 // Ensure alphabetData is an object
                 if (alphabetData && typeof alphabetData === 'object') {
-                    var charValue = alphabetData[char.toLowerCase()];
+                    var charValue = alphabetData[char] || alphabetData[char.toLowerCase()];
 
                     // If a value exists for the character, add it to the sum (parse it as an integer)
                     return sum + (charValue !== undefined ? parseInt(charValue, 10) : 0);
