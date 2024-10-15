@@ -156,7 +156,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <a href="#" id="btn_breakdown_screenshot">Screenshot</a>
+                                            <a href="#" id="btn_breakdown_screenshot" hidden>Screenshot</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -772,6 +772,8 @@
             }
 
             $('#tbody_cipher_queue').html('');
+            $('#tr_cipher_queue').html('');
+            $('#btn_breakdown_screenshot').prop('hidden', true);
             let first_string = '';
             let second_string = '';
             if (total > 0) {
@@ -786,16 +788,18 @@
                                     </td>`;
                 first_string = `<tr>`+first_string+`</tr>`;
                 second_string = `<tr>`+second_string+`</tr>`;
+
+                $('#btn_breakdown_screenshot').prop('hidden', false);
+                $('#tbody_cipher_queue').append(first_string);
+                $('#tbody_cipher_queue').append(second_string);
+                $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
+                                                <font style="color: `+cipher_colors[active_cipher]+`;">
+                                                    <div class="NumberClass view-number">`+total+`</div>
+                                                </font>
+                                                <font style="color: `+cipher_colors[active_cipher]+`;">(`+active_cipher+`)</font>
+                                            </span>
+                                            <br>`);
             }
-            $('#tbody_cipher_queue').append(first_string);
-            $('#tbody_cipher_queue').append(second_string);
-            $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
-                                            <font style="color: `+cipher_colors[active_cipher]+`;">
-                                                <div class="NumberClass view-number">`+total+`</div>
-                                            </font>
-                                            <font style="color: `+cipher_colors[active_cipher]+`;">(`+active_cipher+`)</font>
-                                        </span>
-                                        <br>`);
 
             return true;
         }

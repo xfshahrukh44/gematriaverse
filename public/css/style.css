@@ -2143,6 +2143,7 @@ span#YearViewYear {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 5px 0px;
 }
 
 #cipherPresets span {
@@ -2151,4 +2152,37 @@ span#YearViewYear {
 }
 #ChartSpot tr {
     font-size: 23px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Unchecked state */
+input[type="checkbox"] {
+    background-color: white;
+}
+
+/* Checked state */
+input[type="checkbox"]:checked {
+    background-color: #7fbe00; /* Custom color for checked state */
+    border-color: #7fbe00;
+}
+
+/* Optional: Add a checkmark when checked */
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    left: 2px;
+    top: -5px;
 }
