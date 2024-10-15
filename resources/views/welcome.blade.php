@@ -31,10 +31,10 @@
                         </figure>
                         <div class="cta-buttons">
                             <span>
-                                <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
+                                <a href="{{route('calculator')}}" class="btn custom-btn">Gematriaverse CALCULATOR </a>
                             </span>
                             <span>
-                                <a href="#" class="btn custom-btn">Gematriaverse CALCULATOR </a>
+                                <a href="{{route('date-calculator')}}" class="btn custom-btn">DATE CALCULATOR </a>
                             </span>
                         </div>
                     </div>
@@ -65,10 +65,10 @@
                         {!! $section[0]->value !!}
                         <div class="horizontals-btns">
                             <span>
-                                <a href="#" class="btn custom-btn">JOIN</a>
+                                <a href="{{route('memberships')}}" class="btn custom-btn">JOIN</a>
                             </span>
                             <span>
-                                <a href="#" class="btn custom-btn">FAQ</a>
+                                <a href="{{route('faq')}}" class="btn custom-btn">FAQ</a>
                             </span>
                         </div>
                     </div>
