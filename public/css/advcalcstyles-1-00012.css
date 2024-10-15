@@ -398,7 +398,7 @@ ul#cipherBox  {
 	text-transform: uppercase;
 	font-family: "Lato";
 	line-height: 16px;
-	border-radius:15px;
+	/*border-radius:15px;*/
 	border: none;
 	background-color:white;
 }

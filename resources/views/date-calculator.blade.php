@@ -1048,6 +1048,12 @@
     @if($planetary_table)
         <script>
             $('#Month1, #Day1, #Year1, #Month2, #Day2, #Year2').on('keyup change', function () {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                if ($(this).val() == '') {
+                    $(this).val(0);
+                    return false;
+                }
+
                 let Month1 = $('#Month1').val();
                 let Day1 = $('#Day1').val();
                 let Year1 = $('#Year1').val();

@@ -71,7 +71,7 @@
 {{--                        <form>--}}
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" id="input_anagram_query" placeholder="Text" required>
+                                    <input type="text" class="form-control" id="input_anagram_query" placeholder="Enter word or phrase" required>
                                 </div>
                                 <div class="max-number">
                                     <a class="form-btn collapsed" data-toggle="collapse" href="#multiCollapseExample1"

@@ -110,7 +110,7 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <img src="{{ asset('images/logo-2.png') }}" class="img-fluid logo-header" alt="">
+                            <img src="{{ asset('images/new-logo.png') }}" class="img-fluid logo-header" alt="">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -121,11 +121,14 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle top-menu" href="#" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle top-menu" href="{{ route('home') }}">
                                         Home
                                     </a>
+{{--                                    <a class="nav-link dropdown-toggle top-menu" href="{{ route('home') }}" id="navbarDropdown"--}}
+{{--                                       role="button" data-toggle="dropdown" aria-haspopup="true"--}}
+{{--                                       aria-expanded="false">--}}
+{{--                                        Home--}}
+{{--                                    </a>--}}
                                     <div class="dropdown-menu menu-bar" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('about') }}">About</a>
                                     </div>
@@ -168,9 +171,9 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('number-properties') }}"
                                             style="padding-left: 14px;">
-                                            <i class="fas fa-2" style="font-size: 8px;"></i>
-                                            <i class="fas fa-3" style="font-size: 8px;"></i>
-                                            <i class="fas fa-1 mr-2" style="font-size: 8px;"></i>
+                                            <i class="fas fa-2 ml-2" style="font-size: 8px; margin-right: -4px;"></i>
+                                            <i class="fas fa-3" style="font-size: 8px; margin-right: -4px;"></i>
+                                            <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
                                             Number Properties
                                         </a>
 {{--                                        <a class="dropdown-item" href="{{ route('calendar') }}">--}}
@@ -244,7 +247,7 @@
             <div class="row justify-content-between">
                 <div class="col-lg-4">
                     <div class="footer-text">
-                        <img src="{{ asset('images/logo-2.png') }}" alt="" class="img-fluid icon">
+                        <img src="{{ asset('images/new-logo.png') }}" alt="" class="img-fluid icon">
                         <p class="para-1">Simply put: Gematriaverse is the practice of coding numbers into
                             words. It is an ancient practice that traces back to at least the Hebrew and Greek
                             languages, in
