@@ -148,7 +148,7 @@ canvas {
 }
 
 .custom-btn {
-    font-size: 20px;
+    font-size: 16px;
     color: #ffffff !important;
     border-radius: 50px;
     background: linear-gradient(45deg, #317009, #7fbe00);
@@ -171,7 +171,7 @@ canvas {
 
 span.banner-text {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     font-style: normal;
     color: #ffffff;
@@ -193,18 +193,25 @@ span.banner-text {
 }
 
 .heading-2 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .white {
     color: white;
+    margin-bottom: 20px;
+}
+
+.horizontals-btns {
+    margin-top: 20px;
 }
 
 .para {
     font-weight: 400;
     font-style: normal;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 15px;
+    line-height: 25px;
+    margin-top: 10px;
 }
 
 .heading-3 {
@@ -212,6 +219,7 @@ span.banner-text {
     text-decoration: none;
     color: #ffffff;
     transition: .28s;
+    font-size: 20px;
 }
 
 ul {
@@ -223,7 +231,7 @@ ul.list-content li {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 ul.list-content li .icons {
