@@ -247,6 +247,4 @@ class CipherController extends Controller
 
         return response()->json(['success' => true]);
     }
-
-
 }

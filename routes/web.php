@@ -273,7 +273,7 @@ Route::get('about', [FrontController::class, 'about'])->name('about');
 Route::get('bible-search', [FrontController::class, 'bible_search'])->name('bible-search');
 Route::get('blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('blog-detail', [FrontController::class, 'blog_detail'])->name('blog-detail');
-Route::get('calculator', [FrontController::class, 'calculator'])->name('calculator');
+Route::any('calculator', [FrontController::class, 'calculator'])->name('calculator');
 Route::get('calendar', [FrontController::class, 'calendar'])->name('calendar');
 Route::get('contact', [FrontController::class, 'contact'])->name('contact');
 Route::get('custom-ciphers', [FrontController::class, 'custom_ciphers'])->name('custom-ciphers');
