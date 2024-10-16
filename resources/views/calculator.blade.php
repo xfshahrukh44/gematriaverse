@@ -486,8 +486,8 @@
                                 <div id="cipherUpdateCancelContainer">
                                     @if (Auth::check())
                                         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+                                        <button class="buttonFunctionCiphers" id="SaveCiphers">Update</button>
                                     @endif
-                                    <button class="buttonFunctionCiphers" id="SaveCiphers" onclick="javascript:Close_Ciphers(); jQuery.fancybox.close();">Update</button>
                                     <button class="buttonFunctionCiphers" id="CancelCiphers" onclick="Cancel_Ciphers()">Cancel</button>
                                 </div>
 
@@ -686,6 +686,7 @@
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
+        let temp_ciphers = [];
         $(document).ready(function () {
             $('#btn_breakdown_screenshot').on('click', function() {
                 if ($('#breakdownCipherLabel').html() == '') {
@@ -709,6 +710,181 @@
                     document.body.removeChild(link);
                 });
             });
+        });
+
+        $(document).ready(function () {
+            window.updateCipherDetails = function (val = '', new_list = '') {
+                if (val != '') {
+                    let cipherList;
+                    if(new_list.length == 0){
+                        cipherList = @json($ciphers);
+                    }else{
+                        cipherList = new_list;
+                    }
+                    let inputVal = val.trim();
+                    let getId = $('#cipher_id').val();
+
+                    let data = calculateGematria(val);
+                    var small_alphabets = generateSmallAlphabets(cipherList);
+                    if (inputVal) {
+                        const cipher = cipherList.find(function (cipher) {
+                            return cipher.id == getId;
+                        });
+
+                        if (cipher) {
+                            if (typeof cipher.rgb_values !== "object") {
+                                cipher.rgb_values = JSON.parse(cipher.rgb_values);
+                            }
+                            var red = cipher.rgb_values.red;
+                            var green = cipher.rgb_values.green;
+                            var blue = cipher.rgb_values.blue;
+                        }
+
+                        let totalSum = 0;
+                        let fullHtml = '';
+
+                        // Split input by spaces to handle each word separately
+                        const words = inputVal.trim().split(/\s+/);
+
+                        words.forEach((word, index) => {
+                            let charValuesRow1 = [];
+                            let charValuesRow2 = [];
+                            let wordSum = 0;
+                            let cipher_small_alphabet;
+
+                            for (let i = 0; i < word.length; i++) {
+                                let char = word[i].toLowerCase();
+
+                                if (typeof cipher.small_alphabet !== "object") {
+                                    cipher_small_alphabet = JSON.parse(cipher.small_alphabet);
+                                }
+
+                                if (cipher_small_alphabet[char]) {
+                                    charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
+                                    const value = cipher_small_alphabet[char];
+                                    charValuesRow2.push(`<td class="BreakValue">${value}</td>`);
+                                    wordSum += parseInt(value, 10);
+                                }
+                            }
+
+                            totalSum += wordSum;
+
+                            let row1Html = `<tr>${charValuesRow1.join('')}
+                                <td class="BreakSum" rowspan="2">
+                                    <font style="color: rgb(${red}, ${green}, ${blue});">
+                                        <div class="NumberClass">${wordSum}</div>
+                                    </font>
+                                </td>`;
+
+                                // Add BreakTotal only to the last word's table
+                                if (index === words.length - 1) {
+                                    row1Html += `
+                                        <td class="BreakTotal" rowspan="2">
+                                            <font style="color: rgb(${red}, ${green}, ${blue});">
+                                                <div class="NumberClass">${totalSum}</div>
+                                            </font>
+                                        </td>`;
+                                }
+
+                                row1Html += `</tr>`;
+
+                            let row2Html = `<tr>${charValuesRow2.join('')}</tr>`;
+
+                            fullHtml += `
+                                <table class="BreakTable">
+                                    <tbody>
+                                        ${row1Html + row2Html}
+                                    </tbody>
+                                </table>`;
+                        });
+
+                        // Final HTML with the total sum across all words
+                        let resultHtml = `
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="nextGenText">"${inputVal}" =
+                                            <font style="color: rgb(${red}, ${green}, ${blue});">
+                                                <div class="NumberClass">${totalSum}</div>
+                                            </font>
+                                            <font style="color: rgb(${red}, ${green}, ${blue});">
+                                                (${cipher.name})
+                                            </font>
+                                        </span><br>
+                                        ${fullHtml}
+                                    </td>
+                                </tr>
+                            </tbody>`;
+
+                        $('#breakdownCipherLabel').html(resultHtml);
+
+                        // Handling specific cipher cases for displaying appropriate values
+                        if (cipher.id == 'D0') {
+                            $('.view-number').text(data.ordinal);
+                        } else if (cipher.id == 'D1') {
+                            $('.view-number').text(data.reduction);
+                        } else if (cipher.id == 'D2') {
+                            $('.view-number').text(data.reverse);
+                        } else if (cipher.id == 'D3') {
+                            $('.view-number').text(data.reverseReduction);
+                        } else {
+                            let data1 = calculateGematria(val, cipher.id, small_alphabets);
+                            $('.view-number').text(data1.ordinalCiphers);
+                        }
+                    }
+
+                } else {
+                    $('#breakdownCipherLabel').html(``);
+                    return false;
+                }
+            };
+
+            window.getVal = function (val, cipher_list) {
+
+                let wordCount = val ? val.split(/\s+/).length : 0;
+
+                let letterCount = val.replace(/[^a-zA-Z]/g, '').length;
+
+                $('#WordLetterCount .WordLetterCount').text('(' + wordCount + ' word' + (wordCount !== 1 ? 's' : '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
+
+                if (val == "") {
+                    cipher_list.forEach((cipher) => {
+                        let cipherId = cipher.id;
+
+                        if (cipherId === 'D0') {
+                            $('#ordinal').text('0');
+                        } else if (cipherId === 'D1') {
+                            $('#reduction').text('0');
+                        } else if (cipherId === 'D2') {
+                            $('#reverse').text('0');
+                        } else if (cipherId === 'D3') {
+                            $('#reverse_reduction').text('0');
+                        } else {
+                            $('#cipher_' + cipherId).text('0');
+                        }
+                    });
+                }
+
+                let data = calculateGematria(val);
+                var small_alphabets = generateSmallAlphabets(cipher_list);
+
+                cipher_list.forEach((cipher) => {
+                    let cipherId = cipher.id;
+
+                    if (cipherId === 'D0') {
+                        $('#ordinal').text(data.ordinal);
+                    } else if (cipherId === 'D1') {
+                        $('#reduction').text(data.reduction);
+                    } else if (cipherId === 'D2') {
+                        $('#reverse').text(data.reverse);
+                    } else if (cipherId === 'D3') {
+                        $('#reverse_reduction').text(data.reverseReduction);
+                    } else {
+                        let data1 = calculateGematria(val, cipherId, small_alphabets);
+                        $('#cipher_' + cipherId).text(data1.ordinalCiphers);
+                    }
+                });
+            };
         });
     </script>
 
@@ -772,8 +948,40 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        swal("Success!", "Cipher settings saved successfully!", "success");
-                        // jQuery.fancybox.close();
+                        // swal("Success!", "Cipher settings saved successfully!", "success");
+                        jQuery.fancybox.close();
+                        $.ajax({
+                            url: "{{ route('calculator') }}",
+                            type: 'POST',
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data: JSON.stringify(data),
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    $('#GemTable').html(response.gem_table);
+
+                                    let val = $('#EntryField').val();
+
+                                    temp_ciphers.length = 0
+                                    temp_ciphers.push(...response.ciphers);
+                                    console.log(temp_ciphers);
+
+                                    getVal(val, response.ciphers);
+
+                                    // updateCipherDetails($('#EntryField').val(), response.ciphers);
+                                    // updateCipherCount($('#EntryField').val(), response.ciphers);
+
+                                } else {
+                                    console.log("No data found");
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error("An error occurred");
+                            }
+                        });
                     } else {
                         swal("Error!", "Error saving cipher settings", "error");
                     }
@@ -849,18 +1057,24 @@
         let alphabet2 = @json($D2);
         let alphabet3 = @json($D3);
 
-        var small_alphabets = {};
+        // var ciphers = @json($ciphers);
 
-        @foreach ($ciphers as $cipher)
-            var cipherId = "{{ $cipher['id'] }}";
+        function generateSmallAlphabets(ciphers) {
+            let small_alphabets = {};
 
-            if (cipherId != 'D0' && cipherId != 'D1' && cipherId != 'D2' && cipherId != 'D3') {
-                var alphabetData = @json(json_decode($cipher['small_alphabet']));
-                small_alphabets[cipherId] = alphabetData;
-            }
-        @endforeach
+            ciphers.forEach(cipher => {
+                let cipherId = cipher['id'];
 
-        function calculateOrdinalCiphers(input, cipherId) {
+                if (!['D0', 'D1', 'D2', 'D3'].includes(cipherId)) {
+                    let alphabetData = JSON.parse(cipher['small_alphabet']);
+                    small_alphabets[cipherId] = alphabetData;
+                }
+            });
+
+            return small_alphabets;
+        }
+
+        function calculateOrdinalCiphers(input, cipherId, small_alphabets) {
             return [...input].reduce((sum, char) => {
                 var alphabetData = small_alphabets[cipherId];
 
@@ -907,12 +1121,12 @@
         }
 
         // Main function to calculate all values
-        function calculateGematria(word, id = '') {
+        function calculateGematria(word, id = '', small_alphabets = '') {
             const ordinal = calculateOrdinal(word);
             const reduction = calculateReduction(word);
             const reverse = calculateReverseOrdinal(word);
             const reverseReduction = calculateReverseReduction(word);
-            const ordinalCiphers = calculateOrdinalCiphers(word, id);
+            const ordinalCiphers = calculateOrdinalCiphers(word, id, small_alphabets);
 
             return {
                 ordinal: ordinal,
@@ -1162,48 +1376,15 @@
             $('#EntryField').on('keyup', function () {
                 let val = $(this).val();
 
-                let wordCount = val ? val.split(/\s+/).length : 0;
-
-                let letterCount = val.replace(/[^a-zA-Z]/g, '').length;
-
-                $('#WordLetterCount .WordLetterCount').text('(' + wordCount + ' word' + (wordCount !== 1 ? 's' : '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
-
-                if (val == "") {
-                    @foreach ($ciphers as $cipher)
-                        var cipherId = "{{ $cipher['id'] }}";
-                        if (cipherId == 'D0') {
-                            $('#ordinal').text('0');
-                        } else if (cipherId == 'D1') {
-                            $('#reduction').text('0');
-                        } else if (cipherId == 'D2') {
-                            $('#reverse').text('0');
-                        } else if (cipherId == 'D3') {
-                            $('#reverse_reduction').text('0');
-                        } else {
-                            $('#cipher_' + cipherId).text('0');
-                        }
-                    @endforeach
+                if (temp_ciphers.length === 0) {
+                    temp_ciphers_val = @json($ciphers);  // Assign the data directly
+                }else{
+                    temp_ciphers_val = temp_ciphers;
                 }
 
-                let data = calculateGematria(val);
+                getVal(val, temp_ciphers_val);
 
-                @foreach ($ciphers as $cipher)
-                    var cipherId = "{{ $cipher['id'] }}";
-                    if (cipherId == 'D0') {
-                        $('#ordinal').text(data.ordinal);
-                    } else if (cipherId == 'D1') {
-                        $('#reduction').text(data.reduction);
-                    } else if (cipherId == 'D2') {
-                        $('#reverse').text(data.reverse);
-                    } else if (cipherId == 'D3') {
-                        $('#reverse_reduction').text(data.reverseReduction);
-                    } else {
-                        let data1 = calculateGematria(val, cipherId);
-                        $('#cipher_' + cipherId).text(data1.ordinalCiphers);
-                    }
-                @endforeach
-
-                updateCipherDetails($(this).val());
+                updateCipherDetails($(this).val(), temp_ciphers_val);
 
                 return true;
             });
@@ -1235,101 +1416,107 @@
                 number_properties($(this).text());
             });
 
-            function updateCipherDetails(val = '') {
-                if(val != ''){
-                    const cipherList = @json($ciphers);
-                    let inputVal = val.trim();
-                    let getId = $('#cipher_id').val();
-
-                    let data = calculateGematria(val);
-                    if (inputVal) {
-                        const cipher = cipherList.find(function (cipher) {
-                            return cipher.id == getId;
-                        });
-
-                        if (cipher) {
-                            cipher.small_alphabet = JSON.parse(cipher.small_alphabet);
-                            cipher.rgb_values = JSON.parse(cipher.rgb_values);
-                            var red = cipher.rgb_values.red;
-                            var green = cipher.rgb_values.green;
-                            var blue = cipher.rgb_values.blue;
-                        }
-
-                        let charValuesRow1 = [];
-                        let charValuesRow2 = [];
-
-                        for (let i = 0; i < inputVal.length; i++) {
-                            let char = inputVal[i].toLowerCase();
-                            if (cipher.small_alphabet[char]) {
-                                charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
-                                charValuesRow2.push(`<td class="BreakValue">${cipher.small_alphabet[char]}</td>`);
-                            }
-                        }
-
-                        let row1Html = `<tr>${charValuesRow1.join('')}
-                            <td class="BreakTotal" rowspan="2">
-                                <font style="color: rgb(${red}, ${green}, ${blue});">
-                                    <div class="NumberClass view-number"></div>
-                                </font>
-                            </td>
-                            </tr>`;
-                        let row2Html = `<tr>${charValuesRow2.join('')}</tr>`;
-
-                        let fullHtml = row1Html + row2Html;
-
-                        $('#breakdownCipherLabel').html(`
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="nextGenText">"${inputVal}" =
-                                            <font style="color: rgb(${red}, ${green}, ${blue});">
-                                                <div class="NumberClass view-number"></div>
-                                            </font>
-                                            <font style="color: rgb(${red}, ${green}, ${blue});">(${cipher.name})</font>
-                                        </span><br>
-                                        <table class="BreakTable">
-                                            <tbody>
-                                                ${fullHtml}
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        `);
-
-                        if (cipher.id == 'D0') {
-                            $('.view-number').text(data.ordinal);
-                        } else if (cipher.id == 'D1') {
-                            $('.view-number').text(data.reduction);
-                        } else if (cipher.id == 'D2') {
-                            $('.view-number').text(data.reverse);
-                        } else if (cipher.id == 'D3') {
-                            $('.view-number').text(data.reverseReduction);
-                        } else {
-                            let data1 = calculateGematria(val, cipher.id);
-                            $('.view-number').text(data1.ordinalCiphers);
-                        }
-                    }
-                }else{
-                    $('#breakdownCipherLabel').html(``);
-                    return false
-                }
-            }
-
-            $('.change-cipher').on('click', function() {
-                console.log($(this).data('id'));
+            $('body').on('click', '.change-cipher', function() {
+                // console.log($(this).data('id'));
                 var id = $(this).data('id');
+                // console.log(id, temp_ciphers.length, temp_ciphers);
 
-                let temp_ciphers = @json($ciphers);
-                let selected_cipher = temp_ciphers.find(cipher => cipher.id == id);
+                if (temp_ciphers.length === 0) {
+                    temp_ciphers_update = @json($ciphers);  // Assign the data directly
+                }else{
+                    temp_ciphers_update = temp_ciphers;
+                }
+
+                let selected_cipher = temp_ciphers_update.find(cipher => cipher.id == id);
 
                 // Update the cipher ID input field
                 $('#cipher_id').val(selected_cipher.id);
 
                 // Run the main logic to update the cipher details
                 let tempVal = $('#EntryField').val();
-                updateCipherDetails(tempVal);
+                updateCipherDetails(tempVal, temp_ciphers_update);
             });
+
+            // function updateCipherDetails(val = '') {
+            //     if(val != ''){
+            //         const cipherList = @json($ciphers);
+            //         let inputVal = val.trim();
+            //         let getId = $('#cipher_id').val();
+
+            //         let data = calculateGematria(val);
+            //         if (inputVal) {
+            //             const cipher = cipherList.find(function (cipher) {
+            //                 return cipher.id == getId;
+            //             });
+
+            //             if (cipher) {
+            //                 cipher.small_alphabet = JSON.parse(cipher.small_alphabet);
+            //                 cipher.rgb_values = JSON.parse(cipher.rgb_values);
+            //                 var red = cipher.rgb_values.red;
+            //                 var green = cipher.rgb_values.green;
+            //                 var blue = cipher.rgb_values.blue;
+            //             }
+
+            //             let charValuesRow1 = [];
+            //             let charValuesRow2 = [];
+
+            //             for (let i = 0; i < inputVal.length; i++) {
+            //                 let char = inputVal[i].toLowerCase();
+            //                 if (cipher.small_alphabet[char]) {
+            //                     charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
+            //                     charValuesRow2.push(`<td class="BreakValue">${cipher.small_alphabet[char]}</td>`);
+            //                 }
+            //             }
+
+            //             let row1Html = `<tr>${charValuesRow1.join('')}
+            //                 <td class="BreakTotal" rowspan="2">
+            //                     <font style="color: rgb(${red}, ${green}, ${blue});">
+            //                         <div class="NumberClass view-number"></div>
+            //                     </font>
+            //                 </td>
+            //                 </tr>`;
+            //             let row2Html = `<tr>${charValuesRow2.join('')}</tr>`;
+
+            //             let fullHtml = row1Html + row2Html;
+
+            //             $('#breakdownCipherLabel').html(`
+            //                 <tbody>
+            //                     <tr>
+            //                         <td>
+            //                             <span class="nextGenText">"${inputVal}" =
+            //                                 <font style="color: rgb(${red}, ${green}, ${blue});">
+            //                                     <div class="NumberClass view-number"></div>
+            //                                 </font>
+            //                                 <font style="color: rgb(${red}, ${green}, ${blue});">(${cipher.name})</font>
+            //                             </span><br>
+            //                             <table class="BreakTable">
+            //                                 <tbody>
+            //                                     ${fullHtml}
+            //                                 </tbody>
+            //                             </table>
+            //                         </td>
+            //                     </tr>
+            //                 </tbody>
+            //             `);
+
+            //             if (cipher.id == 'D0') {
+            //                 $('.view-number').text(data.ordinal);
+            //             } else if (cipher.id == 'D1') {
+            //                 $('.view-number').text(data.reduction);
+            //             } else if (cipher.id == 'D2') {
+            //                 $('.view-number').text(data.reverse);
+            //             } else if (cipher.id == 'D3') {
+            //                 $('.view-number').text(data.reverseReduction);
+            //             } else {
+            //                 let data1 = calculateGematria(val, cipher.id);
+            //                 $('.view-number').text(data1.ordinalCiphers);
+            //             }
+            //         }
+            //     }else{
+            //         $('#breakdownCipherLabel').html(``);
+            //         return false
+            //     }
+            // }
 
         });
     </script>
