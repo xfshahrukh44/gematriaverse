@@ -1507,7 +1507,7 @@ class FrontController extends Controller
             ];
         }
 
-        $saved_anagram = SavedAnagram::create([
+        $saved_anagram = SavedAnagram::firstOrCreate([
             'user_id' => auth()->id(),
             'anagram' => $request->get('anagram'),
             'source_word' => $request->get('source_word'),
