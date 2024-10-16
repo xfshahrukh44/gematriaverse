@@ -367,7 +367,7 @@ ul#cipherBox  {
 	color: RGB(100, 226, 226);
 }
 .MenuLink :visited {color: RGB(140, 250, 243)}
-.MenuLink :hover, .MenuLink .mo: hover {color: #1862cf !important;}
+.MenuLink :hover, .MenuLink .mo:hover {color: #1862cf !important;}
 .MenuLink :active {color: RGB(255, 255, 0) !important;}
 .buttonFunction {
 	color: black;
@@ -668,9 +668,6 @@ input#SearchField {
 #CustomLists a:active {
 	color: white;
 }
-: {
-    color: white;
-}
 #tablesContainerContent table th {
 	text-align: center;
 	padding: 10px;
@@ -782,7 +779,7 @@ button#userTableSave {
     min-width: 165px;
     z-index: 1;
     font-size: 1em;
-    background-color: rgba(16,16,16);
+    background-color: RGB(16,16,16);
     border-radius: 20px;
     border: 2px solid RGB(77, 77, 77);
     padding: 10px;
@@ -832,7 +829,7 @@ button#userTableSave {
     position: absolute;
     z-index: 1;
     font-size: 1em;
-    background-color: rgba(16,16,16);
+    background-color: RGB(16,16,16);
     border-radius: 20px;
     border: 2px solid RGB(77, 77, 77);
     padding: 10px;

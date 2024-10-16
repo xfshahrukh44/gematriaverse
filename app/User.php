@@ -66,4 +66,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CipherSetting::class);
     }
+
+    public function saved_anagrams ()
+    {
+        return $this->hasMany(SavedAnagram::class)->orderBy('created_at', 'ASC');
+    }
 }

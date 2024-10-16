@@ -99,10 +99,10 @@
             position: absolute;
             z-index: 1;
             top: 10px;
-            padding: 18px 0px;
+            padding: 18px 10px;
             left: 50px;
             background: white;
-            width: 200px;
+            /* width: 200px; */
             text-align: center;
             border: 2px solid black;
             border-radius: 5px;
@@ -116,7 +116,7 @@
         }
 
         .open-box a {
-            font-size: 15px;
+            font-size: 10px;
             padding: 8px 40px;
             margin-bottom: 8px;
             border-radius: 5px;
@@ -147,6 +147,17 @@
                 <div class="col-lg-6 py-5">
                     <div class="gematriaverse-section-from">
                         <h2>Anagram Generator</h2>
+                        @php
+                            $saved_anagrams = auth()->user()->saved_anagrams;
+                        @endphp
+                        @if(count($saved_anagrams))
+                            <h6 style="font-size: 12px !important;">
+                                <a href="#" id="anchor_view_saved_anagrams">
+                                    <i class="fas fa-floppy-disk"></i>
+                                    View saved anagrams
+                                </a>
+                            </h6>
+                        @endif
                         {{--                        <form> --}}
                         <div class="form-row">
                             <div class="col-md-12">
@@ -303,6 +314,41 @@
         </div>
     </section>
     <!-- section-1 -->
+
+    <div class="modal fade" id="modal_saved_anagrams" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Saved anagrams</h5>
+{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                        <span aria-hidden="true">&times;</span>--}}
+{{--                    </button>--}}
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Anagram</th>
+                                <th>Original word</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_saved_anagrams">
+                            @foreach($saved_anagrams as $saved_anagram)
+                                <tr>
+                                    <td>{{$saved_anagram->anagram}}</td>
+                                    <td>{{$saved_anagram->source_word}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                    <button type="button" class="btn btn-primary">Save changes</button>--}}
+{{--                </div>--}}
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -329,6 +375,44 @@
                 letterCount[char]--;
             }
             return true;
+        }
+
+        function save_anagram(anagram, source_word) {
+            let auth_check = "{{auth()->check()}}";
+            if (auth_check !== "1") {
+                toastr.error('You need to log in to proceed.');
+                return false;
+            }
+
+            $.ajax({
+                url: '{{route("save.anagram")}}',
+                method: 'POST',
+                data: {
+                    "_token": '{{csrf_token()}}',
+                    "anagram": anagram,
+                    "source_word": source_word
+                },
+                success: (data) => {
+                    if (!data.success) {
+                        toastr.error(data.message);
+                        return false;
+                    }
+
+                    //your code here
+                    $('#tbody_saved_anagrams').append(`<tr>
+                                                            <td>`+anagram+`</td>
+                                                            <td>`+source_word+`</td>
+                                                        </tr>`);
+
+                    toastr.success(data.message);
+
+                    return true;
+                },
+                error: (error) => {
+                    toastr.error(error);
+                    return false;
+                },
+            });
         }
     </script>
     <script>
@@ -385,9 +469,10 @@
                                                 </div>
                                                 <div class="open-box">
                                                     <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-                                                    <a href="#" class="btn custom-btn">Action 1</a>
-                                                    <a href="#" class="btn custom-btn">Action 2</a>
-                                                    <a href="#" class="btn custom-btn">Action 3</a>
+                                                    <a href="#" class="btn custom-btn" onclick="save_anagram('`+item+`', '`+string+`')">
+                                                        <i class="fas fa-floppy-disk"></i>
+                                                        Save anagram
+                                                    </a>
                                                 </div>
                                             </div>`);
                 }
@@ -454,12 +539,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="open-box">
-                                                    <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-                                                    <a href="#" class="btn custom-btn">Action 1</a>
-                                                    <a href="#" class="btn custom-btn">Action 2</a>
-                                                    <a href="#" class="btn custom-btn">Action 3</a>
-                                                </div>
                                             </div>`);
                 }
 
@@ -473,6 +552,10 @@
                 return false;
             }
         });
+
+        $('#anchor_view_saved_anagrams').on('click', function () {
+            $('#modal_saved_anagrams').modal('show');
+        });
     </script>
     <script>
         $(document).ready(function() {
@@ -485,12 +568,6 @@
                 });
 
                 $(this).parent().parent().find('.open-box').fadeIn('fast');
-
-                // // Close all other pop-ups
-                // $('.open-box').not($(this).next('.open-box')).fadeOut('slow'); // Close all others
-
-                // // Show the selected pop-up
-                // $(this).next('.open-box').fadeIn('fast');
             });
 
             // Close the pop-up when the close button is clicked

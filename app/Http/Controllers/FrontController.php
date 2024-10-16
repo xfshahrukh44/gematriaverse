@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SavedAnagram;
 use Auth;
 use App\Faq;
 use App\Cipher;
@@ -9,6 +10,7 @@ use App\CipherSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class FrontController extends Controller
 {
@@ -1488,6 +1490,34 @@ class FrontController extends Controller
     public function anagramCalculator(Request $request)
     {
         return view('anagram-calculator');
+    }
+
+    public function saveAnagram(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'anagram' => 'required',
+            'source_word' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return [
+                'success' => false,
+                'data' => [],
+                'message' => $validator->errors()->first(),
+            ];
+        }
+
+        $saved_anagram = SavedAnagram::create([
+            'user_id' => auth()->id(),
+            'anagram' => $request->get('anagram'),
+            'source_word' => $request->get('source_word'),
+        ]);
+
+        return [
+            'success' => true,
+            'data' => $saved_anagram,
+            'message' => 'Anagram saved to your collection!',
+        ];
     }
 
     public function holidays()

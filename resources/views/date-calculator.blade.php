@@ -192,14 +192,17 @@
                     <div class="col-lg-6">
                         <div id="firstDate text-center">
                             <div id="mdy1">
-                                <span class="topIcons" title="Click to view Lunar/Zodiac info for selected dates"
-                                    onclick="javascript:toggleLunation()">
-                                    {{--                                                    <i class="far fa-moon"></i> --}}
-                                </span>&nbsp;&nbsp;<span id="DateHeader1"></span>&nbsp;&nbsp;<span
-                                    title="Click to name this date and store it on the left sidebar." class="topIcons"
-                                    onclick="javascript:toggleGridListTitle()">
-                                    {{--                                                        <i class="far fa-address-book"></i> --}}
-                                </span>
+{{--                                <span class="topIcons" title="Click to view Lunar/Zodiac info for selected dates"--}}
+{{--                                    onclick="javascript:toggleLunation()">--}}
+{{--                                    --}}{{--                                                    <i class="far fa-moon"></i> --}}
+{{--                                </span>&nbsp;&nbsp--}}
+                                <span id="DateHeader1"></span>
+{{--                                &nbsp;&nbsp--}}
+{{--                                <span--}}
+{{--                                    title="Click to name this date and store it on the left sidebar." class="topIcons"--}}
+{{--                                    onclick="javascript:toggleGridListTitle()">--}}
+{{--                                    --}}{{--                                                        <i class="far fa-address-book"></i> --}}
+{{--                                </span>--}}
                                 <div id="Date1Inputs" class="row">
                                     <div class="mdyDiv">
                                         <span class="monthTitle">Month:</span><br>
