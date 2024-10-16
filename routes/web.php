@@ -317,3 +317,6 @@ Route::get('get-anagrams', function () {
 //Route::get('temp', function () {
 //    get_subscription();
 //})->name('temp');
+
+
+Route::get('date-calculator_two', [FrontController::class, 'date_calculator_two'])->name('date-calculator-two');

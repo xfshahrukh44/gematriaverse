@@ -2511,6 +2511,19 @@ class FrontController extends Controller
 
         return view('date-calculator', compact('planetary_table'));
     }
+
+    public function date_calculator_two()
+    {
+        if (!can_access_feature('date_calculator')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
+        $date_calculator = get_feature('date_calculator');
+        $planetary_table = $date_calculator->planetary_table ?? false;
+
+        return view('date-calculator_two', compact('planetary_table'));
+    }
+
     public function faq(Request $request)
     {
         $page = DB::table('pages')->where('id', 1)->first();
