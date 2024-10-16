@@ -787,7 +787,7 @@
                                         </font>
                                     </td>`;
                 first_string = `<tr>`+first_string+`</tr>`;
-                second_string = `<tr>`+second_string+`</tr>`;
+                second_string = `<tr style="font-size: 12px;">`+second_string+`</tr>`;
 
                 $('#btn_breakdown_screenshot').prop('hidden', false);
                 $('#tbody_cipher_queue').append(first_string);

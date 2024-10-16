@@ -2194,3 +2194,7 @@ input[type="checkbox"]:checked::after {
     left: 2px;
     top: -5px;
 }
+
+tr#tr_alphabet_values {
+    font-size: 12px;
+}

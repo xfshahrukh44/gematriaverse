@@ -72,7 +72,7 @@
             align-items: center;
             justify-content: center;
             border: 2px solid black;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-bottom: 10px;
             transition: all ease 0.5s;
         }
@@ -174,55 +174,46 @@
                         {{--                        </form> --}}
 
                         <div class="anagrams-text mt-4" id="result_wrapper" hidden>
-                            <h4 id="h4_result">Anagrams of "asaas"</h4>
+                            <h4 id="h4_result" class="pb-2">Anagrams of "asaas"</h4>
 
-                            <ul class="pb-4" id="ul_result">
-                                {{--                                <li>AS Asa</li> --}}
-                                {{--                                <li>AS SAA</li> --}}
-                                {{--                                <li>Asa as</li> --}}
-                                {{--                                <li>Asa sa</li> --}}
-                                {{--                                <li>aa ass</li> --}}
-                                {{--                                <li>as SAA</li> --}}
-                                {{--                                <li>SAA sa</li> --}}
-                            </ul>
                             <div class="anagrame_data">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <a href="#">
-                                            <div class="data_show">
-                                                <p>silent</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#">
-                                            <div class="data_show">
-                                                <p>tinsel</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#">
-                                            <div class="data_show">
-                                                <p>enlist
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#">
-                                            <div class="data_show">
-                                                <p>listen</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#">
-                                            <div class="data_show">
-                                                <p>silent</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                                <div class="row" id="row_result">
+{{--                                    <div class="col-3">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="data_show">--}}
+{{--                                                <p>silent</p>--}}
+{{--                                            </div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="data_show">--}}
+{{--                                                <p>tinsel</p>--}}
+{{--                                            </div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="data_show">--}}
+{{--                                                <p>enlist--}}
+{{--                                                </p>--}}
+{{--                                            </div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="data_show">--}}
+{{--                                                <p>listen</p>--}}
+{{--                                            </div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-3">--}}
+{{--                                        <a href="#">--}}
+{{--                                            <div class="data_show">--}}
+{{--                                                <p>silent</p>--}}
+{{--                                            </div>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
                         </div>
@@ -301,10 +292,16 @@
                 anagrams = anagrams.filter((item) => item.length <= max_length);
             }
 
-            $('#ul_result').html('');
+            $('#row_result').html('');
             if (anagrams.length > 0) {
                 for (const item of anagrams) {
-                    $('#ul_result').append('<li>' + item + '</li>');
+                    $('#row_result').append(`<div class="col-3">
+                                                <a href="#">
+                                                    <div class="data_show">
+                                                        <p>`+item+`</p>
+                                                    </div>
+                                                </a>
+                                            </div>`);
                 }
 
                 $('#result_wrapper').prop('hidden', false);
@@ -358,10 +355,16 @@
 
             console.log(possibleWords);
 
-            $('#ul_result').html('');
+            $('#row_result').html('');
             if (possibleWords.length > 0) {
                 for (const item of possibleWords) {
-                    $('#ul_result').append('<li>' + item + '</li>');
+                    $('#row_result').append(`<div class="col-3">
+                                                <a href="#">
+                                                    <div class="data_show">
+                                                        <p>`+item+`</p>
+                                                    </div>
+                                                </a>
+                                            </div>`);
                 }
 
                 $('#result_wrapper').prop('hidden', false);
@@ -369,7 +372,7 @@
                 return true;
             } else {
                 $('#result_wrapper').prop('hidden', false);
-                $('#h4_result').html(`No words of "` + string + `" found.`);
+                $('#h4_result').html(`No anagrams of "` + string + `" found.`);
 
                 return false;
             }
