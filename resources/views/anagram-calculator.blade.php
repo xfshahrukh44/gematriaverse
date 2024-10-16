@@ -94,6 +94,47 @@
             transition: all ease 0.5s;
         }
 
+        .open-box {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            padding: 18px 0px;
+            left: 50px;
+            background: white;
+            width: 200px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding-bottom: 10px;
+        }
+
+        .box-main {
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+        }
+
+        .open-box a {
+            font-size: 15px;
+            padding: 8px 40px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #317009, #7fbe00) !important;
+            border-color: #7fbe00;
+        }
+
+        .open-box .close-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            z-index: 0;
+            top: -5px;
+            right: -5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
         /* gematriaverse-section-from */
     </style>
 @endsection
@@ -178,42 +219,81 @@
 
                             <div class="anagrame_data">
                                 <div class="row" id="row_result">
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>silent</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>tinsel</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>enlist--}}
-{{--                                                </p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>listen</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>silent</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
+                                    {{-- <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>silent</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="open-box">
+                                            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                            <a href="#" class="btn custom-btn">Action 1</a>
+                                            <a href="#" class="btn custom-btn">Action 2</a>
+                                            <a href="#" class="btn custom-btn">Action 3</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>tinsel</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>enlist</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>listen</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>silent</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -296,11 +376,19 @@
             if (anagrams.length > 0) {
                 for (const item of anagrams) {
                     $('#row_result').append(`<div class="col-3">
-                                                <a href="#">
-                                                    <div class="data_show">
-                                                        <p>`+item+`</p>
+                                                <div class="box-main">
+                                                    <div class="click-box">
+                                                        <div class="data_show">
+                                                            <p>` + item + `</p>
+                                                        </div>
                                                     </div>
-                                                </a>
+                                                </div>
+                                                <div class="open-box">
+                                                    <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                    <a href="#" class="btn custom-btn">Action 1</a>
+                                                    <a href="#" class="btn custom-btn">Action 2</a>
+                                                    <a href="#" class="btn custom-btn">Action 3</a>
+                                                </div>
                                             </div>`);
                 }
 
@@ -359,11 +447,19 @@
             if (possibleWords.length > 0) {
                 for (const item of possibleWords) {
                     $('#row_result').append(`<div class="col-3">
-                                                <a href="#">
-                                                    <div class="data_show">
-                                                        <p>`+item+`</p>
+                                                <div class="box-main">
+                                                    <div class="click-box">
+                                                        <div class="data_show">
+                                                            <p>` + item + `</p>
+                                                        </div>
                                                     </div>
-                                                </a>
+                                                </div>
+                                                <div class="open-box">
+                                                    <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                    <a href="#" class="btn custom-btn">Action 1</a>
+                                                    <a href="#" class="btn custom-btn">Action 2</a>
+                                                    <a href="#" class="btn custom-btn">Action 3</a>
+                                                </div>
                                             </div>`);
                 }
 
@@ -376,6 +472,39 @@
 
                 return false;
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Handle click to show the pop-up
+            $('body').on('click', '.click-box', function() {
+                console.log("Clicked!");
+
+                $('.open-box').each((i, item) => {
+                    $(item).fadeOut('slow');
+                });
+
+                $(this).parent().parent().find('.open-box').fadeIn('fast');
+
+                // // Close all other pop-ups
+                // $('.open-box').not($(this).next('.open-box')).fadeOut('slow'); // Close all others
+
+                // // Show the selected pop-up
+                // $(this).next('.open-box').fadeIn('fast');
+            });
+
+            // Close the pop-up when the close button is clicked
+            $('body').on('click', '.close-btn', function() {
+                $(this).closest('.open-box').fadeOut('fast');
+            });
+
+            // Close the pop-up if the user clicks outside the modal content
+            $(document).mouseup(function(e) {
+                var container = $(".modal-content");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.closest('.open-box').fadeOut('fast');
+                }
+            });
         });
     </script>
 @endsection

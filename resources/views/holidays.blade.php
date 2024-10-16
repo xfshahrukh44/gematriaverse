@@ -5,7 +5,7 @@
 @section('content')
 
     <section class="holiday-calendar">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="table-holiday">
@@ -74,7 +74,7 @@
                                         <a href="javascript:;"> <span>16</span></a>
                                     </td>
                                     <td>
-                                        <a href="javascript:;"> <span>17</span></a>
+                                        <a href="javascript:;"> <span class="active">17</span></a>
                                     </td>
                                     <td>
                                         <a href="javascript:;"> <span>18</span></a>
@@ -155,11 +155,219 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bottom-data">
-                                    <a href="javascript:;">
-                                        <img src="{{ asset('images/holiday-calendar/calender-1.webp') }}" class="img-fluid"
-                                            alt="">
-                                    </a>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-1.webp') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>Ancestors' Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot cultural">
+                                        <a href="javascript:;">
+                                            <h6> Cultural</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Cultural Holidays </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Ethnic</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-2.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>Balloons Around the World Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot interest">
+                                        <a href="javascript:;">
+                                            <h6> Special Interest</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Activities </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Fun</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-3.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>CD Player Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot arts">
+                                        <a href="javascript:;">
+                                            <h6> Arts & Entertainment</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Music </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Technology</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-4.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>China National Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot cultural">
+                                        <a href="javascript:;">
+                                            <h6> Cultural</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Civic </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Festivities</p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Historical</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="data-show-event">
+                            <thead>
+                                <tr class="data-row">
+                                    <th>
+                                        <a href="javascript:;">
+                                            <h3>Oct 2</h3>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <h3>Wednesday
+                                        </h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-2.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>Balloons Around the World Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot interest">
+                                        <a href="javascript:;">
+                                            <h6> Special Interest</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Activities </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Fun</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-3.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>CD Player Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot arts">
+                                        <a href="javascript:;">
+                                            <h6> Arts & Entertainment</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Music </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Technology</p>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="date-data">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <img src="{{ asset('images/holiday-calendar/calender-4.jpg') }}"
+                                                class="img-fluid" alt="">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <h5>China National Day</h5>
+                                        </a>
+                                    </td>
+                                    <td class="circle-dot cultural">
+                                        <a href="javascript:;">
+                                            <h6> Cultural</h6>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <p> Civic </p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Festivities</p>
+                                        </a>
+                                        <span>,</span>
+                                        <a href="javascript:;">
+                                            <p> Historical</p>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
