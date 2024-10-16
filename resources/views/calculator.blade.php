@@ -1001,13 +1001,36 @@
         }
 
         function MoveCipherClick(cipherId, event) {
-            const ciphers = @json($ciphers);
-            const selectedCipher = ciphers.find(cipher => cipher.id == cipherId);
+            let temp_ciphers_click;
+            if (temp_ciphers.length === 0) {
+                temp_ciphers_click = @json($ciphers);  // Assign the data directly
+            }else{
+                temp_ciphers_click = temp_ciphers;
+            }
+            // const ciphers = @json($ciphers);
+            const selectedCipher = temp_ciphers_click.find(cipher => cipher.id == cipherId);
 
             if (selectedCipher) {
-                const smallAlphabet = JSON.parse(selectedCipher.small_alphabet);
-                const capitalAlphabet = JSON.parse(selectedCipher.capital_alphabet);
-                const rgbValues = JSON.parse(selectedCipher.rgb_values);
+                let smallAlphabet;
+                if (typeof selectedCipher.small_alphabet !== "object") {
+                    smallAlphabet = JSON.parse(selectedCipher.small_alphabet);
+                }else{
+                    smallAlphabet = selectedCipher.small_alphabet;
+                }
+
+                let capitalAlphabet;
+                if (typeof selectedCipher.capital_alphabet !== "object") {
+                    capitalAlphabet = JSON.parse(selectedCipher.capital_alphabet);
+                }else{
+                    capitalAlphabet = selectedCipher.capital_alphabet;
+                }
+
+                let rgbValues;
+                if (typeof selectedCipher.rgb_values !== "object") {
+                    rgbValues = JSON.parse(selectedCipher.rgb_values);
+                }else{
+                    rgbValues = selectedCipher.rgb_values;
+                }
 
                 const alphabetToShow = smallAlphabet;
 
