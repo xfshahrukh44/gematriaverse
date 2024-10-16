@@ -2198,3 +2198,11 @@ input[type="checkbox"]:checked::after {
 tr#tr_alphabet_values {
     font-size: 12px;
 }
+
+#menu-dynamic #calc-menu a:hover {
+    color: #8cd3d3 !important;
+}
+
+#btn_breakdown_screenshot a:hover {
+    color: #8cb931 !important;
+}
