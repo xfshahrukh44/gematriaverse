@@ -150,14 +150,12 @@
                         @php
                             $saved_anagrams = auth()->user()->saved_anagrams;
                         @endphp
-                        @if(count($saved_anagrams))
-                            <h6 style="font-size: 12px !important;">
-                                <a href="#" id="anchor_view_saved_anagrams">
-                                    <i class="fas fa-floppy-disk"></i>
-                                    View saved anagrams
-                                </a>
-                            </h6>
-                        @endif
+                        <h6 style="font-size: 12px !important;" id="h6_view_saved_anagrams" {!! count($saved_anagrams) ? '' : 'hidden' !!}>
+                            <a href="#" id="anchor_view_saved_anagrams">
+                                <i class="fas fa-floppy-disk"></i>
+                                View saved anagrams
+                            </a>
+                        </h6>
                         {{--                        <form> --}}
                         <div class="form-row">
                             <div class="col-md-12">
@@ -397,6 +395,8 @@
                         toastr.error(data.message);
                         return false;
                     }
+
+                    $('#h6_view_saved_anagrams').prop('hidden', false);
 
                     //your code here
                     $('#tbody_saved_anagrams').append(`<tr>
