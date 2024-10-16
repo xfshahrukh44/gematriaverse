@@ -37,7 +37,9 @@
         rel="stylesheet">
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @font-face {
             font-family: manteka;
@@ -77,7 +79,7 @@
         <div class="container">
             <div class="top-header">
                 <div class="guest">
-                    @if(\Illuminate\Support\Facades\Auth::check())
+                    @if (\Illuminate\Support\Facades\Auth::check())
                         <span>
                             Hi, {{ Auth::user()->name }}!
                         </span>
@@ -124,11 +126,11 @@
                                     <a class="nav-link dropdown-toggle top-menu" href="{{ route('home') }}">
                                         Home
                                     </a>
-{{--                                    <a class="nav-link dropdown-toggle top-menu" href="{{ route('home') }}" id="navbarDropdown"--}}
-{{--                                       role="button" data-toggle="dropdown" aria-haspopup="true"--}}
-{{--                                       aria-expanded="false">--}}
-{{--                                        Home--}}
-{{--                                    </a>--}}
+                                    {{--                                    <a class="nav-link dropdown-toggle top-menu" href="{{ route('home') }}" id="navbarDropdown" --}}
+                                    {{--                                       role="button" data-toggle="dropdown" aria-haspopup="true" --}}
+                                    {{--                                       aria-expanded="false"> --}}
+                                    {{--                                        Home --}}
+                                    {{--                                    </a> --}}
                                     <div class="dropdown-menu menu-bar" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('about') }}">About</a>
                                     </div>
@@ -156,10 +158,10 @@
                                             <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>
                                             Hebrew Calculator
                                         </a>
-{{--                                        <a class="dropdown-item" href="{{ route('nostalgia-calculators') }}">--}}
-{{--                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i>--}}
-{{--                                            Nostalgia Calculators--}}
-{{--                                        </a>--}}
+                                        {{--                                        <a class="dropdown-item" href="{{ route('nostalgia-calculators') }}"> --}}
+                                        {{--                                            <i class="fas fa-calculator mr-2" style="font-size: 14px;"></i> --}}
+                                        {{--                                            Nostalgia Calculators --}}
+                                        {{--                                        </a> --}}
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -176,10 +178,10 @@
                                             <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
                                             Number Properties
                                         </a>
-{{--                                        <a class="dropdown-item" href="{{ route('calendar') }}">--}}
-{{--                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i>--}}
-{{--                                            Personal Calendar--}}
-{{--                                        </a>--}}
+                                        {{--                                        <a class="dropdown-item" href="{{ route('calendar') }}"> --}}
+                                        {{--                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i> --}}
+                                        {{--                                            Personal Calendar --}}
+                                        {{--                                        </a> --}}
                                         <a class="dropdown-item" href="{{ route('bible-search') }}">
                                             <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
                                             Bible Search
@@ -198,7 +200,7 @@
                                     <a class="nav-link" href="{{ route('calendar') }}">Calendar</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Holidays</a>
+                                    <a class="nav-link" href="{{ route('holidays') }}">Holidays</a>
                                 </li>
                                 <!-- <li class="nav-item">
                                         <a class="nav-link" href="blog.php">Blog</a>
@@ -276,14 +278,17 @@
                     <div class="footer-text">
                         <h3 class="heading-3">Media</h3>
                         <ul class="icon-img">
-                            <li class="twiter"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1960) }}"><img src="{{ asset('images/twiter.svg') }}"
-                                        alt="" class="img-fluid"></a>
+                            <li class="twiter"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1960) }}"><img
+                                        src="{{ asset('images/twiter.svg') }}" alt="" class="img-fluid"></a>
                             </li>
-                            <li class="youtube"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1964) }}"><i class="fab fa-youtube"></i></a>
+                            <li class="youtube"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1964) }}"><i
+                                        class="fab fa-youtube"></i></a>
                             </li>
-                            <li class="discord"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i class="fab fa-discord"></i></a>
+                            <li class="discord"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i
+                                        class="fab fa-discord"></i></a>
                             </li>
-                            <li class="square"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i class="fas fa-pen-square"></i></a>
+                            <li class="square"><a href="{{ App\Http\Traits\HelperTrait::returnFlag(1973) }}"><i
+                                        class="fas fa-pen-square"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -358,7 +363,9 @@
 
     <!-- SweetAlert JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('js/custom.js') }}"></script>
 
@@ -391,15 +398,15 @@
 
     @yield('js')
 
-    @if(session()->has('success'))
+    @if (session()->has('success'))
         <script>
-            toastr.success('{{session()->get('success')}}');
+            toastr.success('{{ session()->get('success') }}');
         </script>
     @endif
 
-    @if(session()->has('error'))
+    @if (session()->has('error'))
         <script>
-            toastr.error('{{session()->get('error')}}');
+            toastr.error('{{ session()->get('error') }}');
         </script>
     @endif
 
