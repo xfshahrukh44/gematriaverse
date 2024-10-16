@@ -325,7 +325,7 @@ table#GemTable {
     padding: 10px;
     border-collapse: separate;
     margin: 0 auto;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 #GemTable td {
@@ -574,7 +574,7 @@ a:hover {
 }
 
 #containerDateAdv {
-    font-family: "Lato" !important;
+    /* font-family: "Lato" !important; */
 }
 
 #dateRows {
@@ -717,7 +717,7 @@ a:hover {
     width: 60px;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Lato';
+    /* font-family: 'Lato'; */
 }
 
 #DateStr1Show,
@@ -735,7 +735,7 @@ a:hover {
     width: auto;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Lato';
+    /* font-family: 'Lato'; */
     float: left;
 }
 
@@ -887,8 +887,8 @@ a:hover {
     color: #7fbe00;
     font-weight: 600;
     font-size: 1.1em;
-    font-family: Montserrat;
-    font-family: "Montserrat", sans-serif;
+    /* font-family: Montserrat; */
+    /* font-family: "Montserrat", sans-serif; */
     text-transform: uppercase;
 }
 
@@ -1108,7 +1108,7 @@ a:hover {
 }
 
 .displayOptions {
-    font-family: Montserrat;
+    /* font-family: Montserrat; */
     font-weight: 600;
     font-size: 1.25em;
     line-height: 1.35em;
@@ -1210,7 +1210,7 @@ a:hover {
     width: 148px;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Lato';
+    /* font-family: 'Lato'; */
     line-height: 16px;
     margin: 5px 0px 0px;
 }
@@ -1802,7 +1802,7 @@ div.TableMsg {
 .main-content-area {
     background-image: linear-gradient(180deg, hsl(120 0% 7% / 0.95), hsl(180 0% 7% / 0.95)), url(/tools/date-calculator-advanced/img/flower-of-life-tile.png) !important;
     background-attachment: fixed;
-    font-family: "Lato", Arial, sans-serif;
+    /* font-family: "Lato", Arial, sans-serif; */
     color: rgb(222, 222, 222);
 }
 
@@ -1816,7 +1816,7 @@ div.TableMsg {
 }
 
 .titles {
-    font-family: "Montserrat";
+    /* font-family: "Montserrat"; */
     font-size: 2em;
     font-weight: 700;
     color: #7fbe00;
@@ -1853,7 +1853,7 @@ input#NumberField {
     color: skyblue;
     text-decoration: none;
     font-weight: bold;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 .Linkable :hover {
@@ -1878,7 +1878,7 @@ input#NumberField {
 #TopNumber {
     font-size: 5em;
     font-weight: bold;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
     color: white;
 }
 
@@ -1904,7 +1904,7 @@ input#NumberField {
 #SeqTable {
     margin-bottom: 5px;
     /*color: white;*/
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 #SeqTable td {
@@ -1938,7 +1938,7 @@ input#NumberField {
 .RelativeClass {
     text-align: right;
     color: white;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 .RelativeNum {
@@ -1953,7 +1953,7 @@ input#NumberField {
     padding: 10px;
     line-height: 1.5em;
     color: white;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 #DivisorTable {
@@ -1965,7 +1965,7 @@ input#NumberField {
     /*border: 1px solid black;*/
     padding: 0px 25px;
     color: white;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 #ConversionsTableDiv {
@@ -1982,13 +1982,13 @@ input#NumberField {
     text-align: center;
     font-size: 1.25em;
     color: white;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 .conversionMiddle {
     padding: 0px 50px;
     color: white;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 #PrimeString {
@@ -1996,12 +1996,12 @@ input#NumberField {
     font-weight: bold;
     color: white;
     text-align: center;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 .RegularLink {
     color: lightskyblue;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 .buttonFunction {
@@ -2014,7 +2014,7 @@ input#NumberField {
     width: 200px;
     text-align: center;
     text-transform: uppercase;
-    font-family: "Lato";
+    /* font-family: "Lato"; */
 }
 
 @media (min-width:300px) and (max-width: 991px) {
