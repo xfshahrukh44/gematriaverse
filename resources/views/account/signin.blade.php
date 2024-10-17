@@ -85,6 +85,7 @@
                                 </div>
                                 <button class="btn custom-btn" type="submit" id="stripe-submit">Sign Up ${{ $price ?? 0 }}</button>
                             @else
+                                <input type="hidden" name="plan" id="plan" value="free">
                                 <button class="btn custom-btn" type="submit">Sign Up</button>
                             @endif
 

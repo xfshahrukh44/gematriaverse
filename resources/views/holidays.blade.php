@@ -2,6 +2,32 @@
 
 @section('title', 'Holidays')
 
+@section('css')
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    li {
+        color:#fff;
+        list-style:none;
+        position: relative;
+        padding-left:50px;
+        line-height: 0;
+        font-size:32px;
+    }
+
+    li:before {
+        font-family:FontAwesome;
+        position: absolute;
+        left: 0;
+        color: #7fbe00;
+        font-size:32px;
+    }
+
+    li.one:before {
+        content:"\f10c";
+    }
+</style>
+@endsection
+
 @section('content')
 
     <section class="holiday-calendar">
@@ -39,15 +65,22 @@
                             <tbody>
                                 <tr class="mid-number">
                                     @php
-                                        // $currentMonth = strtolower(\Carbon\Carbon::now()->format('M'));
+                                        $currentMonthD = strtolower(\Carbon\Carbon::now()->format('M'));
                                         $currentDay = \Carbon\Carbon::now()->day;
                                         $currentYear = \Carbon\Carbon::now()->year;
                                         $daysInMonth = getDaysInMonth($currentMonth, $currentYear);
                                     @endphp
                                     @for ($i = 1; $i <= $daysInMonth; $i++)
+                                        @php
+                                            $active = '';
+                                            if ($currentMonthD == $currentMonth && $currentDay == $i) {
+                                                $active = 'active';
+                                                $currentHash = "#{$currentMonth}-{$i}";
+                                            }
+                                        @endphp
                                         <td>
                                             <a href="#{{ $currentMonth }}-{{ $i }}">
-                                                <span class="{{ ($i == 1) ? 'active' : '' }}">{{ $i }}</span>
+                                                <span class="{{ $active }}">{{ $i }}</span>
                                             </a>
                                         </td>
                                     @endfor
@@ -99,7 +132,8 @@
                                     @foreach ($holidayList as $holiday)
                                         <tr class="date-data">
                                             <td class="text-white">
-                                                {{ $count }}
+                                                <li class="one">
+                                                </li>
                                             </td>
                                             <td>
                                                 <a href="javascript:;">
@@ -136,4 +170,18 @@
     </section>
 
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        var hash = '{{ $currentHash }}';
+
+        if (hash != '') {
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000);
+        }
+    });
+</script>
 @endsection
