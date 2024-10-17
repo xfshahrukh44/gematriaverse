@@ -753,11 +753,18 @@
                             let cipher_small_alphabet;
 
                             for (let i = 0; i < word.length; i++) {
-                                let char = word[i].toLowerCase();
+                                let char;
+                                if (!['Russian','Russian Reduced', 'Russian Reversed', 'Greek Isopsephy', 'Ancient Greek', 'Ancient Greek Reduced', 'Modern Greek', 'Greek Alchemology'].includes(cipher.name)) {
+                                    char = word[i].toLowerCase();
+                                }else{
+                                    char = word[i];
+                                }
 
                                 if (typeof cipher.small_alphabet !== "object") {
                                     cipher_small_alphabet = JSON.parse(cipher.small_alphabet);
                                 }
+
+                                // console.log(cipher_small_alphabet, cipher_small_alphabet[char]);
 
                                 if (cipher_small_alphabet[char]) {
                                     charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
