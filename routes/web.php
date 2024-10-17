@@ -300,6 +300,8 @@ Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name(
 Route::post('save-ciphers', [CipherController::class, 'saveCipherSettings'])->name('ciphers.saveciphers');
 Route::post('change-ciphers', [CipherController::class, 'changeCiphers'])->name('ciphers.change');
 Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->name('anagram.generator');
+Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save.anagram');
+Route::get('holidays', [FrontController::class, 'holidays'])->name('holidays');
 
 
 Route::get('mutate-session', function () {

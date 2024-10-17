@@ -123,7 +123,7 @@
                             <table id="breakdownCipherLabel" style="width:100%; display: inline;">
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td id="td_cipher_queues_wrapper">
                                             <table class="BreakTable">
                                                 <tbody id="tbody_cipher_queue">
     {{--                                                <tr>--}}
@@ -653,7 +653,7 @@
     <script>
         $(document).ready(function () {
             $('#btn_breakdown_screenshot').on('click', function() {
-                if ($('#tbody_cipher_queue').html() == '') {
+                if ($('#td_cipher_queues_wrapper').html() == '') {
                     return false;
                 }
 
@@ -757,41 +757,70 @@
             }
         }
 
+        function generate_word_queue (word, is_last_word = false, grand_total = 0) {
+            let total = 0;
+            let characters_string = ``;
+            let values_string = ``;
+
+            for (const char of word) {
+                let res = ciphers[active_cipher][char];
+                if (res) {
+                    total += res;
+                    characters_string += `<td class="BreakCharNG">`+char+`</td>`;
+                    values_string += `<td class="BreakValue">`+res+`</td>`;
+                }
+            }
+
+            characters_string += `<td class="BreakSum" rowspan="2">
+                                        <font style="color: `+cipher_colors[active_cipher]+`;">
+                                            <div class="NumberClass">`+total+`</div>
+                                        </font>
+                                    </td>`;
+
+
+            if (is_last_word) {
+                characters_string += `<td class="BreakTotal" rowspan="2">
+                                            <font style="color: `+cipher_colors[active_cipher]+`;">
+                                                <div class="NumberClass view-number">`+grand_total+`</div>
+                                            </font>
+                                        </td>`;
+            }
+
+            characters_string = `<tr>`+characters_string+`</tr>`;
+            values_string = `<tr style="font-size: 12px;">`+values_string+`</tr>`;
+
+            return `<table class="BreakTable">
+                                    <tbody>
+                                        `+characters_string+`
+                                        `+values_string+`
+                                    </tbody>
+                                </table>`;
+        }
+
         function generate_cipher_queue (string) {
             let total = 0;
-            let cipher_queue = [];
             for (const char of string) {
                 let res = ciphers[active_cipher][char];
                 if (res) {
                     total += res;
-                    cipher_queue.push({
-                        key: char,
-                        value: res,
-                    });
                 }
             }
 
-            $('#tbody_cipher_queue').html('');
+            $('#td_cipher_queues_wrapper').html('');
             $('#tr_cipher_queue').html('');
             $('#btn_breakdown_screenshot').prop('hidden', true);
-            let first_string = '';
-            let second_string = '';
+
+            let words_array = string.split(/\s+/);
+            let queue_html = ``;
+
+            words_array.forEach((word, i) => {
+                queue_html += generate_word_queue(word, ((i + 1) === words_array.length), ((i + 1) === words_array.length ? total : 0));
+            });
+
             if (total > 0) {
-                for(const item of cipher_queue) {
-                    first_string += `<td class="BreakCharNG">`+item.key+`</td>`;
-                    second_string += `<td class="BreakValue">`+item.value+`</td>`;
-                }
-                first_string += `<td class="BreakTotal" rowspan="2">
-                                        <font style="color: `+cipher_colors[active_cipher]+`;">
-                                            <div class="NumberClass view-number">`+total+`</div>
-                                        </font>
-                                    </td>`;
-                first_string = `<tr>`+first_string+`</tr>`;
-                second_string = `<tr style="font-size: 12px;">`+second_string+`</tr>`;
 
                 $('#btn_breakdown_screenshot').prop('hidden', false);
-                $('#tbody_cipher_queue').append(first_string);
-                $('#tbody_cipher_queue').append(second_string);
+                $('#td_cipher_queues_wrapper').html(queue_html);
                 $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
                                                 <font style="color: `+cipher_colors[active_cipher]+`;">
                                                     <div class="NumberClass view-number">`+total+`</div>

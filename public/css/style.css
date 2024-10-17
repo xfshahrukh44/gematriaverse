@@ -36,7 +36,6 @@ header .nav-link {
     gap: 25px;
 }
 
-
 .top-header {
     display: flex;
     align-items: center;
@@ -81,7 +80,6 @@ span.icons-img img {
 i.fa-solid.fa-cart-shopping {
     color: #8cfaf3;
 }
-
 
 span.twitter-card img {
     width: 22px;
@@ -179,7 +177,6 @@ span.banner-text {
 
 /* hero section css  */
 
-
 .simple-easy-section.py {
     background: #151518;
 }
@@ -218,7 +215,7 @@ span.banner-text {
     font-weight: 500;
     text-decoration: none;
     color: #ffffff;
-    transition: .28s;
+    transition: 0.28s;
     font-size: 20px;
 }
 
@@ -247,7 +244,6 @@ ul.list-content li .icons {
     justify-content: center;
     width: 140px;
 }
-
 
 ul.list-content li .cotent {
     width: 100%;
@@ -310,10 +306,10 @@ ul.list-content {
     color: white;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
     display: inline-block;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
     color: #ffffff;
     content: "|";
 }
@@ -368,9 +364,9 @@ table#GemTable {
     margin: 1rem 0rem 0;
     font-size: 1.25em;
     font-weight: 700;
-    font-family: 'Arial';
+    font-family: "Arial";
     width: 500px;
-    color: #DEDEDE;
+    color: #dedede;
     background-color: black !important;
     display: inline-block;
     height: 1.6em;
@@ -417,7 +413,6 @@ table:not(.wp-calendar-table) tr:nth-child(2n) {
     font-weight: bold;
 }
 
-
 .chartVal {
     color: RGB(200, 200, 200);
     font-size: 1em;
@@ -425,9 +420,8 @@ table:not(.wp-calendar-table) tr:nth-child(2n) {
     font-weight: 700;
 }
 
-
 table:not(.wp-calendar-table) tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, .015);
+    background-color: rgba(0, 0, 0, 0.015);
 }
 
 #cipherChartTitle {
@@ -493,21 +487,10 @@ span {
     font-weight: bold;
 }
 
-.membership-action-required{
+.membership-action-required {
     margin: 30px 0 30px;
     font-size: 1.5em;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* -----ADAM STYLES----- */
 html {
@@ -516,7 +499,7 @@ html {
 
 #DateNum1 a,
 #DateNum2 a {
-    color: inherit
+    color: inherit;
 }
 
 a:hover {
@@ -569,7 +552,7 @@ a:hover {
 }
 
 .eclipseNextPrev {
-    font-size: .85em;
+    font-size: 0.85em;
     font-weight: bold;
 }
 
@@ -601,7 +584,6 @@ a:hover {
 #firstDate,
 #secondDate {
     display: inline-block;
-    ;
     height: auto;
 }
 
@@ -700,7 +682,7 @@ a:hover {
     height: 30px;
 }
 
-.dateTitle input[type=checkbox] {
+.dateTitle input[type="checkbox"] {
     height: auto;
 }
 
@@ -1123,7 +1105,7 @@ a:hover {
     padding: 5px 15px;
     border: 1px solid white;
     font-weight: bold;
-    font-size: 1.10em;
+    font-size: 1.1em;
 }
 
 #MainTable tr:nth-child(even) {
@@ -1134,7 +1116,7 @@ a:hover {
     background-color: #0a0a0a;
 }
 
-#MainTable tbody>tr> :nth-child(1) {
+#MainTable tbody > tr > :nth-child(1) {
     text-align: left;
     width: 175px;
 }
@@ -1182,7 +1164,12 @@ a:hover {
 }
 
 .SumString {
-    background: linear-gradient(180deg, rgba(16, 16, 16, 1) 0%, rgba(8, 8, 8, 1) 50%, rgba(16, 16, 16, 1) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(16, 16, 16, 1) 0%,
+        rgba(8, 8, 8, 1) 50%,
+        rgba(16, 16, 16, 1) 100%
+    );
     font-weight: bold;
     font-size: 1.4em;
     text-align: center;
@@ -1240,13 +1227,13 @@ a:hover {
 }
 
 #watermarkDurationText {
-    opacity: .25;
+    opacity: 0.25;
     display: inline;
     text-align: center;
 }
 
 #watermarkDurationGuy {
-    opacity: .25;
+    opacity: 0.25;
     display: inline;
 }
 
@@ -1264,7 +1251,7 @@ a:hover {
 /* ------------------------------------------------------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------------------------------- */
 
-@media (min-width:320px) and (max-width: 600px) {
+@media (min-width: 320px) and (max-width: 600px) {
     .nomo {
         display: none !important;
     }
@@ -1278,7 +1265,7 @@ a:hover {
     }
 
     #containerDateAdv {
-        width: 100%
+        width: 100%;
     }
 
     #dateRows {
@@ -1297,7 +1284,7 @@ a:hover {
         margin: auto;
         /*padding-bottom: 10px;*/
         line-height: 15px;
-        font-size: .85em;
+        font-size: 0.85em;
     }
 
     #firstDate,
@@ -1323,7 +1310,7 @@ a:hover {
     .mdyDiv {
         margin: auto;
         line-height: 18px;
-        font-size: .85em;
+        font-size: 0.85em;
     }
 
     .mdyDiv input {
@@ -1373,19 +1360,19 @@ a:hover {
         width: 64px;
     }
 
-    input[type='radio'] {
+    input[type="radio"] {
         width: 25px;
         height: 25px;
         margin: 0px 0 0;
     }
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
         width: 25px;
         margin: 0px 0 0;
         height: 25px;
     }
 
-    #Check_Planets input[type='checkbox'] {
+    #Check_Planets input[type="checkbox"] {
         width: 25px;
         margin: 0px 0 0;
     }
@@ -1435,7 +1422,7 @@ a:hover {
     }
 
     #MainTable td {
-        font-size: .95em;
+        font-size: 0.95em;
     }
 
     .ClassicDateTable td {
@@ -1450,14 +1437,19 @@ a:hover {
 
     .NumString {
         background: rgb(25, 25, 25);
-        font-size: .75em;
+        font-size: 0.75em;
         padding-left: 2px;
     }
 
     .SumString {
-        background: linear-gradient(180deg, rgba(16, 16, 16, 1) 0%, rgba(8, 8, 8, 1) 50%, rgba(16, 16, 16, 1) 100%);
+        background: linear-gradient(
+            180deg,
+            rgba(16, 16, 16, 1) 0%,
+            rgba(8, 8, 8, 1) 50%,
+            rgba(16, 16, 16, 1) 100%
+        );
         font-weight: bold;
-        font-size: .95em;
+        font-size: 0.95em;
         text-align: center;
     }
 
@@ -1501,7 +1493,7 @@ a:hover {
     }
 }
 
-@media (min-width:601px) and (max-width: 1199px) {
+@media (min-width: 601px) and (max-width: 1199px) {
     .DurationStringMain {
         font-size: 1.05em;
     }
@@ -1543,13 +1535,13 @@ a:hover {
         display: none;
     }
 
-    #MainTable tbody>tr> :nth-child(1) {
+    #MainTable tbody > tr > :nth-child(1) {
         text-align: left;
         width: 175px;
     }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
     #userDatesContainerContent {
         max-height: 500px;
         overflow: auto;
@@ -1603,14 +1595,11 @@ a:hover {
     text-decoration: none;
 }
 
-
 .PlanetNum {
     font-size: 110%;
     font-weight: bold;
     color: RGB(216, 216, 111);
 }
-
-
 
 .DurCell {
     background-color: RGB(21, 21, 21);
@@ -1694,7 +1683,7 @@ div.TableMsg {
 /* Dropdown button on hover & focus */
 .DropButton:hover,
 .DropButton:focus {
-    background-color: #2980B9;
+    background-color: #2980b9;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -1737,7 +1726,7 @@ div.TableMsg {
 
 /* Change color of dropdown links on hover */
 .DateDropdown-content a:hover {
-    background-color: #ddd
+    background-color: #ddd;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -1798,9 +1787,13 @@ div.TableMsg {
     background: #151518;
 }
 
-
 .main-content-area {
-    background-image: linear-gradient(180deg, hsl(120 0% 7% / 0.95), hsl(180 0% 7% / 0.95)), url(/tools/date-calculator-advanced/img/flower-of-life-tile.png) !important;
+    background-image: linear-gradient(
+            180deg,
+            hsl(120 0% 7% / 0.95),
+            hsl(180 0% 7% / 0.95)
+        ),
+        url(/tools/date-calculator-advanced/img/flower-of-life-tile.png) !important;
     background-attachment: fixed;
     /* font-family: "Lato", Arial, sans-serif; */
     color: rgb(222, 222, 222);
@@ -1829,9 +1822,9 @@ input#NumberField {
     background-color: black;
     font-size: 1.25em;
     font-weight: 600;
-    font-family: 'Arial';
+    font-family: "Arial";
     width: 100px;
-    color: #DEDEDE;
+    color: #dedede;
     background-color: black !important;
     display: inline-block;
     /*padding: 14px 2px 12px;*/
@@ -2017,7 +2010,7 @@ input#NumberField {
     /* font-family: "Lato"; */
 }
 
-@media (min-width:300px) and (max-width: 991px) {
+@media (min-width: 300px) and (max-width: 991px) {
     #numPropContainer {
         width: 100%;
     }
@@ -2046,8 +2039,8 @@ input#NumberField {
         padding: 0px 15px;
     }
 
-    #DivisorTable tbody>tr>:nth-child(1),
-    #DivisorTable tbody>tr>:nth-child(3) {
+    #DivisorTable tbody > tr > :nth-child(1),
+    #DivisorTable tbody > tr > :nth-child(3) {
         /*background: #4e4e4e;*/
         padding: 0px 10px;
     }
@@ -2119,7 +2112,8 @@ header .nav-link:hover {
     color: #7fbe00;
 }
 
-th, td {
+th,
+td {
     /* padding: 12px; */
     /* border: 1px solid rgba(0, 0, 0, .1); */
 }
@@ -2198,6 +2192,157 @@ input[type="checkbox"]:checked::after {
 tr#tr_alphabet_values {
     font-size: 12px;
 }
+
+/* holiday calender css start */
+.holiday-calendar {
+    background: #151518;
+    padding: 50px 100px;
+}
+
+.top-holiday-calender {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.top-holiday-calender tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-holiday-calender thead tr {
+    margin: 20px 0;
+}
+
+.top-holiday-calender thead tr th a {
+    font-size: 20px;
+}
+.top-holiday-calender thead tr th a:hover {
+    color: orange;
+}
+
+.top-holiday-calender thead tr th h2 {
+    color: orange;
+    font-size: 40px;
+    font-weight: 900;
+}
+.top-holiday-calender .mid-number {
+    padding: 30px 0;
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+}
+.top-holiday-calender .mid-number td a span {
+    font-size: 20px;
+    color: #7fbe00;
+    padding: 5px 5px;
+}
+.top-holiday-calender .mid-number td a:hover span {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+.top-holiday-calender .last-row {
+    padding: 20px 10px;
+    /* gap: 180px; */
+    justify-content: start;
+    background-color: green !important;
+    margin-top: 15px;
+}
+
+.top-holiday-calender .last-row td h5 {
+    color: white;
+    margin: 0;
+}
+
+.top-holiday-calender .mid-number td a:focus span {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+.data-show-event {
+    /* margin-top: 20px; */
+}
+
+.data-show-event tr {
+    display: flex;
+    background: black !important;
+}
+
+.data-show-event {
+    width: 100%;
+}
+
+.data-show-event .data-row {
+    justify-content: space-between;
+    border-bottom: 2px solid #7fbe00;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    background: none !important;
+}
+.data-show-event .data-row th h3 {
+    color: orange;
+    font-size: 20px;
+}
+
+.data-show-event .date-data td {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    width: 30%;
+}
+
+.data-show-event .date-data td span {
+    line-height: 0;
+    height: 0;
+}
+
+.data-show-event .date-data td p {
+    margin: 0;
+}
+.data-show-event .date-data td img {
+    height: 80px;
+    width: 100px;
+    text-align: start;
+}
+.date-data {
+    box-shadow: 0 0 6px 1px #ffffff38;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.data-show-event .date-data td a h5 {
+    font-size: 20px;
+    color: orange;
+}
+
+.data-show-event .date-data .circle-dot a h6 {
+    font-size: 14px;
+}
+.data-show-event .date-data td:nth-child(1) {
+    width: 25%;
+}
+.data-show-event .date-data td:nth-child(4) a p {
+    font-size: 12px;
+}
+.circle-dot a h6 {
+    border-radius: 30px;
+    border: 1px solid orange;
+    padding: 10px;
+}
+.data-show-event .date-data td:nth-child(3) {
+    width: 20%;
+}
+.data-show-event .date-data td:nth-child(4) a p:hover {
+    color: orange;
+}
+.top-holiday-calender .last-row td {
+    width: 30%;
+    text-align: start;
+}
+.top-holiday-calender .mid-number td a span.active {
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+/* holiday calender css end */
 
 #menu-dynamic #calc-menu a:hover {
     color: #8cd3d3 !important;

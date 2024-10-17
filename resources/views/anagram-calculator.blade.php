@@ -94,6 +94,47 @@
             transition: all ease 0.5s;
         }
 
+        .open-box {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            padding: 18px 10px;
+            left: 50px;
+            background: white;
+            /* width: 200px; */
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding-bottom: 10px;
+        }
+
+        .box-main {
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+        }
+
+        .open-box a {
+            font-size: 10px;
+            padding: 8px 40px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #317009, #7fbe00) !important;
+            border-color: #7fbe00;
+        }
+
+        .open-box .close-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            z-index: 0;
+            top: -5px;
+            right: -5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
         /* gematriaverse-section-from */
     </style>
 @endsection
@@ -106,6 +147,15 @@
                 <div class="col-lg-6 py-5">
                     <div class="gematriaverse-section-from">
                         <h2>Anagram Generator</h2>
+                        @php
+                            $saved_anagrams = auth()->user()->saved_anagrams;
+                        @endphp
+                        <h6 style="font-size: 12px !important;" id="h6_view_saved_anagrams" {!! count($saved_anagrams) ? '' : 'hidden' !!}>
+                            <a href="#" id="anchor_view_saved_anagrams">
+                                <i class="fas fa-floppy-disk"></i>
+                                View saved anagrams
+                            </a>
+                        </h6>
                         {{--                        <form> --}}
                         <div class="form-row">
                             <div class="col-md-12">
@@ -178,42 +228,81 @@
 
                             <div class="anagrame_data">
                                 <div class="row" id="row_result">
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>silent</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>tinsel</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>enlist--}}
-{{--                                                </p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>listen</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-3">--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="data_show">--}}
-{{--                                                <p>silent</p>--}}
-{{--                                            </div>--}}
-{{--                                        </a>--}}
-{{--                                    </div>--}}
+                                    {{-- <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>silent</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="open-box">
+                                            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                            <a href="#" class="btn custom-btn">Action 1</a>
+                                            <a href="#" class="btn custom-btn">Action 2</a>
+                                            <a href="#" class="btn custom-btn">Action 3</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>tinsel</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>enlist</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>listen</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="box-main">
+                                            <div class="click-box">
+                                                <div class="data_show">
+                                                    <p>silent</p>
+                                                </div>
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <a href="#" class="btn custom-btn">Action 1</a>
+                                                <a href="#" class="btn custom-btn">Action 2</a>
+                                                <a href="#" class="btn custom-btn">Action 3</a>
+                                            </div>
+                                        </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -223,6 +312,41 @@
         </div>
     </section>
     <!-- section-1 -->
+
+    <div class="modal fade" id="modal_saved_anagrams" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Saved anagrams</h5>
+{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                        <span aria-hidden="true">&times;</span>--}}
+{{--                    </button>--}}
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Anagram</th>
+                                <th>Original word</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_saved_anagrams">
+                            @foreach($saved_anagrams as $saved_anagram)
+                                <tr>
+                                    <td>{{$saved_anagram->anagram}}</td>
+                                    <td>{{$saved_anagram->source_word}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                    <button type="button" class="btn btn-primary">Save changes</button>--}}
+{{--                </div>--}}
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -249,6 +373,46 @@
                 letterCount[char]--;
             }
             return true;
+        }
+
+        function save_anagram(anagram, source_word) {
+            let auth_check = "{{auth()->check()}}";
+            if (auth_check !== "1") {
+                toastr.error('You need to log in to proceed.');
+                return false;
+            }
+
+            $.ajax({
+                url: '{{route("save.anagram")}}',
+                method: 'POST',
+                data: {
+                    "_token": '{{csrf_token()}}',
+                    "anagram": anagram,
+                    "source_word": source_word
+                },
+                success: (data) => {
+                    if (!data.success) {
+                        toastr.error(data.message);
+                        return false;
+                    }
+
+                    $('#h6_view_saved_anagrams').prop('hidden', false);
+
+                    //your code here
+                    $('#tbody_saved_anagrams').append(`<tr>
+                                                            <td>`+anagram+`</td>
+                                                            <td>`+source_word+`</td>
+                                                        </tr>`);
+
+                    toastr.success(data.message);
+
+                    return true;
+                },
+                error: (error) => {
+                    toastr.error(error);
+                    return false;
+                },
+            });
         }
     </script>
     <script>
@@ -296,11 +460,20 @@
             if (anagrams.length > 0) {
                 for (const item of anagrams) {
                     $('#row_result').append(`<div class="col-3">
-                                                <a href="#">
-                                                    <div class="data_show">
-                                                        <p>`+item+`</p>
+                                                <div class="box-main">
+                                                    <div class="click-box">
+                                                        <div class="data_show">
+                                                            <p>` + item + `</p>
+                                                        </div>
                                                     </div>
-                                                </a>
+                                                </div>
+                                                <div class="open-box">
+                                                    <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                    <a href="#" class="btn custom-btn" onclick="save_anagram('`+item+`', '`+string+`')">
+                                                        <i class="fas fa-floppy-disk"></i>
+                                                        Save anagram
+                                                    </a>
+                                                </div>
                                             </div>`);
                 }
 
@@ -359,11 +532,13 @@
             if (possibleWords.length > 0) {
                 for (const item of possibleWords) {
                     $('#row_result').append(`<div class="col-3">
-                                                <a href="#">
-                                                    <div class="data_show">
-                                                        <p>`+item+`</p>
+                                                <div class="box-main">
+                                                    <div class="click-box">
+                                                        <div class="data_show">
+                                                            <p>` + item + `</p>
+                                                        </div>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>`);
                 }
 
@@ -376,6 +551,37 @@
 
                 return false;
             }
+        });
+
+        $('#anchor_view_saved_anagrams').on('click', function () {
+            $('#modal_saved_anagrams').modal('show');
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Handle click to show the pop-up
+            $('body').on('click', '.click-box', function() {
+                console.log("Clicked!");
+
+                $('.open-box').each((i, item) => {
+                    $(item).fadeOut('slow');
+                });
+
+                $(this).parent().parent().find('.open-box').fadeIn('fast');
+            });
+
+            // Close the pop-up when the close button is clicked
+            $('body').on('click', '.close-btn', function() {
+                $(this).closest('.open-box').fadeOut('fast');
+            });
+
+            // Close the pop-up if the user clicks outside the modal content
+            $(document).mouseup(function(e) {
+                var container = $(".modal-content");
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.closest('.open-box').fadeOut('fast');
+                }
+            });
         });
     </script>
 @endsection
