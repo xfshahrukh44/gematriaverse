@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
@@ -1520,8 +1521,17 @@ class FrontController extends Controller
         ];
     }
 
-    public function holidays()
+    public function holidays($month = null)
     {
-        return view('holidays');
+        $currentMonth = $month ?? strtolower(Carbon::now()->format('M'));
+        $filePath = public_path("months/{$currentMonth}.json");
+
+        if (File::exists($filePath)) {
+            $holidays = json_decode(File::get($filePath), true);
+        } else {
+            $holidays = [];
+        }
+
+        return view('holidays', compact('holidays', 'currentMonth'));
     }
 }

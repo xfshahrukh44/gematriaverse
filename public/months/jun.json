@@ -1,0 +1,3277 @@
+{
+  "Jun 1": [
+    {
+      "title": "Dare Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun"
+    },
+    {
+      "title": "Don't Give up the Ship Day",
+      "category": "Special Interest",
+      "tags": "American"
+    },
+    {
+      "title": "Erev Shavuot",
+      "category": "Religious",
+      "tags": "Jewish"
+    },
+    {
+      "title": "Flip A Coin Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun"
+    },
+    {
+      "title": "Gawai Dayak",
+      "category": "Cultural",
+      "tags": "Cultural Holidays,Festivities"
+    },
+    {
+      "title": "Global Day of Parents",
+      "category": "Relationship",
+      "tags": "Family,Love"
+    },
+    {
+      "title": "Intergenerational Day",
+      "category": "Special Interest",
+      "tags": "Children,Elderly,Parents"
+    },
+    {
+      "title": "International Children's Day",
+      "category": "Cause",
+      "tags": "Awareness,Children,Civic"
+    },
+    {
+      "title": "Madaraka Day",
+      "category": "Federal",
+      "tags": "Civic,Cultural"
+    },
+    {
+      "title": "National Barefoot Day",
+      "category": "Fun",
+      "tags": "Activities,Awareness,Lifestyle"
+    },
+    {
+      "title": "National Billboard Day",
+      "category": "Appreciation",
+      "tags": "American,Awareness"
+    },
+    {
+      "title": "National Cancer Survivors Day",
+      "category": "Health",
+      "tags": "Appreciation,Diseases"
+    },
+    {
+      "title": "National Hazelnut Cake Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Heimlich Maneuver Day",
+      "category": "Health",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "National Nail Polish Day",
+      "category": "Special Interest",
+      "tags": "Fashion,Lifestyle,Women"
+    },
+    {
+      "title": "National Olive Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Fruit,Healthy Food"
+    },
+    {
+      "title": "National Pen Pal Day",
+      "category": "Relationship",
+      "tags": "Activities,Appreciation,Friendship"
+    },
+    {
+      "title": "National Skincare Education Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Educational,Lifestyle"
+    },
+    {
+      "title": "New Year's Resolution Recommitment Day",
+      "category": "Special Interest",
+      "tags": "Lifestyle"
+    },
+    {
+      "title": "Oscar the Grouch Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Fun,Pop Culture"
+    },
+    {
+      "title": "Samoa Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Educational,Historical"
+    },
+    {
+      "title": "Say Something Nice Day",
+      "category": "Relationship",
+      "tags": "Appreciation,Love,Mental Health"
+    },
+    {
+      "title": "Shavuot",
+      "category": "Religious",
+      "tags": "Jewish"
+    },
+    {
+      "title": "Stand For Children Day",
+      "category": "Special Interest",
+      "tags": "American,Awareness,Children"
+    },
+    {
+      "title": "Statehood Day in Kentucky",
+      "category": "Federal",
+      "tags": "American,Civic,Historical"
+    },
+    {
+      "title": "Statehood Day in Tennessee",
+      "category": "Federal",
+      "tags": "American,Civic,Historical"
+    },
+    {
+      "title": "Wear a Dress Day",
+      "category": "Special Interest",
+      "tags": "Fashion,Fun"
+    },
+    {
+      "title": "World Milk Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Awareness,Beverage"
+    },
+    {
+      "title": "World Narcissistic Abuse Awareness Day",
+      "category": "Health",
+      "tags": "Awareness,Mental Health"
+    },
+    {
+      "title": "World Outlander Day",
+      "category": "Arts & Entertainment",
+      "tags": "Pop Culture"
+    },
+    {
+      "title": "World Reef Awareness Day",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    },
+    {
+      "title": "Bed Bug Awareness Week",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "Community Health Improvement Week",
+      "category": "Health",
+      "tags": "Awareness,Civic"
+    },
+    {
+      "title": "End Mountain Top Removal Week",
+      "category": "Cause",
+      "tags": "Awareness,Environmental"
+    },
+    {
+      "title": "National Business Etiquette Week",
+      "category": "Special Interest",
+      "tags": "Awareness,Career,Work"
+    },
+    {
+      "title": "National CPR and AED Awareness Week",
+      "category": "Special Interest",
+      "tags": "Awareness,Health,Safety"
+    },
+    {
+      "title": "National Garden Week",
+      "category": "Special Interest",
+      "tags": "Hobby,Work"
+    },
+    {
+      "title": "National Headache Awareness Week",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "RSPCA Week",
+      "category": "Animal",
+      "tags": "Activities,Appreciation,Pet"
+    },
+    {
+      "title": "Step Parents Week",
+      "category": "Appreciation",
+      "tags": "Awareness,Family"
+    },
+    {
+      "title": "Volunteers' Week",
+      "category": "Special Interest",
+      "tags": "Appreciation,Awareness"
+    },
+    {
+      "title": "African American Appreciation Month",
+      "category": "Appreciation",
+      "tags": "American,Cultural"
+    },
+    {
+      "title": "Alzheimer’s and Brain Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Mental Health"
+    },
+    {
+      "title": "Antiphospholipid Antibody Syndrome Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Women"
+    },
+    {
+      "title": "Aphasia Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Mental Health"
+    },
+    {
+      "title": "Audiobook Month",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Books,Lifestyle"
+    },
+    {
+      "title": "Beautiful in Your Skin Month",
+      "category": "Health",
+      "tags": "Appreciation,Awareness,Mental Health"
+    },
+    {
+      "title": "Black Lives Matter Month",
+      "category": "Cultural",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Black Music Month",
+      "category": "Cultural",
+      "tags": "Appreciation,Cultural,Music"
+    },
+    {
+      "title": "Cancer from the Sun Month",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Educational"
+    },
+    {
+      "title": "Caribbean-American Heritage Month",
+      "category": "Cultural",
+      "tags": "American,Awareness"
+    },
+    {
+      "title": "Cataract Awareness Month",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Celibacy Awareness Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Health,Lifestyle"
+    },
+    {
+      "title": "Child Vision Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Children"
+    },
+    {
+      "title": "Children's Awareness Month",
+      "category": "Cause",
+      "tags": "Awareness,Children,Education"
+    },
+    {
+      "title": "CMV Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Educational"
+    },
+    {
+      "title": "Cucumber Month",
+      "category": "Food & Beverage",
+      "tags": "Vegetable"
+    },
+    {
+      "title": "Effective Communications Month",
+      "category": "Relationship",
+      "tags": "Appreciation,Lifestyle"
+    },
+    {
+      "title": "Entrepreneurs \"Do it Yourself\" Marketing Month",
+      "category": "Special Interest",
+      "tags": "Activities,Fun,Work"
+    },
+    {
+      "title": "Fight the Filthy Fly Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Health"
+    },
+    {
+      "title": "Fireworks Eye Safety Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Safety"
+    },
+    {
+      "title": "Fireworks Safety Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Safety"
+    },
+    {
+      "title": "Georgia Blueberry Month",
+      "category": "Special Interest",
+      "tags": "Fun"
+    },
+    {
+      "title": "Great Outdoors Month",
+      "category": "Special Interest",
+      "tags": "Activities,Environmental,Fun"
+    },
+    {
+      "title": "Infertility Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Family"
+    },
+    {
+      "title": "International Surf Music Month",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,Festivities,Music"
+    },
+    {
+      "title": "Lane Courtesy Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Safety"
+    },
+    {
+      "title": "Mango Month",
+      "category": "Food & Beverage",
+      "tags": "Fruit,Healthy Food"
+    },
+    {
+      "title": "Men's Health Month",
+      "category": "Health",
+      "tags": "Activities,Lifestyle"
+    },
+    {
+      "title": "Myasthenia Gravis Awareness Month",
+      "category": "Cause",
+      "tags": "Awareness,Diseases,Health"
+    },
+    {
+      "title": "National Accordion Awareness Month",
+      "category": "Arts & Entertainment",
+      "tags": "Awareness,Hobby,Music"
+    },
+    {
+      "title": "National Adopt A Cat Month",
+      "category": "Animal",
+      "tags": "Appreciation,Cat,Pet"
+    },
+    {
+      "title": "National Camping Month",
+      "category": "Special Interest",
+      "tags": "Activities,Appreciation,Lifestyle"
+    },
+    {
+      "title": "National Candy Month",
+      "category": "Food & Beverage",
+      "tags": "Candy,Fun,Sweet Food"
+    },
+    {
+      "title": "National Country Cooking Month",
+      "category": "Food & Beverage",
+      "tags": "Activities,Cooking,Family"
+    },
+    {
+      "title": "National Dairy Month",
+      "category": "Food & Beverage",
+      "tags": "American food,Food"
+    },
+    {
+      "title": "National DJ Month",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Music,Pop Culture"
+    },
+    {
+      "title": "National Foster a Pet Month",
+      "category": "Animal",
+      "tags": "Pet,Pet Health"
+    },
+    {
+      "title": "National Fresh Fruit and Vegetables Month",
+      "category": "Food & Beverage",
+      "tags": "Fruit,Healthy Food,Vegetable"
+    },
+    {
+      "title": "National Frozen Yogurt Month",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Sweet Food"
+    },
+    {
+      "title": "National Give a Bunch of Balloons Month",
+      "category": "Health",
+      "tags": "Children,Diseases"
+    },
+    {
+      "title": "National Homeownership Month",
+      "category": "Special Interest",
+      "tags": "Appreciation,Family,Lifestyle"
+    },
+    {
+      "title": "National Iced Tea Month",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Beverage,Drinking"
+    },
+    {
+      "title": "National Lemon Month",
+      "category": "Food & Beverage",
+      "tags": "Fruit,Healthy Food"
+    },
+    {
+      "title": "National Microchipping Month",
+      "category": "Animal",
+      "tags": "Pet,Safety"
+    },
+    {
+      "title": "National Migraine and Headache Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Mental Health"
+    },
+    {
+      "title": "National Oceans Month",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    },
+    {
+      "title": "National Osteoporosis Month",
+      "category": "Health",
+      "tags": "Awareness,Diseases"
+    },
+    {
+      "title": "National Pet Preparedness Month",
+      "category": "Animal",
+      "tags": "Awareness,Pet,Safety"
+    },
+    {
+      "title": "National Pollinator Month",
+      "category": "Cause",
+      "tags": "Conservation,Environment,Environmental"
+    },
+    {
+      "title": "National PTSD Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Mental Health"
+    },
+    {
+      "title": "National Rivers Month",
+      "category": "Cause",
+      "tags": "Activities,Conservation,Environment"
+    },
+    {
+      "title": "National Rose Month",
+      "category": "Special Interest",
+      "tags": "Appreciation,Environment,Environmental"
+    },
+    {
+      "title": "National Safety Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Safety"
+    },
+    {
+      "title": "National Scoliosis Awareness Month",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "National Soul Food Month",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Family,Food"
+    },
+    {
+      "title": "National Steakhouse Month",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Food"
+    },
+    {
+      "title": "National Zoo and Aquarium Month",
+      "category": "Animal",
+      "tags": "Conservation,Environment,Wildlife"
+    },
+    {
+      "title": "Oral Health Month",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Perennial Gardening Month",
+      "category": "Special Interest",
+      "tags": "Appreciation,Environment,Hobby"
+    },
+    {
+      "title": "Pharmacists Declare War on Alcoholism Month",
+      "category": "Special Interest",
+      "tags": "Health"
+    },
+    {
+      "title": "Pluot & Aprium Month",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Fruit,Healthy Food"
+    },
+    {
+      "title": "Potty Training Awareness Month",
+      "category": "Special Interest",
+      "tags": "Awareness,Children"
+    },
+    {
+      "title": "Pride Month",
+      "category": "Cause",
+      "tags": "Awareness,Festivities,LGBTQ"
+    },
+    {
+      "title": "Professional Wellness Month",
+      "category": "Health",
+      "tags": "Lifestyle,Work"
+    },
+    {
+      "title": "Rebuild Your Life Month",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "Scleroderma Awareness Month",
+      "category": "Health",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "Skyscraper Month",
+      "category": "Special Interest",
+      "tags": "Appreciation,Historical"
+    },
+    {
+      "title": "Social Petworking Month",
+      "category": "Animal",
+      "tags": "Cat,Dog,Pet,Pet Health"
+    },
+    {
+      "title": "Sports America Kids Month",
+      "category": "Fun",
+      "tags": "American,Children,Sports"
+    },
+    {
+      "title": "Turkey Lovers Month",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food,Healthy Food"
+    },
+    {
+      "title": "Vision Research Month",
+      "category": "Health",
+      "tags": "Awareness,Educational,Technology"
+    },
+    {
+      "title": "We Advocate Time Consciousness and Honesty",
+      "category": "Special Interest",
+      "tags": "Activities,Appreciation,Awareness"
+    },
+    {
+      "title": "Women’s Golf Month",
+      "category": "Special Interest",
+      "tags": "Hobby,Sports,Women"
+    }
+  ],
+  "Jun 2": [
+    {
+      "title": "American Indian Citizenship Day",
+      "category": "Cultural",
+      "tags": "American,Ethnic"
+    },
+    {
+      "title": "Isabel Province Day",
+      "category": "Cultural",
+      "tags": "Cultural Holidays,Federal"
+    },
+    {
+      "title": "June Bank Holiday",
+      "category": "Federal",
+      "tags": "Appreciation,Civic,Summer"
+    },
+    {
+      "title": "National Bubba Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Fun,Love"
+    },
+    {
+      "title": "National First Ladies Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Historical"
+    },
+    {
+      "title": "National I Love My Dentist Day",
+      "category": "Health",
+      "tags": "Appreciation,Career"
+    },
+    {
+      "title": "National Leave Work Early Day",
+      "category": "Fun",
+      "tags": "Funny,Work"
+    },
+    {
+      "title": "National Rocky Road Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Ice Cream,Sweet Food"
+    },
+    {
+      "title": "National Rotisserie Chicken Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Cooking,Food"
+    },
+    {
+      "title": "Platinum Jubilee bank holiday",
+      "category": "Federal",
+      "tags": "Cultural,Historical"
+    },
+    {
+      "title": "Republic Day Italy",
+      "category": "Federal",
+      "tags": "Cultural,Historical"
+    },
+    {
+      "title": "The Yang di-Pertuan Agong's Birthday",
+      "category": "Cultural",
+      "tags": "Birthdays"
+    },
+    {
+      "title": "Western Australia Day",
+      "category": "Cultural",
+      "tags": "Historical"
+    },
+    {
+      "title": "America The Beautiful Week",
+      "category": "Special Interest",
+      "tags": "American,Historical,Music"
+    },
+    {
+      "title": "Canadian Environment Week",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    },
+    {
+      "title": "Food Safety Week",
+      "category": "Cause",
+      "tags": "Healthy Food,Safety"
+    }
+  ],
+  "Jun 3": [
+    {
+      "title": "Chimborazo Day",
+      "category": "Appreciation",
+      "tags": "Activities,Environment"
+    },
+    {
+      "title": "European Bicycle Day",
+      "category": "Special Interest",
+      "tags": "Activities,Environmental,Hobby"
+    },
+    {
+      "title": "H.M. Queens Birthday",
+      "category": "Federal",
+      "tags": "Birthdays,Civic,Festivities"
+    },
+    {
+      "title": "Insect Repellent Awareness Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Health"
+    },
+    {
+      "title": "Love Conquers All Day",
+      "category": "Relationship",
+      "tags": "Appreciation,Love"
+    },
+    {
+      "title": "Mabo Day",
+      "category": "Federal",
+      "tags": "Appreciation,Civic,Historical"
+    },
+    {
+      "title": "Martyrs Day Uganda",
+      "category": "Federal",
+      "tags": "Christian,Educational,Historical"
+    },
+    {
+      "title": "National Chocolate Macaroon Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Egg Day",
+      "category": "Food & Beverage",
+      "tags": "Breakfast,Cooking,Healthy Food"
+    },
+    {
+      "title": "National Simp Day",
+      "category": "Arts & Entertainment",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Opium Suppression Movement Day",
+      "category": "Cause",
+      "tags": "Awareness,Educational,Health"
+    },
+    {
+      "title": "Repeat Day",
+      "category": "Fun",
+      "tags": "Activities,Appreciation"
+    },
+    {
+      "title": "World Bicycle Day",
+      "category": "Health",
+      "tags": "Activities,Environment,International"
+    },
+    {
+      "title": "World Cider Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Liquor"
+    }
+  ],
+  "Jun 4": [
+    {
+      "title": "Audacity To Hope Day",
+      "category": "Special Interest",
+      "tags": "Federal"
+    },
+    {
+      "title": "Global Running Day",
+      "category": "Health",
+      "tags": "Activities,Lifestyle"
+    },
+    {
+      "title": "International Corgi Day",
+      "category": "Animal",
+      "tags": "Appreciation,Dog,Pet"
+    },
+    {
+      "title": "International Day of Innocent Children Victims of Aggression",
+      "category": "Cause",
+      "tags": "Children,Safety"
+    },
+    {
+      "title": "National Cheese Day",
+      "category": "Food & Beverage",
+      "tags": "Cheese,Food"
+    },
+    {
+      "title": "National Christian T-Shirt Day",
+      "category": "Religious",
+      "tags": "Appreciation,Christian"
+    },
+    {
+      "title": "National Cognac Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Beverage,Drinking"
+    },
+    {
+      "title": "National Hug Your Cat Day",
+      "category": "Animal",
+      "tags": "Cat,Love,Pet"
+    },
+    {
+      "title": "National Old Maids Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Women"
+    },
+    {
+      "title": "National SAFE Day",
+      "category": "Health",
+      "tags": "Awareness,Children,Safety"
+    },
+    {
+      "title": "National Tailors Day",
+      "category": "Appreciation",
+      "tags": "Career,Fashion"
+    },
+    {
+      "title": "Shopping Cart Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Shopping"
+    },
+    {
+      "title": "Philippine Eagle Week",
+      "category": "Special Interest",
+      "tags": "Awareness,Wildlife"
+    },
+    {
+      "title": "National Hug Your Cat Month",
+      "category": "Animal",
+      "tags": "Cat,Love,Pet"
+    }
+  ],
+  "Jun 5": [
+    {
+      "title": "Constitution Day",
+      "category": "Federal",
+      "tags": "Cultural,Historical"
+    },
+    {
+      "title": "​Day of Arafah",
+      "category": "Religious",
+      "tags": "Islamic"
+    },
+    {
+      "title": "Hot Air Balloon Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun"
+    },
+    {
+      "title": "International Day for the Fight against Illegal Unreported and Unregulated Fishing",
+      "category": "Cause",
+      "tags": "International,Wildlife"
+    },
+    {
+      "title": "International Day for the Fight against Illegal, Unreported and Unregulated Fishing",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environmental"
+    },
+    {
+      "title": "Khordad National Uprising in Iran",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "National Gingerbread Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Sweet Food"
+    },
+    {
+      "title": "National Lincoln Loud Day",
+      "category": "Arts & Entertainment",
+      "tags": "American,Children,Fun"
+    },
+    {
+      "title": "National Moonshine Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Cocktail,Liquor"
+    },
+    {
+      "title": "National Veggie Burger Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Health,Healthy Food"
+    },
+    {
+      "title": "Orthodox Ascension Day",
+      "category": "Religious",
+      "tags": "Christian"
+    },
+    {
+      "title": "President's Day in Equatorial Guinea",
+      "category": "Federal",
+      "tags": "Appreciation,Civic"
+    },
+    {
+      "title": "Sausage Roll Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Fast Food"
+    },
+    {
+      "title": "Thank You Day",
+      "category": "Fun",
+      "tags": "Appreciation,Health"
+    },
+    {
+      "title": "World Environment Day",
+      "category": "Cause",
+      "tags": "Conservation,International,Wildlife"
+    },
+    {
+      "title": "National Commuter Challenge",
+      "category": "Special Interest",
+      "tags": "Conservation,Environment,Lifestyle"
+    }
+  ],
+  "Jun 6": [
+    {
+      "title": "Caves and Karst Day",
+      "category": "Special Interest",
+      "tags": "Fun,Historical"
+    },
+    {
+      "title": "D-Day",
+      "category": "Special Interest",
+      "tags": "Civic,Historical,Military"
+    },
+    {
+      "title": "Hari Raya Haji",
+      "category": "Cultural",
+      "tags": "Festivities,Islamic"
+    },
+    {
+      "title": "Memorial Day in South Korea",
+      "category": "Federal",
+      "tags": "Federal,Military"
+    },
+    {
+      "title": "National Applesauce Cake Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Donut Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Food,Sweet Food"
+    },
+    {
+      "title": "National Drive-In Movie Day",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,Pop Culture"
+    },
+    {
+      "title": "National Eyewear Day",
+      "category": "Special Interest",
+      "tags": "Fashion,Lifestyle"
+    },
+    {
+      "title": "National Gardening Exercise Day",
+      "category": "Health",
+      "tags": "Activities,Environment,Hobby"
+    },
+    {
+      "title": "National Higher Education Day",
+      "category": "Cause",
+      "tags": "Awareness,Career,Educational"
+    },
+    {
+      "title": "National Yo-Yo Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun,Historical"
+    },
+    {
+      "title": "Queensland Day",
+      "category": "Cultural",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Randol Fawkes Labour Day",
+      "category": "Federal",
+      "tags": "Appreciation,Civic,Work"
+    },
+    {
+      "title": "Russian Language Day",
+      "category": "Cultural",
+      "tags": "Ethnic"
+    },
+    {
+      "title": "Sacrifice Feast Eve",
+      "category": "Religious",
+      "tags": "Awareness,Islamic"
+    },
+    {
+      "title": "T. T. Bank Holiday",
+      "category": "Special Interest",
+      "tags": "Environment,Hobby,Sports"
+    },
+    {
+      "title": "Tabaski Day",
+      "category": "Religious",
+      "tags": "Ethnic,Islamic"
+    },
+    {
+      "title": "Visually Impaired People Day",
+      "category": "Cause",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "Waqfat Arafat Day",
+      "category": "Religious",
+      "tags": "Cultural,Islamic"
+    },
+    {
+      "title": "World Green Roof Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Conservation,Environmental"
+    },
+    {
+      "title": "World Pest Day",
+      "category": "Animal",
+      "tags": "Awareness,Educational,Health"
+    },
+    {
+      "title": "Healthcare Executives Appreciation Week",
+      "category": "Appreciation",
+      "tags": "Careers,Health"
+    },
+    {
+      "title": "Linggo ng Kalayaan",
+      "category": "Cultural",
+      "tags": "Cultural"
+    }
+  ],
+  "Jun 7": [
+    {
+      "title": "Anniversary of the Memorandum of the Slovak Nation",
+      "category": "Special Interest",
+      "tags": "Appreciation,Cultural,Historical"
+    },
+    {
+      "title": "Daniel Boone Day",
+      "category": "Special Interest",
+      "tags": "American,Appreciation,Historical"
+    },
+    {
+      "title": "Dissolution of Union between Norway and Sweden",
+      "category": "Cultural",
+      "tags": "International"
+    },
+    {
+      "title": "Eid al-Adha",
+      "category": "Religious",
+      "tags": "Islamic"
+    },
+    {
+      "title": "Eid-e-Ghorban",
+      "category": "Religious",
+      "tags": "Activities,Cultural,Islamic"
+    },
+    {
+      "title": "International Supply Chain Professionals Day",
+      "category": "Appreciation",
+      "tags": "Brand,Career,Shopping"
+    },
+    {
+      "title": "International Tabletop Day",
+      "category": "Special Interest",
+      "tags": "Fun"
+    },
+    {
+      "title": "June Bug Day",
+      "category": "Animal",
+      "tags": "American,Wildlife"
+    },
+    {
+      "title": "Love Island Day",
+      "category": "Arts & Entertainment",
+      "tags": "American,Love,Pop Culture"
+    },
+    {
+      "title": "National Black Bear Day",
+      "category": "Animal",
+      "tags": "Appreciation,Conservation,Wildlife"
+    },
+    {
+      "title": "National Bubbly Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Beverage,Drinking"
+    },
+    {
+      "title": "National Chocolate Ice Cream Day",
+      "category": "FederalFood & Beverage",
+      "tags": "Chocolate,Dessert,Food"
+    },
+    {
+      "title": "National Prairie Day",
+      "category": "Cause",
+      "tags": "American,Conservation,Environment"
+    },
+    {
+      "title": "National Trails Day",
+      "category": "Special Interest",
+      "tags": "Activities,Environment,Summer"
+    },
+    {
+      "title": "National VCR Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Movie,Technology"
+    },
+    {
+      "title": "Sette Giugno",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "The Big Lunch",
+      "category": "Special Interest",
+      "tags": "Activities,Food,Friendship"
+    },
+    {
+      "title": "World Caring Day",
+      "category": "Health",
+      "tags": "Appreciation,Brand,Love"
+    },
+    {
+      "title": "World Food Safety Day",
+      "category": "Cause",
+      "tags": "Awareness,Food,Health"
+    },
+    {
+      "title": "British Heart Week",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "International Clothesline Week",
+      "category": "Special Interest",
+      "tags": "Activities,International,Pop Culture"
+    },
+    {
+      "title": "National Fishing and Boating Week",
+      "category": "Special Interest",
+      "tags": "Activities,Environment,Hobby"
+    },
+    {
+      "title": "Shampoo Week",
+      "category": "Fun",
+      "tags": "Fun"
+    },
+    {
+      "title": "World Heart Rhythm Week",
+      "category": "Health",
+      "tags": "Awareness,Educational"
+    }
+  ],
+  "Jun 8": [
+    {
+      "title": "Bounty Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "International Day of Action for Elephants in Zoos",
+      "category": "Animal",
+      "tags": "Environment,International,Wildlife"
+    },
+    {
+      "title": "Name Your Poison Day",
+      "category": "Food & Beverage",
+      "tags": "Beer,Drinking,Food"
+    },
+    {
+      "title": "National Best Friends Day",
+      "category": "Relationship",
+      "tags": "Friendship,Love"
+    },
+    {
+      "title": "National Cancer Thriver Day",
+      "category": "Health",
+      "tags": "Appreciation,Diseases"
+    },
+    {
+      "title": "National Kids Day",
+      "category": "Special Interest",
+      "tags": "American,Children,Family"
+    },
+    {
+      "title": "Pentecost",
+      "category": "Religious",
+      "tags": "Christian,Festivities,International"
+    },
+    {
+      "title": "Pentecost Orthodox",
+      "category": "Religious",
+      "tags": "Activities,Christian"
+    },
+    {
+      "title": "Race Unity Day",
+      "category": "Cause",
+      "tags": "Awareness,Educational,International"
+    },
+    {
+      "title": "Temotu Province Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Thomas Paine Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Historical"
+    },
+    {
+      "title": "Upsy Daisy Day",
+      "category": "Special Interest",
+      "tags": "Fun,Lifestyle"
+    },
+    {
+      "title": "Whit Sunday",
+      "category": "Religious",
+      "tags": "Catholic,Christian,Historical"
+    },
+    {
+      "title": "World Brain Tumor Day",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Educational"
+    },
+    {
+      "title": "World Oceans Day",
+      "category": "Cause",
+      "tags": "Environment,International"
+    },
+    {
+      "title": "National Flag Week",
+      "category": "Special Interest",
+      "tags": "Appreciation,Civic,Federal"
+    },
+    {
+      "title": "National Week of the Ocean",
+      "category": "Special Interest",
+      "tags": "Awareness,Environmental,Wildlife"
+    },
+    {
+      "title": "Scleroderma Awareness Week",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Educational"
+    }
+  ],
+  "Jun 9": [
+    {
+      "title": "Day of La Rioja",
+      "category": "Federal",
+      "tags": "Civic,Cultural,Festivities"
+    },
+    {
+      "title": "Day of Murcia",
+      "category": "Federal",
+      "tags": "Civic,Cultural,Historical"
+    },
+    {
+      "title": "Donald Duck Day",
+      "category": "Arts & Entertainment",
+      "tags": "Children,Pop Culture"
+    },
+    {
+      "title": "Eat Flexitarian Day",
+      "category": "Food & Beverage",
+      "tags": "Health,Healthy Food,Lifestyle"
+    },
+    {
+      "title": "Filipino-Chinese Friendship Day",
+      "category": "Cultural",
+      "tags": "Friendship,International"
+    },
+    {
+      "title": "Holy Spirit Monday",
+      "category": "Religious",
+      "tags": "Christian,Festivities,International"
+    },
+    {
+      "title": "International Dark 'n Stormy® Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Brand,Liquor"
+    },
+    {
+      "title": "National Heroes Day Uganda",
+      "category": "Federal",
+      "tags": "Appreciation,Historical,Military"
+    },
+    {
+      "title": "National Krewe of Tucks Day",
+      "category": "Fun",
+      "tags": "American,Appreciation,Festivities"
+    },
+    {
+      "title": "National Meal Prep Day",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food,Health"
+    },
+    {
+      "title": "National No Apologies Period Day",
+      "category": "Health",
+      "tags": "Awareness,Health,Women"
+    },
+    {
+      "title": "National Strawberry Rhubarb Pie Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Sweet Food"
+    },
+    {
+      "title": "Orthodox Pentecost Monday",
+      "category": "Religious",
+      "tags": "Christian,Festivities"
+    },
+    {
+      "title": "Whit Monday",
+      "category": "Religious",
+      "tags": "Christian,Festivities,International"
+    },
+    {
+      "title": "Whit Monday (Martinique)",
+      "category": "Religious",
+      "tags": "Activities,Catholic,Christian"
+    },
+    {
+      "title": "Whit Monday (Saint Barthelemy)",
+      "category": "Religious",
+      "tags": "Christian,Festivities"
+    },
+    {
+      "title": "Whit Monday (Saint Martin)",
+      "category": "Religious",
+      "tags": "Activities,Catholic,Christian"
+    },
+    {
+      "title": "Love your Burial Ground Week",
+      "category": "Cultural",
+      "tags": "Awareness,Christian"
+    },
+    {
+      "title": "Meet a Mate Week",
+      "category": "Relationship",
+      "tags": "Activities,Fun,Love"
+    },
+    {
+      "title": "National Automotive Service Professional Week",
+      "category": "Appreciation",
+      "tags": "Appreciation,Technology,Work"
+    },
+    {
+      "title": "National Email Week",
+      "category": "Special Interest",
+      "tags": "Appreciation,Technology"
+    },
+    {
+      "title": "National Little League Week",
+      "category": "Special Interest",
+      "tags": "American,Children,Sports"
+    },
+    {
+      "title": "National Men's Health Week",
+      "category": "Health",
+      "tags": "Lifestyle"
+    },
+    {
+      "title": "National Pet Wedding Week",
+      "category": "Animal",
+      "tags": "Fun,Pet"
+    },
+    {
+      "title": "Right of Way Professionals Week",
+      "category": "Special Interest",
+      "tags": "Appreciation,Careers"
+    },
+    {
+      "title": "Team Green Britain Bike Week",
+      "category": "Special Interest",
+      "tags": "Fun,Lifestyle,Sports"
+    }
+  ],
+  "Jun 10": [
+    {
+      "title": "Abolition Day",
+      "category": "Federal",
+      "tags": "Awareness,Civic,Historical"
+    },
+    {
+      "title": "Belmont Stakes",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,American,Sports"
+    },
+    {
+      "title": "EHS Day",
+      "category": "Health",
+      "tags": "Awareness,Safety,Technology"
+    },
+    {
+      "title": "National Ballpoint Pen Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Technology"
+    },
+    {
+      "title": "National Bed Bug Prevention Day",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "National Black Cow Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Drinking,Ice Cream"
+    },
+    {
+      "title": "National Call Your Doctor Day",
+      "category": "Health",
+      "tags": "Awareness,Women"
+    },
+    {
+      "title": "National Colt Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Egg Roll Day",
+      "category": "Food & Beverage",
+      "tags": "Food"
+    },
+    {
+      "title": "National Forklift Safety Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Safety"
+    },
+    {
+      "title": "National Herbs and Spices Day",
+      "category": "Food & Beverage",
+      "tags": "Food"
+    },
+    {
+      "title": "National Iced Tea Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Healthy Food"
+    },
+    {
+      "title": "National Isabel Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "Portugal Day",
+      "category": "Federal",
+      "tags": "Cultural,Historical"
+    },
+    {
+      "title": "Poson Festival",
+      "category": "Religious",
+      "tags": "Buddhist,Cultural"
+    },
+    {
+      "title": "Slavery Abolition Day (French Guiana)",
+      "category": "Special Interest",
+      "tags": "Awareness,Historical"
+    },
+    {
+      "title": "Royal Ascot",
+      "category": "Special Interest",
+      "tags": "Activities,Cultural"
+    },
+    {
+      "title": "Superman Week",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Pop Culture"
+    },
+    {
+      "title": "Vision Rehabilitation Week",
+      "category": "Health",
+      "tags": "Awareness"
+    }
+  ],
+  "Jun 11": [
+    {
+      "title": "King Kamehameha Day",
+      "category": "Cultural",
+      "tags": "American,Festivities,Historical"
+    },
+    {
+      "title": "National Corn on the Cob Day",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food,Vegetable"
+    },
+    {
+      "title": "National German Chocolate Cake Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Chocolate,Dessert"
+    },
+    {
+      "title": "National Making Life Beautiful Day",
+      "category": "Relationship",
+      "tags": "Appreciation,Lifestyle,Love"
+    },
+    {
+      "title": "Sant Guru Kabir Jayanti",
+      "category": "Religious",
+      "tags": "Cultural,Historical,Indian Holidays"
+    },
+    {
+      "title": "Say Hi Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Fun"
+    },
+    {
+      "title": "Yarn Bombing Day",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,Hobby"
+    },
+    {
+      "title": "Oxfam Water Week",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    }
+  ],
+  "Jun 12": [
+    {
+      "title": "Chaco Armistice",
+      "category": "Federal",
+      "tags": "Civic,Historical,Military"
+    },
+    {
+      "title": "Child Labor Day",
+      "category": "Cause",
+      "tags": "Children,Work"
+    },
+    {
+      "title": "CNA Day",
+      "category": "Appreciation",
+      "tags": "Career,Women,Work"
+    },
+    {
+      "title": "Democracy Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "International Falafel Day",
+      "category": "Food & Beverage",
+      "tags": "Healthy Food,Vegetable"
+    },
+    {
+      "title": "National Button Battery Awareness Day",
+      "category": "Cause",
+      "tags": "Appreciation,Conservation,Wildlife"
+    },
+    {
+      "title": "National Great Dane Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Jerky Day",
+      "category": "Food & Beverage",
+      "tags": "American,American food,Food"
+    },
+    {
+      "title": "National Loving Day",
+      "category": "Relationship",
+      "tags": "Historical,Love"
+    },
+    {
+      "title": "National Peanut Butter Cookie Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Food"
+    },
+    {
+      "title": "Peace Day",
+      "category": "Federal",
+      "tags": "Historical,Military"
+    },
+    {
+      "title": "Philippines Independence Day",
+      "category": "Cultural",
+      "tags": "Festivities,Historical"
+    },
+    {
+      "title": "Pulse Night of Remembrance",
+      "category": "Cultural",
+      "tags": "American,Cultural,LGBTQ"
+    },
+    {
+      "title": "Raggedy Ann and Andy Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Fun,Pop Culture"
+    },
+    {
+      "title": "Red Rose Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Love"
+    },
+    {
+      "title": "Russia Day",
+      "category": "Federal",
+      "tags": "Civic,Historical,Military"
+    },
+    {
+      "title": "Superman Day",
+      "category": "Arts & Entertainment",
+      "tags": "Cultural,Movie"
+    },
+    {
+      "title": "Valentine's Day in Brazil",
+      "category": "Cultural",
+      "tags": "Cultural,Cultural Holidays,Festivities"
+    },
+    {
+      "title": "White Nights Festival in St. Petersburg",
+      "category": "Cultural",
+      "tags": "Cultural Holidays,Festivities"
+    },
+    {
+      "title": "World Day Against Child Labour",
+      "category": "Cause",
+      "tags": "Awareness,Children,International"
+    },
+    {
+      "title": "CNA Week",
+      "category": "Appreciation",
+      "tags": "Appreciation,Health,Work"
+    },
+    {
+      "title": "US Open Golf Championship",
+      "category": "Special Interest",
+      "tags": "Activities,American,Sports"
+    }
+  ],
+  "Jun 13": [
+    {
+      "title": "Feast of St. Anthony",
+      "category": "Religious",
+      "tags": "Catholic,Christian,Cultural"
+    },
+    {
+      "title": "Feast of St. Anthony (Spain)",
+      "category": "Religious",
+      "tags": "Christian,Historical"
+    },
+    {
+      "title": "International Albinism Awareness Day",
+      "category": "Cause",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "International Axe Throwing Day",
+      "category": "Special Interest",
+      "tags": "Activities,Hobby,Sports"
+    },
+    {
+      "title": "Maharana Pratap Jayanti",
+      "category": "Religious",
+      "tags": "Cultural,Hindu,Historical"
+    },
+    {
+      "title": "National Blame Someone Else Day",
+      "category": "Fun",
+      "tags": "Activities,Crazy"
+    },
+    {
+      "title": "National Chamoy Day",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food,Mexican food"
+    },
+    {
+      "title": "National Dance/Movement Therapy Advocacy Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Health,Mental Health"
+    },
+    {
+      "title": "National Kitchen Klutzes of America Day",
+      "category": "Food & Beverage",
+      "tags": "American,Cooking,Food"
+    },
+    {
+      "title": "National Productive Business Civility Day",
+      "category": "Special Interest",
+      "tags": "Careers,Work"
+    },
+    {
+      "title": "National Sewing Machine Day",
+      "category": "Special Interest",
+      "tags": "Activities,Hobby"
+    },
+    {
+      "title": "National Weed Your Garden Day",
+      "category": "Special Interest",
+      "tags": "Activities,Environment,Summer"
+    },
+    {
+      "title": "Random Acts of Light Day",
+      "category": "Health",
+      "tags": "Appreciation,Love"
+    },
+    {
+      "title": "World Softball Day",
+      "category": "Special Interest",
+      "tags": "Activities,Health,Sports"
+    },
+    {
+      "title": "National Clay Week",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,Appreciation"
+    },
+    {
+      "title": "National Hermit Week",
+      "category": "Special Interest",
+      "tags": "Activities,Lifestyle,Mental Health"
+    },
+    {
+      "title": "National School Grounds Week",
+      "category": "Special Interest",
+      "tags": "Appreciation,Children,Sports"
+    }
+  ],
+  "Jun 14": [
+    {
+      "title": "Army Birthday",
+      "category": "Federal",
+      "tags": "Historical,Military"
+    },
+    {
+      "title": "Doll Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Children,Hobby"
+    },
+    {
+      "title": "Eid-e-Ghadir",
+      "category": "Religious",
+      "tags": "Historical,Islamic"
+    },
+    {
+      "title": "Falkland Islands Liberation Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Flag Day",
+      "category": "Federal",
+      "tags": "American,Civic,Historical"
+    },
+    {
+      "title": "International Bath Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Fun,Lifestyle"
+    },
+    {
+      "title": "International Knit in Public Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun,Hobby"
+    },
+    {
+      "title": "Monkey Around Day",
+      "category": "Fun",
+      "tags": "Activities,Weird National"
+    },
+    {
+      "title": "National Bourbon Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Drinking,Liquor"
+    },
+    {
+      "title": "National Dog Dad Day",
+      "category": "Animal",
+      "tags": "Awareness,Dog,Pet"
+    },
+    {
+      "title": "National New Mexico Day",
+      "category": "Federal",
+      "tags": "Appreciation,Cultural,Mexican"
+    },
+    {
+      "title": "National Pop Goes The Weasel Day",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Children,Pop Culture"
+    },
+    {
+      "title": "National Rosé Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Drinking"
+    },
+    {
+      "title": "National Strawberry Shortcake Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Fruit,Sweet Food"
+    },
+    {
+      "title": "Pahili Day",
+      "category": "Cultural",
+      "tags": "Appreciation,Festivities,Women"
+    },
+    {
+      "title": "Trooping The Colour",
+      "category": "Cultural",
+      "tags": "Festivities"
+    },
+    {
+      "title": "World Blood Donor Day",
+      "category": "Health",
+      "tags": "Activities,International"
+    },
+    {
+      "title": "World Gin Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Cocktail,Liquor"
+    },
+    {
+      "title": "World Juggling Day",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Fun,Hobby"
+    },
+    {
+      "title": "Raja Sankranti",
+      "category": "Cultural",
+      "tags": "Cultural Holidays,Indian Holidays,Women"
+    }
+  ],
+  "Jun 15": [
+    {
+      "title": "Beer Day Britain",
+      "category": "Food & Beverage",
+      "tags": "Beer,Beverage,Drinking"
+    },
+    {
+      "title": "BoxKart Bash Day",
+      "category": "Special Interest",
+      "tags": "Activities,International"
+    },
+    {
+      "title": "Global Wind Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Environmental"
+    },
+    {
+      "title": "Magna Carta Day",
+      "category": "Special Interest",
+      "tags": "Historical,International"
+    },
+    {
+      "title": "National Bug Busting Day",
+      "category": "Cause",
+      "tags": "Awareness,Children,Educational"
+    },
+    {
+      "title": "National Prune Day",
+      "category": "Food & Beverage",
+      "tags": "Fruit,Healthy Food"
+    },
+    {
+      "title": "National Salvation Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "National Turkey Lovers Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Healthy Food"
+    },
+    {
+      "title": "Nature Photography Day",
+      "category": "Special Interest",
+      "tags": "Activities,Environment,Technology"
+    },
+    {
+      "title": "Sneak A Kiss Day",
+      "category": "Relationship",
+      "tags": "Fun,Love"
+    },
+    {
+      "title": "Trinity Sunday",
+      "category": "Religious",
+      "tags": "Christian,Festivities,International"
+    },
+    {
+      "title": "World Elder Abuse Awareness Day",
+      "category": "Cause",
+      "tags": "Elderly,International,Safety"
+    },
+    {
+      "title": "YMA Day",
+      "category": "Federal",
+      "tags": "Cultural,Historical,Indian Holidays"
+    },
+    {
+      "title": "Carpenter Ant Awareness Week",
+      "category": "Animal",
+      "tags": "Awareness,Environment"
+    },
+    {
+      "title": "GreenCare for Troops Week",
+      "category": "Cause",
+      "tags": "Appreciation,Military"
+    },
+    {
+      "title": "Lightning Safety Awareness Week",
+      "category": "Health",
+      "tags": "Awareness,Educational,Environmental"
+    },
+    {
+      "title": "National Craft Spirits Week",
+      "category": "Food & Beverage",
+      "tags": "Drinking,Liquor"
+    },
+    {
+      "title": "National Forgiveness Week",
+      "category": "Special Interest",
+      "tags": "Family,Friendship"
+    },
+    {
+      "title": "National Grasslands Week",
+      "category": "Special Interest",
+      "tags": "Conservation,Environment"
+    },
+    {
+      "title": "National Play Catch Week",
+      "category": "Fun",
+      "tags": "Activities,Sports"
+    },
+    {
+      "title": "National Roller Coaster Week",
+      "category": "Fun",
+      "tags": "Activities,American,Fun"
+    },
+    {
+      "title": "Old Time Fiddlers Week",
+      "category": "Fun",
+      "tags": "Cultural,Funny"
+    },
+    {
+      "title": "Wobbly Week",
+      "category": "Health",
+      "tags": "Awareness,Health"
+    }
+  ],
+  "Jun 16": [
+    {
+      "title": "Arborist Appreciation Day",
+      "category": "Appreciation",
+      "tags": "Careers,Environmental"
+    },
+    {
+      "title": "Bloomsday",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Books,Irish"
+    },
+    {
+      "title": "Fresh Veggies Day",
+      "category": "Food & Beverage",
+      "tags": "Health,Healthy Food,Vegetable"
+    },
+    {
+      "title": "International Day of Family Remittances",
+      "category": "Special Interest",
+      "tags": "Awareness,Financial,Work"
+    },
+    {
+      "title": "International Day of the African Child",
+      "category": "Cause",
+      "tags": "Children,International,Parents"
+    },
+    {
+      "title": "International WaterFall Day",
+      "category": "Appreciation",
+      "tags": "Fun,International"
+    },
+    {
+      "title": "Martyrdom of Guru Arjan Dev Sahib",
+      "category": "Cultural",
+      "tags": "Historical,Indian Holidays"
+    },
+    {
+      "title": "National Fudge Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Dessert,Sweet Food"
+    },
+    {
+      "title": "Take Your Cat to Work Day",
+      "category": "Animal",
+      "tags": "Cat,Pet,Work"
+    },
+    {
+      "title": "World Sea Turtle Day",
+      "category": "Animal",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Youth Day",
+      "category": "Federal",
+      "tags": "Awareness,Civic,Historical"
+    },
+    {
+      "title": "Animal Rights Awareness Week",
+      "category": "Animal",
+      "tags": "Awareness,Pet"
+    },
+    {
+      "title": "Diabetes Week",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Learning Disability Week",
+      "category": "Cause",
+      "tags": "Awareness,Educational,Mental Health"
+    },
+    {
+      "title": "Universal Father's Week",
+      "category": "Appreciation",
+      "tags": "Parents"
+    }
+  ],
+  "Jun 17": [
+    {
+      "title": "Bunker Hill Day",
+      "category": "Special Interest",
+      "tags": "American,Historical"
+    },
+    {
+      "title": "Commemoration of General Don Martín Miguel de Güemes",
+      "category": "Federal",
+      "tags": "Obscure"
+    },
+    {
+      "title": "Gerald Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "Global Garbage Man Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Environment,Work"
+    },
+    {
+      "title": "Iceland Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "Miguel de Guemes Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "National Apple Strudel Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Fruit"
+    },
+    {
+      "title": "National Dump the Pump Day",
+      "category": "Cause",
+      "tags": "Conservation,Financial"
+    },
+    {
+      "title": "National Eat Your Vegetables Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Healthy Food,Vegetable"
+    },
+    {
+      "title": "national harrison day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Jan Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Mascot Day",
+      "category": "Special Interest",
+      "tags": "Fun,Sports"
+    },
+    {
+      "title": "national ralph day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Stewart’s Root Beer Day",
+      "category": "Food & Beverage",
+      "tags": "Beer,Beverage,Drinking"
+    },
+    {
+      "title": "Nursing Assistants Day",
+      "category": "Health",
+      "tags": "Appreciation,Health"
+    },
+    {
+      "title": "World Day to Combat Desertification and Drought",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    },
+    {
+      "title": "World Tessellation Day",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Careers,Hobby"
+    },
+    {
+      "title": "National Week of Making",
+      "category": "Special Interest",
+      "tags": "American"
+    }
+  ],
+  "Jun 18": [
+    {
+      "title": "Clean Your Aquarium Day",
+      "category": "Special Interest",
+      "tags": "Awareness"
+    },
+    {
+      "title": "International Day for Countering Hate Speech",
+      "category": "Cause",
+      "tags": "Educational"
+    },
+    {
+      "title": "International Panic Day",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle,Mental Health"
+    },
+    {
+      "title": "International Picnic Day",
+      "category": "Fun",
+      "tags": "Activities,Family,Food"
+    },
+    {
+      "title": "International Sushi Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Healthy Food"
+    },
+    {
+      "title": "King's Mother's Birthday",
+      "category": "Cultural",
+      "tags": "Birthdays"
+    },
+    {
+      "title": "National Black America’s Day of Repentance",
+      "category": "Special Interest",
+      "tags": "American"
+    },
+    {
+      "title": "National Cherry Tart Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Fruit,Sweet Food"
+    },
+    {
+      "title": "National Fishing Day",
+      "category": "Special Interest",
+      "tags": "Activities,Awareness,Hobby,Wildlife"
+    },
+    {
+      "title": "National Panic Day",
+      "category": "Health",
+      "tags": "Awareness,Mental Health"
+    },
+    {
+      "title": "National Splurge Day",
+      "category": "Special Interest",
+      "tags": "Financial"
+    },
+    {
+      "title": "National Wanna Get Away Day",
+      "category": "Fun",
+      "tags": "Activities,American"
+    },
+    {
+      "title": "Seychelles Constitution Day",
+      "category": "Federal",
+      "tags": "Civic"
+    },
+    {
+      "title": "Sustainable Gastronomy Day",
+      "category": "Food & Beverage",
+      "tags": "Awareness,Conservation,Food"
+    },
+    {
+      "title": "Wear BLUE Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Health"
+    }
+  ],
+  "Jun 19": [
+    {
+      "title": "Artigas Day",
+      "category": "Federal",
+      "tags": "Birthdays,Civic,Historical"
+    },
+    {
+      "title": "Corpus Christi",
+      "category": "Religious",
+      "tags": "Catholic,Christian,Festivities"
+    },
+    {
+      "title": "International Box Day",
+      "category": "Special Interest",
+      "tags": "Activities,Cat,Pet"
+    },
+    {
+      "title": "International Day for the Elimination of Sexual Violence in Conflict",
+      "category": "Cause",
+      "tags": "Awareness,Women"
+    },
+    {
+      "title": "Juneteenth",
+      "category": "Federal",
+      "tags": "American,Historical"
+    },
+    {
+      "title": "National FreeBSD Day",
+      "category": "Appreciation",
+      "tags": "Educational,Technology"
+    },
+    {
+      "title": "National Garfield the Cat Day",
+      "category": "Fun",
+      "tags": "Cat,Children,Pop Culture"
+    },
+    {
+      "title": "National Martini Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Cocktail,Drinking"
+    },
+    {
+      "title": "National Watch Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Hobby"
+    },
+    {
+      "title": "World Sauntering Day",
+      "category": "Health",
+      "tags": "Lifestyle"
+    },
+    {
+      "title": "World Sickle Cell Day",
+      "category": "Health",
+      "tags": "Awareness,Diseases,Education"
+    },
+    {
+      "title": "World Tapas Day",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food"
+    },
+    {
+      "title": "Art Basel",
+      "category": "Cultural",
+      "tags": "Awareness,Educational"
+    }
+  ],
+  "Jun 20": [
+    {
+      "title": "American Eagle Day",
+      "category": "Cause",
+      "tags": "American,Conservation,Wildlife"
+    },
+    {
+      "title": "Flag Day Argentina",
+      "category": "Cultural",
+      "tags": "Appreciation,Festivities,Historical"
+    },
+    {
+      "title": "Kouign Amann Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Food,Sweet Food"
+    },
+    {
+      "title": "Martyrs' Day in Eritrea",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Matariki",
+      "category": "Cultural",
+      "tags": "Cultural,Ethnic"
+    },
+    {
+      "title": "National Celluma Light Therapy Day",
+      "category": "Health",
+      "tags": "Awareness,Technology"
+    },
+    {
+      "title": "National Day of the Indigenous People in Chile",
+      "category": "Federal",
+      "tags": "Appreciation,Civic"
+    },
+    {
+      "title": "National Flip Flop Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Summer"
+    },
+    {
+      "title": "National Hike with a Geek Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun,Pop Culture"
+    },
+    {
+      "title": "National Ice Cream Soda Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Ice Cream,Sweet Food"
+    },
+    {
+      "title": "National Take Back the Lunch Break Day",
+      "category": "Health",
+      "tags": "Crazy,Food,Work"
+    },
+    {
+      "title": "National Take Your Dog to Work Day",
+      "category": "Animal",
+      "tags": "Dog,Fun,Pet"
+    },
+    {
+      "title": "National Vanilla Milkshake Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage"
+    },
+    {
+      "title": "National West Virginia Day",
+      "category": "Federal",
+      "tags": "American,Civic,Historical"
+    },
+    {
+      "title": "Nystagmus Awareness Day",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Ugliest Dog Day",
+      "category": "Animal",
+      "tags": "Crazy,Dog,Pet"
+    },
+    {
+      "title": "World Productivity Day",
+      "category": "Special Interest",
+      "tags": "American,Lifestyle,Work"
+    },
+    {
+      "title": "World Refugee Day",
+      "category": "Cause",
+      "tags": "International"
+    },
+    {
+      "title": "National Mosquito Control Awareness Week",
+      "category": "Animal",
+      "tags": "Awareness,Diseases,Health"
+    },
+    {
+      "title": "Refugee Week",
+      "category": "Cause",
+      "tags": "Awareness,International"
+    }
+  ],
+  "Jun 21": [
+    {
+      "title": "Andean New Year",
+      "category": "Cultural",
+      "tags": "Activities,Ethnic,Pagan"
+    },
+    {
+      "title": "Aymara New Year",
+      "category": "Cultural",
+      "tags": "Civic,Cultural Holidays,Historical"
+    },
+    {
+      "title": "Aymara New Year Day",
+      "category": "Federal",
+      "tags": "Cultural Holidays,Federal"
+    },
+    {
+      "title": "Canada's National Indigenous Peoples Day",
+      "category": "Cultural",
+      "tags": "Canadian,Civic,Historical"
+    },
+    {
+      "title": "Go Skateboarding Day",
+      "category": "Special Interest",
+      "tags": "Activities,Hobby,Sports"
+    },
+    {
+      "title": "International Day of the Celebration of the Solstice",
+      "category": "Cultural",
+      "tags": "Cultural,Ethnic,Pagan"
+    },
+    {
+      "title": "International Day of Yoga",
+      "category": "Health",
+      "tags": "Activities,Historical"
+    },
+    {
+      "title": "International Surfing Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Environmental,Sports"
+    },
+    {
+      "title": "International Yoga Day",
+      "category": "Special Interest",
+      "tags": "International,Lifestyle,Mental Health"
+    },
+    {
+      "title": "Martyrs' Day in Togo",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "National Aboriginal Day",
+      "category": "Federal",
+      "tags": "Appreciation,Awareness,Civic"
+    },
+    {
+      "title": "National Arizona Day",
+      "category": "Federal",
+      "tags": "American,Civic,Historical"
+    },
+    {
+      "title": "National Cookie Dough Day",
+      "category": "Food & Beverage",
+      "tags": "Comfort Food,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Day of the Gong",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Hobby,Music"
+    },
+    {
+      "title": "National Daylight Appreciation Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Environment"
+    },
+    {
+      "title": "National Dog Party Day",
+      "category": "Special Interest",
+      "tags": "Dog,Pet,Pet Health"
+    },
+    {
+      "title": "National Peaches and Cream Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Fruit,Sweet Food"
+    },
+    {
+      "title": "National Seashell Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Hobby"
+    },
+    {
+      "title": "National Selfie Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun"
+    },
+    {
+      "title": "National Smoothie Day",
+      "category": "Food & Beverage",
+      "tags": "Fruit,Healthy Food,Lifestyle"
+    },
+    {
+      "title": "National Wagyu Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Food"
+    },
+    {
+      "title": "National Yard Games Day",
+      "category": "Fun",
+      "tags": "Sports,Summer"
+    },
+    {
+      "title": "Shades for Migraine",
+      "category": "Health",
+      "tags": "Awareness,Diseases"
+    },
+    {
+      "title": "Summer Solstice",
+      "category": "Cause",
+      "tags": "Pagan,Summer"
+    },
+    {
+      "title": "World Day of Music",
+      "category": "Fun",
+      "tags": "International,Music"
+    },
+    {
+      "title": "World Giraffe Day",
+      "category": "Animal",
+      "tags": "Appreciation,Conservation,Wildlife"
+    },
+    {
+      "title": "World Humanist Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Cultural,International"
+    },
+    {
+      "title": "World Hydrography Day",
+      "category": "Appreciation",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "World MotorCycle Day",
+      "category": "Special Interest",
+      "tags": "Activities,Fun,Hobby"
+    },
+    {
+      "title": "English Wine Week",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Drinking,Liquor"
+    }
+  ],
+  "Jun 22": [
+    {
+      "title": "Anti-Fascist Struggle Day",
+      "category": "Federal",
+      "tags": "Civic,Military"
+    },
+    {
+      "title": "B Kinder",
+      "category": "Special Interest",
+      "tags": "Awareness,Children"
+    },
+    {
+      "title": "Glastonbury Festival",
+      "category": "Arts & Entertainment",
+      "tags": "Festivities,Music,Pop Culture"
+    },
+    {
+      "title": "National Chocolate Eclair Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Fatherless Children’s Day",
+      "category": "Special Interest",
+      "tags": "American,Awareness"
+    },
+    {
+      "title": "National HVAC Tech Day",
+      "category": "Appreciation",
+      "tags": "Technology"
+    },
+    {
+      "title": "National Kissing Day",
+      "category": "Relationship",
+      "tags": "Activities,Friendship,Love"
+    },
+    {
+      "title": "National Limoncello Day",
+      "category": "Food & Beverage",
+      "tags": "Beverage,Drinking,Liquor"
+    },
+    {
+      "title": "National Onion Ring Day",
+      "category": "Food & Beverage",
+      "tags": "American food,Fast Food,Vegetable"
+    },
+    {
+      "title": "National Pet Choking Prevention Day",
+      "category": "AnimalCauseHealth",
+      "tags": "Awareness,Pet Health"
+    },
+    {
+      "title": "Positive Media Day",
+      "category": "Special Interest",
+      "tags": "American,Awareness"
+    },
+    {
+      "title": "Windrush Day",
+      "category": "Cultural",
+      "tags": "Appreciation,Cultural"
+    },
+    {
+      "title": "World Rainforest Day",
+      "category": "Cause",
+      "tags": "Awareness,Conservation,Environment"
+    },
+    {
+      "title": "Deafblind Awareness Week",
+      "category": "Cause",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "Fish are Friends Not Food Week",
+      "category": "Animal",
+      "tags": "Awareness,Pet,Wildlife"
+    },
+    {
+      "title": "National Tennis Week",
+      "category": "Special Interest",
+      "tags": "American,Sports"
+    },
+    {
+      "title": "Windjammer Days",
+      "category": "Special Interest",
+      "tags": "Activities,Sports"
+    }
+  ],
+  "Jun 23": [
+    {
+      "title": "Columbia Corpus Christi Holiday",
+      "category": "Religious",
+      "tags": "Catholic"
+    },
+    {
+      "title": "International Olympic Day",
+      "category": "Special Interest",
+      "tags": "Activities,International,Sports"
+    },
+    {
+      "title": "International Widows' Day",
+      "category": "Cause",
+      "tags": "Awareness,International,Women"
+    },
+    {
+      "title": "International Women in Engineering Day",
+      "category": "Special Interest",
+      "tags": "Careers,Technology,Women"
+    },
+    {
+      "title": "Jura Independence Day",
+      "category": "Cultural",
+      "tags": "Federal,Historical"
+    },
+    {
+      "title": "Let it Go Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Health,Mental Health"
+    },
+    {
+      "title": "Luxembourg National Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "National Detroit Style Pizza Day",
+      "category": "Food & Beverage",
+      "tags": "American,Fast Food,Food"
+    },
+    {
+      "title": "National Family Owned & Operated Businesses Day",
+      "category": "Special Interest",
+      "tags": "American,Cultural,Financial"
+    },
+    {
+      "title": "National Hydration Day",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "National Pecan Sandies Day",
+      "category": "Food & Beverage",
+      "tags": "Baking,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Pink Day",
+      "category": "Fun",
+      "tags": "Obscure"
+    },
+    {
+      "title": "National Porridge Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Breakfast,Food"
+    },
+    {
+      "title": "National Typewriter Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Books,Technology"
+    },
+    {
+      "title": "Pink Flamingo Day",
+      "category": "Special Interest",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "United Nations Public Service Day",
+      "category": "Appreciation",
+      "tags": "Careers,International"
+    },
+    {
+      "title": "Victory Day Estonia",
+      "category": "Federal",
+      "tags": "Appreciation,Awareness,Historical"
+    },
+    {
+      "title": "Insect Week",
+      "category": "Animal",
+      "tags": "Appreciation,Special Interest"
+    },
+    {
+      "title": "National Pollinator Week",
+      "category": "Animal",
+      "tags": "Appreciation,Conservation,Environmental"
+    }
+  ],
+  "Jun 24": [
+    {
+      "title": "Armed Forces Day (U.K.)",
+      "category": "Federal",
+      "tags": "Appreciation,Military"
+    },
+    {
+      "title": "Farmer Day",
+      "category": "Cultural",
+      "tags": "Appreciation,Cultural"
+    },
+    {
+      "title": "International Fairy Day",
+      "category": "Cultural",
+      "tags": "Children,Fun"
+    },
+    {
+      "title": "International St. Johns Day",
+      "category": "Religious",
+      "tags": "Christian,Historical,Summer"
+    },
+    {
+      "title": "Inti Raymi",
+      "category": "Cultural",
+      "tags": "Festivities,Historical,Pagan"
+    },
+    {
+      "title": "Jani",
+      "category": "Cultural",
+      "tags": "Cultural Holidays,Festivities,Pagan"
+    },
+    {
+      "title": "Midsummer",
+      "category": "Cultural",
+      "tags": "Activities,Fun"
+    },
+    {
+      "title": "National Le Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Pralines Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Food,Sweet Food"
+    },
+    {
+      "title": "National Relationship Equity Day",
+      "category": "Relationship",
+      "tags": "Friendship,Love"
+    },
+    {
+      "title": "St John's Day (Venezuela)",
+      "category": "Religious",
+      "tags": "Catholic,Christian,Festivities"
+    },
+    {
+      "title": "St. Jean Baptiste Day",
+      "category": "Religious",
+      "tags": "Canadian,Christian,Festivities"
+    },
+    {
+      "title": "Swim a Lap Day",
+      "category": "Health",
+      "tags": "Activities,Lifestyle"
+    },
+    {
+      "title": "Upcycling Day",
+      "category": "Cause",
+      "tags": "Conservation,Environment"
+    }
+  ],
+  "Jun 25": [
+    {
+      "title": "Bourdain Day",
+      "category": "Arts & Entertainment",
+      "tags": "Celebrity,Pop Culture"
+    },
+    {
+      "title": "Croatia Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Global Beatles Day",
+      "category": "Arts & Entertainment",
+      "tags": "International,Music,Pop Culture"
+    },
+    {
+      "title": "Goats Cheese Day",
+      "category": "Food & Beverage",
+      "tags": "Cheese,Comfort Food"
+    },
+    {
+      "title": "International Day of the Seafarer",
+      "category": "Federal",
+      "tags": "Civic,Historical,International"
+    },
+    {
+      "title": "Islamic New Year",
+      "category": "Religious",
+      "tags": "Islamic"
+    },
+    {
+      "title": "Mozambique Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "National Camp Counts Day",
+      "category": "Cause",
+      "tags": "Children,Pop Culture,Summer"
+    },
+    {
+      "title": "National Catfish Day",
+      "category": "Animal",
+      "tags": "Appreciation,Food,Wildlife"
+    },
+    {
+      "title": "National Croatian Wine Day",
+      "category": "Food & Beverage",
+      "tags": "Appreciation,Drinking,Liquor"
+    },
+    {
+      "title": "National Day of Joy",
+      "category": "Fun",
+      "tags": "Fun"
+    },
+    {
+      "title": "National Leon Day",
+      "category": "Fun",
+      "tags": "Activities,Festivities"
+    },
+    {
+      "title": "National Olaplex Day",
+      "category": "Special Interest",
+      "tags": "Brand,Lifestyle,Women"
+    },
+    {
+      "title": "National Parchment Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Baking,Hobby"
+    },
+    {
+      "title": "National Strawberry Parfait Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Fruit,Sweet Food"
+    },
+    {
+      "title": "Please Take My Children to Work Day",
+      "category": "Special Interest",
+      "tags": "Children,Parents,Work"
+    },
+    {
+      "title": "Reserves Day",
+      "category": "Federal",
+      "tags": "Careers,Civic,Military"
+    },
+    {
+      "title": "Statehood Day",
+      "category": "Federal",
+      "tags": "Appreciation,Civic,Historical"
+    },
+    {
+      "title": "The Day of the Filipino Seafarer",
+      "category": "Special Interest",
+      "tags": "Appreciation,Careers,International"
+    },
+    {
+      "title": "World Vitiligo Day",
+      "category": "Health",
+      "tags": "Awareness,Diseases"
+    },
+    {
+      "title": "National Boys & Girls Club Week",
+      "category": "Cause",
+      "tags": "American,Awareness,Children"
+    },
+    {
+      "title": "Organic Beer Fest",
+      "category": "Food & Beverage",
+      "tags": "Beer,Festivities,Liquor"
+    }
+  ],
+  "Jun 26": [
+    {
+      "title": "Azerbaijan Armed Forces Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Military"
+    },
+    {
+      "title": "Flag Day of Romania",
+      "category": "Cultural",
+      "tags": "Civic,Cultural,Historical"
+    },
+    {
+      "title": "Forgiveness Day",
+      "category": "Cultural",
+      "tags": "Awareness"
+    },
+    {
+      "title": "International Day Against Drug Abuse and Illicit Trafficking",
+      "category": "Cause",
+      "tags": "Awareness,Health,Safety"
+    },
+    {
+      "title": "Madagascar Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "National Barcode Day",
+      "category": "Special Interest",
+      "tags": "Historical,Technology"
+    },
+    {
+      "title": "National Beautician Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Career,Lifestyle"
+    },
+    {
+      "title": "National Bomb Pop Day",
+      "category": "Food & Beverage",
+      "tags": "Summer,Sweet Food"
+    },
+    {
+      "title": "National Canoe Day",
+      "category": "Fun",
+      "tags": "Activities,Environment"
+    },
+    {
+      "title": "National Chocolate Pudding Day",
+      "category": "Food & Beverage",
+      "tags": "Chocolate,Dessert,Sweet Food"
+    },
+    {
+      "title": "National Handshake Day",
+      "category": "Relationship",
+      "tags": "Appreciation,Obscure"
+    },
+    {
+      "title": "National Report Trade Agreement Act Fraud Day",
+      "category": "Special Interest",
+      "tags": "Awareness"
+    },
+    {
+      "title": "National Sarah Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Work From Home Day",
+      "category": "Special Interest",
+      "tags": "Career,Lifestyle,Work"
+    },
+    {
+      "title": "Somalia Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Cultural,Historical"
+    },
+    {
+      "title": "United Nations International Day in Support of Victims of Torture",
+      "category": "Cause",
+      "tags": "Awareness,Educational"
+    },
+    {
+      "title": "World Refrigeration Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Educational,Technology"
+    },
+    {
+      "title": "Watermelon Seed Spitting Week",
+      "category": "Food & Beverage",
+      "tags": "Activities,Fruit"
+    }
+  ],
+  "Jun 27": [
+    {
+      "title": "Amun Jadid",
+      "category": "Religious",
+      "tags": "Cultural,Islamic"
+    },
+    {
+      "title": "Attwari",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Cream Tea Day",
+      "category": "Cause",
+      "tags": "Activities,Beverage,Comfort Food"
+    },
+    {
+      "title": "Day of National Unity (Tajikistan)",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Day of Turkmen Workers of Culture and Art",
+      "category": "Special Interest",
+      "tags": "Appreciation,Cultural,Work"
+    },
+    {
+      "title": "Decide to be Married Day",
+      "category": "Relationship",
+      "tags": "Fun,Love"
+    },
+    {
+      "title": "Djibouti Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Drive Your Corvette to Work Day",
+      "category": "Fun",
+      "tags": "American,Lifestyle,Work"
+    },
+    {
+      "title": "Helen Keller Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Women"
+    },
+    {
+      "title": "Micro Small and Medium Sized Enterprises Day",
+      "category": "Cause",
+      "tags": "American,Financial,Work"
+    },
+    {
+      "title": "National Bingo Day",
+      "category": "Fun",
+      "tags": "Hobby,Pop Culture"
+    },
+    {
+      "title": "National Food Truck Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Careers,Fast Food"
+    },
+    {
+      "title": "National HIV Testing Day",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "National Onion Day",
+      "category": "Food & Beverage",
+      "tags": "Food,Healthy Food,Vegetable"
+    },
+    {
+      "title": "National Orange Blossom Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Environment,Food"
+    },
+    {
+      "title": "National SAFER Workplace Day",
+      "category": "Cause",
+      "tags": ""
+    },
+    {
+      "title": "National Sunglasses Day",
+      "category": "Special Interest",
+      "tags": "Activities"
+    },
+    {
+      "title": "National Women’s Fly Fishing Day",
+      "category": "Appreciation",
+      "tags": "Activities,American,Fun"
+    },
+    {
+      "title": "PTSD Awareness Day",
+      "category": "Health",
+      "tags": "Awareness"
+    },
+    {
+      "title": "Rath Yatra",
+      "category": "Religious",
+      "tags": "Cultural,Hindu,Indian Holidays"
+    },
+    {
+      "title": "Tajikistan Unity Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Vincy Mas in Saint Vincent and the Grenadines",
+      "category": "Cultural",
+      "tags": "Festivities"
+    }
+  ],
+  "Jun 28": [
+    {
+      "title": "ARRL Field Day",
+      "category": "Special Interest",
+      "tags": "Festivities"
+    },
+    {
+      "title": "Christopher Street Day",
+      "category": "Cause",
+      "tags": "Awareness,Festivities,LGBTQ"
+    },
+    {
+      "title": "Constitution Day (Ukraine)",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "Family Day in Vietnam",
+      "category": "Cultural",
+      "tags": "Activities,Cultural Holidays,Fun"
+    },
+    {
+      "title": "Midsummer Day",
+      "category": "Cultural",
+      "tags": "Appreciation,Festivities,Summer"
+    },
+    {
+      "title": "National Climate-Smart Skin Awareness Day",
+      "category": "Health",
+      "tags": "Awareness,Lifestyle"
+    },
+    {
+      "title": "National Insurance Awareness Day",
+      "category": "Cause",
+      "tags": "Safety"
+    },
+    {
+      "title": "National Logistics Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Career,Work"
+    },
+    {
+      "title": "National Pride Prom Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Festivities,LGBTQ"
+    },
+    {
+      "title": "National Tapioca Day",
+      "category": "Food & Beverage",
+      "tags": "Cooking,Food"
+    },
+    {
+      "title": "Paul Bunyan Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Cultural"
+    },
+    {
+      "title": "St. Vitus Day",
+      "category": "Religious",
+      "tags": "Appreciation,Historical"
+    },
+    {
+      "title": "Stonewall Riots Anniversary",
+      "category": "Cultural",
+      "tags": "Awareness,Cultural,Historical"
+    },
+    {
+      "title": "Summersgiving Day",
+      "category": "Fun",
+      "tags": "American,Food"
+    },
+    {
+      "title": "Tau Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Educational,Obscure"
+    }
+  ],
+  "Jun 29": [
+    {
+      "title": "Bonalu",
+      "category": "Religious",
+      "tags": "Festivities,Hindu,Indian Holidays"
+    },
+    {
+      "title": "Central Province Day",
+      "category": "Federal",
+      "tags": "Civic,Cultural,Festivities"
+    },
+    {
+      "title": "Feast Day of Saints Peter and Paul",
+      "category": "Religious",
+      "tags": "Catholic,Historical"
+    },
+    {
+      "title": "Hug Holiday",
+      "category": "Special Interest",
+      "tags": "Family,Friendship,Love"
+    },
+    {
+      "title": "Internal Autonomy Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "International Day of the Tropics",
+      "category": "Special Interest",
+      "tags": "Appreciation,Awareness,Educational"
+    },
+    {
+      "title": "International Fisherman Day",
+      "category": "Appreciation",
+      "tags": "Appreciation,Careers"
+    },
+    {
+      "title": "International Mud Day",
+      "category": "Special Interest",
+      "tags": "Awareness,Fun,International"
+    },
+    {
+      "title": "Log Cabin Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Historical,Lifestyle"
+    },
+    {
+      "title": "National Almond Buttercrunch Day",
+      "category": "Food & Beverage",
+      "tags": "Dessert,Food,Sweet Food"
+    },
+    {
+      "title": "National Bacon Burnt End Day",
+      "category": "Food & Beverage",
+      "tags": "American,Cooking,Food"
+    },
+    {
+      "title": "National Camera Day",
+      "category": "Arts & Entertainment",
+      "tags": "Activities,Fun,Hobby"
+    },
+    {
+      "title": "National Dieselbilly Day",
+      "category": "Arts & Entertainment",
+      "tags": "Appreciation,Music"
+    },
+    {
+      "title": "National Guy Day",
+      "category": "Fun",
+      "tags": "Appreciation"
+    },
+    {
+      "title": "National Waffle Iron Day",
+      "category": "Food & Beverage",
+      "tags": "Breakfast,Sweet Food,Technology"
+    },
+    {
+      "title": "Saint Peter and Saint Paul Day (Chile)",
+      "category": "Religious",
+      "tags": "Catholic,Christian,Federal"
+    },
+    {
+      "title": "San Francisco's Birthday",
+      "category": "Cultural",
+      "tags": "Appreciation,Festivities,Historical"
+    },
+    {
+      "title": "Seychelles Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Festivities,Historical"
+    },
+    {
+      "title": "St Peter's Day",
+      "category": "Special Interest",
+      "tags": "Catholic,International"
+    },
+    {
+      "title": "The Feast of Saints Peter and Paul",
+      "category": "Religious",
+      "tags": "Catholic,Christian"
+    }
+  ],
+  "Jun 30": [
+    {
+      "title": "Armed Forces Day (Guatemala)",
+      "category": "Federal",
+      "tags": "Civic,Historical,Military"
+    },
+    {
+      "title": "Congo Independence Day",
+      "category": "Federal",
+      "tags": "Civic,Historical"
+    },
+    {
+      "title": "International Asteroid Day",
+      "category": "Special Interest",
+      "tags": "International,Obscure,Technology"
+    },
+    {
+      "title": "International Day of Parliamentarism",
+      "category": "Special Interest",
+      "tags": "Appreciation,Educational,International"
+    },
+    {
+      "title": "National Corvette Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Hobby"
+    },
+    {
+      "title": "National Meteor Watch Day",
+      "category": "Special Interest",
+      "tags": "Hobby,Technology"
+    },
+    {
+      "title": "National OOTD Day",
+      "category": "Special Interest",
+      "tags": "Appreciation,Fashion,Hobby"
+    },
+    {
+      "title": "Philippine-Spanish Friendship Day",
+      "category": "Federal",
+      "tags": "Civic,Cultural,Historical"
+    },
+    {
+      "title": "Sacred Heart",
+      "category": "Religious",
+      "tags": "Catholic,Cultural"
+    },
+    {
+      "title": "Social Media Day",
+      "category": "Special Interest",
+      "tags": "Activities,Mental Health,Technology"
+    },
+    {
+      "title": "Rabbit Week",
+      "category": "Animal",
+      "tags": "Awareness,Pet"
+    }
+  ]
+}

@@ -23,3 +23,14 @@ function get_feature ($key) {
 
     return $features->$key;
 }
+
+function getDaysInMonth($monthName, $year) {
+    $fullMonthName = date('F', strtotime($monthName . ' 1'));
+    $date = \DateTime::createFromFormat('F Y', "$fullMonthName $year");
+
+    if ($date) {
+        return $date->format('t');
+    } else {
+        return 31;
+    }
+}
