@@ -39,15 +39,22 @@
                             <tbody>
                                 <tr class="mid-number">
                                     @php
-                                        // $currentMonth = strtolower(\Carbon\Carbon::now()->format('M'));
+                                        $currentMonthD = strtolower(\Carbon\Carbon::now()->format('M'));
                                         $currentDay = \Carbon\Carbon::now()->day;
                                         $currentYear = \Carbon\Carbon::now()->year;
                                         $daysInMonth = getDaysInMonth($currentMonth, $currentYear);
                                     @endphp
                                     @for ($i = 1; $i <= $daysInMonth; $i++)
+                                        @php
+                                            $active = '';
+                                            if ($currentMonthD == $currentMonth && $currentDay == $i) {
+                                                $active = 'active';
+                                                $currentHash = "#{$currentMonth}-{$i}";
+                                            }
+                                        @endphp
                                         <td>
                                             <a href="#{{ $currentMonth }}-{{ $i }}">
-                                                <span class="{{ ($i == 1) ? 'active' : '' }}">{{ $i }}</span>
+                                                <span class="{{ $active }}">{{ $i }}</span>
                                             </a>
                                         </td>
                                     @endfor
@@ -136,4 +143,18 @@
     </section>
 
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        var hash = '{{ $currentHash }}';
+
+        if (hash != '') {
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000);
+        }
+    });
+</script>
 @endsection
