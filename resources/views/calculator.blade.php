@@ -3,17 +3,60 @@
 @section('title', 'Calculator')
 
 @section('css')
-<style>
-    .WordLetterCount {
-        color: #e9e0e0;
-        font-size: 22px;
-        font-weight: 100;
-    }
-</style>
+    <style>
+        .WordLetterCount {
+            color: #e9e0e0;
+            font-size: 22px;
+            font-weight: 100;
+        }
+
+        .calculator-data-show {
+            margin: 40px 0;
+            /* padding: 20px 20px; */
+            /* border: 2px solid orange; */
+            border-radius: 5px;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .data-ciphers {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            flex-direction: column-reverse;
+            gap: 10px;
+            height: 100px;
+            border: 2px solid orange;
+            padding: 10px 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .chiphers-info h5 {
+            margin: 0;
+            color: white;
+            font-size: 13px;
+            /* font-family: "Lato"; */
+            /* font-weight: 700; */
+        }
+
+        .chiphers-data-number p {
+            margin: 0;
+            color: white;
+            font-size: 25px;
+            /* font-family: "Lato"; */
+            /* font-weight: 600;*/
+        }
+
+        .calculator-data-show .row {
+            justify-content: center;
+        }
+    </style>
 @endsection
 
 @section('content')
-    <link rel="stylesheet" href="{{asset('css/numberstyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/numberstyle.css') }}">
 
     <section class="calculator-meter">
         <div class="container">
@@ -34,8 +77,12 @@
                                                         $blue = $rgb['blue'] ?? 0;
                                                     @endphp
                                                     <td class="GemTableHeader">
-                                                        <div class="GemTableHeader change-cipher" data-id="{{ $cipher['id'] }}" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
-                                                            <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $cipher['name'] }}</font>
+                                                        <div class="GemTableHeader change-cipher"
+                                                            data-id="{{ $cipher['id'] }}"
+                                                            onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
+                                                            <font
+                                                                style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                                {{ $cipher['name'] }}</font>
                                                         </div>
                                                     </td>
                                                 @endforeach
@@ -56,18 +103,25 @@
                                                         $blue = $rgb['blue'] ?? 0;
                                                     @endphp
                                                     <td class="GemTableValue" id="TableValue_{{ $cipher['name'] }}">
-                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                        <font
+                                                            style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
                                                             <div class="NumberClass">
                                                                 @if ($cipher['id'] == 'D0')
-                                                                    <b id="ordinal" class="justnumber" onclick="Open_Properties(0)">0</b>
+                                                                    <b id="ordinal" class="justnumber"
+                                                                        onclick="Open_Properties(0)">0</b>
                                                                 @elseif($cipher['id'] == 'D1')
-                                                                    <b id="reduction" class="justnumber" onclick="Open_Properties(1)">0</b>
+                                                                    <b id="reduction" class="justnumber"
+                                                                        onclick="Open_Properties(1)">0</b>
                                                                 @elseif($cipher['id'] == 'D2')
-                                                                    <b id="reverse" class="justnumber" onclick="Open_Properties(2)">0</b>
+                                                                    <b id="reverse" class="justnumber"
+                                                                        onclick="Open_Properties(2)">0</b>
                                                                 @elseif($cipher['id'] == 'D3')
-                                                                    <b id="reverse_reduction" class="justnumber" onclick="Open_Properties(3)">0</b>
+                                                                    <b id="reverse_reduction" class="justnumber"
+                                                                        onclick="Open_Properties(3)">0</b>
                                                                 @else
-                                                                    <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number" onclick="Open_Properties({{ $cipher['id'] }})">0</b>
+                                                                    <b id="cipher_{{ $cipher['id'] }}"
+                                                                        class="justnumber target_number"
+                                                                        onclick="Open_Properties({{ $cipher['id'] }})">0</b>
                                                                 @endif
                                                             </div>
                                                         </font>
@@ -132,12 +186,170 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="calculator-data-show">
+                        <div class="row">
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers" style="
+    border-color: green;
+    !i;!;!;!
+    @;!;
+">
+                                    <div class="chiphers-info">
+                                        <h5 style="
+    color: green;
+">
+                                            Ordinal</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p style="
+    color: green;
+">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers" style="
+    border-color: rgb(102, 204, 153);
+">
+                                    <div class="chiphers-info">
+                                        <h5 style="
+    color: rgb(102, 204, 153);
+">
+                                            Reduction</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p style="
+    color: rgb(102, 204, 153);
+">100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers" style="
+    border-color: rgb(88, 125, 245);
+">
+                                    <div class="chiphers-info">
+                                        <h5 style="
+    color: rgb(88, 125, 245);
+">
+                                            Reverse</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p style="
+    color: rgb(88, 125, 245);
+">50</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers" style="
+    border-color: rgb(80, 235, 21);
+">
+                                    <div class="chiphers-info">
+                                        <h5 style="
+    color: rgb(80, 235, 21);
+">Reverse Reduction</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p style="
+    color: rgb(80, 235, 21);
+">600</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>Composite Reduced</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>William G. Gray</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>8</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>
+                                            Ordinal</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>
+                                            Reduction</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>
+                                            Reverse</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>50</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>Reverse Reduction</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>600</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>Composite Reduced</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pl-1 pr-1">
+                                <div class="data-ciphers">
+                                    <div class="chiphers-info">
+                                        <h5>William G. Gray</h5>
+                                    </div>
+                                    <div class="chiphers-data-number">
+                                        <p>8</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-{{--            <div class="row justify-content-center">--}}
-{{--                <div id="WordLetterCount text-center">--}}
-{{--                    <div class="WordLetterCount para white">(0 words, 0 letters)</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div class="row justify-content-center"> --}}
+            {{--                <div id="WordLetterCount text-center"> --}}
+            {{--                    <div class="WordLetterCount para white">(0 words, 0 letters)</div> --}}
+            {{--                </div> --}}
+            {{--            </div> --}}
         </div>
     </section>
 
@@ -147,11 +359,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                        <script src="js/newfunctions.js"></script>
-                        <script src="js/buildfunctions.js"></script>
-                        <script src="js/matchfunctions.js"></script>
-                        <script src="js/historyfunctions.js"></script>
-                        <script src="js/ss.js"></script> -->
+                                                                                                                                        <script src="js/newfunctions.js"></script>
+                                                                                                                                        <script src="js/buildfunctions.js"></script>
+                                                                                                                                        <script src="js/matchfunctions.js"></script>
+                                                                                                                                        <script src="js/historyfunctions.js"></script>
+                                                                                                                                        <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -159,9 +371,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                        <script src="js/cipherbuilder.js"></script>
-                        <script src="js/html2canvas.min.js"></script>
-                        <script src="js/load.js"></script> -->
+                                                                                                                                        <script src="js/cipherbuilder.js"></script>
+                                                                                                                                        <script src="js/html2canvas.min.js"></script>
+                                                                                                                                        <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -190,8 +402,9 @@
                                     <!-- ENTRY SECTION -->
                                     <div id="EntryDiv">
                                         <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-left" style="font-size:38px"></i></button> -->
-{{--                                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" oninput="FieldChange(EntryValue())" onkeydown="navHistTable(event)" ondrop="BuildFromText(event)" ondragenter="ShowDropTarget()" ondragleave="RemoveDropTarget()" ondragexit="RemoveDropTarget()" placeholder="Enter Word, Phrase, or #(s):">--}}
-                                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" placeholder="Enter Word, Phrase, or #(s):">
+                                        {{-- <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" oninput="FieldChange(EntryValue())" onkeydown="navHistTable(event)" ondrop="BuildFromText(event)" ondragenter="ShowDropTarget()" ondragleave="RemoveDropTarget()" ondragexit="RemoveDropTarget()" placeholder="Enter Word, Phrase, or #(s):"> --}}
+                                        <input id="EntryField" class="" autofocus="" type="text"
+                                            autocomplete="off" placeholder="Enter Word, Phrase, or #(s):">
                                         <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-right" style="font-size:38px"></i></button> -->
                                     </div>
                                     <br>
@@ -205,24 +418,33 @@
                                     <span id="SimpleSpot" class="nextGenText"></span>
                                     <div style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                                         <div id="printBreakTable" style="display:table-cell; width: 100%;">
-                                            <div id="watermarkBreakGuy" style="display:none;"><img decoding="async" src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator" width="28" style="margin-top: 10px; margin-right:0px; float:right; opacity:.25;">
+                                            <div id="watermarkBreakGuy" style="display:none;"><img decoding="async"
+                                                    src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator"
+                                                    width="28"
+                                                    style="margin-top: 10px; margin-right:0px; float:right; opacity:.25;">
                                             </div>
                                             <center id="center_printBreakTable">
                                                 <input type="hidden" name="cipher_id" id="cipher_id" value="">
-                                                <table id="breakdownCipherLabel" style="width:100%; display: inline;"></table>
+                                                <table id="breakdownCipherLabel" style="width:100%; display: inline;">
+                                                </table>
                                             </center>
-                                            @if($breakdown_screenshot == true)
+                                            @if ($breakdown_screenshot == true)
                                                 <center>
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <a href="#" id="btn_breakdown_screenshot">Screenshot</a>
+                                                                <a href="#"
+                                                                    id="btn_breakdown_screenshot">Screenshot</a>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </center>
                                             @endif
-                                            <span id="watermarkBreakText" style="display:none; float: right; margin-right: 0px; margin-top: -18px;opacity:.25;position: relative; "><img decoding="async" src=/tools/calculator-advanced/img/gematrinator-just-text-200px.png alt="gematrinator logo" width="85"></span>
+                                            <span id="watermarkBreakText"
+                                                style="display:none; float: right; margin-right: 0px; margin-top: -18px;opacity:.25;position: relative; "><img
+                                                    decoding="async"
+                                                    src=/tools/calculator-advanced/img/gematrinator-just-text-200px.png
+                                                    alt="gematrinator logo" width="85"></span>
                                         </div>
                                     </div>
                                     <div id="WordLetterCount">
@@ -244,9 +466,11 @@
                                     </div> <!-- END CIPHER CHART SECTION -->
                                     <!-- HISTORY SECTION -->
                                     <center id="center_number_properties" hidden>
-                                        <div id="MiscSpot"><button class="buttonFunction" onclick="Build_HistoryTable()">Show
+                                        <div id="MiscSpot"><button class="buttonFunction"
+                                                onclick="Build_HistoryTable()">Show
                                                 History</button><br>
-                                            <object id="numberProperty" type="text/html" data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
+                                            <object id="numberProperty" type="text/html"
+                                                data="tools/number-properties-inline/index.php?number=18#numPropAnchor">
 
                                                 <div id="numPropAnchor">
                                                     <div id="numPropContainer">
@@ -256,42 +480,48 @@
                                                             <div id="HTMLSpot">
                                                                 <table id="TopTable">
                                                                     <tbody>
-                                                                    <tr>
-                                                                        <td id="TopNumber" style="font-size: 40px !important;"></td>
-                                                                    </tr>
-{{--                                                                    <tr>--}}
-{{--                                                                        <td id="PrimeString" colspan="3">2 ×--}}
-{{--                                                                            3<sup>2</sup>--}}
-{{--                                                                        </td>--}}
-{{--                                                                    </tr>--}}
+                                                                        <tr>
+                                                                            <td id="TopNumber"
+                                                                                style="font-size: 40px !important;"></td>
+                                                                        </tr>
+                                                                        {{--                                                                    <tr> --}}
+                                                                        {{--                                                                        <td id="PrimeString" colspan="3">2 × --}}
+                                                                        {{--                                                                            3<sup>2</sup> --}}
+                                                                        {{--                                                                        </td> --}}
+                                                                        {{--                                                                    </tr> --}}
                                                                     </tbody>
                                                                 </table>
                                                                 <div id="belowSpecials">
-                                                                    <div id="DivisorTableDiv"><span class="titles">Divisors</span>
+                                                                    <div id="DivisorTableDiv"><span
+                                                                            class="titles">Divisors</span>
                                                                         <table id="DivisorTable">
                                                                             <tbody>
-                                                                            <tr></tr>
-                                                                            <tr>
-                                                                                <td>Count:</td>
-                                                                                <td>List:</td>
-                                                                                <td>Sum:</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="vertical-align: top"><b class="Linkable" id="count"></b></td>
-                                                                                <td id="divisors_list">
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>,--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>,--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>,--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>,--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>,--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b>--}}
-{{--                                                                                    <br>--}}
-{{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th--}}
-{{--                                                                                    Composite #--}}
-                                                                                </td>
-                                                                                <td style="vertical-align: top"><b class="Linkable" id="sum"></b>
-                                                                                </td>
-                                                                            </tr>
+                                                                                <tr></tr>
+                                                                                <tr>
+                                                                                    <td>Count:</td>
+                                                                                    <td>List:</td>
+                                                                                    <td>Sum:</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="vertical-align: top"><b
+                                                                                            class="Linkable"
+                                                                                            id="count"></b></td>
+                                                                                    <td id="divisors_list">
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(1)">1</a></b>, --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(2)">2</a></b>, --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(3)">3</a></b>, --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(6)">6</a></b>, --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(9)">9</a></b>, --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(18)">18</a></b> --}}
+                                                                                        {{--                                                                                    <br> --}}
+                                                                                        {{--                                                                                    <b class="Linkable"><a href="javascript:Open_Properties(10)">10</a></b>th --}}
+                                                                                        {{--                                                                                    Composite # --}}
+                                                                                    </td>
+                                                                                    <td style="vertical-align: top"><b
+                                                                                            class="Linkable"
+                                                                                            id="sum"></b>
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -299,115 +529,173 @@
                                                                         <h2 id="number_with_suffix"></h2>
                                                                         <table id="RelationTable">
                                                                             <tbody>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Prime #:
-                                                                                    &nbsp;
-                                                                                </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_prime"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Composite #:
-                                                                                    &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_composite"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Fibonacci #:
-                                                                                    &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_fibonacci"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Triangular #:
-                                                                                    &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_triangular"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Square #:
-                                                                                    &nbsp;
-                                                                                </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="square"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Cube #:
-                                                                                    &nbsp;
-                                                                                </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="cube"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Tetrahedral
-                                                                                    #:
-                                                                                    &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_tetrahedral"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_sq_pyramidal"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Star #:
-                                                                                    &nbsp;
-                                                                                </td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_star"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="RelativeClass"> Pentagonal #:
-                                                                                    &nbsp;</td>
-                                                                                <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="nth_pentagonal"></a></b>
-                                                                                </td>
-                                                                            </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Prime #:
+                                                                                        &nbsp;
+                                                                                    </td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_prime"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Composite #:
+                                                                                        &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_composite"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Fibonacci #:
+                                                                                        &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_fibonacci"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Triangular
+                                                                                        #:
+                                                                                        &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_triangular"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Square #:
+                                                                                        &nbsp;
+                                                                                    </td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="square"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Cube #:
+                                                                                        &nbsp;
+                                                                                    </td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="cube"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Tetrahedral
+                                                                                        #:
+                                                                                        &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_tetrahedral"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Square
+                                                                                        Pyramidal #: &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_sq_pyramidal"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Star #:
+                                                                                        &nbsp;
+                                                                                    </td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_star"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="RelativeClass"> Pentagonal
+                                                                                        #:
+                                                                                        &nbsp;</td>
+                                                                                    <td class="RelativeNum"><b
+                                                                                            class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="nth_pentagonal"></a></b>
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-                                                                    <div id="ConversionsTableDiv"><span class="titles">Conversions</span>
+                                                                    <div id="ConversionsTableDiv"><span
+                                                                            class="titles">Conversions</span>
                                                                         <table id="ConversionTable">
                                                                             <tbody>
-                                                                            <tr>
-{{--                                                                                <td>From:</td>--}}
-                                                                                <td class="conversionMiddle">Numeral
-                                                                                    system:
-                                                                                </td>
-                                                                                <td>To:</td>
-                                                                            </tr>
-                                                                            <tr>
-{{--                                                                                <td>-</td>--}}
-                                                                                <td>Octal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="octal"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-{{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td>--}}
-                                                                                <td>Duodecimal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="duodecimal"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-{{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td>--}}
-                                                                                <td>Hexadecimal</td>
-                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="hexadecimal"></a></b>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-{{--                                                                                <td>-</td>--}}
-                                                                                <td>Binary</td>
-                                                                                <td><b class="Linkable"><a href="javascript:void(0);" class="target_number" id="binary"></a></b>
-                                                                                </td>
-                                                                            </tr>
+                                                                                <tr>
+                                                                                    {{--                                                                                <td>From:</td> --}}
+                                                                                    <td class="conversionMiddle">Numeral
+                                                                                        system:
+                                                                                    </td>
+                                                                                    <td>To:</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    {{--                                                                                <td>-</td> --}}
+                                                                                    <td>Octal</td>
+                                                                                    <td><b class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="octal"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">20</a></b></td> --}}
+                                                                                    <td>Duodecimal</td>
+                                                                                    <td><b class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="duodecimal"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    {{--                                                                                <td><b class="Linkable"><a href="javascript:void(0);">24</a></b></td> --}}
+                                                                                    <td>Hexadecimal</td>
+                                                                                    <td><b class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="hexadecimal"></a></b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    {{--                                                                                <td>-</td> --}}
+                                                                                    <td>Binary</td>
+                                                                                    <td><b class="Linkable"><a
+                                                                                                href="javascript:void(0);"
+                                                                                                class="target_number"
+                                                                                                id="binary"></a></b>
+                                                                                    </td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
+                                                            <input tabindex="0" id="input_get_properties"
+                                                                autofocus="" type="number" placeholder="Enter #">
                                                             <br><br>
-                                                            <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
+                                                            <button tabindex="1" id="btn_get_properties"
+                                                                class="buttonFunction">Get Properties</button>
                                                             <br><br>
                                                         </center>
                                                     </div>
@@ -420,9 +708,10 @@
                                     <!-- END HISTORY SECTION -->
                                 </div>
                             </div>
-                            @if(Auth::user()->plan == "free")
+                            @if (Auth::user()->plan == 'free')
                                 <div id="membershipText" class="row gads">
-                                    <span><a href="{{ route('membership') }}">Become a Member</a> for an ad-free experience</span>
+                                    <span><a href="{{ route('membership') }}">Become a Member</a> for an ad-free
+                                        experience</span>
                                 </div>
                             @endif
 
@@ -432,10 +721,11 @@
 
 
                             <!-- CIPHER MODAL -->
-                            <div id="ciphMod" class="ciphMod fancybox-content" style="display: none; margin-bottom: 6px;">
+                            <div id="ciphMod" class="ciphMod fancybox-content"
+                                style="display: none; margin-bottom: 6px;">
                                 <center>
                                     <h2 id="toph2">Ciphers</h2>
-{{--                                    <span id="cipherHelpText">Can't find a cipher? <a href="faq.php">See the FAQ</a> or <a href="ciphers.php">Ciphers</a> page.</span>--}}
+                                    {{--                                    <span id="cipherHelpText">Can't find a cipher? <a href="faq.php">See the FAQ</a> or <a href="ciphers.php">Ciphers</a> page.</span> --}}
                                     <br><br class="no-mo">
                                     <ul id="cipherBox">
                                         {{-- <li><input type="checkbox" id="CipherD0" checked=""><font style="color: RGB(0, 186, 0)">Ordinal</font></li>
@@ -445,27 +735,34 @@
                                         @foreach ($ciphersAll as $item)
                                             {{-- <li>
                                                 <input type="checkbox" id="Cipher{{ $item['id'] }}" {{ $item['ci_settings']['status'] == 1 ? 'checked' : '' }}> --}}
-                                                @php
-                                                    $rgb = json_decode($item['rgb_values'], true);
-                                                    $red = $rgb['red'] ?? 0;
-                                                    $green = $rgb['green'] ?? 0;
-                                                    $blue = $rgb['blue'] ?? 0;
-                                                    $status = $item['ci_settings']['status'] ?? null;
-                                                @endphp
-                                                {{-- <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                            @php
+                                                $rgb = json_decode($item['rgb_values'], true);
+                                                $red = $rgb['red'] ?? 0;
+                                                $green = $rgb['green'] ?? 0;
+                                                $blue = $rgb['blue'] ?? 0;
+                                                $status = $item['ci_settings']['status'] ?? null;
+                                            @endphp
+                                            {{-- <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
                                                     {{ $item['name'] }}
                                                 </font> --}}
-                                                @if ($user_id == '')
-                                                    <li>
-                                                        <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" checked disabled>
-                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses" data-id="{{ $item['id'] }}" {{ $status == 1 ? 'checked' : '' }}>
-                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">{{ $item['name'] }}</font>
-                                                    </li>
-                                                @endif
+                                            @if ($user_id == '')
+                                                <li>
+                                                    <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses"
+                                                        data-id="{{ $item['id'] }}" checked disabled>
+                                                    <font
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                        {{ $item['name'] }}</font>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <input type="checkbox" id="Cipher{{ $item['id'] }}" value="Verses"
+                                                        data-id="{{ $item['id'] }}"
+                                                        {{ $status == 1 ? 'checked' : '' }}>
+                                                    <font
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                        {{ $item['name'] }}</font>
+                                                </li>
+                                            @endif
                                             {{-- </li> --}}
                                         @endforeach
                                     </ul>
@@ -473,22 +770,27 @@
 
                                 <div id="cipherSelectsContainer" style="{{ Auth::check() ? '' : 'display: none' }}">
                                     <div class="cipherSelects">
-                                        <button class="buttonFunctionCiphers" id="SelectBaseCiphersBtn" onclick="SelBaseCiphers()">Select Base</button>
+                                        <button class="buttonFunctionCiphers" id="SelectBaseCiphersBtn"
+                                            onclick="SelBaseCiphers()">Select Base</button>
                                     </div>
                                     <div class="cipherSelects">
-                                        <button class="buttonFunctionCiphers" id="SelectAllCiphersBtn" onclick="SelAllCiphers(true)">Select All</button>
+                                        <button class="buttonFunctionCiphers" id="SelectAllCiphersBtn"
+                                            onclick="SelAllCiphers(true)">Select All</button>
                                     </div>
                                     <div class="cipherSelects">
-                                        <button class="buttonFunctionCiphers" id="ClearAllCiphersBtn" onclick="SelAllCiphers(false)">Clear All</button>
+                                        <button class="buttonFunctionCiphers" id="ClearAllCiphersBtn"
+                                            onclick="SelAllCiphers(false)">Clear All</button>
                                     </div>
                                 </div>
 
                                 <div id="cipherUpdateCancelContainer">
                                     @if (Auth::check())
-                                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" name="user_id" id="user_id"
+                                            value="{{ Auth::user()->id }}">
                                         <button class="buttonFunctionCiphers" id="SaveCiphers">Update</button>
                                     @endif
-                                    <button class="buttonFunctionCiphers" id="CancelCiphers" onclick="Cancel_Ciphers()">Cancel</button>
+                                    <button class="buttonFunctionCiphers" id="CancelCiphers"
+                                        onclick="Cancel_Ciphers()">Cancel</button>
                                 </div>
 
                                 {{-- <center>
@@ -506,7 +808,9 @@
                                     </span>
                                     </div>
                                 </center> --}}
-                                <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
+                                <button type="button" data-fancybox-close=""
+                                    class="fancybox-button fancybox-close-small" title="Close"><svg
+                                        xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
                                         <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
                                     </svg></button>
                             </div>
@@ -514,14 +818,17 @@
 
                             <!-- OPTIONS MODAL -->
                             <div id="optionsMod" class="optionsMod">
-                                <div id="optionsMod" class="optionsMod fancybox-content" style="display: block; margin-bottom: 6px;">
+                                <div id="optionsMod" class="optionsMod fancybox-content"
+                                    style="display: block; margin-bottom: 6px;">
                                     <div id="OptionSpot">
-                                        <div><label>Number Calculation</label><br><select name="NumCalcSel" id="NumCalcSel">
+                                        <div><label>Number Calculation</label><br><select name="NumCalcSel"
+                                                id="NumCalcSel">
                                                 <option value="Smart">Smart</option>
                                                 <option value="Reduced">Reduced</option>
                                                 <option value="Full">Full</option>
                                                 <option value="Off">Off</option>
-                                            </select><br><label>Ciphers per Row</label><br><select name="CiphersPerSel" id="CiphersPerSel">
+                                            </select><br><label>Ciphers per Row</label><br><select name="CiphersPerSel"
+                                                id="CiphersPerSel">
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
@@ -529,17 +836,41 @@
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
-                                            </select><br><label>Sequence Notifications</label><br><select name="NumSeqSel" id="NumSeqSel">
+                                            </select><br><label>Sequence Notifications</label><br><select name="NumSeqSel"
+                                                id="NumSeqSel">
                                                 <option value="Off">Off</option>
                                                 <option value="Regular">Regular</option>
                                                 <option value="All">All</option>
-                                            </select><br><br><input type="checkbox" id="ReductionCheck" value="ReductionCheck">&nbsp; Display Reduction Value<br><input type="checkbox" id="CipherNamesCheck" value="CipherNamesCheck">&nbsp; Display Cipher Names<br><br><input type="checkbox" id="LetterWordCheck" value="LetterWordCheck">&nbsp; Display Letter/Word Count<br><input type="checkbox" id="SimpleResultCheck" value="SimpleResultCheck">&nbsp; Display Simple Result<br><input type="checkbox" id="ChartCheck" value="ChartCheck">&nbsp; Show Cipher Chart<br><input type="checkbox" id="BreakdownCheck" onclick="javascript:modBreakList()" value="BreakdownCheck">&nbsp; Show Breakdown<br><label>Breakdown Chart Style</label><br><select name="BreakdownSel" id="BreakdownSel">
+                                            </select><br><br><input type="checkbox" id="ReductionCheck"
+                                                value="ReductionCheck">&nbsp; Display Reduction Value<br><input
+                                                type="checkbox" id="CipherNamesCheck" value="CipherNamesCheck">&nbsp;
+                                            Display Cipher Names<br><br><input type="checkbox" id="LetterWordCheck"
+                                                value="LetterWordCheck">&nbsp; Display Letter/Word Count<br><input
+                                                type="checkbox" id="SimpleResultCheck" value="SimpleResultCheck">&nbsp;
+                                            Display Simple Result<br><input type="checkbox" id="ChartCheck"
+                                                value="ChartCheck">&nbsp; Show Cipher Chart<br><input type="checkbox"
+                                                id="BreakdownCheck" onclick="javascript:modBreakList()"
+                                                value="BreakdownCheck">&nbsp; Show Breakdown<br><label>Breakdown Chart
+                                                Style</label><br><select name="BreakdownSel" id="BreakdownSel">
                                                 <option value="Chart">Chart</option>
                                                 <option value="NextGen">NextGen</option>
                                                 <option value="Classic">Classic</option>
-                                            </select><br><br><input type="checkbox" id="DiacriticCheck" value="DiacriticCheck">&nbsp; Remove Diacritics<br><input type="checkbox" id="ShortcutsCheck" value="ShortcutsCheck">&nbsp; Keyboard Shortcuts On<br><br><input type="checkbox" id="CompactCheck" value="CompactCheck">&nbsp; Compact History Table<br><input type="checkbox" id="NonMatchCheck" value="NonMatchCheck">&nbsp; Ignore Non-Matches<br><input type="checkbox" id="ContributeCheck" value="ContributeCheck">&nbsp; Contribute to Match DB<br></div><br><button class="buttonFunctionOptions" type="button" data-fancybox-close="" id="OptionClose" onclick="javascript:Close_Options(''),Update_Options(),jQuery.fancybox.close();" value="Close_Options">Close/Save</button>
+                                            </select><br><br><input type="checkbox" id="DiacriticCheck"
+                                                value="DiacriticCheck">&nbsp; Remove Diacritics<br><input type="checkbox"
+                                                id="ShortcutsCheck" value="ShortcutsCheck">&nbsp; Keyboard Shortcuts
+                                            On<br><br><input type="checkbox" id="CompactCheck"
+                                                value="CompactCheck">&nbsp; Compact History Table<br><input
+                                                type="checkbox" id="NonMatchCheck" value="NonMatchCheck">&nbsp; Ignore
+                                            Non-Matches<br><input type="checkbox" id="ContributeCheck"
+                                                value="ContributeCheck">&nbsp; Contribute to Match DB<br></div><br><button
+                                            class="buttonFunctionOptions" type="button" data-fancybox-close=""
+                                            id="OptionClose"
+                                            onclick="javascript:Close_Options(''),Update_Options(),jQuery.fancybox.close();"
+                                            value="Close_Options">Close/Save</button>
                                     </div>
-                                    <button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
+                                    <button type="button" data-fancybox-close=""
+                                        class="fancybox-button fancybox-close-small" title="Close"><svg
+                                            xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24">
                                             <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
                                         </svg></button>
                                 </div>
@@ -549,129 +880,134 @@
                             <!-- SHORTCUTS MODAL -->
                             <div id="shortcutsMod" class="shortcutsMod row auto">
                                 <div id="cipher-list-colored" style="display:none;">
-                                    <i id="exitCipherListColored" class="fas fa-times" onclick="javascript:closeCipherShortcuts()"></i>
+                                    <i id="exitCipherListColored" class="fas fa-times"
+                                        onclick="javascript:closeCipherShortcuts()"></i>
                                     <br>
-                                    <img decoding="async" src=/tools/calculator-advanced/img/cipher-list-colored.png alt="gematrinator, gematria, cipher list">
+                                    <img decoding="async" src=/tools/calculator-advanced/img/cipher-list-colored.png
+                                        alt="gematrinator, gematria, cipher list">
                                 </div>
                                 <h2>SHORTCUTS</h2>
                                 <h3>CIPHER DISPLAY</h3>
                                 <table>
                                     <tbody>
-                                    <tr>
-                                        <td class="scLeft">Turn cipher on/off:</td>
-                                        <td class="scRight">s; + cipher shortcut (<span class="seeCipherShortcuts" onclick="javascript:openCipherShortcuts()">see list</span>)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move active cipher UP:</td>
-                                        <td class="scRight">m;u</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move active cipher DOWN:</td>
-                                        <td class="scRight">m;d</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Change active cipher:</td>
-                                        <td class="scRight">c; + cipher shortcut (<span class="seeCipherShortcuts" onclick="javascript:openCipherShortcuts()">see list</span>)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Show only one cipher:</td>
-                                        <td class="scRight">o; + cipher shortcut (<span class="seeCipherShortcuts" onclick="javascript:openCipherShortcuts()">see list</span>)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Back to previous table:</td>
-                                        <td class="scRight">b;</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="scLeft">Turn cipher on/off:</td>
+                                            <td class="scRight">s; + cipher shortcut (<span class="seeCipherShortcuts"
+                                                    onclick="javascript:openCipherShortcuts()">see list</span>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move active cipher UP:</td>
+                                            <td class="scRight">m;u</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move active cipher DOWN:</td>
+                                            <td class="scRight">m;d</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Change active cipher:</td>
+                                            <td class="scRight">c; + cipher shortcut (<span class="seeCipherShortcuts"
+                                                    onclick="javascript:openCipherShortcuts()">see list</span>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Show only one cipher:</td>
+                                            <td class="scRight">o; + cipher shortcut (<span class="seeCipherShortcuts"
+                                                    onclick="javascript:openCipherShortcuts()">see list</span>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Back to previous table:</td>
+                                            <td class="scRight">b;</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <h3>OPTIONS + FUNCTIONS</h3>
                                 <table>
                                     <tbody>
-                                    <tr>
-                                        <td class="scLeft">Load user default ciphers:</td>
-                                        <td class="scRight">p;d</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Load cipher presets:</td>
-                                        <td class="scRight">p;1 - p;4</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Ciphers per row:</td>
-                                        <td class="scRight">r;2 - r;8</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">View User Table:</td>
-                                        <td class="scRight">t;1 - t;6</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">View history table:</td>
-                                        <td class="scRight">t;h</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">View session table:</td>
-                                        <td class="scRight">t;s</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Display Breakdown:</td>
-                                        <td class="scRight">d;b</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Display Cipher Chart:</td>
-                                        <td class="scRight">d;c</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Find Matches in User Tables:</td>
-                                        <td class="scRight">Shift + Enter in search field</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Show History Table</td>
-                                        <td class="scRight">Ctrl + Enter in search field</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="scLeft">Load user default ciphers:</td>
+                                            <td class="scRight">p;d</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Load cipher presets:</td>
+                                            <td class="scRight">p;1 - p;4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Ciphers per row:</td>
+                                            <td class="scRight">r;2 - r;8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">View User Table:</td>
+                                            <td class="scRight">t;1 - t;6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">View history table:</td>
+                                            <td class="scRight">t;h</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">View session table:</td>
+                                            <td class="scRight">t;s</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Display Breakdown:</td>
+                                            <td class="scRight">d;b</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Display Cipher Chart:</td>
+                                            <td class="scRight">d;c</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Find Matches in User Tables:</td>
+                                            <td class="scRight">Shift + Enter in search field</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Show History Table</td>
+                                            <td class="scRight">Ctrl + Enter in search field</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <h3>HISTORY</h3>
                                 <span>Applied to an Entry Phrase in the History Table unless otherwise specified.</span>
                                 <table>
                                     <tbody>
-                                    <tr>
-                                        <td class="scLeft">Load entry to search field:</td>
-                                        <td class="scRight">(Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Find Matches in User Tables:</td>
-                                        <td class="scRight">(Shift + Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move entry up:</td>
-                                        <td class="scRight">(Ctrl + Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move entry down:</td>
-                                        <td class="scRight">(Alt + Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move entry to top:</td>
-                                        <td class="scRight">(Shift + Ctrl + Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Move entry to bottom:</td>
-                                        <td class="scRight">(Shift + Alt + Click)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Remove Cipher:</td>
-                                        <td class="scRight">(Ctrl + Alt + Click) on Cipher Name</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Remove "Matched Entries" row:</td>
-                                        <td class="scRight">(Ctrl + Alt + Click) on "Matched Entries" row</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Hide Number:</td>
-                                        <td class="scRight">(Right Click) on number in History Table</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="scLeft">Delete Entries in Current Table:</td>
-                                        <td class="scRight">(Ctrl + Del)</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="scLeft">Load entry to search field:</td>
+                                            <td class="scRight">(Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Find Matches in User Tables:</td>
+                                            <td class="scRight">(Shift + Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move entry up:</td>
+                                            <td class="scRight">(Ctrl + Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move entry down:</td>
+                                            <td class="scRight">(Alt + Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move entry to top:</td>
+                                            <td class="scRight">(Shift + Ctrl + Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Move entry to bottom:</td>
+                                            <td class="scRight">(Shift + Alt + Click)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Remove Cipher:</td>
+                                            <td class="scRight">(Ctrl + Alt + Click) on Cipher Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Remove "Matched Entries" row:</td>
+                                            <td class="scRight">(Ctrl + Alt + Click) on "Matched Entries" row</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Hide Number:</td>
+                                            <td class="scRight">(Right Click) on number in History Table</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="scLeft">Delete Entries in Current Table:</td>
+                                            <td class="scRight">(Ctrl + Del)</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div> <!-- END SHORTCUTS MODAL -->
@@ -687,7 +1023,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         let temp_ciphers = [];
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#btn_breakdown_screenshot').on('click', function() {
                 if ($('#breakdownCipherLabel').html() == '') {
                     return false;
@@ -712,13 +1048,13 @@
             });
         });
 
-        $(document).ready(function () {
-            window.updateCipherDetails = function (val = '', new_list = '') {
+        $(document).ready(function() {
+            window.updateCipherDetails = function(val = '', new_list = '') {
                 if (val != '') {
                     let cipherList;
-                    if(new_list.length == 0){
+                    if (new_list.length == 0) {
                         cipherList = @json($ciphers);
-                    }else{
+                    } else {
                         cipherList = new_list;
                     }
                     let inputVal = val.trim();
@@ -727,7 +1063,7 @@
                     let data = calculateGematria(val);
                     var small_alphabets = generateSmallAlphabets(cipherList);
                     if (inputVal) {
-                        const cipher = cipherList.find(function (cipher) {
+                        const cipher = cipherList.find(function(cipher) {
                             return cipher.id == getId;
                         });
 
@@ -754,9 +1090,12 @@
 
                             for (let i = 0; i < word.length; i++) {
                                 let char;
-                                if (!['Russian','Russian Reduced', 'Russian Reversed', 'Greek Isopsephy', 'Ancient Greek', 'Ancient Greek Reduced', 'Modern Greek', 'Greek Alchemology'].includes(cipher.name)) {
+                                if (!['Russian', 'Russian Reduced', 'Russian Reversed',
+                                        'Greek Isopsephy', 'Ancient Greek', 'Ancient Greek Reduced',
+                                        'Modern Greek', 'Greek Alchemology'
+                                    ].includes(cipher.name)) {
                                     char = word[i].toLowerCase();
-                                }else{
+                                } else {
                                     char = word[i];
                                 }
 
@@ -783,17 +1122,17 @@
                                     </font>
                                 </td>`;
 
-                                // Add BreakTotal only to the last word's table
-                                if (index === words.length - 1) {
-                                    row1Html += `
+                            // Add BreakTotal only to the last word's table
+                            if (index === words.length - 1) {
+                                row1Html += `
                                         <td class="BreakTotal" rowspan="2">
                                             <font style="color: rgb(${red}, ${green}, ${blue});">
                                                 <div class="NumberClass">${totalSum}</div>
                                             </font>
                                         </td>`;
-                                }
+                            }
 
-                                row1Html += `</tr>`;
+                            row1Html += `</tr>`;
 
                             let row2Html = `<tr>${charValuesRow2.join('')}</tr>`;
 
@@ -846,13 +1185,14 @@
                 }
             };
 
-            window.getVal = function (val, cipher_list) {
+            window.getVal = function(val, cipher_list) {
 
                 let wordCount = val ? val.split(/\s+/).length : 0;
 
                 let letterCount = val.replace(/[^a-zA-Z]/g, '').length;
 
-                $('#WordLetterCount .WordLetterCount').text('(' + wordCount + ' word' + (wordCount !== 1 ? 's' : '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
+                $('#WordLetterCount .WordLetterCount').text('(' + wordCount + ' word' + (wordCount !== 1 ? 's' :
+                    '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
 
                 if (val == "") {
                     cipher_list.forEach((cipher) => {
@@ -896,7 +1236,6 @@
     </script>
 
     <script>
-
         function SelBaseCiphers() {
             // Select base ciphers by checking specific IDs
             document.getElementById('CipherD0').checked = true;
@@ -1010,8 +1349,8 @@
         function MoveCipherClick(cipherId, event) {
             let temp_ciphers_click;
             if (temp_ciphers.length === 0) {
-                temp_ciphers_click = @json($ciphers);  // Assign the data directly
-            }else{
+                temp_ciphers_click = @json($ciphers); // Assign the data directly
+            } else {
                 temp_ciphers_click = temp_ciphers;
             }
             // const ciphers = @json($ciphers);
@@ -1021,21 +1360,21 @@
                 let smallAlphabet;
                 if (typeof selectedCipher.small_alphabet !== "object") {
                     smallAlphabet = JSON.parse(selectedCipher.small_alphabet);
-                }else{
+                } else {
                     smallAlphabet = selectedCipher.small_alphabet;
                 }
 
                 let capitalAlphabet;
                 if (typeof selectedCipher.capital_alphabet !== "object") {
                     capitalAlphabet = JSON.parse(selectedCipher.capital_alphabet);
-                }else{
+                } else {
                     capitalAlphabet = selectedCipher.capital_alphabet;
                 }
 
                 let rgbValues;
                 if (typeof selectedCipher.rgb_values !== "object") {
                     rgbValues = JSON.parse(selectedCipher.rgb_values);
-                }else{
+                } else {
                     rgbValues = selectedCipher.rgb_values;
                 }
 
@@ -1077,9 +1416,32 @@
 
         // Gematria mapping for English alphabet
         const alphabet123 = {
-            a: 1,  b: 2,  c: 3,  d: 4,  e: 5,  f: 6,  g: 7,  h: 8,  i: 9,  j: 10,
-            k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20,
-            u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
+            a: 1,
+            b: 2,
+            c: 3,
+            d: 4,
+            e: 5,
+            f: 6,
+            g: 7,
+            h: 8,
+            i: 9,
+            j: 10,
+            k: 11,
+            l: 12,
+            m: 13,
+            n: 14,
+            o: 15,
+            p: 16,
+            q: 17,
+            r: 18,
+            s: 19,
+            t: 20,
+            u: 21,
+            v: 22,
+            w: 23,
+            x: 24,
+            y: 25,
+            z: 26
         };
 
         let alphabet = @json($D0);
@@ -1210,8 +1572,8 @@
         }
 
         function getCompositePosition(num) {
-            let count = 0;  // Counter for composite numbers
-            let current = 4;  // Start from 4 because 4 is the first composite number
+            let count = 0; // Counter for composite numbers
+            let current = 4; // Start from 4 because 4 is the first composite number
 
             while (current <= num) {
                 if (!isPrime(current)) {
@@ -1324,16 +1686,16 @@
 
             // Conversions
             const conversions = {
-                octal: n.toString(8),           // Octal
-                duodecimal: n.toString(12),     // Duodecimal
-                hexadecimal: n.toString(16),     // Hexadecimal
-                binary: n.toString(2)            // Binary
+                octal: n.toString(8), // Octal
+                duodecimal: n.toString(12), // Duodecimal
+                hexadecimal: n.toString(16), // Hexadecimal
+                binary: n.toString(2) // Binary
             };
 
             return conversions;
         }
 
-        function number_properties (number) {
+        function number_properties(number) {
             if (number == '') {
                 return false;
             }
@@ -1382,11 +1744,12 @@
             let count = 0;
             for (const item of return_body.divisors) {
                 count += 1;
-                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">'+item+'</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
+                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">' + item + '</a></b>' + (
+                    count === return_body.divisors.length ? '' : ',&nbsp;');
             }
             if (return_body.composite != '') {
                 string += '<br>';
-                string += '<b class="Linkable">'+return_body.composite+'</b>';
+                string += '<b class="Linkable">' + return_body.composite + '</b>';
             }
             $('#divisors_list').html(string);
 
@@ -1399,16 +1762,15 @@
 
             $('#center_number_properties').prop('hidden', false);
         }
-
     </script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#EntryField').on('keyup', function () {
+        $(document).ready(function() {
+            $('#EntryField').on('keyup', function() {
                 let val = $(this).val();
 
                 if (temp_ciphers.length === 0) {
-                    temp_ciphers_val = @json($ciphers);  // Assign the data directly
-                }else{
+                    temp_ciphers_val = @json($ciphers); // Assign the data directly
+                } else {
                     temp_ciphers_val = temp_ciphers;
                 }
 
@@ -1419,20 +1781,20 @@
                 return true;
             });
 
-            $('#ordinal').on('click', function () {
+            $('#ordinal').on('click', function() {
                 number_properties($(this).text());
             });
-            $('#reduction').on('click', function () {
+            $('#reduction').on('click', function() {
                 number_properties($(this).text());
             });
-            $('#reverse').on('click', function () {
+            $('#reverse').on('click', function() {
                 number_properties($(this).text());
             });
-            $('#reverse_reduction').on('click', function () {
+            $('#reverse_reduction').on('click', function() {
                 number_properties($(this).text());
             });
 
-            $('#btn_get_properties').on('click', function () {
+            $('#btn_get_properties').on('click', function() {
                 let val = $('#input_get_properties').val();
 
                 if (val < 1 || val == '') {
@@ -1442,7 +1804,7 @@
                 number_properties(val);
             });
 
-            $('body').on('click', '.target_number', function () {
+            $('body').on('click', '.target_number', function() {
                 number_properties($(this).text());
             });
 
@@ -1452,8 +1814,8 @@
                 // console.log(id, temp_ciphers.length, temp_ciphers);
 
                 if (temp_ciphers.length === 0) {
-                    temp_ciphers_update = @json($ciphers);  // Assign the data directly
-                }else{
+                    temp_ciphers_update = @json($ciphers); // Assign the data directly
+                } else {
                     temp_ciphers_update = temp_ciphers;
                 }
 
@@ -1499,35 +1861,35 @@
             //             }
 
             //             let row1Html = `<tr>${charValuesRow1.join('')}
-            //                 <td class="BreakTotal" rowspan="2">
-            //                     <font style="color: rgb(${red}, ${green}, ${blue});">
-            //                         <div class="NumberClass view-number"></div>
-            //                     </font>
-            //                 </td>
-            //                 </tr>`;
+        //                 <td class="BreakTotal" rowspan="2">
+        //                     <font style="color: rgb(${red}, ${green}, ${blue});">
+        //                         <div class="NumberClass view-number"></div>
+        //                     </font>
+        //                 </td>
+        //                 </tr>`;
             //             let row2Html = `<tr>${charValuesRow2.join('')}</tr>`;
 
             //             let fullHtml = row1Html + row2Html;
 
             //             $('#breakdownCipherLabel').html(`
-            //                 <tbody>
-            //                     <tr>
-            //                         <td>
-            //                             <span class="nextGenText">"${inputVal}" =
-            //                                 <font style="color: rgb(${red}, ${green}, ${blue});">
-            //                                     <div class="NumberClass view-number"></div>
-            //                                 </font>
-            //                                 <font style="color: rgb(${red}, ${green}, ${blue});">(${cipher.name})</font>
-            //                             </span><br>
-            //                             <table class="BreakTable">
-            //                                 <tbody>
-            //                                     ${fullHtml}
-            //                                 </tbody>
-            //                             </table>
-            //                         </td>
-            //                     </tr>
-            //                 </tbody>
-            //             `);
+        //                 <tbody>
+        //                     <tr>
+        //                         <td>
+        //                             <span class="nextGenText">"${inputVal}" =
+        //                                 <font style="color: rgb(${red}, ${green}, ${blue});">
+        //                                     <div class="NumberClass view-number"></div>
+        //                                 </font>
+        //                                 <font style="color: rgb(${red}, ${green}, ${blue});">(${cipher.name})</font>
+        //                             </span><br>
+        //                             <table class="BreakTable">
+        //                                 <tbody>
+        //                                     ${fullHtml}
+        //                                 </tbody>
+        //                             </table>
+        //                         </td>
+        //                     </tr>
+        //                 </tbody>
+        //             `);
 
             //             if (cipher.id == 'D0') {
             //                 $('.view-number').text(data.ordinal);
@@ -1551,5 +1913,3 @@
         });
     </script>
 @endsection
-
-
