@@ -2,6 +2,32 @@
 
 @section('title', 'Holidays')
 
+@section('css')
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    li {
+        color:#fff;
+        list-style:none;
+        position: relative;
+        padding-left:50px;
+        line-height: 0;
+        font-size:32px;
+    }
+
+    li:before {
+        font-family:FontAwesome;
+        position: absolute;
+        left: 0;
+        color: #7fbe00;
+        font-size:32px;
+    }
+
+    li.one:before {
+        content:"\f10c";
+    }
+</style>
+@endsection
+
 @section('content')
 
     <section class="holiday-calendar">
@@ -106,7 +132,8 @@
                                     @foreach ($holidayList as $holiday)
                                         <tr class="date-data">
                                             <td class="text-white">
-                                                {{ $count }}
+                                                <li class="one">
+                                                </li>
                                             </td>
                                             <td>
                                                 <a href="javascript:;">
