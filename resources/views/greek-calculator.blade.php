@@ -445,7 +445,7 @@
 {{--                        href="{{route('home')}}">Ciphers</a> page.</span>--}}
             <br><br class="no-mo">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-12">
                     <div class="row" id="row_cipher_modal">
 {{--                        <div class="col-md-3">--}}
 {{--                            <input type="checkbox" id="Cipher0" checked="">--}}
