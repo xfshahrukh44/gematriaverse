@@ -31,6 +31,7 @@
             padding: 10px 10px;
             border-radius: 5px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
         .chiphers-info h5 {
@@ -153,52 +154,50 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="calculator-data-show">
-                        <div class="row">
-                            <div id="GemTable">
-                                @foreach ($ciphers as $index => $cipher)
-                                    @php
-                                        $rgb = json_decode($cipher['rgb_values'], true);
-                                        $red = $rgb['red'] ?? 0;
-                                        $green = $rgb['green'] ?? 0;
-                                        $blue = $rgb['blue'] ?? 0;
-                                    @endphp
-                                    <div class="col-lg-2 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
-                                        <div class="data-ciphers change-cipher" data-id="{{ $cipher['id'] }}"
-                                            onclick="MoveCipherClick('{{ $cipher['id'] }}', event)"
-                                            style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                            <div class="chiphers-info">
-                                                <h5
-                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                                    {{ $cipher['name'] }}
-                                                </h5>
-                                            </div>
-                                            <div class="chiphers-data-number">
-                                                @if ($cipher['id'] == 'D0')
-                                                    <p id="ordinal" class="justnumber"
-                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                        onclick="Open_Properties(0)">0</p>
-                                                @elseif($cipher['id'] == 'D1')
-                                                    <p id="reduction" class="justnumber"
-                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                        onclick="Open_Properties(1)">0</p>
-                                                @elseif($cipher['id'] == 'D2')
-                                                    <p id="reverse" class="justnumber"
-                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                        onclick="Open_Properties(2)">0</p>
-                                                @elseif($cipher['id'] == 'D3')
-                                                    <p id="reverse_reduction" class="justnumber"
-                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                        onclick="Open_Properties(3)">0</p>
-                                                @else
-                                                    <p id="cipher_{{ $cipher['id'] }}" class="justnumber target_number"
-                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                        onclick="Open_Properties({{ $cipher['id'] }})">0</p>
-                                                @endif
-                                            </div>
+                        <div class="row" id="GemTable">
+                            @foreach ($ciphers as $index => $cipher)
+                                @php
+                                    $rgb = json_decode($cipher['rgb_values'], true);
+                                    $red = $rgb['red'] ?? 0;
+                                    $green = $rgb['green'] ?? 0;
+                                    $blue = $rgb['blue'] ?? 0;
+                                @endphp
+                                <div class="col-lg-2 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
+                                    <div class="data-ciphers change-cipher" data-id="{{ $cipher['id'] }}"
+                                        onclick="MoveCipherClick('{{ $cipher['id'] }}', event)"
+                                        style="border-color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                        <div class="chiphers-info">
+                                            <h5
+                                                style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                {{ $cipher['name'] }}
+                                            </h5>
+                                        </div>
+                                        <div class="chiphers-data-number">
+                                            @if ($cipher['id'] == 'D0')
+                                                <p id="ordinal" class="justnumber"
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                    onclick="Open_Properties(0)">0</p>
+                                            @elseif($cipher['id'] == 'D1')
+                                                <p id="reduction" class="justnumber"
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                    onclick="Open_Properties(1)">0</p>
+                                            @elseif($cipher['id'] == 'D2')
+                                                <p id="reverse" class="justnumber"
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                    onclick="Open_Properties(2)">0</p>
+                                            @elseif($cipher['id'] == 'D3')
+                                                <p id="reverse_reduction" class="justnumber"
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                    onclick="Open_Properties(3)">0</p>
+                                            @else
+                                                <p id="cipher_{{ $cipher['id'] }}" class="justnumber target_number"
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                    onclick="Open_Properties({{ $cipher['id'] }})">0</p>
+                                            @endif
                                         </div>
                                     </div>
-                                @endforeach
-                            </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -217,11 +216,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                            <script src="js/newfunctions.js"></script>
-                                                                                                                                            <script src="js/buildfunctions.js"></script>
-                                                                                                                                            <script src="js/matchfunctions.js"></script>
-                                                                                                                                            <script src="js/historyfunctions.js"></script>
-                                                                                                                                            <script src="js/ss.js"></script> -->
+                                                                                                                                                                                            <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                            <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                            <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                            <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                            <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -229,9 +228,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                            <script src="js/cipherbuilder.js"></script>
-                                                                                                                                            <script src="js/html2canvas.min.js"></script>
-                                                                                                                                            <script src="js/load.js"></script> -->
+                                                                                                                                                                                            <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                            <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                            <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -568,7 +567,7 @@
                             </div>
                             @if (Auth::user()->plan == 'free')
                                 <div id="membershipText" class="row gads">
-                                    <span><a href="{{ route('membership') }}">Become a Member</a> for an ad-free
+                                    <span><a href="{{ route('memberships') }}">Become a Member</a> for an ad-free
                                         experience</span>
                                 </div>
                             @endif
