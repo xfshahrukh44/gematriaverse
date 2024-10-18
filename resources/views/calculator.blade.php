@@ -17,6 +17,7 @@
             border-radius: 5px;
             padding-bottom: 5px;
             text-align: center;
+            margin-bottom: 0;
         }
 
         .data-ciphers {
@@ -62,6 +63,37 @@
             border-collapse: unset !important;
             margin: unset !important;
             font-family: manteka !important;
+        }
+
+        #EntryDiv #EntryField {
+            height: 50px;
+            padding: 0 15px;
+            outline: none !important;
+            border: 2px solid orange;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+
+        #calc-menu .MenuLink {
+            font-size: 25px;
+        }
+
+        div#calc-menu {
+            margin-top: 0;
+        }
+
+        #EntryDiv #EntryField::placeholder {
+            color: white;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        tr#valueRow td {
+            font-size: 14px;
+        }
+
+        #ChartSpot tr {
+            line-height: 25px !important;
         }
     </style>
 @endsection
@@ -216,11 +248,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                            <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                            <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                            <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                            <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                            <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -228,9 +260,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                            <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                            <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                            <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
