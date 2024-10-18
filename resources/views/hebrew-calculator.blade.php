@@ -15,6 +15,51 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('css/numberstyle.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/advcalcstyles-1-00012.css')}}">
+
+    <style>
+        .calculator-data-show {
+            margin: 40px 0;
+            /* padding: 20px 20px; */
+            /* border: 2px solid orange; */
+            border-radius: 5px;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .data-ciphers {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column-reverse;
+            gap: 10px;
+            height: 100px;
+            border: 2px solid orange;
+            padding: 10px 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .chiphers-info h5 {
+            margin: 0;
+            color: white;
+            font-size: 13px;
+            /* font-family: "Lato"; */
+            /* font-weight: 700; */
+        }
+
+        .chiphers-data-number p {
+            margin: 0;
+            color: white;
+            font-size: 25px;
+            /* font-family: "Lato"; */
+            /* font-weight: 600;*/
+        }
+
+        .calculator-data-show .row {
+            justify-content: center;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -51,60 +96,17 @@
     <section class="calculator-meter">
         <div class="container">
             <div class="row">
+                {{--new boxes--}}
                 <div class="col-lg-12">
-                    <div id="MainTableRow">
-                        <div id="MainTable">
-                            <div id="Gematria_Table">
-                                <table id="GemTable">
-                                    <tbody>
-                                        <tr id="tr_cipher_names">
-{{--                                            <td class="GemTableHeader">--}}
-{{--                                                <div class="GemTableHeader" onclick="javascript:MoveCipherClick(0, event)">--}}
-{{--                                                    <font style="color: RGB(255, 227, 93)">Hebrew Standard</font>--}}
-{{--                                                </div>--}}
-{{--                                            </td>--}}
-{{--                                            <td class="GemTableHeader">--}}
-{{--                                                <div class="GemTableHeader" onclick="javascript:MoveCipherClick(1, event)">--}}
-{{--                                                    <font style="color: RGB(255, 209, 36)">Hebrew Ordinal</font>--}}
-{{--                                                </div>--}}
-{{--                                            </td>--}}
-{{--                                            <td class="GemTableHeader">--}}
-{{--                                                <div class="GemTableHeader" onclick="javascript:MoveCipherClick(2, event)">--}}
-{{--                                                    <font style="color: RGB(255, 189, 2)">Hebrew Reduction</font>--}}
-{{--                                                </div>--}}
-{{--                                            </td>--}}
-                                        </tr>
-                                        <tr></tr>
-                                        <tr id="tr_cipher_values">
-{{--                                            <td class="GemTableValue" id="TableValue_Hebrew_Standard">--}}
-{{--                                                <font style="color: RGB(255, 227, 93);">--}}
-{{--                                                    <div class="NumberClass">--}}
-{{--                                                        <b id="standard" class="justnumber" onclick="javascript:void(0)">0</b>--}}
-{{--                                                    </div>--}}
-{{--                                                </font>--}}
-{{--                                            </td>--}}
-{{--                                            <td class="GemTableValue" id="TableValue_Hebrew_Ordinal">--}}
-{{--                                                <font style="color: RGB(255, 209, 36);">--}}
-{{--                                                    <div class="NumberClass">--}}
-{{--                                                        <b id="ordinal" class="justnumber" onclick="javascript:void(0)">0</b>--}}
-{{--                                                    </div>--}}
-{{--                                                </font>--}}
-{{--                                            </td>--}}
-{{--                                            <td class="GemTableValue" id="TableValue_Hebrew_Reduction">--}}
-{{--                                                <font style="color: RGB(255, 189, 2);">--}}
-{{--                                                    <div class="NumberClass">--}}
-{{--                                                        <b id="reduction" class="justnumber" onclick="javascript:void(0)">0</b>--}}
-{{--                                                    </div>--}}
-{{--                                                </font>--}}
-{{--                                            </td>--}}
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="calculator-data-show">
+                        <div class="row" id="row_new_cipher_boxes">
+
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="row justify-content-center">
                 <div style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                     <div id="printBreakTable" style="display:table-cell; width: 100%;">
@@ -451,7 +453,7 @@
 {{--                        href="{{route('home')}}">Ciphers</a> page.</span>--}}
             <br><br class="no-mo">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-12">
                     <div class="row" id="row_cipher_modal">
                         {{--                        <div class="col-md-3">--}}
                         {{--                            <input type="checkbox" id="Cipher0" checked="">--}}
@@ -800,20 +802,20 @@
         }
 
         function generate_cipher_table () {
-            $('#tr_cipher_names').html('');
-            $('#tr_cipher_values').html('');
+            $('#row_new_cipher_boxes').html('');
             for (const cipher of selected_ciphers) {
-                $('#tr_cipher_names').append(`<td class="GemTableHeader">
-                                                <div class="GemTableHeader">
-                                                    <font class="justfont" style="color: `+cipher_colors[cipher]+`" data-name="`+cipher+`">`+cipher+`</font>
-                                                </div>
-                                            </td>`);
+                let final_string = `<div class="col-lg-2 pl-1 pr-1">
+                                        <div class="data-ciphers" style="border-color: `+cipher_colors[cipher]+`;">
+                                            <div class="chiphers-info">
+                                                <h5 class="justfont" style="color: `+cipher_colors[cipher]+`;  cursor: pointer;" data-name="`+cipher+`">`+cipher+`</h5>
+                                            </div>
+                                            <div class="chiphers-data-number">
+                                                <p class="target_number justnumber" style="color: `+cipher_colors[cipher]+`; cursor: pointer;" data-name="`+cipher+`">0</p>
+                                            </div>
+                                        </div>
+                                    </div>`
 
-                $('#tr_cipher_values').append(`<td class="GemTableValue InSeqList">
-                                                    <font style="color: `+cipher_colors[cipher]+`;">
-                                                        <div class="NumberClass"><b class="justnumber target_number" data-name="`+cipher+`">0</b></div>
-                                                    </font>
-                                                </td>`);
+                $('#row_new_cipher_boxes').append(final_string);
             }
         }
 

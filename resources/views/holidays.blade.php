@@ -3,9 +3,8 @@
 @section('title', 'Holidays')
 
 @section('css')
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-    li {
+    .date-data li {
         color:#fff;
         list-style:none;
         position: relative;
@@ -14,7 +13,7 @@
         font-size:32px;
     }
 
-    li:before {
+    .date-data li:before {
         font-family:FontAwesome;
         position: absolute;
         left: 0;
@@ -22,7 +21,7 @@
         font-size:32px;
     }
 
-    li.one:before {
+    .date-data li.one:before {
         content:"\f10c";
     }
 </style>
