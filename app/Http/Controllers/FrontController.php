@@ -1278,6 +1278,8 @@ class FrontController extends Controller
 
         if ($user_id != '') {
             $staticCiphers = array_merge($this->staticCiphers, $this->afterLoginArr);
+        }else{
+            $staticCiphers = $this->staticCiphers;
         }
 
         $D0 = array_map('intval', json_decode($staticCiphers[0]['small_alphabet'], true));

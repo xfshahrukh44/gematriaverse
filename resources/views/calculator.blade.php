@@ -788,6 +788,8 @@
                                         <input type="hidden" name="user_id" id="user_id"
                                             value="{{ Auth::user()->id }}">
                                         <button class="buttonFunctionCiphers" id="SaveCiphers">Update</button>
+                                    @else
+                                        <button class="buttonFunctionCiphers" id="SaveCiphers" disabled>Update</button>
                                     @endif
                                     <button class="buttonFunctionCiphers" id="CancelCiphers"
                                         onclick="Cancel_Ciphers()">Cancel</button>
@@ -1408,6 +1410,7 @@
         window.onload = function() {
 
             const firstCipherId = "{{ $first_ciphers['id'] }}";
+            console.log(firstCipherId)
             MoveCipherClick(firstCipherId, event);
 
             var firstDataId = $('div.change-cipher').first().data('id');
