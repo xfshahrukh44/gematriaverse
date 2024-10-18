@@ -29,7 +29,7 @@
         .data-ciphers {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             text-align: center;
             flex-direction: column-reverse;
             gap: 10px;
