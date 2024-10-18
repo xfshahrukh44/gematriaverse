@@ -176,23 +176,23 @@
                                             @if ($cipher['id'] == 'D0')
                                                 <p id="ordinal" class="justnumber"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="Open_Properties(0)">0</p>
+                                                    onclick="">0</p>
                                             @elseif($cipher['id'] == 'D1')
                                                 <p id="reduction" class="justnumber"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="Open_Properties(1)">0</p>
+                                                    onclick="">0</p>
                                             @elseif($cipher['id'] == 'D2')
                                                 <p id="reverse" class="justnumber"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="Open_Properties(2)">0</p>
+                                                    onclick="">0</p>
                                             @elseif($cipher['id'] == 'D3')
                                                 <p id="reverse_reduction" class="justnumber"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="Open_Properties(3)">0</p>
+                                                    onclick="">0</p>
                                             @else
                                                 <p id="cipher_{{ $cipher['id'] }}" class="justnumber target_number"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="Open_Properties({{ $cipher['id'] }})">0</p>
+                                                    onclick="" $cipher['id'] }})">0</p>
                                             @endif
                                         </div>
                                     </div>
@@ -911,7 +911,7 @@
             window.updateCipherDetails = function(val = '', new_list = '') {
                 if (val != '') {
                     let cipherList;
-                    if (new_list.length == 0) {
+                    if (temp_ciphers.length == 0) {
                         cipherList = @json($ciphers);
                     } else {
                         cipherList = new_list;
@@ -924,8 +924,9 @@
                     if (inputVal) {
                         const cipher = cipherList.find(function(cipher) {
                             return cipher.id == getId;
-                        });
+                        }) || cipherList[0];
 
+                        console.log(cipherList);
                         if (cipher) {
                             if (typeof cipher.rgb_values !== "object") {
                                 cipher.rgb_values = JSON.parse(cipher.rgb_values);
@@ -1046,6 +1047,13 @@
 
             window.getVal = function(val, cipher_list) {
 
+                let cipherList;
+                if (temp_ciphers.length == 0) {
+                    cipherList = cipher_list;
+                } else {
+                    cipherList = temp_ciphers;
+                }
+
                 let wordCount = val ? val.split(/\s+/).length : 0;
 
                 let letterCount = val.replace(/[^a-zA-Z]/g, '').length;
@@ -1054,7 +1062,7 @@
                     '') + ', ' + letterCount + ' letter' + (letterCount !== 1 ? 's' : '') + ')');
 
                 if (val == "") {
-                    cipher_list.forEach((cipher) => {
+                    cipherList.forEach((cipher) => {
                         let cipherId = cipher.id;
 
                         if (cipherId === 'D0') {
@@ -1072,9 +1080,9 @@
                 }
 
                 let data = calculateGematria(val);
-                var small_alphabets = generateSmallAlphabets(cipher_list);
+                var small_alphabets = generateSmallAlphabets(cipherList);
 
-                cipher_list.forEach((cipher) => {
+                cipherList.forEach((cipher) => {
                     let cipherId = cipher.id;
 
                     if (cipherId === 'D0') {
@@ -1090,6 +1098,8 @@
                         $('#cipher_' + cipherId).text(data1.ordinalCiphers);
                     }
                 });
+
+                // updateCipherDetails(val, cipherList);
             };
         });
     </script>
@@ -1172,9 +1182,14 @@
 
                                     temp_ciphers.length = 0
                                     temp_ciphers.push(...response.ciphers);
-                                    console.log(temp_ciphers);
+                                    // console.log(temp_ciphers);
 
                                     getVal(val, response.ciphers);
+
+                                    updateCipherDetails(val, response.ciphers);
+
+                                    var dataId = $('#GemTable .data-ciphers').first().data('id');
+                                    MoveCipherClick(dataId, event);
 
                                     // updateCipherDetails($('#EntryField').val(), response.ciphers);
                                     // updateCipherCount($('#EntryField').val(), response.ciphers);
