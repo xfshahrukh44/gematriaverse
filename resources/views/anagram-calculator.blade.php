@@ -96,15 +96,17 @@
 
         .open-box {
             display: none;
+            background-color: #e6e6e6 !important;
             position: absolute;
             z-index: 1;
             top: 10px;
-            padding: 18px 10px;
+            padding: 20px 20px;
             left: 50px;
             background: white;
             /* width: 200px; */
             text-align: center;
-            border: 2px solid black;
+            /*border: 2px solid black;*/
+            border: none;
             border-radius: 5px;
             padding-bottom: 10px;
         }
@@ -130,9 +132,12 @@
             position: absolute;
             z-index: 0;
             top: -5px;
-            right: -5px;
+            right: -1px;
             font-size: 20px;
             cursor: pointer;
+            color: red;
+            border: none;
+            outline: none;
         }
 
         /* gematriaverse-section-from */
@@ -472,6 +477,7 @@
                                                 </div>
                                                 <div class="open-box">
                                                     <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                    <h6>` + item + `</h6>
                                                     <a href="#" class="btn custom-btn" onclick="save_anagram('`+item+`', '`+string+`')">
                                                         <i class="fas fa-floppy-disk"></i>
                                                         Save anagram
