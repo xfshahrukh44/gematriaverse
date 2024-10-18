@@ -52,6 +52,16 @@
         .calculator-data-show .row {
             justify-content: center;
         }
+
+        #GemTable {
+            background-color: unset !important;
+            border-radius: unset !important;
+            border: none !important;
+            padding: unset !important;
+            border-collapse: unset !important;
+            margin: unset !important;
+            font-family: manteka !important;
+        }
     </style>
 @endsection
 
@@ -65,7 +75,7 @@
                     <div id="MainTableRow">
                         <div id="MainTable">
                             <div id="Gematria_Table">
-                                <table id="GemTable">
+                                {{-- <table id="GemTable">
                                     <tbody>
                                         @foreach (array_chunk($ciphers, 5) as $cipherChunk)
                                             <tr>
@@ -135,53 +145,8 @@
                                                 @endfor
                                             </tr>
                                         @endforeach
-                                        {{-- <tr>
-                                            @foreach ($ciphers as $cipher)
-                                                @php
-                                                    $rgb = json_decode($cipher['rgb_values'], true);
-                                                    $red = $rgb['red'] ?? 0;
-                                                    $green = $rgb['green'] ?? 0;
-                                                    $blue = $rgb['blue'] ?? 0;
-                                                @endphp
-                                                <td class="GemTableHeader">
-                                                    <div class="GemTableHeader change-cipher" data-id="{{ $cipher['id'] }}" onclick="MoveCipherClick('{{ $cipher['id'] }}', event)">
-                                                        <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                                            {{ $cipher['name'] }}
-                                                        </font>
-                                                    </div>
-                                                </td>
-                                            @endforeach
-                                        </tr>
-
-                                        <tr>
-                                            @foreach ($ciphers as $cipher)
-                                                @php
-                                                    $rgb = json_decode($cipher['rgb_values'], true);
-                                                    $red = $rgb['red'] ?? 0;
-                                                    $green = $rgb['green'] ?? 0;
-                                                    $blue = $rgb['blue'] ?? 0;
-                                                @endphp
-                                                <td class="GemTableValue" id="TableValue_{{ $cipher['name'] }}">
-                                                    <font style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
-                                                        <div class="NumberClass">
-                                                            @if ($cipher['id'] == 'D0')
-                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(0)">0</b>
-                                                            @elseif($cipher['id'] == 'D1')
-                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(1)">0</b>
-                                                            @elseif($cipher['id'] == 'D2')
-                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(2)">0</b>
-                                                            @elseif($cipher['id'] == 'D3')
-                                                                <b id="finalBreakNum" class="justnumber" onclick="Open_Properties(3)">0</b>
-                                                            @else
-                                                                <b id="cipher_{{ $cipher['id'] }}" class="justnumber target_number" onclick="Open_Properties({{ $cipher['id'] }})">0</b>
-                                                            @endif
-                                                        </div>
-                                                    </font>
-                                                </td>
-                                            @endforeach
-                                        </tr> --}}
                                     </tbody>
-                                </table>
+                                </table> --}}
                             </div>
                         </div>
                     </div>
@@ -189,157 +154,50 @@
                 <div class="col-lg-12">
                     <div class="calculator-data-show">
                         <div class="row">
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers" style="
-    border-color: green;
-    !i;!;!;!
-    @;!;
-">
-                                    <div class="chiphers-info">
-                                        <h5 style="
-    color: green;
-">
-                                            Ordinal</h5>
+                            <div id="GemTable">
+                                @foreach ($ciphers as $index => $cipher)
+                                    @php
+                                        $rgb = json_decode($cipher['rgb_values'], true);
+                                        $red = $rgb['red'] ?? 0;
+                                        $green = $rgb['green'] ?? 0;
+                                        $blue = $rgb['blue'] ?? 0;
+                                    @endphp
+                                    <div class="col-lg-2 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
+                                        <div class="data-ciphers change-cipher" data-id="{{ $cipher['id'] }}"
+                                            onclick="MoveCipherClick('{{ $cipher['id'] }}', event)"
+                                            style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                            <div class="chiphers-info">
+                                                <h5
+                                                    style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">
+                                                    {{ $cipher['name'] }}
+                                                </h5>
+                                            </div>
+                                            <div class="chiphers-data-number">
+                                                @if ($cipher['id'] == 'D0')
+                                                    <p id="ordinal" class="justnumber"
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                        onclick="Open_Properties(0)">0</p>
+                                                @elseif($cipher['id'] == 'D1')
+                                                    <p id="reduction" class="justnumber"
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                        onclick="Open_Properties(1)">0</p>
+                                                @elseif($cipher['id'] == 'D2')
+                                                    <p id="reverse" class="justnumber"
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                        onclick="Open_Properties(2)">0</p>
+                                                @elseif($cipher['id'] == 'D3')
+                                                    <p id="reverse_reduction" class="justnumber"
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                        onclick="Open_Properties(3)">0</p>
+                                                @else
+                                                    <p id="cipher_{{ $cipher['id'] }}" class="justnumber target_number"
+                                                        style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
+                                                        onclick="Open_Properties({{ $cipher['id'] }})">0</p>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="chiphers-data-number">
-                                        <p style="
-    color: green;
-">0</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers" style="
-    border-color: rgb(102, 204, 153);
-">
-                                    <div class="chiphers-info">
-                                        <h5 style="
-    color: rgb(102, 204, 153);
-">
-                                            Reduction</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p style="
-    color: rgb(102, 204, 153);
-">100</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers" style="
-    border-color: rgb(88, 125, 245);
-">
-                                    <div class="chiphers-info">
-                                        <h5 style="
-    color: rgb(88, 125, 245);
-">
-                                            Reverse</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p style="
-    color: rgb(88, 125, 245);
-">50</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers" style="
-    border-color: rgb(80, 235, 21);
-">
-                                    <div class="chiphers-info">
-                                        <h5 style="
-    color: rgb(80, 235, 21);
-">Reverse Reduction</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p style="
-    color: rgb(80, 235, 21);
-">600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>Composite Reduced</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>3</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>William G. Gray</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>8</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>
-                                            Ordinal</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>0</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>
-                                            Reduction</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>100</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>
-                                            Reverse</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>50</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>Reverse Reduction</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>Composite Reduced</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>3</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 pl-1 pr-1">
-                                <div class="data-ciphers">
-                                    <div class="chiphers-info">
-                                        <h5>William G. Gray</h5>
-                                    </div>
-                                    <div class="chiphers-data-number">
-                                        <p>8</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -359,11 +217,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                        <script src="js/newfunctions.js"></script>
-                                                                                                                                        <script src="js/buildfunctions.js"></script>
-                                                                                                                                        <script src="js/matchfunctions.js"></script>
-                                                                                                                                        <script src="js/historyfunctions.js"></script>
-                                                                                                                                        <script src="js/ss.js"></script> -->
+                                                                                                                                            <script src="js/newfunctions.js"></script>
+                                                                                                                                            <script src="js/buildfunctions.js"></script>
+                                                                                                                                            <script src="js/matchfunctions.js"></script>
+                                                                                                                                            <script src="js/historyfunctions.js"></script>
+                                                                                                                                            <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -371,9 +229,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                        <script src="js/cipherbuilder.js"></script>
-                                                                                                                                        <script src="js/html2canvas.min.js"></script>
-                                                                                                                                        <script src="js/load.js"></script> -->
+                                                                                                                                            <script src="js/cipherbuilder.js"></script>
+                                                                                                                                            <script src="js/html2canvas.min.js"></script>
+                                                                                                                                            <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
