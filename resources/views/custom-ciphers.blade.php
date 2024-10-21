@@ -26,6 +26,21 @@
             color: black;
             font-weight: bold;
         }
+
+        @font-face {
+            font-family: dealerplate-california;
+            src: url(../fonts/dealerplate-california.ttf);
+        }
+
+        tr#lower1 {
+            font-family: dealerplate-california !important;
+            font-size: 20px;
+        }
+
+        tr#lower2 {
+            font-family: dealerplate-california !important;
+            font-size: 20px;
+        }
     </style>
 @endsection
 
@@ -58,16 +73,17 @@
                                                                     <!-- The list will be populated here -->
                                                                     <div id="cipherContainer"></div>
                                                                     <div class="CipherSelection">
-                                                                        <button class="buttonFunction" id="createCipherBtn">Create New</button>
+                                                                        <button class="buttonFunction"
+                                                                            id="createCipherBtn">Create New</button>
                                                                     </div>
                                                                 </div>
 
                                                                 <div id="cipherAddForm" style="display: none;">
-                                                                    <div id="cipherName"><span>Name your custom cipher below:</span></div>
-                                                                        <input class="u_Inp"
-                                                                            id="NameField"
-                                                                            oninput="javascript:Verify_CipherName()"
-                                                                            maxlength="25"><br>
+                                                                    <div id="cipherName"><span>Name your custom cipher
+                                                                            below:</span></div>
+                                                                    <input class="u_Inp" id="NameField"
+                                                                        oninput="javascript:Verify_CipherName()"
+                                                                        maxlength="25"><br>
                                                                     <table id="MainTable">
                                                                         <tbody>
                                                                             <tr id="lower1">
@@ -382,19 +398,21 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <div id="ButtonSpot"><button class="buttonFunction" id="submitCipherBtn"
-                                                                        value="AddCipher">Add
-                                                                        Cipher</button>&nbsp;&nbsp;&nbsp;<button
-                                                                        class="buttonFunction cancelCipherBtn"
-                                                                        value="CancelCipher" id="">Cancel</button></div>
+                                                                    <div id="ButtonSpot"><button class="buttonFunction"
+                                                                            id="submitCipherBtn" value="AddCipher">Add
+                                                                            Cipher</button>&nbsp;&nbsp;&nbsp;<button
+                                                                            class="buttonFunction cancelCipherBtn"
+                                                                            value="CancelCipher"
+                                                                            id="">Cancel</button></div>
                                                                 </div>
                                                                 <div id="cipherEditForm" style="display: none;">
-                                                                    <div id="editCipherName"><span>Edit your custom cipher below:</span></div>
-                                                                    <input type="hidden" name="cipher_id" id="cipher_id">
-                                                                        <input class="u_Inp"
-                                                                            id="editNameField"
-                                                                            oninput="javascript:Verify_CipherName()"
-                                                                            maxlength="25"><br>
+                                                                    <div id="editCipherName"><span>Edit your custom cipher
+                                                                            below:</span></div>
+                                                                    <input type="hidden" name="cipher_id"
+                                                                        id="cipher_id">
+                                                                    <input class="u_Inp" id="editNameField"
+                                                                        oninput="javascript:Verify_CipherName()"
+                                                                        maxlength="25"><br>
                                                                     <table id="MainTable">
                                                                         <tbody>
                                                                             <tr id="lower1">
@@ -709,11 +727,12 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <div id="ButtonSpot"><button class="buttonFunction" id="submitEditBtn"
-                                                                        value="EditCipher">Edit
-                                                                        Cipher</button>&nbsp;&nbsp;&nbsp;<button
-                                                                        class="buttonFunction cancelCipherBtn"
-                                                                        value="CancelCipher" id="">Cancel</button></div>
+                                                                    <div id="ButtonSpot"><button class="buttonFunction"
+                                                                            id="submitEditBtn" value="EditCipher">Edit
+                                                                            Cipher</button>&nbsp;&nbsp;&nbsp;<button
+                                                                            class="buttonFunction cancelCipherBtn"
+                                                                            value="CancelCipher"
+                                                                            id="">Cancel</button></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -767,12 +786,12 @@
 
         $(document).ready(function() {
 
-            $('#createCipherBtn').click(function () {
+            $('#createCipherBtn').click(function() {
                 $('#cipherList').hide();
                 $('#cipherAddForm').show();
             });
 
-            $('.cancelCipherBtn').click(function () {
+            $('.cancelCipherBtn').click(function() {
                 location.reload();
             });
 
@@ -791,12 +810,12 @@
 
                 $('.lowerCheck').each(function(index) {
                     smallAlphabet[String.fromCharCode(97 + index)] = $(this).val() ||
-                    0; // 'a' is 97 in ASCII
+                        0; // 'a' is 97 in ASCII
                 });
 
                 $('.capCheck').each(function(index) {
                     capitalAlphabet[String.fromCharCode(65 + index)] = $(this).val() ||
-                    0; // 'A' is 65 in ASCII
+                        0; // 'A' is 65 in ASCII
                 });
 
                 var red = $('#RedBox').val() || 0;
@@ -845,10 +864,10 @@
             $.ajax({
                 url: "{{ route('ciphers.index') }}",
                 type: 'GET',
-                success: function (response) {
+                success: function(response) {
                     $('#cipherContainer').empty();
 
-                    $.each(response, function (index, cipher) {
+                    $.each(response, function(index, cipher) {
                         $('#cipherContainer').append(`
                             <div class="CipherSelection ActiveCipher">
                                 ${cipher.name} -
@@ -859,14 +878,15 @@
                         `);
                     });
                 },
-                error: function (error) {
+                error: function(error) {
                     console.error('Error fetching ciphers:', error);
-                    $('#cipherContainer').html('<p>Failed to load ciphers. Please try again later.</p>');
+                    $('#cipherContainer').html(
+                        '<p>Failed to load ciphers. Please try again later.</p>');
                 }
             });
 
 
-            $(document).on('click', '.move-up', function () {
+            $(document).on('click', '.move-up', function() {
                 const cipherId = $(this).data('id');
 
                 $.ajax({
@@ -876,7 +896,7 @@
                         id: cipherId,
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function (response) {
+                    success: function(response) {
                         if (response.success) {
                             $('#ConfirmDiv').html('<p>Cipher moved up successfully!</p>');
                             location.reload();
@@ -884,20 +904,21 @@
                             $('#ConfirmDiv').html('<p>' + response.message + '</p>');
                         }
                     },
-                    error: function (error) {
+                    error: function(error) {
 
-                        $('#ConfirmDiv').html('<p>Failed to move cipher. Please try again.</p>');
+                        $('#ConfirmDiv').html(
+                            '<p>Failed to move cipher. Please try again.</p>');
                     }
                 });
             });
 
-            $(document).on('click', '.edit_cipher', function () {
+            $(document).on('click', '.edit_cipher', function() {
                 // Make an AJAX call to fetch the cipher details
                 let id = $(this).data('id');
                 $.ajax({
                     url: "{{ url('ciphers') }}/" + id,
                     type: 'GET',
-                    success: function (response) {
+                    success: function(response) {
                         if (response.success) {
                             $('#editNameField').val(response.cipher.name);
                             $('#cipher_id').val(id);
@@ -929,14 +950,14 @@
                             alert('Error fetching cipher details. Please try again.');
                         }
                     },
-                    error: function () {
+                    error: function() {
                         alert('Error fetching cipher details. Please try again.');
                     }
                 });
             });
 
 
-            $('#submitEditBtn').click(function () {
+            $('#submitEditBtn').click(function() {
                 var id = $('#cipher_id').val();
 
                 var editedCipherData = {
@@ -975,30 +996,31 @@
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(editedCipherData),
-                    success: function (response) {
+                    success: function(response) {
                         if (response.success) {
                             swal("Success!", response.message, "success");
                             // loadCiphers();
                             // $('#cipherEditForm').hide();
                             // $('#cipherList').show();
-                        }else if(response.error) {
+                        } else if (response.error) {
                             swal("Error!", response.message, "error");
-                        }else{
+                        } else {
                             swal("Error!", "Could not update cipher", "error");
                         }
                     },
-                    error: function (jqXHR) {
+                    error: function(jqXHR) {
                         var response = jqXHR.responseJSON;
                         if (response.error) {
                             swal("Error!", response.message, "error");
                         } else {
-                            swal("Error!", "Failed to update cipher. Please try again.", "error");
+                            swal("Error!", "Failed to update cipher. Please try again.",
+                                "error");
                         }
                     }
                 });
             });
 
-            $(document).on('click', '.delete_cipher', function () {
+            $(document).on('click', '.delete_cipher', function() {
                 let id = $(this).data('id');
                 // Confirmation dialog using swal (Older SweetAlert version)
                 swal({
@@ -1015,14 +1037,18 @@
                     if (isConfirm) {
                         // If confirmed, send AJAX request to delete the cipher
                         $.ajax({
-                            url: "{{ url('ciphers') }}/" + id + "/destroy", // URL for deleting the cipher
+                            url: "{{ url('ciphers') }}/" + id +
+                                "/destroy", // URL for deleting the cipher
                             type: 'POST', // Use POST or DELETE request method
                             success: function(response) {
                                 if (response.success) {
                                     swal("Deleted!", response.message, "success");
-                                    location.reload(); // Reload the page or update the list of ciphers
+                                    location
+                                        .reload(); // Reload the page or update the list of ciphers
                                 } else {
-                                    swal("Error!", "Failed to delete cipher. Please try again.", "error");
+                                    swal("Error!",
+                                        "Failed to delete cipher. Please try again.",
+                                        "error");
                                 }
                             },
                             error: function(jqXHR) {
@@ -1030,7 +1056,9 @@
                                 if (response && response.error) {
                                     swal("Error!", response.message, "error");
                                 } else {
-                                    swal("Error!", "Failed to delete cipher. Please try again.", "error");
+                                    swal("Error!",
+                                        "Failed to delete cipher. Please try again.",
+                                        "error");
                                 }
                             }
                         });
