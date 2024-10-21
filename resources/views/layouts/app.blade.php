@@ -65,6 +65,7 @@
     <link rel="stylesheet" href="{{ asset('css/inner-1.css') }}">
     <link rel="stylesheet" href="{{ asset('css/inner-2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/data-tables.css') }}">
 
     {{--    @include('layouts.front.css') --}}
     @yield('css')
@@ -368,6 +369,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/datatables.js') }}"></script>
+    <script src="{{ asset('js/datatables.bootstrap4.js') }}"></script>
 
     <!-- counter -->
     {{--        <script> --}}

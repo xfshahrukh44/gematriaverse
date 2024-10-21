@@ -4,6 +4,11 @@
 
 @section('css')
     <style>
+        body {
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+
         .WordLetterCount {
             color: #e9e0e0;
             font-size: 22px;
@@ -95,11 +100,391 @@
         #ChartSpot tr {
             line-height: 25px !important;
         }
+
+        .modal {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow-y: auto;
+            pointer-events: auto;
+            padding: 0 !important;
+        }
+
+        body .modal-open {
+            overflow: auto;
+            padding-right: 0 !important;
+        }
+
+        .modal.right .modal-dialog {
+            position: sticky;
+            width: 400px;
+            right: 0;
+            top: 180px;
+            transform: translate3d(0%, 0, 0);
+            /* margin-left: 0; */
+            margin-right: 0;
+        }
+
+        .modal.left .modal-dialog {
+            position: sticky;
+            width: 400px;
+            left: 0;
+            top: 180px;
+            transform: translate3d(0%, 0, 0);
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .modal-content {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* Adjust the modal backdrop to not interfere with both modals */
+        .modal-backdrop {
+            position: relative;
+            z-index: 0;
+        }
+
+        .side-arrow {
+            position: absolute;
+            top: 200px;
+            z-index: 1050;
+        }
+
+        .right-arrow {
+            right: 0;
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .close {
+            position: absolute;
+            z-index: 1;
+            border: none !important;
+            opacity: 1;
+            top: 5px;
+        }
+
+        .close span {
+            color: black;
+        }
+
+        #left-side {
+            position: absolute;
+            z-index: 999999;
+            width: 500px;
+            left: 0;
+            padding: 20px 40px;
+            background: black;
+            border-radius: 10px;
+            transform: translateX(-500px);
+            opacity: 0;
+            transition: all ease 0.5s;
+            top: 150px;
+
+        }
+
+        #right-side {
+            position: absolute;
+            z-index: 999999;
+            width: 500px;
+            right: 0;
+            padding: 20px 40px;
+            background: black;
+            border-radius: 10px;
+            transform: translateX(500px);
+            opacity: 0;
+            transition: all ease 0.5s;
+            top: 150px;
+        }
+
+        .close {
+            position: absolute;
+            z-index: 0;
+            right: 10px;
+            top: 5px;
+        }
+
+        .user_table {
+            text-align: center;
+        }
+
+        .user_table h5 {
+            color: #1862cf;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .user_table h5 {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .table_check {
+            text-align: center;
+        }
+
+        .table_check ul {
+            list-style: none;
+        }
+
+        .table_check ul li {
+            padding: 5px 0;
+        }
+
+        .table_check h6 {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .table_check ul li input {
+            height: 12px;
+            width: 12px;
+        }
+
+        .table_check ul li a {
+            font-size: 16px;
+        }
+
+        .table_check ul li h5 {
+            color: whitesmoke;
+            font-size: 17px;
+        }
+
+        .table_check ul li p {
+            margin: 0;
+            color: white;
+            font-size: 16px;
+        }
+
+        .close i {
+            color: white;
+        }
+
+        #left-side.active {
+            width: 500px;
+            transform: translateX(0px);
+            opacity: 1;
+            transition: all ease 0.5s;
+        }
+
+        #right-side.active {
+            width: 500px;
+            transform: translateX(0px);
+            opacity: 1;
+            transition: all ease 0.5s;
+        }
+
+        #right-side .close {
+            left: 10px;
+        }
+
+        .user_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #calculator-advanced {
+            padding-bottom: 50px !important;
+        }
+
+        .table-all-data label {
+            color: white;
+            font-size: 17px;
+        }
+
+        .table-all-data td {
+            color: white;
+        }
+
+        .table-all-data .dt-column-order:after {
+            opacity: 1 !important;
+        }
+
+        .table-all-data .dt-column-order:before {
+            opacity: 1 !important;
+        }
+
+        .pagination li a {
+            background: orange !important;
+            color: white !important;
+            border: none;
+            padding: 10px 16px;
+        }
+
+        ul.pagination {
+            align-items: center;
+        }
+
+        .pagination li {
+            border: 1px solid white;
+        }
+
+        div#example_info {
+            color: white;
+        }
+
+        .custom-side-table tr th {
+            color: white;
+        }
+
+        .custom-side-table .center-td {
+            text-align: center;
+        }
+
+        .custom-side-table {
+            margin: 100px 0;
+        }
     </style>
 @endsection
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/numberstyle.css') }}">
+
+
+
+    <!-- Left-side arrow to open the left modal -->
+    <div class="side-arrow left-arrow">
+        <button type="button" class="btn btn-success">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+
+    <div id="left-side" class="sides-modal">
+        <div class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="user_table">
+                    <h5>USER TABLES</h5>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="table_check">
+                    <h6>Match</h6>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                        <li>
+                            <input type="checkbox" id="value1">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="table_check">
+                    <h6>Table Name</h6>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">Table 1</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Table 2</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">Table 3</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">44</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">User History</a>
+                        </li>
+                        <li>
+                            <h5>This Session</h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="table_check">
+                    <h6>Entries</h6>
+                    <ul>
+                        <li>
+                            <p>(1)</p>
+                        </li>
+                        <li>
+                            <p>(0)</p>
+                        </li>
+                        <li>
+                            <p> (0)</p>
+                        </li>
+                        <li>
+                            <p>(1)</p>
+                        </li>
+                        <li>
+                            <p> (312)</p>
+                        </li>
+                        <li>
+                            <p>(0)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Right-side arrow to open the right modal -->
+    <div class="side-arrow right-arrow">
+        <button type="button" class="btn btn-success">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+    </div>
+
+    <div id="right-side" class="sides-modal">
+        <div class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="user_table">
+                    <h5>DISPLAY OPTIONS</h5>
+                </div>
+                <div class="user_btn">
+                    <button class="btn btn-success">Cipher Chart </button>
+                    <button class="btn btn-success">Breakdown </button>
+                </div>
+                <div class="user_table">
+                    <h5>MATCH TO:</h5>
+                </div>
+                <div class="user_btn">
+                    <button class="btn btn-success">HISTORY </button>
+                    <button class="btn btn-success">HISTORY MOST COMMON </button>
+                    <button class="btn btn-success">DATABASE
+                    </button>
+                </div>
+                <div class="user_table">
+                    <h5>SAVE SCREENSHOT</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <section class="calculator-meter">
         <div class="container">
@@ -248,11 +633,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -260,9 +645,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -905,6 +1290,138 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- new side table sart --}}
+
+                <div class="col-lg-12">
+                    <div class="table-all-data">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011-04-25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>63</td>
+                                    <td>2011-07-25</td>
+                                    <td>$170,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>2009-01-12</td>
+                                    <td>$86,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2012-03-29</td>
+                                    <td>$433,060</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-all-data">
+                        <table class="table table-striped table-bordered custom-side-table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011-04-25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                                <tr class="center-td">
+                                    <td colspan="6">Matched Entries</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>63</td>
+                                    <td>2011-07-25</td>
+                                    <td>$170,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>2009-01-12</td>
+                                    <td>$86,000</td>
+                                </tr>
+                                <tr class="center-td">
+                                    <td colspan="6">Matched Entries</td>
+                                </tr>
+                                <tr>
+                                    <td>Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2012-03-29</td>
+                                    <td>$433,060</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                {{-- new side table end --}}
+
             </div>
         </div>
     </section>
@@ -1737,5 +2254,40 @@
             });
 
         });
+
+
+        // Ensure both modals can open independently
+        var rightModal = new bootstrap.Modal(document.getElementById('myModalRight'), {
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        var leftModal = new bootstrap.Modal(document.getElementById('myModalLeft'), {
+            backdrop: false, // This allows the left modal to open without closing the right modal
+            keyboard: false
+        });
+
+        $('#myModalRight').on('shown.bs.modal', function() {
+            $('body').removeClass('modal-open');
+        });
+
+        $('#myModalLeft').on('shown.bs.modal', function() {
+            $('body').removeClass('modal-open');
+        });
+
+        $('.left-arrow').on('click', function() {
+            $('#left-side').addClass('active');
+        })
+        $('.right-arrow').on('click', function() {
+            $('#right-side').addClass('active');
+        })
+
+        $('.close').on('click', function() {
+            $(this).closest('.sides-modal').removeClass('active'); // Close the current panel
+        });
+
+        new DataTable('#example');
     </script>
+
+
 @endsection
