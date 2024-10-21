@@ -7,6 +7,7 @@ use Auth;
 use App\Faq;
 use App\Cipher;
 use App\CipherSetting;
+use App\CipherHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
