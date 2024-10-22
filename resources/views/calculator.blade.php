@@ -372,6 +372,7 @@
             border: none;
             outline: none;
         }
+
         .open-box .close-btn1 {
             border: none;
             background: none;
@@ -393,6 +394,63 @@
             border-radius: 5px;
             background: linear-gradient(45deg, #317009, #7fbe00) !important;
             border-color: #7fbe00;
+        }
+
+
+        .table-all-data #history-saved td {
+            position: relative;
+        }
+
+        .table-all-data #history-saved td:hover .open-box {
+            display: block !important;
+            right: -100px;
+            width: 55%;
+            left: unset !important;
+            background: black !important;
+            z-index: 5;
+            padding-top: 10px;
+            border-radius: 10px;
+            padding-right: 10px;
+        }
+
+        .table-all-data #history-saved td .open-box ul {
+            list-style: none;
+            text-align: end;
+        }
+
+        .table-all-data #history-saved td .open-box ul li p {
+            color: white !important;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .table-all-data #history-saved td .open-box ul li a {
+            color: white !important;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 14px;
+        }
+
+        .table-all-data #history-saved td .open-box ul li {
+            padding: 3px 0;
+            position: relative;
+        }
+
+        .box-info {
+            position: absolute;
+            z-index: 0;
+            background: black !important;
+            right: -130px;
+            top: -30px;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .table-all-data #history-saved td .open-box ul li:hover .box-info {
+            display: block;
         }
     </style>
 @endsection
@@ -684,11 +742,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -696,9 +754,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -1438,10 +1496,7 @@
             </a>
         </div>
 
-        <div class="open-box" id="openBox1" style="display: none;">
-            <button class="close-btn1"><i class="fa-solid fa-xmark"></i></button>
-            <h6 class="entry-title1"></h6>
-        </div>
+
     </section>
 
 
@@ -1608,7 +1663,56 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                    <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -1699,25 +1803,24 @@
                     left: $(this).offset().left
                 });
             });
-            $('#history-saved').on('mouseenter', 'tr td:first-child', function() {
-                const entryName = $(this).text();
-                $('.entry-title1').text(entryName);
+            // $('#history-saved').on('mouseenter', 'tr td:first-child', function() {
+            //     const entryName = $(this).text();
+            //     $('.entry-title1').text(entryName);
 
-                $('#openBox1').css({
-                    display: 'block',
-                    top: $(this).offset().top + $(this).outerHeight(),
-                    left: $(this).offset().left
-                });
-            });
+            //     $('#openBox1').css({
+            //         display: 'block',
+            //         top: $(this).offset().top + $(this).outerHeight(),
+            //         left: $(this).offset().left
+            //     });
+            // });
 
             $('.close-btn').on('mouseenter', function() {
                 $('#openBox').hide();
             });
 
-            $('.close-btn1').on('mouseenter', function() {
-                $('#openBox1').hide();
-            });
-
+            // $('.close-btn1').on('mouseenter', function() {
+            //     $('#openBox1').hide();
+            // });
         });
 
         $(document).ready(function() {
