@@ -351,7 +351,7 @@
             z-index: 1;
             top: 10px;
             padding: 20px 20px;
-            left: 50px;
+            left: 280px !important;
             background: white;
             text-align: center;
             border: none;
@@ -373,6 +373,20 @@
             outline: none;
         }
 
+        .open-box .close-btn1 {
+            border: none;
+            background: none;
+            position: absolute;
+            z-index: 0;
+            top: -5px;
+            right: -1px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+            border: none;
+            outline: none;
+        }
+
         .open-box a {
             font-size: 10px;
             padding: 8px 40px;
@@ -381,7 +395,67 @@
             background: linear-gradient(45deg, #317009, #7fbe00) !important;
             border-color: #7fbe00;
         }
+        .btn-dim {
+            opacity: 0.5;
+            pointer-events: none;
+        }
 
+
+        .table-all-data #history-saved td {
+            position: relative;
+        }
+
+        .table-all-data #history-saved td:hover .open-box {
+            display: block !important;
+            right: -100px;
+            width: 55%;
+            left: unset !important;
+            background: black !important;
+            z-index: 5;
+            padding-top: 10px;
+            border-radius: 10px;
+            padding-right: 10px;
+        }
+
+        .table-all-data #history-saved td .open-box ul {
+            list-style: none;
+            text-align: end;
+        }
+
+        .table-all-data #history-saved td .open-box ul li p {
+            color: white !important;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .table-all-data #history-saved td .open-box ul li a {
+            color: white !important;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 14px;
+        }
+
+        .table-all-data #history-saved td .open-box ul li {
+            padding: 3px 0;
+            position: relative;
+        }
+
+        .box-info {
+            position: absolute;
+            z-index: 0;
+            background: black !important;
+            right: -130px;
+            top: -30px;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .table-all-data #history-saved td .open-box ul li:hover .box-info {
+            display: block;
+        }
     </style>
 @endsection
 
@@ -504,8 +578,8 @@
                     <h5>DISPLAY OPTIONS</h5>
                 </div>
                 <div class="user_btn">
-                    <button class="btn btn-success">Cipher Chart </button>
-                    <button class="btn btn-success">Breakdown </button>
+                    <button class="btn btn-success" id="cipher-chart">Cipher Chart </button>
+                    <button class="btn btn-success" id="breakdown">Breakdown </button>
                 </div>
                 <div class="user_table">
                     <h5>MATCH TO:</h5>
@@ -515,9 +589,6 @@
                     <button class="btn btn-success">HISTORY MOST COMMON </button>
                     <button class="btn btn-success">DATABASE
                     </button>
-                </div>
-                <div class="user_table">
-                    <h5>SAVE SCREENSHOT</h5>
                 </div>
             </div>
         </div>
@@ -672,11 +743,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -684,9 +755,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -729,7 +800,7 @@
                                 <div id="breakdownSection" class="col-sm-12">
                                     <!-- BREAKDOWN SECTION -->
                                     <span id="SimpleSpot" class="nextGenText"></span>
-                                    <div style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
+                                    <div id="breakDownSpot" style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                                         <div id="printBreakTable" style="display:table-cell; width: 100%;">
                                             <div id="watermarkBreakGuy" style="display:none;"><img decoding="async"
                                                     src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator"
@@ -1425,6 +1496,8 @@
                 Save Entry
             </a>
         </div>
+
+
     </section>
 
 
@@ -1469,8 +1542,9 @@
                 let ciphersForTable = @json($ciphersForTableArr);
                 let small_alphabets = generateSmallAlphabets(ciphersForTable);
                 let inputValue = $('#EntryField').val();
-                if(inputValue == ""){
-                    $('#history-first').html('<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                if (inputValue == "") {
+                    $('#history-first').html(
+                        '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
                     return false;
                 }
 
@@ -1491,7 +1565,8 @@
                             data = calculateReverseReduction(inputValue);
                             break;
                         default:
-                            data = calculateOrdinalCiphers(inputValue, cipher['id'], small_alphabets);
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'],
+                                small_alphabets);
                             break;
                     }
 
@@ -1500,7 +1575,10 @@
 
                 // console.log(finalCiphersResults);
 
-                let currentCipher = [{entry: inputValue, ciphers: JSON.stringify(finalCiphersResults)}];
+                let currentCipher = [{
+                    entry: inputValue,
+                    ciphers: JSON.stringify(finalCiphersResults)
+                }];
                 // console.log(currentCipher);
 
                 $.ajax({
@@ -1510,7 +1588,8 @@
                         // console.log(response);
                         generateTableHeaders(cipherList);
                         const matchedData = matchAndExtractData(response, cipherList);
-                        const currentMatchedData = matchAndExtractData(currentCipher, cipherList);
+                        const currentMatchedData = matchAndExtractData(currentCipher,
+                            cipherList);
                         displayCurrentMatchedData(currentMatchedData, cipherList);
                         displayMatchedData(matchedData, cipherList);
                         // console.log(matchedData);
@@ -1585,14 +1664,66 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                    <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            let { score, rgb_values } = scoreData;
+                            let {
+                                score,
+                                rgb_values
+                            } = scoreData;
 
                             scoreCell = `<td>${score}</td>`;
                         }
@@ -1622,7 +1753,10 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            const { score, rgb_values } = scoreData;
+                            const {
+                                score,
+                                rgb_values
+                            } = scoreData;
                             scoreCell = `<td>${score}</td>`;
                         }
 
@@ -1653,13 +1787,14 @@
                     },
                     error: function(xhr, status, error) {
                         console.error('Error saving data:', xhr.responseText);
-                        let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : "Failed to save data.";
+                        let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                            .responseJSON.message : "Failed to save data.";
                         swal("Error!", errorMessage, "error");
                     }
                 });
             });
 
-            $('#current-saved').on('click', 'tr td:first-child', function() {
+            $('#current-saved').on('mouseenter', 'tr td:first-child', function() {
                 const entryName = $(this).text();
                 $('#entry-title').text(entryName);
 
@@ -1669,11 +1804,24 @@
                     left: $(this).offset().left
                 });
             });
+            // $('#history-saved').on('mouseenter', 'tr td:first-child', function() {
+            //     const entryName = $(this).text();
+            //     $('.entry-title1').text(entryName);
 
-            $('.close-btn').on('click', function() {
+            //     $('#openBox1').css({
+            //         display: 'block',
+            //         top: $(this).offset().top + $(this).outerHeight(),
+            //         left: $(this).offset().left
+            //     });
+            // });
+
+            $('.close-btn').on('mouseenter', function() {
                 $('#openBox').hide();
             });
 
+            // $('.close-btn1').on('mouseenter', function() {
+            //     $('#openBox1').hide();
+            // });
         });
 
         $(document).ready(function() {
@@ -1874,6 +2022,39 @@
     </script>
 
     <script>
+
+        // Cipher Chart
+        const isVisible = sessionStorage.getItem('cipherChartVisible');
+        if (isVisible === null) {
+            $('#ChartSpot').show();
+            sessionStorage.setItem('cipherChartVisible', true);
+        } else {
+            $('#ChartSpot').toggle(isVisible === 'true');
+        }
+
+        $('#cipher-chart').click(function() {
+            const isNowVisible = $('#ChartSpot').is(':visible');
+            $('#ChartSpot').toggle();
+            sessionStorage.setItem('cipherChartVisible', !isNowVisible);
+        });
+
+        //Breakdown
+
+        const isVisible1 = sessionStorage.getItem('breadownVisible');
+        if (isVisible1 === null) {
+            $('#breakDownSpot').show();
+            sessionStorage.setItem('breadownVisible', true);
+        } else {
+            $('#breakDownSpot').toggle(isVisible1 === 'true');
+        }
+
+        $('#breakdown').click(function() {
+            const isNowVisible1 = $('#breakDownSpot').is(':visible');
+            $('#breakDownSpot').toggle();
+            sessionStorage.setItem('breadownVisible', !isNowVisible1);
+        });
+
+
         function SelBaseCiphers() {
             // Select base ciphers by checking specific IDs
             document.getElementById('CipherD0').checked = true;
