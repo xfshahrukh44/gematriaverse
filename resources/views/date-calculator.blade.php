@@ -443,14 +443,13 @@
                                     <span class="DurationString">Select Durations to View:</span>
                                 </div>
                                 <div id="CheckBoxSpot">
-                                    <input tabindex="15" class="opt_check" type="checkbox" id="showYears"
-                                        value="Year"><span>&nbsp;Year&nbsp;&nbsp;</span><br>
-                                    <input tabindex="16" class="opt_check" type="checkbox" id="showMonths"
-                                        value="Month"><span>&nbsp;Month&nbsp;&nbsp;</span><br>
-                                    <input tabindex="17" class="opt_check" type="checkbox" id="showWeeks"
-                                        value="Week"><span>&nbsp;Week&nbsp;&nbsp;</span><br>
-                                    <input tabindex="18" class="opt_check" type="checkbox" id="showDays"
-                                        value="Day" checked=""><span>&nbsp;Day&nbsp;&nbsp;</span>
+                                    <input tabindex="15" class="opt_check" type="checkbox" id="showYears" value="Year"><label for="showYears" class="mx-2">Year</label>
+                                    <br>
+                                    <input tabindex="16" class="opt_check" type="checkbox" id="showMonths" value="Month"><label for="showMonths" class="mx-2">Month</label>
+                                    <br>
+                                    <input tabindex="17" class="opt_check" type="checkbox" id="showWeeks" value="Week"><label for="showWeeks" class="mx-2">Week</label>
+                                    <br>
+                                    <input tabindex="18" class="opt_check" type="checkbox" id="showDays" value="Day" checked=""><label for="showDays" class="mx-2">Day</label>
                                 </div>
                             </div>
                         </div>
@@ -462,8 +461,7 @@
                                 <!-- <br class="mo"> -->
                                 <div id="TimeBetweenCheckbox">
                                     <input tabindex="14" class="opt_check" type="checkbox" id="Check_End"
-                                        value="End"><span>&nbsp;Include End
-                                        Date?&nbsp;&nbsp;</span>
+                                        value="End"><label for="Check_End">&nbsp;Include End Date?&nbsp;&nbsp;</label>
                                 </div>
                             </div>
                         </div>

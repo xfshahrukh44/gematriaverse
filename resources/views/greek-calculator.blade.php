@@ -779,7 +779,7 @@
             }
         }
 
-        function generate_word_queue (word, is_last_word = false, grand_total = 0) {
+        function generate_word_queue (word, is_last_word = false, grand_total = 0, total_word_count) {
             let total = 0;
             let characters_string = ``;
             let values_string = ``;
@@ -793,7 +793,7 @@
                 }
             }
 
-            if (total > 0) {
+            if (total > 0 && total_word_count > 1) {
                 characters_string += `<td class="BreakSum target_number" rowspan="2" style="cursor: pointer;">
                                             <font style="color: `+cipher_colors[active_cipher]+`;">
                                                 <div class="NumberClass" style="cursor: pointer;">`+total+`</div>
@@ -838,7 +838,7 @@
             let queue_html = ``;
 
             words_array.forEach((word, i) => {
-                queue_html += generate_word_queue(word, ((i + 1) === words_array.length), ((i + 1) === words_array.length ? total : 0));
+                queue_html += generate_word_queue(word, ((i + 1) === words_array.length), ((i + 1) === words_array.length ? total : 0), words_array.length);
             });
 
             if (total > 0) {
