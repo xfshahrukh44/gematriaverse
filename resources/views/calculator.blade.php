@@ -395,6 +395,10 @@
             background: linear-gradient(45deg, #317009, #7fbe00) !important;
             border-color: #7fbe00;
         }
+        .btn-dim {
+            opacity: 0.5;
+            pointer-events: none;
+        }
 
 
         .table-all-data #history-saved td {
@@ -574,8 +578,8 @@
                     <h5>DISPLAY OPTIONS</h5>
                 </div>
                 <div class="user_btn">
-                    <button class="btn btn-success">Cipher Chart </button>
-                    <button class="btn btn-success">Breakdown </button>
+                    <button class="btn btn-success" id="cipher-chart">Cipher Chart </button>
+                    <button class="btn btn-success" id="breakdown">Breakdown </button>
                 </div>
                 <div class="user_table">
                     <h5>MATCH TO:</h5>
@@ -585,9 +589,6 @@
                     <button class="btn btn-success">HISTORY MOST COMMON </button>
                     <button class="btn btn-success">DATABASE
                     </button>
-                </div>
-                <div class="user_table">
-                    <h5>SAVE SCREENSHOT</h5>
                 </div>
             </div>
         </div>
@@ -799,7 +800,7 @@
                                 <div id="breakdownSection" class="col-sm-12">
                                     <!-- BREAKDOWN SECTION -->
                                     <span id="SimpleSpot" class="nextGenText"></span>
-                                    <div style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
+                                    <div id="breakDownSpot" style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                                         <div id="printBreakTable" style="display:table-cell; width: 100%;">
                                             <div id="watermarkBreakGuy" style="display:none;"><img decoding="async"
                                                     src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator"
@@ -2021,6 +2022,39 @@
     </script>
 
     <script>
+
+        // Cipher Chart
+        const isVisible = sessionStorage.getItem('cipherChartVisible');
+        if (isVisible === null) {
+            $('#ChartSpot').show();
+            sessionStorage.setItem('cipherChartVisible', true);
+        } else {
+            $('#ChartSpot').toggle(isVisible === 'true');
+        }
+
+        $('#cipher-chart').click(function() {
+            const isNowVisible = $('#ChartSpot').is(':visible');
+            $('#ChartSpot').toggle();
+            sessionStorage.setItem('cipherChartVisible', !isNowVisible);
+        });
+
+        //Breakdown
+
+        const isVisible1 = sessionStorage.getItem('breadownVisible');
+        if (isVisible1 === null) {
+            $('#breakDownSpot').show();
+            sessionStorage.setItem('breadownVisible', true);
+        } else {
+            $('#breakDownSpot').toggle(isVisible1 === 'true');
+        }
+
+        $('#breakdown').click(function() {
+            const isNowVisible1 = $('#breakDownSpot').is(':visible');
+            $('#breakDownSpot').toggle();
+            sessionStorage.setItem('breadownVisible', !isNowVisible1);
+        });
+
+
         function SelBaseCiphers() {
             // Select base ciphers by checking specific IDs
             document.getElementById('CipherD0').checked = true;
