@@ -15,7 +15,7 @@ class CreateCipherHistoryTable extends Migration
     {
         Schema::create('cipher_history', function (Blueprint $table) {
             $table->id();
-            $table->inetger('user_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->string('entry')->nullable();
             $table->json('ciphers')->nullable();
             $table->timestamps();

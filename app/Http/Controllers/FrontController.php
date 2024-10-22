@@ -1361,6 +1361,8 @@ class FrontController extends Controller
         $calculator = get_feature('calculators');
         $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
 
+        $ciphersForTableArr = array_merge($this->staticCiphers, $this->afterLoginArr);
+
         if ($request->ajax()) {
             // Handle the AJAX request
             $gem_table = view('partials.gem_table', compact('ciphers'))->render();
@@ -1375,11 +1377,12 @@ class FrontController extends Controller
                 'D2' => $D2,
                 'D3' => $D3,
                 'user_id' => $user_id,
+                'ciphersForTableArr' => $ciphersForTableArr,
                 'gem_table' => $gem_table,
             ]);
         }
 
-        return view('calculator', compact('ciphers', 'breakdown_screenshot', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id'));
+        return view('calculator', compact('ciphers', 'breakdown_screenshot', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id', 'ciphersForTableArr'));
     }
     public function calendar()
     {
@@ -1536,5 +1539,30 @@ class FrontController extends Controller
         }
 
         return view('holidays', compact('holidays', 'currentMonth'));
+    }
+
+    public function cipher_history_store(Request $request)
+    {
+        $existingHistory = CipherHistory::where('user_id', Auth::user()->id)
+            ->where('entry', $request->entry)
+            ->first();
+
+        if ($existingHistory) {
+            return response()->json(['message' => 'Entry already exists.'], 409);
+        }
+
+        $history = new CipherHistory();
+        $history->user_id = Auth::user()->id;
+        $history->entry = $request->entry;
+        $history->ciphers = $request->ciphers;
+        $history->save();
+
+        return response()->json(['message' => 'Data saved successfully.'], 200);
+    }
+
+    public function cipher_history_get()
+    {
+        $history = CipherHistory::where('user_id', Auth::user()->id)->get();
+        return response()->json($history);
     }
 }

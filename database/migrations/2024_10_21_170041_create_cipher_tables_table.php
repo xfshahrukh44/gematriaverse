@@ -15,8 +15,8 @@ class CreateCipherTablesTable extends Migration
     {
         Schema::create('cipher_tables', function (Blueprint $table) {
             $table->id();
-            $table->inetger('user_id')->nullable();
-            $table->inetger('entry_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->integer('entry_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });

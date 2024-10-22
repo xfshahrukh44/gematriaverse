@@ -322,3 +322,5 @@ Route::get('get-anagrams', function () {
 
 
 Route::get('date-calculator_two', [FrontController::class, 'date_calculator_two'])->name('date-calculator-two');
+Route::post('cipher-history/store', [FrontController::class, 'cipher_history_store'])->name('cipher_history_store');
+Route::get('cipher-history/get', [FrontController::class, 'cipher_history_get'])->name('cipher_history_get');

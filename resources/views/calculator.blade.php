@@ -343,6 +343,45 @@
         .custom-side-table {
             margin: 100px 0;
         }
+
+        .open-box {
+            display: none;
+            background-color: #e6e6e6 !important;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            padding: 20px 20px;
+            left: 50px;
+            background: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            padding-bottom: 10px;
+        }
+
+        .open-box .close-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            z-index: 0;
+            top: -5px;
+            right: -1px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+            border: none;
+            outline: none;
+        }
+
+        .open-box a {
+            font-size: 10px;
+            padding: 8px 40px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #317009, #7fbe00) !important;
+            border-color: #7fbe00;
+        }
+
     </style>
 @endsection
 
@@ -472,7 +511,7 @@
                     <h5>MATCH TO:</h5>
                 </div>
                 <div class="user_btn">
-                    <button class="btn btn-success">HISTORY </button>
+                    <button class="btn btn-success" id="btn-history">HISTORY </button>
                     <button class="btn btn-success">HISTORY MOST COMMON </button>
                     <button class="btn btn-success">DATABASE
                     </button>
@@ -1293,7 +1332,7 @@
 
                 {{-- new side table sart --}}
 
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="display: none">
                     <div class="table-all-data">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
@@ -1354,67 +1393,20 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="table-all-data">
+                    <div class="table-all-data" id="history-first">
                         <table class="table table-striped table-bordered custom-side-table" style="width:100%">
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
+                                <tr id="table-headers"></tr> <!-- Dynamic headers go here -->
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr class="center-td">
-                                    <td colspan="6">Matched Entries</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011-07-25</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009-01-12</td>
-                                    <td>$86,000</td>
-                                </tr>
-                                <tr class="center-td">
-                                    <td colspan="6">Matched Entries</td>
-                                </tr>
-                                <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012-03-29</td>
-                                    <td>$433,060</td>
-                                </tr>
+
+                            <tbody id="current-saved">
                             </tbody>
+
+                            <tbody id="history-saved">
+                            </tbody>
+
                             <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
+                                <tr id="table-footers"></tr> <!-- Dynamic footers go here -->
                             </tfoot>
                         </table>
                     </div>
@@ -1424,7 +1416,18 @@
 
             </div>
         </div>
+
+        <div class="open-box" id="openBox" style="display: none;">
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h6 id="entry-title"></h6>
+            <a href="#" class="btn custom-btn" id="btn-save-entry">
+                <i class="fas fa-floppy-disk"></i>
+                Save Entry
+            </a>
+        </div>
     </section>
+
+
 @endsection
 
 @section('js')
@@ -1432,6 +1435,7 @@
     <script>
         let temp_ciphers = [];
         $(document).ready(function() {
+            let finalCiphersResults = {};
             $('#btn_breakdown_screenshot').on('click', function() {
                 if ($('#breakdownCipherLabel').html() == '') {
                     return false;
@@ -1454,6 +1458,222 @@
                     document.body.removeChild(link);
                 });
             });
+
+            $('#btn-history').on('click', function() {
+                let cipherList;
+                if (temp_ciphers.length == 0) {
+                    cipherList = @json($ciphers);
+                } else {
+                    cipherList = temp_ciphers;
+                }
+                let ciphersForTable = @json($ciphersForTableArr);
+                let small_alphabets = generateSmallAlphabets(ciphersForTable);
+                let inputValue = $('#EntryField').val();
+                if(inputValue == ""){
+                    $('#history-first').html('<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                    return false;
+                }
+
+                ciphersForTable.forEach(cipher => {
+                    let data;
+
+                    switch (cipher['id']) {
+                        case 'D0':
+                            data = calculateOrdinal(inputValue);
+                            break;
+                        case 'D1':
+                            data = calculateReduction(inputValue);
+                            break;
+                        case 'D2':
+                            data = calculateReverseOrdinal(inputValue);
+                            break;
+                        case 'D3':
+                            data = calculateReverseReduction(inputValue);
+                            break;
+                        default:
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'], small_alphabets);
+                            break;
+                    }
+
+                    finalCiphersResults[cipher['id']] = data;
+                });
+
+                // console.log(finalCiphersResults);
+
+                let currentCipher = [{entry: inputValue, ciphers: JSON.stringify(finalCiphersResults)}];
+                // console.log(currentCipher);
+
+                $.ajax({
+                    url: "{{ route('cipher_history_get') }}",
+                    type: 'GET',
+                    success: function(response) {
+                        // console.log(response);
+                        generateTableHeaders(cipherList);
+                        const matchedData = matchAndExtractData(response, cipherList);
+                        const currentMatchedData = matchAndExtractData(currentCipher, cipherList);
+                        displayCurrentMatchedData(currentMatchedData, cipherList);
+                        displayMatchedData(matchedData, cipherList);
+                        // console.log(matchedData);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        alert('Failed to retrieve data.');
+                    }
+                });
+            });
+
+
+            function matchAndExtractData(ciphersData, cipherInfo) {
+                const matchedData = [];
+
+                ciphersData.forEach(dataEntry => {
+                    const entryName = dataEntry.entry;
+                    const scores = JSON.parse(dataEntry.ciphers);
+
+                    Object.entries(scores).forEach(([cipherId, score]) => {
+                        const matchedCipher = cipherInfo.find(c => c.id === cipherId);
+                        if (matchedCipher) {
+                            matchedData.push({
+                                entry: entryName,
+                                cipher_id: matchedCipher.id,
+                                cipher_name: matchedCipher.name,
+                                rgb_values: matchedCipher.rgb_values,
+                                score: score
+                            });
+                        }
+                    });
+                });
+
+                return matchedData;
+            }
+
+            function generateTableHeaders(cipherInfo) {
+                const headerRow = $('#table-headers');
+                const footerRow = $('#table-footers');
+
+                headerRow.empty();
+                footerRow.empty();
+
+                headerRow.append('<th>Entry</th>');
+
+                cipherInfo.forEach(cipher => {
+                    if (typeof cipher.rgb_values !== "object") {
+                        cipher.rgb_values = JSON.parse(cipher.rgb_values);
+                    }
+                    var red = cipher.rgb_values.red;
+                    var green = cipher.rgb_values.green;
+                    var blue = cipher.rgb_values.blue;
+                    const rgb = `rgb(${red}, ${green}, ${blue})`;
+                    const header = `<th style="color: ${rgb};">${cipher.name}</th>`;
+                    headerRow.append(header);
+                });
+            }
+
+            function displayMatchedData(matchedData, cipherInfo) {
+                const tbody = $('#history-saved');
+                tbody.append(`
+                    <tr class="center-td">
+                        <td colspan="100%">Matched Entries</td>
+                    </tr>
+                `);
+                tbody.find('tr:not(.center-td)').remove();
+
+                const groupedEntries = matchedData.reduce((acc, data) => {
+                    if (!acc[data.entry]) acc[data.entry] = {};
+                    acc[data.entry][data.cipher_id] = data;
+                    return acc;
+                }, {});
+
+                Object.entries(groupedEntries).forEach(([entry, scores]) => {
+                    let row = `<tr><td>${entry}</td>`;
+
+                    cipherInfo.forEach(cipher => {
+                        const scoreData = scores[cipher.id];
+                        let scoreCell = '<td></td>';
+
+                        if (scoreData) {
+                            let { score, rgb_values } = scoreData;
+
+                            scoreCell = `<td>${score}</td>`;
+                        }
+
+                        row += scoreCell;
+                    });
+
+                    row += '</tr>';
+                    tbody.append(row); // Append the row to tbody
+                });
+            }
+
+            function displayCurrentMatchedData(currentMatchedData, cipherInfo) {
+                const currentTbody = $('#current-saved');
+                currentTbody.find('tr:not(.center-td)').remove();
+
+                const groupedEntries = currentMatchedData.reduce((acc, data) => {
+                    if (!acc[data.entry]) acc[data.entry] = {};
+                    acc[data.entry][data.cipher_id] = data;
+                    return acc;
+                }, {});
+
+                Object.entries(groupedEntries).forEach(([entry, scores]) => {
+                    let row = `<tr><td>${entry}</td>`;
+                    cipherInfo.forEach(cipher => {
+                        const scoreData = scores[cipher.id];
+                        let scoreCell = '<td></td>';
+
+                        if (scoreData) {
+                            const { score, rgb_values } = scoreData;
+                            scoreCell = `<td>${score}</td>`;
+                        }
+
+                        row += scoreCell;
+                    });
+
+                    row += '</tr>';
+                    currentTbody.append(row);
+                });
+
+                currentTbody.insertBefore($('#history-saved'));
+            }
+
+            $('#btn-save-entry').on('click', function() {
+                let entryTitle = $('#entry-title').text();
+
+                $.ajax({
+                    url: "{{ route('cipher_history_store') }}",
+                    type: 'POST',
+                    data: {
+                        entry: entryTitle,
+                        ciphers: JSON.stringify(finalCiphersResults),
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        swal("Success!", response.message, "success");
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : "Failed to save data.";
+                        swal("Error!", errorMessage, "error");
+                    }
+                });
+            });
+
+            $('#current-saved').on('click', 'tr td:first-child', function() {
+                const entryName = $(this).text();
+                $('#entry-title').text(entryName);
+
+                $('#openBox').css({
+                    display: 'block',
+                    top: $(this).offset().top + $(this).outerHeight(),
+                    left: $(this).offset().left
+                });
+            });
+
+            $('.close-btn').on('click', function() {
+                $('#openBox').hide();
+            });
+
         });
 
         $(document).ready(function() {
@@ -1475,7 +1695,7 @@
                             return cipher.id == getId;
                         }) || cipherList[0];
 
-                        console.log(cipherList);
+                        // console.log(cipherList);
                         if (cipher) {
                             if (typeof cipher.rgb_values !== "object") {
                                 cipher.rgb_values = JSON.parse(cipher.rgb_values);
