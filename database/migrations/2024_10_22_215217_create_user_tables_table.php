@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCipherTablesTable extends Migration
+class CreateUserTablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCipherTablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cipher_tables', function (Blueprint $table) {
+        Schema::create('user_tables', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->integer('entry_id')->nullable();
-            $table->integer('table_id')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateCipherTablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cipher_tables');
+        Schema::dropIfExists('user_tables');
     }
 }

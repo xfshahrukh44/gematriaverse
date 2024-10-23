@@ -324,3 +324,8 @@ Route::get('get-anagrams', function () {
 Route::get('date-calculator_two', [FrontController::class, 'date_calculator_two'])->name('date-calculator-two');
 Route::post('cipher-history/store', [FrontController::class, 'cipher_history_store'])->name('cipher_history_store');
 Route::get('cipher-history/get', [FrontController::class, 'cipher_history_get'])->name('cipher_history_get');
+Route::get('cipher-database/get', [FrontController::class, 'cipher_database_get'])->name('cipher_database_get');
+Route::post('cipher-database-arrays', [FrontController::class, 'cipher_database_arrays'])->name('cipher_database_arrays');
+Route::get('get-user-tables', [FrontController::class, 'getUserTables'])->name('getUserTables');
+Route::get('get-user-tables/{id}', [FrontController::class, 'getUserTablesById'])->name('getUserTablesById');
+Route::get('get-user-history', [FrontController::class, 'get_user_history'])->name('get_user_history');

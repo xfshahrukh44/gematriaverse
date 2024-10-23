@@ -8,6 +8,7 @@ use App\Faq;
 use App\Cipher;
 use App\CipherSetting;
 use App\CipherHistory;
+use App\User_Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -1565,4 +1566,112 @@ class FrontController extends Controller
         $history = CipherHistory::where('user_id', Auth::user()->id)->get();
         return response()->json($history);
     }
+
+    public function cipher_database_get()
+    {
+        $history = CipherHistory::where('user_id', Auth::user()->id)->get();
+
+        return response()->json($history);
+    }
+
+    public function cipher_database_arrays(Request $request)
+    {
+        $ciphers = json_decode($request->ciphers);
+        $currentCipher = json_decode(json_encode($request->currentCipher));
+        $cipherList = $request->cipherList;
+        if (empty($ciphers)) {
+            return response()->json(['error' => 'Ciphers array is empty.'], 400);
+        }
+        $matchedData = $this->matchAndExtractData($ciphers, $cipherList);
+        $currentMatchedData = $this->matchAndExtractData($currentCipher, $cipherList);
+        $tempdata = $this->getMatchingEntriesByScore($currentMatchedData, $matchedData);
+
+        return response()->json([
+            'matched_data' => $matchedData,
+            'current_matched_data' => $currentMatchedData,
+            'tempdata' => $tempdata,
+        ]);
+    }
+
+    private function matchAndExtractData($ciphersData, $cipherInfo)
+    {
+        $matchedData = [];
+
+        foreach ($ciphersData as $dataEntry) {
+            $entryName = $dataEntry->entry;
+            $scores = json_decode($dataEntry->ciphers, true);
+
+            foreach ($scores as $cipherId => $score) {
+                $matchedCipher = array_filter($cipherInfo, function($c) use ($cipherId) {
+                    return $c['id'] === $cipherId;
+                });
+
+                if (!empty($matchedCipher)) {
+                    $matchedCipher = reset($matchedCipher);
+
+                    $matchedData[] = [
+                        'entry' => $entryName,
+                        'cipher_id' => $matchedCipher['id'],
+                        'cipher_name' => $matchedCipher['name'],
+                        'rgb_values' => $matchedCipher['rgb_values'],
+                        'score' => $score
+                    ];
+                }
+            }
+        }
+
+        return $matchedData;
+    }
+
+    private function getMatchingEntriesByScore($currentMatchedData, $matchedData)
+    {
+        $currentScores = array_map(function($entry) {
+            return $entry['score'];
+        }, $currentMatchedData);
+
+        $matchingEntries = array_unique(array_map(function($item) use ($currentScores) {
+            return in_array($item['score'], $currentScores) ? $item['entry'] : null;
+        }, $matchedData));
+
+        return array_values(array_filter($matchedData, function($item) use ($matchingEntries) {
+            return in_array($item['entry'], $matchingEntries);
+        }));
+    }
+
+    public function getUserTables()
+    {
+        $user_table = DB::table('user_tables')
+            ->leftJoin('cipher_tables', 'user_tables.id', '=', 'cipher_tables.table_id')
+            ->select('user_tables.id', 'user_tables.name', DB::raw('COUNT(cipher_tables.id) as entry_count'))
+            ->where('user_tables.user_id', Auth::user()->id)
+            ->groupBy('user_tables.id')
+            ->get();
+
+        $history = CipherHistory::where('user_id', Auth::user()->id)->count();
+
+        return response()->json([
+            'user_tables' => $user_table,
+            'cipher_history_count' => $history,
+        ]);
+    }
+
+    public function getUserTablesById($id)
+    {
+        $cipherHistories = DB::table('cipher_history as ch')
+            ->join('cipher_tables as ct', 'ch.id', '=', 'ct.entry_id')
+            ->where('ct.user_id', Auth::user()->id)
+            ->where('ct.table_id', $id)
+            ->select('ch.*')
+            ->get();
+
+        return response()->json($cipherHistories);
+    }
+
+    public function get_user_history()
+    {
+        $history = CipherHistory::where('user_id', Auth::user()->id)->get();
+
+        return response()->json($history);
+    }
+
 }

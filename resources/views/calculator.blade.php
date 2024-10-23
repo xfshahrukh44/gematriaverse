@@ -407,34 +407,36 @@
 
         .table-all-data #history-saved td:hover .open-box {
             display: block !important;
-            right: -100px;
-            width: 55%;
-            left: unset !important;
-            background: black !important;
-            z-index: 5;
-            padding-top: 10px;
-            border-radius: 10px;
-            padding-right: 10px;
+    right: -100px;
+    /* width: 100%; */
+    left: unset !important;
+    background: black !important;
+    z-index: 5;
+    padding-top: 10px;
+    border-radius: 10px;
+    padding-right: 10px;
+    border: 1px solid white;
         }
 
         .table-all-data #history-saved td .open-box ul {
             list-style: none;
-            text-align: end;
+    text-align: end;
+    width: 100%;
         }
 
         .table-all-data #history-saved td .open-box ul li p {
             color: white !important;
-            background: none !important;
-            padding: 0 !important;
-            font-size: 14px;
-            margin: 0;
+    background: none !important;
+    padding: 0 !important;
+    font-size: 10px;
+    margin: 0;
         }
 
         .table-all-data #history-saved td .open-box ul li a {
             color: white !important;
-            background: none !important;
-            padding: 0 !important;
-            font-size: 14px;
+    background: none !important;
+    padding: 0 !important;
+    font-size: 10px;
         }
 
         .table-all-data #history-saved td .open-box ul li {
@@ -444,13 +446,14 @@
 
         .box-info {
             position: absolute;
-            z-index: 0;
-            background: black !important;
-            right: -130px;
-            top: -30px;
-            padding: 10px;
-            border-radius: 10px;
-            display: none;
+    z-index: 1;
+    background: black !important;
+    right: -80px;
+    top: -30px;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    border: 1px solid white;
         }
 
         .table-all-data #history-saved td .open-box ul li:hover .box-info {
@@ -466,7 +469,7 @@
 
     <!-- Left-side arrow to open the left modal -->
     <div class="side-arrow left-arrow">
-        <button type="button" class="btn btn-success">
+        <button id="load-tables" type="button" class="btn btn-success">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
@@ -485,75 +488,24 @@
             <div class="col-lg-3">
                 <div class="table_check">
                     <h6>Match</h6>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
-                        <li>
-                            <input type="checkbox" id="value1">
-                        </li>
+                    <ul id="table_checkbox">
+
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="table_check">
                     <h6>Table Name</h6>
-                    <ul>
-                        <li>
-                            <a href="javascript:;">Table 1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">Table 2</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">Table 3</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">44</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">User History</a>
-                        </li>
-                        <li>
-                            <h5>This Session</h5>
-                        </li>
+                    <ul id="user_tables">
+
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="table_check">
                     <h6>Entries</h6>
-                    <ul>
-                        <li>
-                            <p>(1)</p>
-                        </li>
-                        <li>
-                            <p>(0)</p>
-                        </li>
-                        <li>
-                            <p> (0)</p>
-                        </li>
-                        <li>
-                            <p>(1)</p>
-                        </li>
-                        <li>
-                            <p> (312)</p>
-                        </li>
-                        <li>
-                            <p>(0)</p>
-                        </li>
+                    <ul id="data_count">
+
                     </ul>
                 </div>
             </div>
@@ -586,8 +538,8 @@
                 </div>
                 <div class="user_btn">
                     <button class="btn btn-success" id="btn-history">HISTORY </button>
-                    <button class="btn btn-success">HISTORY MOST COMMON </button>
-                    <button class="btn btn-success">DATABASE
+                    {{-- <button class="btn btn-success">HISTORY MOST COMMON </button> --}}
+                    <button class="btn btn-success" id="btn-database">DATABASE
                     </button>
                 </div>
             </div>
@@ -1403,62 +1355,18 @@
 
                 {{-- new side table sart --}}
 
-                <div class="col-lg-12" style="display: none">
+                <div class="col-lg-12" id="database-first">
                     <div class="table-all-data">
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <table class="table table-striped table-bordered" style="width:100%">
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
+                                <tr id="table-headers"></tr> <!-- Dynamic headers go here -->
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011-07-25</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009-01-12</td>
-                                    <td>$86,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012-03-29</td>
-                                    <td>$433,060</td>
-                                </tr>
+
+                            <tbody id="database-saved">
                             </tbody>
+
                             <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
+                                <tr id="table-footers"></tr> <!-- Dynamic footers go here -->
                             </tfoot>
                         </table>
                     </div>
@@ -1508,6 +1416,54 @@
     <script>
         let temp_ciphers = [];
         $(document).ready(function() {
+
+            function fetchUserTables() {
+                $.ajax({
+                    url: "{{ route('getUserTables') }}", // Laravel route to get tables
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Clear previous data
+                        var user_tables = response.user_tables;
+                        var cipher_history_count = response.cipher_history_count;
+                        $('#table_checkbox').empty();
+                        $('#user_tables').empty();
+                        $('#data_count').empty();
+
+                        // Append new data to the lists
+                        user_tables.forEach(function(table) {
+                            $('#table_checkbox').append(
+                                `<li><input type="checkbox" id="value${table.id}"></li>`
+                            );
+
+                            $('#user_tables').append(
+                                `<li><a href="javascript:void(0)" class="btn-user-tables" data-id="${table.id}">${table.name}</a></li>`
+                            );
+
+                            $('#data_count').append(
+                                `<li><p>(${table.entry_count})</p></li>`
+                            );
+                        });
+                        $('#table_checkbox').append(
+                            `<li><input type="checkbox" id="valueh"></li>`
+                        );
+
+                        $('#user_tables').append(`
+                            <li><a href="javascript:;" id="user-history">User History</a></li>
+                        `);
+
+                        $('#data_count').append(`
+                            <li><p>(${cipher_history_count})</p></li>
+                        `);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error fetching user tables:', error);
+                    }
+                });
+            }
+
+            fetchUserTables();
+
             let finalCiphersResults = {};
             $('#btn_breakdown_screenshot').on('click', function() {
                 if ($('#breakdownCipherLabel').html() == '') {
@@ -1532,7 +1488,153 @@
                 });
             });
 
+            $('#btn-database').on('click', function() {
+                if (!$('#database-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#database-saved').html('');
+                }
+                if ($('#database-first').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#database-first').html(`<div class="table-all-data">
+                        <table class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr id="table-headers"></tr>
+                            </thead>
+
+                            <tbody id="database-saved">
+                            </tbody>
+
+                            <tfoot>
+                                <tr id="table-footers"></tr>
+                            </tfoot>
+                        </table>
+                    </div>`);
+                }
+                let cipherList;
+                if (temp_ciphers.length == 0) {
+                    cipherList = @json($ciphers);
+                } else {
+                    cipherList = temp_ciphers;
+                }
+                let ciphersForTable = @json($ciphersForTableArr);
+                let small_alphabets = generateSmallAlphabets(ciphersForTable);
+                let inputValue = $('#EntryField').val();
+                if (inputValue == "") {
+                    $('#history-first').html(
+                        '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                    return false;
+                }
+
+                ciphersForTable.forEach(cipher => {
+                    let data;
+
+                    switch (cipher['id']) {
+                        case 'D0':
+                            data = calculateOrdinal(inputValue);
+                            break;
+                        case 'D1':
+                            data = calculateReduction(inputValue);
+                            break;
+                        case 'D2':
+                            data = calculateReverseOrdinal(inputValue);
+                            break;
+                        case 'D3':
+                            data = calculateReverseReduction(inputValue);
+                            break;
+                        default:
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'],
+                                small_alphabets);
+                            break;
+                    }
+
+                    finalCiphersResults[cipher['id']] = data;
+                });
+
+                // console.log(finalCiphersResults);
+
+                let currentCipher = [{
+                    entry: inputValue,
+                    ciphers: JSON.stringify(finalCiphersResults)
+                }];
+                // console.log(currentCipher);
+
+                $.ajax({
+                    url: "{{ route('cipher_database_get') }}",
+                    type: 'GET',
+                    success: function(response) {
+
+                        var responsData = response;
+
+                        if(responsData == ""){
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: "{{ route('cipher_database_arrays') }}",
+                            type: 'POST',
+                            data: {
+                                ciphers: JSON.stringify(responsData),
+                                currentCipher: currentCipher,
+                                cipherList: cipherList,
+                                _token: $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function(response) {
+                                $('#history-first').html('');
+                                // console.log(response.matched_data);
+                                // console.log(response.current_matched_data);
+                                // console.log(response.tempdata);
+                                generateTableHeaders(cipherList);
+                                const matchedData = response.matched_data;
+                                const currentMatchedData = response.current_matched_data;
+                                let tempdata = response.tempdata;
+                                // displayCurrentMatchedData(currentMatchedData, cipherList);
+                                displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
+                                // console.log(matchedData);
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error saving data:', xhr.responseText);
+                                alert('Failed to retrieve data.');
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        alert('Failed to retrieve data.');
+                    }
+                });
+            });
+
             $('#btn-history').on('click', function() {
+                if (!$('#database-first').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#database-first').html('');
+                }
+                if (!$('#current-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #current-saved to an empty string
+                    $('#current-saved').html('');
+                }
+                if (!$('#history-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #history-saved to an empty string
+                    $('#history-saved').html('');
+                }
+                if ($('#history-first').is(':empty')) {
+                    // If it's empty, set the HTML of #history-first to an empty string
+                    $('#history-first').html(`<table class="table table-striped table-bordered custom-side-table" style="width:100%">
+                            <thead>
+                                <tr id="table-headers"></tr>
+                            </thead>
+
+                            <tbody id="current-saved">
+                            </tbody>
+
+                            <tbody id="history-saved">
+                            </tbody>
+
+                            <tfoot>
+                                <tr id="table-footers"></tr>
+                            </tfoot>
+                        </table>`);
+                }
                 let cipherList;
                 if (temp_ciphers.length == 0) {
                     cipherList = @json($ciphers);
@@ -1585,14 +1687,200 @@
                     url: "{{ route('cipher_history_get') }}",
                     type: 'GET',
                     success: function(response) {
+                        $('#database-first').html('');
                         // console.log(response);
                         generateTableHeaders(cipherList);
                         const matchedData = matchAndExtractData(response, cipherList);
-                        const currentMatchedData = matchAndExtractData(currentCipher,
-                            cipherList);
+                        const currentMatchedData = matchAndExtractData(currentCipher, cipherList);
+                        let tempdata = getMatchingEntriesByScore(currentMatchedData, matchedData);
                         displayCurrentMatchedData(currentMatchedData, cipherList);
-                        displayMatchedData(matchedData, cipherList);
-                        // console.log(matchedData);
+                        displayMatchedData(tempdata, currentMatchedData, cipherList);
+                        // console.log(tempdata);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        alert('Failed to retrieve data.');
+                    }
+                });
+            });
+
+            $('body').on('click', '.btn-user-tables', function() {
+                if (!$('#database-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#database-saved').html('');
+                }
+                let Id = $(this).data("id");
+                let cipherList;
+                if (temp_ciphers.length == 0) {
+                    cipherList = @json($ciphers);
+                } else {
+                    cipherList = temp_ciphers;
+                }
+                let ciphersForTable = @json($ciphersForTableArr);
+                let small_alphabets = generateSmallAlphabets(ciphersForTable);
+                let inputValue = $('#EntryField').val();
+                // if (inputValue == "") {
+                //     $('#history-first').html(
+                //         '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                //     return false;
+                // }
+
+                ciphersForTable.forEach(cipher => {
+                    let data;
+
+                    switch (cipher['id']) {
+                        case 'D0':
+                            data = calculateOrdinal(inputValue);
+                            break;
+                        case 'D1':
+                            data = calculateReduction(inputValue);
+                            break;
+                        case 'D2':
+                            data = calculateReverseOrdinal(inputValue);
+                            break;
+                        case 'D3':
+                            data = calculateReverseReduction(inputValue);
+                            break;
+                        default:
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'],
+                                small_alphabets);
+                            break;
+                    }
+
+                    finalCiphersResults[cipher['id']] = data;
+                });
+
+                // console.log(finalCiphersResults);
+
+                let currentCipher = [{
+                    entry: inputValue,
+                    ciphers: JSON.stringify(finalCiphersResults)
+                }];
+                // console.log(currentCipher);
+
+                $.ajax({
+                    url: "{{ url('get-user-tables') }}/"+ Id,
+                    type: 'GET',
+                    success: function(response) {
+                        var responsData = response;
+
+                        if(responsData == ""){
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: "{{ route('cipher_database_arrays') }}",
+                            type: 'POST',
+                            data: {
+                                ciphers: JSON.stringify(responsData),
+                                currentCipher: currentCipher,
+                                cipherList: cipherList,
+                                _token: $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function(response) {
+                                generateTableHeaders(cipherList);
+                                const matchedData = response.matched_data;
+                                displayTableCiphers(matchedData, cipherList);
+                                // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
+                                // console.log(matchedData);
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error saving data:', xhr.responseText);
+                                alert('Failed to retrieve data.');
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        alert('Failed to retrieve data.');
+                    }
+                });
+            });
+
+            $('body').on('click', '#user-history', function() {
+                if (!$('#database-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#database-saved').html('');
+                }
+                let cipherList;
+                if (temp_ciphers.length == 0) {
+                    cipherList = @json($ciphers);
+                } else {
+                    cipherList = temp_ciphers;
+                }
+                let ciphersForTable = @json($ciphersForTableArr);
+                let small_alphabets = generateSmallAlphabets(ciphersForTable);
+                let inputValue = $('#EntryField').val();
+                // if (inputValue == "") {
+                //     $('#history-first').html(
+                //         '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                //     return false;
+                // }
+
+                ciphersForTable.forEach(cipher => {
+                    let data;
+
+                    switch (cipher['id']) {
+                        case 'D0':
+                            data = calculateOrdinal(inputValue);
+                            break;
+                        case 'D1':
+                            data = calculateReduction(inputValue);
+                            break;
+                        case 'D2':
+                            data = calculateReverseOrdinal(inputValue);
+                            break;
+                        case 'D3':
+                            data = calculateReverseReduction(inputValue);
+                            break;
+                        default:
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'],
+                                small_alphabets);
+                            break;
+                    }
+
+                    finalCiphersResults[cipher['id']] = data;
+                });
+
+                // console.log(finalCiphersResults);
+
+                let currentCipher = [{
+                    entry: inputValue,
+                    ciphers: JSON.stringify(finalCiphersResults)
+                }];
+                // console.log(currentCipher);
+
+                $.ajax({
+                    url: "{{ route('get_user_history') }}",
+                    type: 'GET',
+                    success: function(response) {
+                        var responsData = response;
+
+                        if(responsData == ""){
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: "{{ route('cipher_database_arrays') }}",
+                            type: 'POST',
+                            data: {
+                                ciphers: JSON.stringify(responsData),
+                                currentCipher: currentCipher,
+                                cipherList: cipherList,
+                                _token: $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function(response) {
+                                generateTableHeaders(cipherList);
+                                const matchedData = response.matched_data;
+                                displayTableCiphers(matchedData, cipherList);
+                                // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
+                                // console.log(matchedData);
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error saving data:', xhr.responseText);
+                                alert('Failed to retrieve data.');
+                            }
+                        });
                     },
                     error: function(xhr, status, error) {
                         console.error('Error saving data:', xhr.responseText);
@@ -1604,6 +1892,7 @@
 
             function matchAndExtractData(ciphersData, cipherInfo) {
                 const matchedData = [];
+                // console.log(ciphersData);
 
                 ciphersData.forEach(dataEntry => {
                     const entryName = dataEntry.entry;
@@ -1648,13 +1937,152 @@
                 });
             }
 
-            function displayMatchedData(matchedData, cipherInfo) {
+            function displayMatchedData(matchedData, currentMatchedData, cipherInfo) {
+                const matchedScores = currentMatchedData.reduce((acc, entry) => {
+                    acc[entry.score] = entry.rgb_values; // Store RGB values by score
+                    return acc;
+                }, {});
+                // console.log(matchedScores);
+
                 const tbody = $('#history-saved');
                 tbody.append(`
                     <tr class="center-td">
                         <td colspan="100%">Matched Entries</td>
                     </tr>
                 `);
+                tbody.find('tr:not(.center-td)').remove();
+
+                const groupedEntries = matchedData.reduce((acc, data) => {
+                    if (!acc[data.entry]) acc[data.entry] = {};
+                    acc[data.entry][data.cipher_id] = data;
+                    return acc;
+                }, {});
+
+                Object.entries(groupedEntries).forEach(([entry, scores]) => {
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Find Matches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Remove</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Save to Table:</p>
+                                    <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Table 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Table 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Table 3</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
+
+                    cipherInfo.forEach(cipher => {
+                        const scoreData = scores[cipher.id];
+                        let scoreCell = '<td></td>';
+
+                        if (scoreData) {
+                            let { score } = scoreData;
+                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+
+                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                        }
+
+                        row += scoreCell;
+                    });
+
+                    row += '</tr>';
+                    tbody.append(row); // Append the row to tbody
+                });
+            }
+
+            function displayCurrentMatchedData(currentMatchedData, cipherInfo) {
+                const matchedScores = currentMatchedData.reduce((acc, entry) => {
+                    acc[entry.score] = entry.rgb_values; // Store RGB values by score
+                    return acc;
+                }, {});
+
+                const currentTbody = $('#current-saved');
+                currentTbody.find('tr:not(.center-td)').remove();
+
+                const groupedEntries = currentMatchedData.reduce((acc, data) => {
+                    if (!acc[data.entry]) acc[data.entry] = {};
+                    acc[data.entry][data.cipher_id] = data;
+                    return acc;
+                }, {});
+
+                Object.entries(groupedEntries).forEach(([entry, scores]) => {
+                    let row = `<tr><td>${entry}</td>`;
+                    cipherInfo.forEach(cipher => {
+                        const scoreData = scores[cipher.id];
+                        let scoreCell = '<td></td>';
+
+                        if (scoreData) {
+                            const { score } = scoreData;
+                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                        }
+
+                        row += scoreCell;
+                    });
+
+                    row += '</tr>';
+                    currentTbody.append(row);
+                });
+
+                currentTbody.insertBefore($('#history-saved'));
+            }
+
+            function getMatchingEntriesByScore(currentMatchedData, matchedData) {
+                const currentScores = currentMatchedData.map(entry => entry.score);
+
+                const matchingEntries = new Set(
+                    matchedData
+                    .filter(item => currentScores.includes(item.score))
+                    .map(item => item.entry)
+                );
+
+                return matchedData.filter(item => matchingEntries.has(item.entry));
+            }
+
+            function displayMatchedDatabase(matchedData, currentMatchedData, cipherInfo) {
+                const matchedScores = currentMatchedData.reduce((acc, entry) => {
+                    acc[entry.score] = JSON.parse(entry.rgb_values); // Store RGB values by score
+                    return acc;
+                }, {});
+                // console.log(matchedScores);
+
+                const tbody = $('#database-saved');
                 tbody.find('tr:not(.center-td)').remove();
 
                 const groupedEntries = matchedData.reduce((acc, data) => {
@@ -1720,12 +2148,10 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            let {
-                                score,
-                                rgb_values
-                            } = scoreData;
+                            let { score } = scoreData;
+                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
 
-                            scoreCell = `<td>${score}</td>`;
+                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
@@ -1736,9 +2162,15 @@
                 });
             }
 
-            function displayCurrentMatchedData(currentMatchedData, cipherInfo) {
-                const currentTbody = $('#current-saved');
-                currentTbody.find('tr:not(.center-td)').remove();
+            function displayTableCiphers(currentMatchedData, cipherInfo) {
+                const matchedScores = currentMatchedData.reduce((acc, entry) => {
+                    acc[entry.score] = JSON.parse(entry.rgb_values); // Store RGB values by score
+                    return acc;
+                }, {});
+                // console.log(matchedScores);
+
+                const tbody = $('#database-saved');
+                tbody.find('tr:not(.center-td)').remove();
 
                 const groupedEntries = currentMatchedData.reduce((acc, data) => {
                     if (!acc[data.entry]) acc[data.entry] = {};
@@ -1747,28 +2179,76 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li>
+                                    <a href="#">Shift Phrase</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                    <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
+
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            const {
-                                score,
-                                rgb_values
-                            } = scoreData;
-                            scoreCell = `<td>${score}</td>`;
+                            let { score } = scoreData;
+                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+
+                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
                     });
 
                     row += '</tr>';
-                    currentTbody.append(row);
+                    tbody.append(row); // Append the row to tbody
                 });
-
-                currentTbody.insertBefore($('#history-saved'));
             }
+
 
             $('#btn-save-entry').on('click', function() {
                 let entryTitle = $('#entry-title').text();
@@ -1794,7 +2274,7 @@
                 });
             });
 
-            $('#current-saved').on('mouseenter', 'tr td:first-child', function() {
+            $('#current-saved').on('click', 'tr td:first-child', function() {
                 const entryName = $(this).text();
                 $('#entry-title').text(entryName);
 
@@ -1804,24 +2284,11 @@
                     left: $(this).offset().left
                 });
             });
-            // $('#history-saved').on('mouseenter', 'tr td:first-child', function() {
-            //     const entryName = $(this).text();
-            //     $('.entry-title1').text(entryName);
 
-            //     $('#openBox1').css({
-            //         display: 'block',
-            //         top: $(this).offset().top + $(this).outerHeight(),
-            //         left: $(this).offset().left
-            //     });
-            // });
-
-            $('.close-btn').on('mouseenter', function() {
+            $('.close-btn').on('click', function() {
                 $('#openBox').hide();
             });
 
-            // $('.close-btn1').on('mouseenter', function() {
-            //     $('#openBox1').hide();
-            // });
         });
 
         $(document).ready(function() {
@@ -2018,6 +2485,27 @@
 
                 // updateCipherDetails(val, cipherList);
             };
+
+            window.downloadJSON = function(data, filename) {
+                // Convert JSON data to a string
+                const jsonStr = JSON.stringify(data, null, 2);
+
+                // Create a Blob from the string
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+
+                // Append the link to the document and trigger the download
+                document.body.appendChild(link);
+                link.click();
+
+                // Clean up the link element
+                document.body.removeChild(link);
+            }
+
         });
     </script>
 
