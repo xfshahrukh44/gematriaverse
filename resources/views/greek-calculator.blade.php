@@ -27,6 +27,7 @@
             border-radius: 5px;
             padding-bottom: 5px;
             text-align: center;
+            margin-bottom: 10px;
         }
 
         .data-ciphers {
@@ -62,39 +63,30 @@
         .calculator-data-show .row {
             justify-content: center;
         }
+
+        .calcMenuItem {
+            color: #64e2e2 !important;
+            font-size: 25px;
+        }
+
+        #EntryDiv #EntryField {
+            height: 50px;
+            padding: 0 15px;
+            outline: none !important;
+            border: 2px solid orange;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+
+        #EntryDiv #EntryField::placeholder {
+            color: white;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
     </style>
 @endsection
 
 @section('content')
-    <section class="bread-crums">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="menu-dynamic">
-                        <div id="calc-menu">
-                            <a id="ciphModBtn" class="MenuLink" onclick="javascript:void(0)" data-fancybox="dialog" data-src="#ciphMod"><span class="calcMenuItem">Ciphers&nbsp;</span></a>
-{{--                            <span>|</span>--}}
-{{--                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod"><span class="calcMenuItem">Options&nbsp;</span></a><span>|</span>--}}
-{{--                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod"><span class="calcMenuItem">Shortcuts</span></a>--}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bread-crums">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="input-group">
-                        <input id="EntryField" type="text" class="form-control" placeholder="Enter Word, Phrase, or #(s):" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="calculator-meter">
         <div class="container">
             <div class="row">
@@ -104,6 +96,30 @@
                         <div class="row" id="row_new_cipher_boxes">
 
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="menu-dynamic">
+                        <div id="calc-menu">
+                            <a id="ciphModBtn" class="MenuLink" onclick="javascript:void(0)" data-fancybox="dialog" data-src="#ciphMod"><span class="calcMenuItem">Ciphers&nbsp;</span></a>
+                            {{--                            <span>|</span>--}}
+                            {{--                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod"><span class="calcMenuItem">Options&nbsp;</span></a><span>|</span>--}}
+                            {{--                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod"><span class="calcMenuItem">Shortcuts</span></a>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-2 text-center">
+                <div class="col-lg-12">
+                    <div id="EntryDiv">
+                        <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-left" style="font-size:38px"></i></button> -->
+                        {{-- <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" oninput="FieldChange(EntryValue())" onkeydown="navHistTable(event)" ondrop="BuildFromText(event)" ondragenter="ShowDropTarget()" ondragleave="RemoveDropTarget()" ondragexit="RemoveDropTarget()" placeholder="Enter Word, Phrase, or #(s):"> --}}
+                        <input id="EntryField" class="" autofocus="" type="text" autocomplete="off" placeholder="Enter Word, Phrase, or #(s):">
+                        <!-- <button id="arrowDown" class="mo"><i class="fa fa-arrow-circle-right" style="font-size:38px"></i></button> -->
                     </div>
                 </div>
             </div>
@@ -179,7 +195,7 @@
             </div>
             <div class="row justify-content-center">
                 <div id="ChartSpot">
-                    <table>
+                    <table style="border-radius: 5px; padding: 20px;">
                         <tbody>
                             <tr></tr>
 
@@ -749,7 +765,7 @@
             $('#row_new_cipher_boxes').html('');
             for (const cipher of selected_ciphers) {
                 let final_string = `<div class="col-lg-2 pl-1 pr-1">
-                                        <div class="data-ciphers" style="border-color: `+cipher_colors[cipher]+`;">
+                                        <div class="data-ciphers" style="border-color: `+cipher_colors[cipher]+`;" data-name="`+cipher+`">
                                             <div class="chiphers-info">
                                                 <h5 class="justfont" style="color: `+cipher_colors[cipher]+`;  cursor: pointer;" data-name="`+cipher+`">`+cipher+`</h5>
                                             </div>
@@ -763,7 +779,7 @@
             }
         }
 
-        function generate_word_queue (word, is_last_word = false, grand_total = 0) {
+        function generate_word_queue (word, is_last_word = false, grand_total = 0, total_word_count) {
             let total = 0;
             let characters_string = ``;
             let values_string = ``;
@@ -777,17 +793,19 @@
                 }
             }
 
-            characters_string += `<td class="BreakSum" rowspan="2">
-                                        <font style="color: `+cipher_colors[active_cipher]+`;">
-                                            <div class="NumberClass">`+total+`</div>
-                                        </font>
-                                    </td>`;
+            if (total > 0 && total_word_count > 1) {
+                characters_string += `<td class="BreakSum target_number" rowspan="2" style="cursor: pointer;">
+                                            <font style="color: `+cipher_colors[active_cipher]+`;">
+                                                <div class="NumberClass" style="cursor: pointer;">`+total+`</div>
+                                            </font>
+                                        </td>`;
+            }
 
 
             if (is_last_word) {
-                characters_string += `<td class="BreakTotal" rowspan="2">
+                characters_string += `<td class="BreakTotal target_number" rowspan="2" style="cursor: pointer;">
                                             <font style="color: `+cipher_colors[active_cipher]+`;">
-                                                <div class="NumberClass view-number">`+grand_total+`</div>
+                                                <div class="NumberClass view-number target_number" style="cursor: pointer;">`+grand_total+`</div>
                                             </font>
                                         </td>`;
             }
@@ -820,7 +838,7 @@
             let queue_html = ``;
 
             words_array.forEach((word, i) => {
-                queue_html += generate_word_queue(word, ((i + 1) === words_array.length), ((i + 1) === words_array.length ? total : 0));
+                queue_html += generate_word_queue(word, ((i + 1) === words_array.length), ((i + 1) === words_array.length ? total : 0), words_array.length);
             });
 
             if (total > 0) {
@@ -829,7 +847,7 @@
                 $('#td_cipher_queues_wrapper').html(queue_html);
                 $('#tr_cipher_queue').html(`<span class="nextGenText">"`+string+`" =
                                                 <font style="color: `+cipher_colors[active_cipher]+`;">
-                                                    <div class="NumberClass view-number">`+total+`</div>
+                                                    <div class="NumberClass view-number target_number" style="cursor: pointer;">`+total+`</div>
                                                 </font>
                                                 <font style="color: `+cipher_colors[active_cipher]+`;">(`+active_cipher+`)</font>
                                             </span>
@@ -849,7 +867,7 @@
             // Remove all spaces to count letters only
             const letterCount = str.replace(/\s+/g, '').length;
 
-            $('#div_words_and_letters').text('('+wordCount+' word'+ ((wordCount > 1) ? 's' : '') +', '+letterCount+' letter'+ ((letterCount > 1) ? 's' : '') +')');
+            $('#div_words_and_letters').text('('+wordCount+' word'+ ((wordCount > 1 || wordCount == 0) ? 's' : '') +', '+letterCount+' letter'+ ((letterCount > 1 || letterCount == 0) ? 's' : '') +')');
         }
 
         function generate_cipher_alphabet () {
@@ -865,6 +883,8 @@
             }
 
             $('#tr_cipher_name').html(`<font id="cipherTitleFont" style="color: `+cipher_colors[active_cipher]+`;">`+active_cipher+`</font>`);
+
+            $('#ChartSpot').find('table').css('border', '2px solid ' + cipher_colors[active_cipher]);
         }
 
         function activate_cipher (cipher_name) {
@@ -893,11 +913,7 @@
             for (const selected_cipher of selected_ciphers) {
                 let cipher_res =  calculate_cipher(word, ciphers[selected_cipher]);
 
-                $('.justnumber').each((i, item) => {
-                    if ($(item).data('name') == selected_cipher) {
-                        $(item).text(cipher_res);
-                    }
-                });
+                $(`.justnumber[data-name="${selected_cipher}"]`).text(cipher_res);
             }
         }
 
@@ -1150,7 +1166,9 @@
                 return true;
             });
 
+            let temp_cipher = '';
             $('body').on('click', '.justfont', function () {
+                temp_cipher = $(this).data('name');
                 activate_cipher($(this).data('name'));
             })
 
@@ -1196,6 +1214,15 @@
 
             $('body').on('click', '.target_number', function () {
                 number_properties($(this).text());
+            });
+
+            $('body').on('mouseenter', '.data-ciphers', function () {
+                temp_cipher = active_cipher;
+                activate_cipher($(this).data('name'));
+            });
+
+            $('body').on('mouseleave', '.data-ciphers', function () {
+                activate_cipher(temp_cipher);
             });
         });
     </script>
