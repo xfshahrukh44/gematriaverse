@@ -1959,53 +1959,7 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}
-                        <div class="open-box" id="openBox1">
-                            <ul class="data-box">
-                                <li class="data-into-data">
-                                    <p>Shift Phrase:</p>
-                                     <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                                <li>
-                                    <a href="#">Find Matches</a>
-                                </li>
-                                <li>
-                                    <a href="#">Remove</a>
-                                </li>
-                                <li class="data-into-data">
-                                    <p>Save to Table:</p>
-                                    <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Table 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Table 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Table 3</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                        </td>`;
+                    let row = `<tr><td>${entry}</td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -2092,56 +2046,7 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}
-                        <div class="open-box" id="openBox1">
-                            <ul class="data-box">
-                                <li class="data-into-data">
-                                    <p>Shift Phrase:</p>
-                                     <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                                <li>
-                                    <a href="#">Shift Phrase</a>
-                                </li>
-                                <li>
-                                    <a href="#">Shift Phrase</a>
-                                </li>
-                                <li class="data-into-data">
-                                    <p>Shift Phrase:</p>
-                                    <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                        </td>`;
+                    let row = `<tr><td>${entry}</td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -2179,56 +2084,7 @@
                 }, {});
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}
-                        <div class="open-box" id="openBox1">
-                            <ul class="data-box">
-                                <li class="data-into-data">
-                                    <p>Shift Phrase:</p>
-                                     <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                                <li>
-                                    <a href="#">Shift Phrase</a>
-                                </li>
-                                <li>
-                                    <a href="#">Shift Phrase</a>
-                                </li>
-                                <li class="data-into-data">
-                                    <p>Shift Phrase:</p>
-                                    <div class="box-info">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
-                                        </ul>
-                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                        </td>`;
+                    let row = `<tr><td>${entry}</td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
