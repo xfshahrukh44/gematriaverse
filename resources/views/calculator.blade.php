@@ -407,36 +407,36 @@
 
         .table-all-data #history-saved td:hover .open-box {
             display: block !important;
-    right: -100px;
-    /* width: 100%; */
-    left: unset !important;
-    background: black !important;
-    z-index: 5;
-    padding-top: 10px;
-    border-radius: 10px;
-    padding-right: 10px;
-    border: 1px solid white;
+            right: -100px;
+            /* width: 100%; */
+            left: unset !important;
+            background: black !important;
+            z-index: 5;
+            padding-top: 10px;
+            border-radius: 10px;
+            padding-right: 10px;
+            border: 1px solid white;
         }
 
         .table-all-data #history-saved td .open-box ul {
             list-style: none;
-    text-align: end;
-    width: 100%;
+            text-align: end;
+            width: 100%;
         }
 
         .table-all-data #history-saved td .open-box ul li p {
             color: white !important;
-    background: none !important;
-    padding: 0 !important;
-    font-size: 10px;
-    margin: 0;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 10px;
+            margin: 0;
         }
 
         .table-all-data #history-saved td .open-box ul li a {
             color: white !important;
-    background: none !important;
-    padding: 0 !important;
-    font-size: 10px;
+            background: none !important;
+            padding: 0 !important;
+            font-size: 10px;
         }
 
         .table-all-data #history-saved td .open-box ul li {
@@ -446,18 +446,27 @@
 
         .box-info {
             position: absolute;
-    z-index: 1;
-    background: black !important;
-    right: -80px;
-    top: -30px;
-    padding: 10px;
-    border-radius: 10px;
-    display: none;
-    border: 1px solid white;
+            z-index: 1;
+            background: black !important;
+            right: -80px;
+            top: -30px;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            border: 1px solid white;
         }
 
         .table-all-data #history-saved td .open-box ul li:hover .box-info {
             display: block;
+        }
+
+        #not-found {
+            text-align: center;
+            border: none;
+        }
+
+        #not-found h3{
+            color: white;
         }
     </style>
 @endsection
@@ -1355,7 +1364,7 @@
 
                 {{-- new side table sart --}}
 
-                <div class="col-lg-12" id="database-first">
+                {{-- <div class="col-lg-12" id="database-first">
                     <div class="table-all-data">
                         <table class="table table-striped table-bordered" style="width:100%">
                             <thead>
@@ -1370,7 +1379,7 @@
                             </tfoot>
                         </table>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-12">
                     <div class="table-all-data" id="history-first">
                         <table class="table table-striped table-bordered custom-side-table" style="width:100%">
@@ -1383,6 +1392,11 @@
 
                             <tbody id="history-saved">
                             </tbody>
+
+                            <tbody id="database-saved">
+                            </tbody>
+
+                            <div id="not-found" style="display: none;"><h3>No Data Found...</h3></div>
 
                             <tfoot>
                                 <tr id="table-footers"></tr> <!-- Dynamic footers go here -->
@@ -1489,27 +1503,36 @@
             });
 
             $('#btn-database').on('click', function() {
+                $('#not-found').hide();
                 if (!$('#database-saved').is(':empty')) {
                     // If it's empty, set the HTML of #database-first to an empty string
                     $('#database-saved').html('');
                 }
-                if ($('#database-first').is(':empty')) {
+                if (!$('#current-saved').is(':empty')) {
                     // If it's empty, set the HTML of #database-first to an empty string
-                    $('#database-first').html(`<div class="table-all-data">
-                        <table class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr id="table-headers"></tr>
-                            </thead>
-
-                            <tbody id="database-saved">
-                            </tbody>
-
-                            <tfoot>
-                                <tr id="table-footers"></tr>
-                            </tfoot>
-                        </table>
-                    </div>`);
+                    $('#current-saved').html('');
                 }
+                if (!$('#history-saved').is(':empty')) {
+                    // If it's empty, set the HTML of #database-first to an empty string
+                    $('#history-saved').html('');
+                }
+                // if ($('#database-first').is(':empty')) {
+                //     // If it's empty, set the HTML of #database-first to an empty string
+                //     $('#database-first').html(`<div class="table-all-data">
+                //         <table class="table table-striped table-bordered" style="width:100%">
+                //             <thead>
+                //                 <tr id="table-headers"></tr>
+                //             </thead>
+
+                //             <tbody id="database-saved">
+                //             </tbody>
+
+                //             <tfoot>
+                //                 <tr id="table-footers"></tr>
+                //             </tfoot>
+                //         </table>
+                //     </div>`);
+                // }
                 let cipherList;
                 if (temp_ciphers.length == 0) {
                     cipherList = @json($ciphers);
@@ -1520,8 +1543,7 @@
                 let small_alphabets = generateSmallAlphabets(ciphersForTable);
                 let inputValue = $('#EntryField').val();
                 if (inputValue == "") {
-                    $('#history-first').html(
-                        '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                    $('#not-found').show();
                     return false;
                 }
 
@@ -1579,7 +1601,7 @@
                                 _token: $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function(response) {
-                                $('#history-first').html('');
+                                // $('#history-first').html('');
                                 // console.log(response.matched_data);
                                 // console.log(response.current_matched_data);
                                 // console.log(response.tempdata);
@@ -1605,37 +1627,20 @@
             });
 
             $('#btn-history').on('click', function() {
-                if (!$('#database-first').is(':empty')) {
-                    // If it's empty, set the HTML of #database-first to an empty string
-                    $('#database-first').html('');
+                $('#not-found').hide();
+
+                if (!$('#database-save').is(':empty')) {
+                    $('#database-save').html('');
                 }
                 if (!$('#current-saved').is(':empty')) {
-                    // If it's empty, set the HTML of #current-saved to an empty string
                     $('#current-saved').html('');
                 }
                 if (!$('#history-saved').is(':empty')) {
-                    // If it's empty, set the HTML of #history-saved to an empty string
                     $('#history-saved').html('');
                 }
-                if ($('#history-first').is(':empty')) {
-                    // If it's empty, set the HTML of #history-first to an empty string
-                    $('#history-first').html(`<table class="table table-striped table-bordered custom-side-table" style="width:100%">
-                            <thead>
-                                <tr id="table-headers"></tr>
-                            </thead>
 
-                            <tbody id="current-saved">
-                            </tbody>
-
-                            <tbody id="history-saved">
-                            </tbody>
-
-                            <tfoot>
-                                <tr id="table-footers"></tr>
-                            </tfoot>
-                        </table>`);
-                }
                 let cipherList;
+
                 if (temp_ciphers.length == 0) {
                     cipherList = @json($ciphers);
                 } else {
@@ -1645,8 +1650,7 @@
                 let small_alphabets = generateSmallAlphabets(ciphersForTable);
                 let inputValue = $('#EntryField').val();
                 if (inputValue == "") {
-                    $('#history-first').html(
-                        '<h4 style=" text-align: center; color: white; ">No Data Found...</h4>')
+                    $('#not-found').show();
                     return false;
                 }
 
@@ -1687,7 +1691,7 @@
                     url: "{{ route('cipher_history_get') }}",
                     type: 'GET',
                     success: function(response) {
-                        $('#database-first').html('');
+                        // $('#database-first').html('');
                         // console.log(response);
                         generateTableHeaders(cipherList);
                         const matchedData = matchAndExtractData(response, cipherList);
@@ -1705,10 +1709,19 @@
             });
 
             $('body').on('click', '.btn-user-tables', function() {
+
+                $('#not-found').hide();
+
                 if (!$('#database-saved').is(':empty')) {
-                    // If it's empty, set the HTML of #database-first to an empty string
                     $('#database-saved').html('');
                 }
+                if (!$('#current-saved').is(':empty')) {
+                    $('#current-saved').html('');
+                }
+                if (!$('#history-saved').is(':empty')) {
+                    $('#history-saved').html('');
+                }
+
                 let Id = $(this).data("id");
                 let cipherList;
                 if (temp_ciphers.length == 0) {
@@ -1798,10 +1811,19 @@
             });
 
             $('body').on('click', '#user-history', function() {
+
+                $('#not-found').hide();
+
                 if (!$('#database-saved').is(':empty')) {
-                    // If it's empty, set the HTML of #database-first to an empty string
                     $('#database-saved').html('');
                 }
+                if (!$('#current-saved').is(':empty')) {
+                    $('#current-saved').html('');
+                }
+                if (!$('#history-saved').is(':empty')) {
+                    $('#history-saved').html('');
+                }
+
                 let cipherList;
                 if (temp_ciphers.length == 0) {
                     cipherList = @json($ciphers);
@@ -2576,7 +2598,7 @@
         window.onload = function() {
 
             const firstCipherId = "{{ $first_ciphers['id'] }}";
-            console.log(firstCipherId)
+            console.log(firstCipherId);
             MoveCipherClick(firstCipherId, event);
 
             var firstDataId = $('div.change-cipher').first().data('id');
