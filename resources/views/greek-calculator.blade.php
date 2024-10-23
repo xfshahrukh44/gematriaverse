@@ -890,6 +890,14 @@
         function activate_cipher (cipher_name) {
             active_cipher = cipher_name;
 
+            $('.data-ciphers').each((i, item) => {
+                $(item).css('box-shadow', 'none');
+                $(item).css('text-shadow', 'none');
+            });
+
+            $('.data-ciphers[data-name="'+active_cipher+'"]').css('box-shadow', cipher_colors[active_cipher]+' 0 0 8px 1px');
+            $('.data-ciphers[data-name="'+active_cipher+'"]').css('text-shadow', cipher_colors[active_cipher]+' 0 0 8px');
+
             generate_cipher_queue($('#EntryField').val());
 
             generate_cipher_alphabet();
@@ -1155,6 +1163,7 @@
             populate_cipher_modal();
             generate_cipher_table();
             generate_cipher_alphabet();
+            activate_cipher(active_cipher);
 
             $('#EntryField').on('keyup', function () {
                 let val = $(this).val();
