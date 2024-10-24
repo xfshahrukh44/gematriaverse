@@ -131,7 +131,7 @@
                             <input type="hidden" name="cipher_id" id="cipher_id" value="D0">
                             <table id="breakdownCipherLabel" style="width:100%; display: inline;">
                                 <tbody>
-                                <tr>
+                                <tr class="text-center">
                                     <td id="tr_cipher_queue">
 
                                     </td>
@@ -139,19 +139,10 @@
                                 </tbody>
                             </table>
                             <br>
-                            <table id="breakdownCipherLabel" style="width:100%; display: inline;">
-                                <tbody>
-                                <tr>
-                                    <td id="tr_cipher_queue">
-
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
                             <br>
                             <table id="breakdownCipherLabel" style="width:100%; display: inline;">
                                 <tbody>
-                                <tr>
+                                <tr class="text-center">
                                     <td id="td_cipher_queues_wrapper">
                                         <table class="BreakTable">
                                             <tbody id="tbody_cipher_queue">
