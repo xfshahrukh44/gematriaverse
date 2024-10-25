@@ -5,7 +5,7 @@
         $green = $rgb['green'] ?? 0;
         $blue = $rgb['blue'] ?? 0;
     @endphp
-    <div class="col-lg-2 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
+    <div class="col-lg-1 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
         <div class="data-ciphers change-cipher" data-id="{{ $cipher['id'] }}"
             onclick="MoveCipherClick('{{ $cipher['id'] }}', event)"
             style="border-color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">

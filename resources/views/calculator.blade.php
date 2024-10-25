@@ -28,7 +28,7 @@
         .data-ciphers {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             text-align: center;
             flex-direction: column-reverse;
             gap: 10px;
@@ -43,7 +43,7 @@
         .chiphers-info h5 {
             margin: 0;
             color: white;
-            font-size: 13px;
+            font-size: 10px;
             /* font-family: "Lato"; */
             /* font-weight: 700; */
         }
@@ -51,7 +51,7 @@
         .chiphers-data-number p {
             margin: 0;
             color: white;
-            font-size: 25px;
+            font-size: 20px;
             /* font-family: "Lato"; */
             /* font-weight: 600;*/
         }
@@ -650,7 +650,7 @@
                                     $green = $rgb['green'] ?? 0;
                                     $blue = $rgb['blue'] ?? 0;
                                 @endphp
-                                <div class="col-lg-2 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
+                                <div class="col-lg-1 pl-1 pr-1" id="TableValue_{{ $cipher['name'] }}">
                                     <div class="data-ciphers change-cipher" data-id="{{ $cipher['id'] }}"
                                         onclick="MoveCipherClick('{{ $cipher['id'] }}', event)"
                                         style="border-color: rgb({{ $red }}, {{ $green }}, {{ $blue }})">

@@ -207,7 +207,7 @@
                                     <div class="mdyDiv">
                                         <span class="monthTitle">Month:</span><br>
                                         <input tabindex="1" type="number" max="12" min="1" class="u_Inp"
-                                            id="Month1" pattern="^(1[0-2]|[1-9])$" value="<?php echo date('m', strtotime($previousDate)); ?>">
+                                            id="Month1" value="<?php echo date('m', strtotime($previousDate)); ?>">
                                     </div>
                                     <div class="mdyDiv">
                                         Day:<br>
