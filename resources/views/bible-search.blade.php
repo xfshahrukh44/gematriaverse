@@ -4,6 +4,11 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('css/bibletool.css')}}">
+    <style>
+        #DropHere {
+            overflow-x: scroll;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -880,55 +885,47 @@
 
         function OpenDetails(impVal){
             savedHTML = $('#MainTableDefault').length ? $('#MainTableDefault').html() : $('#MainTable').html();
-            console.log(savedHTML);
+            // console.log(savedHTML);
+            // Parse the saved HTML to extract the <thead>
+            let parser = new DOMParser();
+            let doc = parser.parseFromString('<table>' + savedHTML + '</table>', 'text/html');
+            // console.log(doc);
+            let thead = doc.querySelector('thead');  // Extract <thead>
+
+            // console.log(thead ? thead.outerHTML : 'No <thead> found');
             //Activated when a user clicks on the name of a Bible verse
             dropSpot = document.getElementById("DropHere")
             dropSpot.innerHTML = 'Loading...<p><button class="btn btn-primary" onclick="BuildResultTable()">Go Back</button>'
             lastRetrieve = impVal
-            RetrieveDetails(impVal, savedHTML)
+            RetrieveDetails(impVal, savedHTML, thead)
         }
 
-        function RetrieveDetails(impVal, html) {
+        function RetrieveDetails(impVal, html, thead) {
             var resArr, tArr;
-
-            // Create a new XMLHttpRequest object
             var xhttp = new XMLHttpRequest();
-
-            // Configure it: GET-request for the URL
             xhttp.open("GET", "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/verses/" + impVal, true);
-
-            // Set the necessary headers, including the API key
             xhttp.setRequestHeader('accept', 'application/json');
             xhttp.setRequestHeader('api-key', 'b2b1fcabd2cedd206131d848c2a7c759');
 
-            // Track the state changes of the request
             xhttp.onreadystatechange = function() {
-                // Check if the request is completed (readyState 4) and the response status is OK (status 200)
                 if (this.readyState == 4 && this.status == 200) {
-                    // Parse the JSON response
                     var response = JSON.parse(xhttp.responseText);
-
-                    // Assuming response.data contains the required information
                     if (response.data) {
                         resArr = response.data;
-
-                        // Call BuildVerseTable to update your UI
-                        BuildVerseTable(resArr, html);
+                        BuildVerseTable(resArr, html, thead);
                     }
                 }
             };
 
-            // Send the request
             xhttp.send();
         }
 
-        function BuildVerseTable(OpenVerse, html) {
-            // Assuming resArr contains the details of the verse.
+        function BuildVerseTable(OpenVerse, html, thead) {
+
             if (!OpenVerse) {
                 return;
             }
 
-            // Extract data from OpenVerse (adjust according to API response structure)
             const verseData = OpenVerse.content;
             const verseTitle = OpenVerse.reference;
             const nextVerse = OpenVerse.next.id;
@@ -978,12 +975,7 @@
             </table>
             <table id="MainTable" class="table">
                 <thead>
-                    <tr>
-                        <th>Verse</th>
-                        <th>Ordinal</th>
-                        <th>Reduction</th>
-                        <th>Reverse Reduction</th>
-                    </tr>
+                    ${thead.innerHTML}
                 </thead>
                 <tbody id="cipher-body">
                 </tbody>
