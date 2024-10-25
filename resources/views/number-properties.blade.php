@@ -5,7 +5,13 @@
 @section('css')
     <style>
         section.table-date-calculator.py {
-            height: 100vh;
+            height: 100%;
+        }
+
+        td#divisors_list {
+            word-break: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
         }
     </style>
 @endsection
@@ -22,66 +28,73 @@
                                 <div id="HTMLSpot">
                                     <table id="TopTable">
                                         <tbody>
-                                        <tr>
-    {{--                                        <td><a class="RegularLink" href="javascript:void(0)">54</a></td>--}}
-                                            <td id="TopNumber"></td>
-    {{--                                        <td><a class="RegularLink" href="javascript:void(0)">56</a></td>--}}
-                                        </tr>
-    {{--                                    <tr>--}}
-    {{--                                        <td id="PrimeString" colspan="3">5 × 11</td>--}}
-    {{--                                    </tr>--}}
+                                            <tr>
+                                                {{--                                        <td><a class="RegularLink" href="javascript:void(0)">54</a></td> --}}
+                                                <td id="TopNumber"></td>
+                                                {{--                                        <td><a class="RegularLink" href="javascript:void(0)">56</a></td> --}}
+                                            </tr>
+                                            {{--                                    <tr> --}}
+                                            {{--                                        <td id="PrimeString" colspan="3">5 × 11</td> --}}
+                                            {{--                                    </tr> --}}
                                         </tbody>
                                     </table>
                                     <div id="">
                                         <table id="SeqTable">
                                             <tbody>
-                                            <tr id="td_fibonacci_wrapper" hidden>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_prev">Prev</a></td>--}}
-                                                <td class="SeqPlace">
-                                                    <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_fibonacci"></a></b></div>
-                                                </td>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_next">Next</a></td>--}}
-                                            </tr>
-                                            <tr id="td_triangular_wrapper" hidden>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_prev">Prev</a></td>--}}
-                                                <td class="SeqPlace">
-                                                    <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_triangular"></a></b></div>
-                                                </td>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_next">Next</a></td>--}}
-                                            </tr>
-                                            <tr id="td_sq_pyramidal_wrapper" hidden>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_prev">Prev</a></td>--}}
-                                                <td class="SeqPlace">
-                                                    <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)" id="td_sq_pyramidal"></a></b></div>
-                                                </td>
-{{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_next">Next</a></td>--}}
-                                            </tr>
+                                                <tr id="td_fibonacci_wrapper" hidden>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_prev">Prev</a></td> --}}
+                                                    <td class="SeqPlace">
+                                                        <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)"
+                                                                    id="td_fibonacci"></a></b></div>
+                                                    </td>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_fibonacci_next">Next</a></td> --}}
+                                                </tr>
+                                                <tr id="td_triangular_wrapper" hidden>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_prev">Prev</a></td> --}}
+                                                    <td class="SeqPlace">
+                                                        <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)"
+                                                                    id="td_triangular"></a></b></div>
+                                                    </td>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_triangular_next">Next</a></td> --}}
+                                                </tr>
+                                                <tr id="td_sq_pyramidal_wrapper" hidden>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_prev">Prev</a></td> --}}
+                                                    <td class="SeqPlace">
+                                                        <div class="SeqNum"><b class="Linkable"><a href="javascript:void(0)"
+                                                                    id="td_sq_pyramidal"></a></b></div>
+                                                    </td>
+                                                    {{--                                                <td class="NavSeq"><a class="RegularLink target_action" data-number="" href="#" id="td_sq_pyramidal_next">Next</a></td> --}}
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <div id="belowSpecials">
                                             <div id="DivisorTableDiv"><span class="titles">Divisors</span>
                                                 <table id="DivisorTable">
                                                     <tbody>
-                                                    <tr></tr>
-                                                    <tr>
-                                                        <td>Count:</td>
-                                                        <td>List:</td>
-                                                        <td>Sum:</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="vertical-align: top"><b class="Linkable"><a href="javascript:void(0)" id="count" class="target_number"></a></b></td>
 
-                                                        <td id="divisors_list">
-    {{--                                                        <b class="Linkable"><a href="javascript:void(0)">1</a></b>,--}}
-    {{--                                                        <b class="Linkable"><a href="javascript:void(0)">5</a></b>,--}}
-    {{--                                                        <b class="Linkable"><a href="javascript:void(0)">11</a></b>,--}}
-    {{--                                                        <b class="Linkable"><a href="javascript:void(0)">55</a></b>--}}
-    {{--                                                        <br>--}}
-    {{--                                                        <b class="Linkable"><a href="javascript:void(0)">38</a></b>th Composite #--}}
-                                                        </td>
+                                                        <tr>
+                                                            <td>Count:</td>
+                                                            <td>List:</td>
+                                                            <td>Sum:</td>
+                                                        </tr>
+                                                        <tr class="flex-point">
+                                                            <td style="vertical-align: top"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="count"
+                                                                        class="target_number"></a></b></td>
 
-                                                        <td style="vertical-align: top"><b class="Linkable"><a href="javascript:void(0)" id="sum" class="target_number"></a></b></td>
-                                                    </tr>
+                                                            <td id="divisors_list">
+                                                                {{--                                                        <b class="Linkable"><a href="javascript:void(0)">1</a></b>, --}}
+                                                                {{--                                                        <b class="Linkable"><a href="javascript:void(0)">5</a></b>, --}}
+                                                                {{--                                                        <b class="Linkable"><a href="javascript:void(0)">11</a></b>, --}}
+                                                                {{--                                                        <b class="Linkable"><a href="javascript:void(0)">55</a></b> --}}
+                                                                {{--                                                        <br> --}}
+                                                                {{--                                                        <b class="Linkable"><a href="javascript:void(0)">38</a></b>th Composite # --}}
+                                                            </td>
+
+                                                            <td style="vertical-align: top"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="sum"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -89,46 +102,66 @@
                                                 <h2 class="white" id="number_with_suffix">55th...</h2>
                                                 <table id="RelationTable">
                                                     <tbody>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Prime #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_prime" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Composite #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_composite" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Fibonacci #: </td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_fibonacci" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Triangular #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_triangular" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Square #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="square" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Cube #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="cube" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Tetrahedral #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_tetrahedral" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_sq_pyramidal" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Star #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_star" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="RelativeClass"> Pentagonal #: &nbsp;</td>
-                                                        <td class="RelativeNum"><b class="Linkable"><a href="javascript:void(0)" id="nth_pentagonal" class="target_number"></a></b></td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Prime #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_prime"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Composite #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_composite"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Fibonacci #: </td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_fibonacci"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Triangular #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_triangular"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Square #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="square"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Cube #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="cube"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Tetrahedral #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_tetrahedral"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Square Pyramidal #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_sq_pyramidal"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Star #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_star"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="RelativeClass"> Pentagonal #: &nbsp;</td>
+                                                            <td class="RelativeNum"><b class="Linkable"><a
+                                                                        href="javascript:void(0)" id="nth_pentagonal"
+                                                                        class="target_number"></a></b></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -136,31 +169,37 @@
                                                 <span class="titles">Conversions</span>
                                                 <table id="ConversionTable">
                                                     <tbody>
-                                                    <tr>
-    {{--                                                    <td>From:</td>--}}
-                                                        <td class="conversionMiddle">Numeral system:</td>
-                                                        <td>To:</td>
-                                                    </tr>
-                                                    <tr>
-    {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">45</a></b></td>--}}
-                                                        <td>Octal</td>
-                                                        <td><b class="Linkable"><a href="javascript:void(0)" id="octal" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-    {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">65</a></b></td>--}}
-                                                        <td>Duodecimal</td>
-                                                        <td><b class="Linkable"><a href="javascript:void(0)" id="duodecimal" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-    {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">85</a></b></td>--}}
-                                                        <td>Hexadecimal</td>
-                                                        <td><b class="Linkable"><a href="javascript:void(0)" id="hexadecimal" class="target_number"></a></b></td>
-                                                    </tr>
-                                                    <tr>
-    {{--                                                    <td>-</td>--}}
-                                                        <td>Binary</td>
-                                                        <td><b class="Linkable"><a href="javascript:void(0)" id="binary" class="target_number"></a></b></td>
-                                                    </tr>
+                                                        <tr>
+                                                            {{--                                                    <td>From:</td> --}}
+                                                            <td class="conversionMiddle">Numeral system:</td>
+                                                            <td>To:</td>
+                                                        </tr>
+                                                        <tr>
+                                                            {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">45</a></b></td> --}}
+                                                            <td>Octal</td>
+                                                            <td><b class="Linkable"><a href="javascript:void(0)"
+                                                                        id="octal" class="target_number"></a></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">65</a></b></td> --}}
+                                                            <td>Duodecimal</td>
+                                                            <td><b class="Linkable"><a href="javascript:void(0)"
+                                                                        id="duodecimal" class="target_number"></a></b>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            {{--                                                    <td><b class="Linkable"><a href="javascript:void(0)">85</a></b></td> --}}
+                                                            <td>Hexadecimal</td>
+                                                            <td><b class="Linkable"><a href="javascript:void(0)"
+                                                                        id="hexadecimal" class="target_number"></a></b>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            {{--                                                    <td>-</td> --}}
+                                                            <td>Binary</td>
+                                                            <td><b class="Linkable"><a href="javascript:void(0)"
+                                                                        id="binary" class="target_number"></a></b></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -168,7 +207,8 @@
                                     </div>
                                 </div>
                             </center>
-                            <input tabindex="0" id="input_get_properties" autofocus="" type="number" placeholder="Enter #">
+                            <input tabindex="0" id="input_get_properties" autofocus="" type="number"
+                                placeholder="Enter #">
                             <br><br>
                             <button tabindex="1" id="btn_get_properties" class="buttonFunction">Get Properties</button>
                         </center>
@@ -224,8 +264,8 @@
         }
 
         function getCompositePosition(num) {
-            let count = 0;  // Counter for composite numbers
-            let current = 4;  // Start from 4 because 4 is the first composite number
+            let count = 0; // Counter for composite numbers
+            let current = 4; // Start from 4 because 4 is the first composite number
 
             while (current <= num) {
                 if (!isPrime(current)) {
@@ -338,10 +378,10 @@
 
             // Conversions
             const conversions = {
-                octal: n.toString(8),           // Octal
-                duodecimal: n.toString(12),     // Duodecimal
-                hexadecimal: n.toString(16),     // Hexadecimal
-                binary: n.toString(2)            // Binary
+                octal: n.toString(8), // Octal
+                duodecimal: n.toString(12), // Duodecimal
+                hexadecimal: n.toString(16), // Hexadecimal
+                binary: n.toString(2) // Binary
             };
 
             return conversions;
@@ -471,7 +511,7 @@
             }
         }
 
-        function number_properties (number) {
+        function number_properties(number) {
             if (number == '') {
                 return false;
             }
@@ -533,11 +573,12 @@
             let count = 0;
             for (const item of return_body.divisors) {
                 count += 1;
-                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">'+item+'</a></b>' + (count === return_body.divisors.length ? '' : ',&nbsp;');
+                string += '<b class="Linkable"><a href="javascript:void(0);" class="target_number">' + item + '</a></b>' + (
+                    count === return_body.divisors.length ? '' : ',&nbsp;');
             }
             if (return_body.composite != '') {
                 string += '<br>';
-                string += '<b class="Linkable">'+return_body.composite+'</b>';
+                string += '<b class="Linkable">' + return_body.composite + '</b>';
             }
             $('#divisors_list').html(string);
 
@@ -564,8 +605,8 @@
         }
     </script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#btn_get_properties').on('click', function () {
+        $(document).ready(function() {
+            $('#btn_get_properties').on('click', function() {
                 let val = $('#input_get_properties').val();
 
                 if (val < 1 || val == '') {
@@ -575,11 +616,11 @@
                 number_properties(val);
             });
 
-            $('body').on('click', '.target_number', function () {
+            $('body').on('click', '.target_number', function() {
                 number_properties($(this).text());
             });
 
-            $('body').on('click', '.target_action', function (e) {
+            $('body').on('click', '.target_action', function(e) {
                 e.preventDefault();
 
                 let val = $(this).data('number');
@@ -593,5 +634,3 @@
         });
     </script>
 @endsection
-
-
