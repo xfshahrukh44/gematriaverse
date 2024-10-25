@@ -207,7 +207,7 @@
                                     <div class="mdyDiv">
                                         <span class="monthTitle">Month:</span><br>
                                         <input tabindex="1" type="number" max="12" min="1" class="u_Inp"
-                                            id="Month1" value="<?php echo date('m', strtotime($previousDate)); ?>">
+                                            id="Month1" pattern="^(1[0-2]|[1-9])$" value="<?php echo date('m', strtotime($previousDate)); ?>">
                                     </div>
                                     <div class="mdyDiv">
                                         Day:<br>
@@ -746,6 +746,61 @@
         <script>
             $(document).ready(function() {
                 $('#Month1').trigger('change');
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#Month1, #Month2').on("input", function(e) {
+                    let value = $(this).val();
+
+                    // Restrict to numbers 1-12
+                    if (value < 1) {
+                        $(this).val(1);
+                    } else if (value > 12) {
+                        $(this).val(12);
+                    }
+                });
+
+                $('#Day1, #Day2').on("input", function(e) {
+                    let value = $(this).val();
+
+                    // Restrict to numbers 1-12
+                    if (value < 1) {
+                        $(this).val(1);
+                    } else if (value > 31) {
+                        $(this).val(31);
+                    }
+                });
+
+                $('#Year1, #Year2').on("input", function(e) {
+                    let value = $(this).val();
+
+                    // Restrict to numbers 1-12
+                    if (value < 1) {
+                        $(this).val(1);
+                    } else if (value > 9999) {
+                        $(this).val(9999);
+                    }
+                });
+
+                $('#Month1, #Month2, #Day1, #Day2').on("keydown", function(e) {
+                    // Prevent Ctrl+V (paste)
+                    if (e.ctrlKey && e.key === 'v') {
+                        e.preventDefault();
+                    }
+
+                    // Allow backspace, delete, tab, escape, enter and arrow keys
+                    if ($.inArray(e.key, ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']) !== -1 ||
+                        // Allow Ctrl+A, Ctrl+C, Ctrl+X
+                        (e.ctrlKey && $.inArray(e.key, ['a', 'c', 'x']) !== -1) ||
+                        // Allow numbers only
+                        (e.key >= '1' && e.key <= '9') || (e.key === '0')) {
+                        return;
+                    }
+
+                    // Prevent other keys
+                    e.preventDefault();
+                });
             });
         </script>
     @endif
