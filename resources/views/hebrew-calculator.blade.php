@@ -44,7 +44,7 @@
         .chiphers-info h5 {
             margin: 0;
             color: white;
-            font-size: 13px;
+            font-size: 12px;
             /* font-family: "Lato"; */
             /* font-weight: 700; */
         }
@@ -810,7 +810,7 @@
         function generate_cipher_table () {
             $('#row_new_cipher_boxes').html('');
             for (const cipher of selected_ciphers) {
-                let final_string = `<div class="col-lg-2 pl-1 pr-1">
+                let final_string = `<div class="col-lg-1 pl-1 pr-1">
                                         <div class="data-ciphers" style="border-color: `+cipher_colors[cipher]+`;" data-name="`+cipher+`">
                                             <div class="chiphers-info">
                                                 <h5 class="justfont" style="color: `+cipher_colors[cipher]+`;  cursor: pointer;" data-name="`+cipher+`">`+cipher+`</h5>
