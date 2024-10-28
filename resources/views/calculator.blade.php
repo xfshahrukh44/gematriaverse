@@ -2653,7 +2653,7 @@
                                     cipher_small_alphabet = JSON.parse(cipher.small_alphabet);
                                 }
 
-                                console.log(cipher_small_alphabet);
+                                // console.log(cipher_small_alphabet);
 
                                 if (cipher_small_alphabet[char]) {
                                     charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
