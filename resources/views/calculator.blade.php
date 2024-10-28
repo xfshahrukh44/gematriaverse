@@ -395,6 +395,7 @@
             background: linear-gradient(45deg, #317009, #7fbe00) !important;
             border-color: #7fbe00;
         }
+
         .btn-dim {
             opacity: 0.5;
             pointer-events: none;
@@ -407,7 +408,7 @@
 
         .table-all-data #history-saved td:hover .open-box {
             display: block !important;
-            right: -100px;
+            right: -50px;
             /* width: 100%; */
             left: unset !important;
             background: black !important;
@@ -448,12 +449,19 @@
             position: absolute;
             z-index: 1;
             background: black !important;
-            right: -80px;
+            right: -50px;
+            left: 30px !important;
             top: -30px;
             padding: 10px;
             border-radius: 10px;
             display: none;
             border: 1px solid white;
+            width: 100px;
+        }
+
+
+        .box-info ul {
+            text-align: start !important;
         }
 
         .table-all-data #history-saved td .open-box ul li:hover .box-info {
@@ -465,7 +473,7 @@
             border: none;
         }
 
-        #not-found h3{
+        #not-found h3 {
             color: white;
         }
 
@@ -478,7 +486,6 @@
         #add-user-table label {
             color: #fff;
         }
-
     </style>
 @endsection
 
@@ -557,7 +564,8 @@
             </div>
             <div class="col-lg-12">
                 <div class="table_check mt-2">
-                    <a href="javascript:void(0)" class="custom-btn btn-add-table" data-toggle="modal" data-target="#exampleModal">Add Table</a>
+                    <a href="javascript:void(0)" class="custom-btn btn-add-table" data-toggle="modal"
+                        data-target="#exampleModal">Add Table</a>
 
                 </div>
             </div>
@@ -747,11 +755,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -759,9 +767,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -804,7 +812,8 @@
                                 <div id="breakdownSection" class="col-sm-12">
                                     <!-- BREAKDOWN SECTION -->
                                     <span id="SimpleSpot" class="nextGenText"></span>
-                                    <div id="breakDownSpot" style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
+                                    <div id="breakDownSpot"
+                                        style="display:table; margin: auto; max-width: 1331px; margin-top:3px">
                                         <div id="printBreakTable" style="display:table-cell; width: 100%;">
                                             <div id="watermarkBreakGuy" style="display:none;"><img decoding="async"
                                                     src=/tools/calculator-advanced/img/gem-guy-flip.png alt="gematrinator"
@@ -1439,7 +1448,9 @@
                             <tbody id="database-saved">
                             </tbody>
 
-                            <div id="not-found" style="display: none;"><h3>No Data Found...</h3></div>
+                            <div id="not-found" style="display: none;">
+                                <h3>No Data Found...</h3>
+                            </div>
 
                             <tfoot>
                                 <tr id="table-footers"></tr> <!-- Dynamic footers go here -->
@@ -1588,19 +1599,19 @@
                 // if ($('#database-first').is(':empty')) {
                 //     // If it's empty, set the HTML of #database-first to an empty string
                 //     $('#database-first').html(`<div class="table-all-data">
-                //         <table class="table table-striped table-bordered" style="width:100%">
-                //             <thead>
-                //                 <tr id="table-headers"></tr>
-                //             </thead>
+            //         <table class="table table-striped table-bordered" style="width:100%">
+            //             <thead>
+            //                 <tr id="table-headers"></tr>
+            //             </thead>
 
-                //             <tbody id="database-saved">
-                //             </tbody>
+            //             <tbody id="database-saved">
+            //             </tbody>
 
-                //             <tfoot>
-                //                 <tr id="table-footers"></tr>
-                //             </tfoot>
-                //         </table>
-                //     </div>`);
+            //             <tfoot>
+            //                 <tr id="table-footers"></tr>
+            //             </tfoot>
+            //         </table>
+            //     </div>`);
                 // }
                 let cipherList;
                 if (temp_ciphers.length == 0) {
@@ -1656,7 +1667,7 @@
 
                         var responsData = response;
 
-                        if(responsData == ""){
+                        if (responsData == "") {
                             return false;
                         }
 
@@ -1676,14 +1687,17 @@
                                 // console.log(response.tempdata);
                                 generateTableHeaders(cipherList);
                                 const matchedData = response.matched_data;
-                                const currentMatchedData = response.current_matched_data;
+                                const currentMatchedData = response
+                                    .current_matched_data;
                                 let tempdata = response.tempdata;
                                 // displayCurrentMatchedData(currentMatchedData, cipherList);
-                                displayMatchedDatabase(tempdata, currentMatchedData, cipherList, response.user_tables);
+                                displayMatchedDatabase(tempdata, currentMatchedData,
+                                    cipherList, response.user_tables);
                                 // console.log(matchedData);
                             },
                             error: function(xhr, status, error) {
-                                console.error('Error saving data:', xhr.responseText);
+                                console.error('Error saving data:', xhr
+                                    .responseText);
                                 alert('Failed to retrieve data.');
                             }
                         });
@@ -1764,10 +1778,13 @@
                         // console.log(response);
                         generateTableHeaders(cipherList);
                         const matchedData = matchAndExtractData(response.history, cipherList);
-                        const currentMatchedData = matchAndExtractData(currentCipher, cipherList);
-                        let tempdata = getMatchingEntriesByScore(currentMatchedData, matchedData);
+                        const currentMatchedData = matchAndExtractData(currentCipher,
+                            cipherList);
+                        let tempdata = getMatchingEntriesByScore(currentMatchedData,
+                            matchedData);
                         displayCurrentMatchedData(currentMatchedData, cipherList);
-                        displayMatchedData(tempdata, currentMatchedData, cipherList, response.user_tables);
+                        displayMatchedData(tempdata, currentMatchedData, cipherList, response
+                            .user_tables);
                         // console.log(tempdata);
                     },
                     error: function(xhr, status, error) {
@@ -1841,12 +1858,12 @@
                 // console.log(currentCipher);
 
                 $.ajax({
-                    url: "{{ url('get-user-tables') }}/"+ Id,
+                    url: "{{ url('get-user-tables') }}/" + Id,
                     type: 'GET',
                     success: function(response) {
                         var responsData = response;
 
-                        if(responsData == ""){
+                        if (responsData == "") {
                             return false;
                         }
 
@@ -1862,12 +1879,14 @@
                             success: function(response) {
                                 generateTableHeaders(cipherList);
                                 const matchedData = response.matched_data;
-                                displayTableCiphers(matchedData, cipherList, response.user_tables);
+                                displayTableCiphers(matchedData, cipherList,
+                                    response.user_tables);
                                 // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
                                 // console.log(matchedData);
                             },
                             error: function(xhr, status, error) {
-                                console.error('Error saving data:', xhr.responseText);
+                                console.error('Error saving data:', xhr
+                                    .responseText);
                                 alert('Failed to retrieve data.');
                             }
                         });
@@ -1947,7 +1966,7 @@
                     success: function(response) {
                         var responsData = response;
 
-                        if(responsData == ""){
+                        if (responsData == "") {
                             return false;
                         }
 
@@ -1963,12 +1982,14 @@
                             success: function(response) {
                                 generateTableHeaders(cipherList);
                                 const matchedData = response.matched_data;
-                                displayTableCiphers(matchedData, cipherList, response.user_tables);
+                                displayTableCiphers(matchedData, cipherList,
+                                    response.user_tables);
                                 // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
                                 // console.log(matchedData);
                             },
                             error: function(xhr, status, error) {
-                                console.error('Error saving data:', xhr.responseText);
+                                console.error('Error saving data:', xhr
+                                    .responseText);
                                 alert('Failed to retrieve data.');
                             }
                         });
@@ -2054,7 +2075,8 @@
                 let userTablesHtml = '';
 
                 user_tables.forEach(table => {
-                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                    userTablesHtml +=
+                        `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
                 });
 
 
@@ -2105,10 +2127,17 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            let { score } = scoreData;
-                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+                            let {
+                                score
+                            } = scoreData;
+                            let rgb_values = matchedScores[score] || {
+                                red: 255,
+                                green: 255,
+                                blue: 255
+                            };
 
-                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                            scoreCell =
+                                `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
@@ -2142,9 +2171,16 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            const { score } = scoreData;
-                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
-                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                            const {
+                                score
+                            } = scoreData;
+                            let rgb_values = matchedScores[score] || {
+                                red: 255,
+                                green: 255,
+                                blue: 255
+                            };
+                            scoreCell =
+                                `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
@@ -2176,7 +2212,8 @@
                 let userTablesHtml;
 
                 user_tables.forEach(table => {
-                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                    userTablesHtml +=
+                        `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
                 });
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
@@ -2226,10 +2263,17 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            let { score } = scoreData;
-                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+                            let {
+                                score
+                            } = scoreData;
+                            let rgb_values = matchedScores[score] || {
+                                red: 255,
+                                green: 255,
+                                blue: 255
+                            };
 
-                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                            scoreCell =
+                                `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
@@ -2259,7 +2303,8 @@
                 let userTablesHtml;
 
                 user_tables.forEach(table => {
-                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                    userTablesHtml +=
+                        `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
                 });
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
@@ -2309,10 +2354,17 @@
                         let scoreCell = '<td></td>';
 
                         if (scoreData) {
-                            let { score } = scoreData;
-                            let rgb_values = matchedScores[score] || { red: 255, green: 255, blue: 255 };
+                            let {
+                                score
+                            } = scoreData;
+                            let rgb_values = matchedScores[score] || {
+                                red: 255,
+                                green: 255,
+                                blue: 255
+                            };
 
-                            scoreCell = `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
+                            scoreCell =
+                                `<td style="color: rgb(${rgb_values.red}, ${rgb_values.green}, ${rgb_values.blue});">${score}</td>`;
                         }
 
                         row += scoreCell;
@@ -2578,7 +2630,9 @@
                 const jsonStr = JSON.stringify(data, null, 2);
 
                 // Create a Blob from the string
-                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const blob = new Blob([jsonStr], {
+                    type: 'application/json'
+                });
 
                 // Create a temporary link element
                 const link = document.createElement('a');
@@ -2597,7 +2651,6 @@
     </script>
 
     <script>
-
         // Cipher Chart
         const isVisible = sessionStorage.getItem('cipherChartVisible');
         if (isVisible === null) {
