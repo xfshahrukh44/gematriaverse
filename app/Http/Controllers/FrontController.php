@@ -9,6 +9,7 @@ use App\Cipher;
 use App\CipherSetting;
 use App\CipherHistory;
 use App\User_Table;
+use App\ChiperTables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -1636,7 +1637,12 @@ class FrontController extends Controller
     public function cipher_history_get()
     {
         $history = CipherHistory::where('user_id', Auth::user()->id)->get();
-        return response()->json($history);
+        $user_tables = User_Table::where('user_id', Auth::user()->id)->get();
+
+        return response()->json([
+            'history' => $history,
+            'user_tables' => $user_tables
+        ], 200);
     }
 
     public function cipher_database_get()
@@ -1658,10 +1664,13 @@ class FrontController extends Controller
         $currentMatchedData = $this->matchAndExtractData($currentCipher, $cipherList);
         $tempdata = $this->getMatchingEntriesByScore($currentMatchedData, $matchedData);
 
+        $user_tables = User_Table::where('user_id', Auth::user()->id)->get();
+
         return response()->json([
             'matched_data' => $matchedData,
             'current_matched_data' => $currentMatchedData,
             'tempdata' => $tempdata,
+            'user_tables' => $user_tables
         ]);
     }
 
@@ -1744,6 +1753,82 @@ class FrontController extends Controller
         $history = CipherHistory::where('user_id', Auth::user()->id)->get();
 
         return response()->json($history);
+    }
+
+    public function add_user_table(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $existingTable = User_Table::where('user_id', Auth::user()->id)
+                                ->where('name', $request->name)
+                                ->first();
+
+        if ($existingTable) {
+            return response()->json(['message' => 'Table name already exists!'], 409);
+        }
+
+        $data = new User_Table();
+        $data->user_id = Auth::user()->id;
+        $data->name = $request->name;
+        $data->save();
+
+        return response()->json(['message' => 'Table added successfully!'], 200);
+    }
+
+    public function add_entry_name(Request $request)
+    {
+        $existingData = ChiperTables::where('user_id', Auth::user()->id)
+            ->where('entry_id', $request->entryId)
+            ->where('table_id', $request->id)
+            ->first();
+
+        if ($existingData) {
+            return response()->json(['message' => 'Entry already exists in table.'], 409);
+        }
+
+        $data = ChiperTables::where('user_id', Auth::user()->id)
+            ->where('entry_id', $request->entryId)
+            ->where('table_id', '!=', $request->id)
+            ->first();
+
+        if($data){
+            $data->delete();
+
+            $cipherTables = new ChiperTables();
+            $cipherTables->user_id = Auth::user()->id;
+            $cipherTables->entry_id = $request->entryId;
+            $cipherTables->table_id = $request->id;
+            $cipherTables->save();
+
+            return response()->json(['message' => 'Data saved successfully.'], 200);
+        }
+
+        $cipherTables = new ChiperTables();
+        $cipherTables->user_id = Auth::user()->id;
+        $cipherTables->entry_id = $request->entryId;
+        $cipherTables->table_id = $request->id;
+        $cipherTables->save();
+
+        return response()->json(['message' => 'Data saved successfully.'], 200);
+    }
+
+    public function remove_entry($id)
+    {
+        $data = CipherHistory::find($id);
+        // return $data;
+        if ($data) {
+            $data->delete();
+            $cipherTable = ChiperTables::where('user_id', Auth::user()->id)
+                ->where('entry_id', $id)
+                ->first();
+            if ($cipherTable) {
+                $cipherTable->delete();
+            }
+            return response()->json(['message' => 'Entry deleted successfully.'], 200);
+        }
+        return response()->json(['error' => 'Entry not found.'], 404);
     }
 
 }
