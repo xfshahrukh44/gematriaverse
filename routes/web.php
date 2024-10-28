@@ -329,3 +329,4 @@ Route::post('cipher-database-arrays', [FrontController::class, 'cipher_database_
 Route::get('get-user-tables', [FrontController::class, 'getUserTables'])->name('getUserTables');
 Route::get('get-user-tables/{id}', [FrontController::class, 'getUserTablesById'])->name('getUserTablesById');
 Route::get('get-user-history', [FrontController::class, 'get_user_history'])->name('get_user_history');
+Route::post('add-user-table', [FrontController::class, 'add_user_table'])->name('add_user_table');

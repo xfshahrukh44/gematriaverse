@@ -468,11 +468,48 @@
         #not-found h3{
             color: white;
         }
+
+        .btn-add-table {
+            padding: 8px 10px;
+            font-size: 10px;
+            border-radius: 10px;
+        }
+
+        #add-user-table label {
+            color: #fff;
+        }
+
     </style>
 @endsection
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/numberstyle.css') }}">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add User Table</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="add-user-table">
+                    <form id="userTableForm">
+                        @csrf
+                        <div class="form-group">
+                            <label for="user-table-name" class="col-form-label">User Table Name:</label>
+                            <input type="text" class="form-control" id="user-table-name" name="name" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="addUserTable">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -516,6 +553,12 @@
                     <ul id="data_count">
 
                     </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="table_check mt-2">
+                    <a href="javascript:void(0)" class="custom-btn btn-add-table" data-toggle="modal" data-target="#exampleModal">Add Table</a>
+
                 </div>
             </div>
         </div>
@@ -1502,6 +1545,32 @@
                 });
             });
 
+            $('#addUserTable').click(function(e) {
+                e.preventDefault();
+                const tableName = $('#user-table-name').val();
+
+                $.ajax({
+                    url: "{{ route('add_user_table') }}",
+                    type: 'POST',
+                    data: {
+                        name: tableName,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        swal("Success!", 'User table added successfully!', "success");
+                        $('#exampleModal').modal('hide');
+                        $('#userTableForm')[0].reset();
+                        window.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                            .responseJSON.message : "Failed to save data.";
+                        swal("Error!", errorMessage, "error");
+                    }
+                });
+            });
+
             $('#btn-database').on('click', function() {
                 $('#not-found').hide();
                 if (!$('#database-saved').is(':empty')) {
@@ -1610,7 +1679,7 @@
                                 const currentMatchedData = response.current_matched_data;
                                 let tempdata = response.tempdata;
                                 // displayCurrentMatchedData(currentMatchedData, cipherList);
-                                displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
+                                displayMatchedDatabase(tempdata, currentMatchedData, cipherList, response.user_tables);
                                 // console.log(matchedData);
                             },
                             error: function(xhr, status, error) {
@@ -1694,11 +1763,11 @@
                         // $('#database-first').html('');
                         // console.log(response);
                         generateTableHeaders(cipherList);
-                        const matchedData = matchAndExtractData(response, cipherList);
+                        const matchedData = matchAndExtractData(response.history, cipherList);
                         const currentMatchedData = matchAndExtractData(currentCipher, cipherList);
                         let tempdata = getMatchingEntriesByScore(currentMatchedData, matchedData);
                         displayCurrentMatchedData(currentMatchedData, cipherList);
-                        displayMatchedData(tempdata, currentMatchedData, cipherList);
+                        displayMatchedData(tempdata, currentMatchedData, cipherList, response.user_tables);
                         // console.log(tempdata);
                     },
                     error: function(xhr, status, error) {
@@ -1793,7 +1862,7 @@
                             success: function(response) {
                                 generateTableHeaders(cipherList);
                                 const matchedData = response.matched_data;
-                                displayTableCiphers(matchedData, cipherList);
+                                displayTableCiphers(matchedData, cipherList, response.user_tables);
                                 // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
                                 // console.log(matchedData);
                             },
@@ -1894,7 +1963,7 @@
                             success: function(response) {
                                 generateTableHeaders(cipherList);
                                 const matchedData = response.matched_data;
-                                displayTableCiphers(matchedData, cipherList);
+                                displayTableCiphers(matchedData, cipherList, response.user_tables);
                                 // displayMatchedDatabase(tempdata, currentMatchedData, cipherList);
                                 // console.log(matchedData);
                             },
@@ -1917,6 +1986,7 @@
                 // console.log(ciphersData);
 
                 ciphersData.forEach(dataEntry => {
+                    const entryId = dataEntry.id;
                     const entryName = dataEntry.entry;
                     const scores = JSON.parse(dataEntry.ciphers);
 
@@ -1924,6 +1994,7 @@
                         const matchedCipher = cipherInfo.find(c => c.id === cipherId);
                         if (matchedCipher) {
                             matchedData.push({
+                                entry_id: entryId,
                                 entry: entryName,
                                 cipher_id: matchedCipher.id,
                                 cipher_name: matchedCipher.name,
@@ -1959,7 +2030,7 @@
                 });
             }
 
-            function displayMatchedData(matchedData, currentMatchedData, cipherInfo) {
+            function displayMatchedData(matchedData, currentMatchedData, cipherInfo, user_tables) {
                 const matchedScores = currentMatchedData.reduce((acc, entry) => {
                     acc[entry.score] = entry.rgb_values; // Store RGB values by score
                     return acc;
@@ -1980,8 +2051,54 @@
                     return acc;
                 }, {});
 
+                let userTablesHtml = '';
+
+                user_tables.forEach(table => {
+                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                });
+
+
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let entryId = Object.values(scores)[0].entry_id;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Find Matches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Remove</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Save to Table:</p>
+                                    <div class="box-info">
+                                        <ul data-entry-id="${entryId}">
+                                            ${userTablesHtml}
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -2019,6 +2136,7 @@
 
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
                     let row = `<tr><td>${entry}</td>`;
+
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
                         let scoreCell = '<td></td>';
@@ -2039,19 +2157,7 @@
                 currentTbody.insertBefore($('#history-saved'));
             }
 
-            function getMatchingEntriesByScore(currentMatchedData, matchedData) {
-                const currentScores = currentMatchedData.map(entry => entry.score);
-
-                const matchingEntries = new Set(
-                    matchedData
-                    .filter(item => currentScores.includes(item.score))
-                    .map(item => item.entry)
-                );
-
-                return matchedData.filter(item => matchingEntries.has(item.entry));
-            }
-
-            function displayMatchedDatabase(matchedData, currentMatchedData, cipherInfo) {
+            function displayMatchedDatabase(matchedData, currentMatchedData, cipherInfo, user_tables) {
                 const matchedScores = currentMatchedData.reduce((acc, entry) => {
                     acc[entry.score] = JSON.parse(entry.rgb_values); // Store RGB values by score
                     return acc;
@@ -2067,8 +2173,53 @@
                     return acc;
                 }, {});
 
+                let userTablesHtml;
+
+                user_tables.forEach(table => {
+                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                });
+
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let entryId = Object.values(scores)[0].entry_id;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Find Matches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Remove</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Save to Table:</p>
+                                    <div class="box-info">
+                                        <ul data-entry-id="${entryId}">
+                                            ${userTablesHtml}
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -2089,7 +2240,7 @@
                 });
             }
 
-            function displayTableCiphers(currentMatchedData, cipherInfo) {
+            function displayTableCiphers(currentMatchedData, cipherInfo, user_tables) {
                 const matchedScores = currentMatchedData.reduce((acc, entry) => {
                     acc[entry.score] = JSON.parse(entry.rgb_values); // Store RGB values by score
                     return acc;
@@ -2105,8 +2256,53 @@
                     return acc;
                 }, {});
 
+                let userTablesHtml;
+
+                user_tables.forEach(table => {
+                    userTablesHtml += `<li><a href="javascript:void(0)" data-id="${table.id}" class="add-name">${table.name}</a></li>`;
+                });
+
                 Object.entries(groupedEntries).forEach(([entry, scores]) => {
-                    let row = `<tr><td>${entry}</td>`;
+                    let entryId = Object.values(scores)[0].entry_id;
+                    let row = `<tr><td>${entry}
+                        <div class="open-box" id="openBox1">
+                            <ul class="data-box">
+                                <li class="data-into-data">
+                                    <p>Shift Phrase:</p>
+                                     <div class="box-info">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Move Up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move Down</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Move to Bottom</a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                </li>
+                                <li>
+                                    <a href="#">Find Matches</a>
+                                </li>
+                                <li>
+                                    <a href="#">Remove</a>
+                                </li>
+                                <li class="data-into-data">
+                                    <p>Save to Table:</p>
+                                    <div class="box-info">
+                                        <ul data-entry-id="${entryId}">
+                                            ${userTablesHtml}
+                                        </ul>
+                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </td>`;
 
                     cipherInfo.forEach(cipher => {
                         const scoreData = scores[cipher.id];
@@ -2125,6 +2321,18 @@
                     row += '</tr>';
                     tbody.append(row); // Append the row to tbody
                 });
+            }
+
+            function getMatchingEntriesByScore(currentMatchedData, matchedData) {
+                const currentScores = currentMatchedData.map(entry => entry.score);
+
+                const matchingEntries = new Set(
+                    matchedData
+                    .filter(item => currentScores.includes(item.score))
+                    .map(item => item.entry)
+                );
+
+                return matchedData.filter(item => matchingEntries.has(item.entry));
             }
 
 
@@ -2188,7 +2396,7 @@
                             return cipher.id == getId;
                         }) || cipherList[0];
 
-                        // console.log(cipherList);
+                        // console.log(cipher);
                         if (cipher) {
                             if (typeof cipher.rgb_values !== "object") {
                                 cipher.rgb_values = JSON.parse(cipher.rgb_values);
@@ -2225,7 +2433,7 @@
                                     cipher_small_alphabet = JSON.parse(cipher.small_alphabet);
                                 }
 
-                                // console.log(cipher_small_alphabet, cipher_small_alphabet[char]);
+                                console.log(cipher_small_alphabet);
 
                                 if (cipher_small_alphabet[char]) {
                                     charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
@@ -2294,6 +2502,7 @@
                         } else if (cipher.id == 'D2') {
                             $('.view-number').text(data.reverse);
                         } else if (cipher.id == 'D3') {
+                            console.log(data.reverseReduction);
                             $('.view-number').text(data.reverseReduction);
                         } else {
                             let data1 = calculateGematria(val, cipher.id, small_alphabets);
@@ -2696,11 +2905,7 @@
 
         // Function to calculate Reverse Reduction value
         function calculateReverseReduction(input) {
-            return [...input].reduce((sum, char) => {
-                let reverseValue = 27 - (alphabet3[char.toLowerCase()] || 0);
-                reverseValue = reverseValue > 9 ? reverseValue - 9 : reverseValue;
-                return sum + (reverseValue > 0 ? reverseValue : 0);
-            }, 0);
+            return [...input].reduce((sum, char) => sum + (alphabet3[char.toLowerCase()] || 0), 0);
         }
 
         // Main function to calculate all values
