@@ -1557,10 +1557,13 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        swal("Success!", 'User table added successfully!', "success");
-                        $('#exampleModal').modal('hide');
-                        $('#userTableForm')[0].reset();
-                        window.reload();
+                        swal("Success!", 'User table added successfully!', "success", {
+                        button: "OK",
+                        }).then(() => {
+                        // Refresh the page
+                        location.reload();
+                        });
+
                     },
                     error: function(xhr, status, error) {
                         console.error('Error saving data:', xhr.responseText);
@@ -2334,6 +2337,27 @@
 
                 return matchedData.filter(item => matchingEntries.has(item.entry));
             }
+
+            $('body').on('click', '.add-name', function() {
+                const dataId = $(this).data('id');
+
+                const entryId = $(this).closest('ul').data('entry-id');
+
+                console.log(`Data ID: ${dataId}`);
+                console.log(`Entry ID: ${entryId}`);
+
+                $.ajax({
+                    url: 'your/api/endpoint',
+                    method: 'GET',
+                    data: { id: dataId, entryId: entryId },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', status, error);
+                    }
+                });
+            });
 
 
             $('#btn-save-entry').on('click', function() {
