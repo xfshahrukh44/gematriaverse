@@ -195,6 +195,10 @@
                                             <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
                                             Anagram Generator
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('acronym.finder') }}">
+                                            <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
+                                            Acronym Finder
+                                        </a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

@@ -764,7 +764,7 @@
         function generate_cipher_table () {
             $('#row_new_cipher_boxes').html('');
             for (const cipher of selected_ciphers) {
-                let final_string = `<div class="col-lg-1 pl-1h pr-1">
+                let final_string = `<div class="col-lg-1 col-4 col-md-3 pl-1 pr-1">
                                         <div class="data-ciphers" style="border-color: `+cipher_colors[cipher]+`;" data-name="`+cipher+`">
                                             <div class="chiphers-info">
                                                 <h5 class="justfont" style="color: `+cipher_colors[cipher]+`;  cursor: pointer;" data-name="`+cipher+`">`+cipher+`</h5>
