@@ -1500,6 +1500,48 @@ class FrontController extends Controller
         return view('anagram-calculator');
     }
 
+    public function acronymFinder(Request $request)
+    {
+        return view('acronym-finder');
+    }
+
+    public function searchAcronyms(Request $request)
+    {
+        $request->validate([
+            'term' => 'required',
+        ]);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://www.stands4.com/services/v2/abbr.php',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => [
+                'uid' => '12839',
+                'tokenid' => 'J2jn1nsP3PdeJUnk',
+                'format' => 'json',
+                'term' => $request->get('term')
+            ],
+//            CURLOPT_HTTPHEADER => array(
+//                'Authorization: Bearer 81f36ac3-2713-12c1-ed6c-f66d868fe0e9',
+//                'Cookie: AWSALB=pmo6W+ZBV4oGUz35vQ7jAHRBREgXo4OHJUc26I6ZlZGbdAL0bc2JCpY+I0RdZrNcAXQpXIK6vAKh9Ck6vz0ekXqrvnuQRrGH9rW5zl4kKSS4GxgNk8BHp8S7/RLY; AWSALBCORS=pmo6W+ZBV4oGUz35vQ7jAHRBREgXo4OHJUc26I6ZlZGbdAL0bc2JCpY+I0RdZrNcAXQpXIK6vAKh9Ck6vz0ekXqrvnuQRrGH9rW5zl4kKSS4GxgNk8BHp8S7/RLY; PHPSESSID=069amc7mmbatslcr253ra18f1k'
+//            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+//        dd($response);
+
+        return $response;
+    }
+
     public function saveAnagram(Request $request)
     {
         $validator = Validator::make($request->all(), [
