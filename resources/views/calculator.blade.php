@@ -1568,19 +1568,27 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        swal("Success!", 'User table added successfully!', "success", {
-                        button: "OK",
+                        Swal.fire({
+                            title: "Success!",
+                            text: 'User table added successfully!',
+                            icon: "success",
                         }).then(() => {
-                        // Refresh the page
-                        location.reload();
+                            // Refresh the page
+                            location.reload();
                         });
+
 
                     },
                     error: function(xhr, status, error) {
                         console.error('Error saving data:', xhr.responseText);
                         let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr
                             .responseJSON.message : "Failed to save data.";
-                        swal("Error!", errorMessage, "error");
+                        Swal.fire({
+                            title: "Error!",
+                            text: errorMessage,
+                            icon: "error"
+                        });
+
                     }
                 });
             });
@@ -2004,6 +2012,94 @@
                 });
             });
 
+            $('body').on('click', '.find-matches', function() {
+                $('#not-found').hide();
+
+                if (!$('#database-save').is(':empty')) {
+                    $('#database-save').html('');
+                }
+                if (!$('#current-saved').is(':empty')) {
+                    $('#current-saved').html('');
+                }
+                if (!$('#history-saved').is(':empty')) {
+                    $('#history-saved').html('');
+                }
+
+                let cipherList;
+
+                if (temp_ciphers.length == 0) {
+                    cipherList = @json($ciphers);
+                } else {
+                    cipherList = temp_ciphers;
+                }
+                let ciphersForTable = @json($ciphersForTableArr);
+                let small_alphabets = generateSmallAlphabets(ciphersForTable);
+                let inputValue = $(this).data("entry");
+                $('#EntryField').val(inputValue);
+                getVal(inputValue, cipherList);
+                updateCipherDetails(inputValue, cipherList);
+                if (inputValue == "") {
+                    $('#not-found').show();
+                    return false;
+                }
+
+                ciphersForTable.forEach(cipher => {
+                    let data;
+
+                    switch (cipher['id']) {
+                        case 'D0':
+                            data = calculateOrdinal(inputValue);
+                            break;
+                        case 'D1':
+                            data = calculateReduction(inputValue);
+                            break;
+                        case 'D2':
+                            data = calculateReverseOrdinal(inputValue);
+                            break;
+                        case 'D3':
+                            data = calculateReverseReduction(inputValue);
+                            break;
+                        default:
+                            data = calculateOrdinalCiphers(inputValue, cipher['id'],
+                                small_alphabets);
+                            break;
+                    }
+
+                    finalCiphersResults[cipher['id']] = data;
+                });
+
+                // console.log(finalCiphersResults);
+
+                let currentCipher = [{
+                    entry: inputValue,
+                    ciphers: JSON.stringify(finalCiphersResults)
+                }];
+                // console.log(currentCipher);
+
+                $.ajax({
+                    url: "{{ route('cipher_history_get') }}",
+                    type: 'GET',
+                    success: function(response) {
+                        // $('#database-first').html('');
+                        // console.log(response);
+                        generateTableHeaders(cipherList);
+                        const matchedData = matchAndExtractData(response.history, cipherList);
+                        const currentMatchedData = matchAndExtractData(currentCipher,
+                            cipherList);
+                        let tempdata = getMatchingEntriesByScore(currentMatchedData,
+                            matchedData);
+                        displayCurrentMatchedData(currentMatchedData, cipherList);
+                        displayMatchedData(tempdata, currentMatchedData, cipherList, response
+                            .user_tables);
+                        // console.log(tempdata);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error saving data:', xhr.responseText);
+                        alert('Failed to retrieve data.');
+                    }
+                });
+            });
+
 
             function matchAndExtractData(ciphersData, cipherInfo) {
                 const matchedData = [];
@@ -2092,26 +2188,18 @@
                                     <p>Shift Phrase:</p>
                                      <div class="box-info">
                                         <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
+                                            <li><a href="javascript:void(0)" class="move-up">Move Up</a></li>
+                                            <li><a href="javascript:void(0)" class="move-down">Move Down</a></li>
+                                            <li><a href="javascript:void(0)" class="move-top">Move to Top</a></li>
+                                            <li><a href="javascript:void(0)" class="move-bottom">Move to Bottom</a></li>
                                         </ul>
                                      </div>
                                 </li>
                                 <li>
-                                    <a href="#">Find Matches</a>
+                                    <a href="javascript:void(0)" data-entry="${entry}" class="find-matches">Find Matches</a>
                                 </li>
                                 <li>
-                                    <a href="#">Remove</a>
+                                    <a href="javascript:void(0)" data-entry-id="${entryId}" class="remove-entry">Remove</a>
                                 </li>
                                 <li class="data-into-data">
                                     <p>Save to Table:</p>
@@ -2228,26 +2316,18 @@
                                     <p>Shift Phrase:</p>
                                      <div class="box-info">
                                         <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
+                                            <li><a href="javascript:void(0)" class="move-up">Move Up</a></li>
+                                            <li><a href="javascript:void(0)" class="move-down">Move Down</a></li>
+                                            <li><a href="javascript:void(0)" class="move-top">Move to Top</a></li>
+                                            <li><a href="javascript:void(0)" class="move-bottom">Move to Bottom</a></li>
                                         </ul>
                                      </div>
                                 </li>
                                 <li>
-                                    <a href="#">Find Matches</a>
+                                    <a href="javascript:void(0)" data-entry="${entry}" class="find-matches">Find Matches</a>
                                 </li>
                                 <li>
-                                    <a href="#">Remove</a>
+                                    <a href="javascript:void(0)" data-entry-id="${entryId}" class="remove-entry">Remove</a>
                                 </li>
                                 <li class="data-into-data">
                                     <p>Save to Table:</p>
@@ -2319,26 +2399,18 @@
                                     <p>Shift Phrase:</p>
                                      <div class="box-info">
                                         <ul>
-                                            <li>
-                                                <a href="#">Move Up</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move Down</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Top</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Move to Bottom</a>
-                                            </li>
+                                            <li><a href="javascript:void(0)" class="move-up">Move Up</a></li>
+                                            <li><a href="javascript:void(0)" class="move-down">Move Down</a></li>
+                                            <li><a href="javascript:void(0)" class="move-top">Move to Top</a></li>
+                                            <li><a href="javascript:void(0)" class="move-bottom">Move to Bottom</a></li>
                                         </ul>
                                      </div>
                                 </li>
                                 <li>
-                                    <a href="#">Find Matches</a>
+                                    <a href="javascript:void(0)" data-entry="${entry}" class="find-matches">Find Matches</a>
                                 </li>
                                 <li>
-                                    <a href="#">Remove</a>
+                                    <a href="javascript:void(0)" data-entry-id="${entryId}" class="remove-entry">Remove</a>
                                 </li>
                                 <li class="data-into-data">
                                     <p>Save to Table:</p>
@@ -2399,16 +2471,51 @@
                 console.log(`Entry ID: ${entryId}`);
 
                 $.ajax({
-                    url: 'your/api/endpoint',
-                    method: 'GET',
-                    data: { id: dataId, entryId: entryId },
+                    url: "{{ route('add_entry_name') }}",
+                    method: 'POST',
+                    data: { id: dataId, entryId: entryId, _token: $('meta[name="csrf-token"]').attr('content') },
                     success: function(response) {
                         console.log(response);
+                        Swal.fire({
+                            title: "Success!",
+                            text: response.message,
+                            icon: "success"
+                        });
                     },
                     error: function(xhr, status, error) {
-                        console.error('AJAX Error:', status, error);
+                        console.error('Error saving data:', xhr.responseText);
+                        let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                            .responseJSON.message : "Failed to save data.";
+                        Swal.fire({
+                            title: "Error!",
+                            text: errorMessage,
+                            icon: "error"
+                        });
                     }
                 });
+            });
+
+            $('body').on('click', '.remove-entry', function() {
+                const entryId = $(this).data('entry-id');
+
+                if (confirm(`Are you sure you want to delete entry ${entryId}?`)) {
+
+                    $.ajax({
+                        url: "{{ url('remove-entry') }}/" + entryId,
+                        method: 'GET',
+                        success: function(response) {
+                            console.log(`Entry ${entryId} removed successfully!`);
+                            // alert(`Entry ${entryId} deleted.`);
+
+
+                            $(`[data-entry-id=${entryId}]`).closest('tr').remove();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(`Failed to remove entry ${entryId}:`, error);
+                            // alert('Failed to delete entry. Please try again.');
+                        }
+                    });
+                }
             });
 
 
@@ -2424,14 +2531,22 @@
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
-                        console.log(response);
-                        swal("Success!", response.message, "success");
+                        // console.log(response);
+                        Swal.fire({
+                            title: "Success!",
+                            text: response.message,
+                            icon: "success"
+                        });
                     },
                     error: function(xhr, status, error) {
                         console.error('Error saving data:', xhr.responseText);
                         let errorMessage = xhr.responseJSON && xhr.responseJSON.message ? xhr
                             .responseJSON.message : "Failed to save data.";
-                        swal("Error!", errorMessage, "error");
+                        Swal.fire({
+                            title: "Error!",
+                            text: errorMessage,
+                            icon: "error"
+                        });
                     }
                 });
             });
@@ -2449,6 +2564,35 @@
 
             $('.close-btn').on('click', function() {
                 $('#openBox').hide();
+            });
+
+            // Move Up
+            $('body').on('click', '.move-up', function() {
+                const row = $(this).closest('tr');
+                if (!row.prev().hasClass('center-td')) {
+                    row.prev().before(row);
+                }
+            });
+
+            // Move Down
+            $('body').on('click', '.move-down', function() {
+                const row = $(this).closest('tr');
+                if (row.next().length) {
+                    row.next().after(row);
+                }
+            });
+
+            // Move to Top
+            $('body').on('click', '.move-top', function() {
+                const row = $(this).closest('tr');
+                row.insertAfter('.center-td');
+            });
+
+            // Move to Bottom
+            $('body').on('click', '.move-bottom', function() {
+                const row = $(this).closest('tr');
+                $('#history-saved').append(row);
+                $('#database-saved').append(row);
             });
 
         });
@@ -2805,11 +2949,19 @@
                             }
                         });
                     } else {
-                        swal("Error!", "Error saving cipher settings", "error");
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Error saving cipher settings",
+                            icon: "error"
+                        });
                     }
                 },
                 error: function(xhr, status, error) {
-                    swal("Error!", "An error occurred while saving the cipher settings.", "error");
+                    Swal.fire({
+                        title: "Error!",
+                        text: "An error occurred while saving the cipher settings.",
+                        icon: "error"
+                    });
                 }
             });
         }

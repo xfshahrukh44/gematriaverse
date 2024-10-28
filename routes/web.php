@@ -332,3 +332,5 @@ Route::get('get-user-tables', [FrontController::class, 'getUserTables'])->name('
 Route::get('get-user-tables/{id}', [FrontController::class, 'getUserTablesById'])->name('getUserTablesById');
 Route::get('get-user-history', [FrontController::class, 'get_user_history'])->name('get_user_history');
 Route::post('add-user-table', [FrontController::class, 'add_user_table'])->name('add_user_table');
+Route::post('add-entry-name', [FrontController::class, 'add_entry_name'])->name('add_entry_name');
+Route::get('remove-entry/{id}', [FrontController::class, 'remove_entry'])->name('remove_entry');

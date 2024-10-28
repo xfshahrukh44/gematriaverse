@@ -998,23 +998,42 @@
                     data: JSON.stringify(editedCipherData),
                     success: function(response) {
                         if (response.success) {
-                            swal("Success!", response.message, "success");
+                            Swal.fire({
+                                title: "Success!",
+                                text: response.message,
+                                icon: "success"
+                            });
                             // loadCiphers();
                             // $('#cipherEditForm').hide();
                             // $('#cipherList').show();
                         } else if (response.error) {
-                            swal("Error!", response.message, "error");
+                            Swal.fire({
+                                title: "Error!",
+                                text: response.message,
+                                icon: "error"
+                            });
                         } else {
-                            swal("Error!", "Could not update cipher", "error");
+                            Swal.fire({
+                                title: "Error!",
+                                text: "Could not update cipher",
+                                icon: "error"
+                            });
                         }
                     },
                     error: function(jqXHR) {
                         var response = jqXHR.responseJSON;
                         if (response.error) {
-                            swal("Error!", response.message, "error");
+                            Swal.fire({
+                                title: "Error!",
+                                text: response.message,
+                                icon: "error"
+                            });
                         } else {
-                            swal("Error!", "Failed to update cipher. Please try again.",
-                                "error");
+                            Swal.fire({
+                                title: "Error!",
+                                text: "Failed to update cipher. Please try again.",
+                                icon: "error"
+                            });
                         }
                     }
                 });
@@ -1022,51 +1041,66 @@
 
             $(document).on('click', '.delete_cipher', function() {
                 let id = $(this).data('id');
-                // Confirmation dialog using swal (Older SweetAlert version)
-                swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this cipher!",
-                    type: "warning",
+
+                // Confirmation dialog using SweetAlert2
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this cipher!',
+                    icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                }, function(isConfirm) {
-                    if (isConfirm) {
+                    confirmButtonColor: '#dc3545', // Bootstrap danger button color
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                    reverseButtons: true // Optional: reverses the order of buttons
+                }).then((result) => {
+                    if (result.isConfirmed) {
                         // If confirmed, send AJAX request to delete the cipher
                         $.ajax({
-                            url: "{{ url('ciphers') }}/" + id +
-                                "/destroy", // URL for deleting the cipher
+                            url: "{{ url('ciphers') }}/" + id + "/destroy", // URL for deleting the cipher
                             type: 'POST', // Use POST or DELETE request method
                             success: function(response) {
                                 if (response.success) {
-                                    swal("Deleted!", response.message, "success");
-                                    location
-                                        .reload(); // Reload the page or update the list of ciphers
+                                    Swal.fire(
+                                        'Deleted!',
+                                        response.message,
+                                        'success'
+                                    );
+                                    location.reload(); // Reload the page or update the list of ciphers
                                 } else {
-                                    swal("Error!",
-                                        "Failed to delete cipher. Please try again.",
-                                        "error");
+                                    Swal.fire(
+                                        'Error!',
+                                        'Failed to delete cipher. Please try again.',
+                                        'error'
+                                    );
                                 }
                             },
                             error: function(jqXHR) {
                                 var response = jqXHR.responseJSON;
                                 if (response && response.error) {
-                                    swal("Error!", response.message, "error");
+                                    Swal.fire(
+                                        'Error!',
+                                        response.message,
+                                        'error'
+                                    );
                                 } else {
-                                    swal("Error!",
-                                        "Failed to delete cipher. Please try again.",
-                                        "error");
+                                    Swal.fire(
+                                        'Error!',
+                                        'Failed to delete cipher. Please try again.',
+                                        'error'
+                                    );
                                 }
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your cipher is safe :)", "info");
+                        Swal.fire(
+                            'Cancelled',
+                            'Your cipher is safe :)',
+                            'info'
+                        );
                     }
                 });
             });
+
 
         });
     </script>
