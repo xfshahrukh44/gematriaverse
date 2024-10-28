@@ -274,13 +274,12 @@
 
                     <div class="form-row mt-4" id="table_wrapper" hidden>
                         <div class="col-md-12">
-                            <table class="table table-bordered table-striped" style="font-size: 14px;">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>Term</th>
                                     <th>Definition</th>
-                                    <th>Category</th>
-                                    <th>Parent Category</th>
+                                    <th>Tags</th>
                                 </tr>
                                 </thead>
                                 <tbody id="tbody">
@@ -404,8 +403,10 @@
                             $('#tbody').append(`<tr>
                                                     <td>`+item.term+`</td>
                                                     <td>`+item.definition+`</td>
-                                                    <td>`+item.categoryname+`</td>
-                                                    <td>`+item.parentcategoryname+`</td>
+                                                    <td>
+                                                        <span class="badge badge-warning">`+(typeof item.categoryname == 'object' ? '' : item.categoryname)+`</span>
+                                                        <span class="badge badge-success">`+(typeof item.parentcategoryname == 'object' ? '' : item.parentcategoryname)+`</span>
+                                                    </td>
                                                 </tr>`);
                             $('#table_wrapper').prop('hidden', false);
                         }
