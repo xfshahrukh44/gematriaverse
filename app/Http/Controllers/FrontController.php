@@ -1542,6 +1542,36 @@ class FrontController extends Controller
         return $response;
     }
 
+    public function searchAnagrams(Request $request)
+    {
+        $request->validate([
+            'term' => 'required',
+        ]);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://www.stands4.com/services/v2/ana.php',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => [
+                'uid' => '12839',
+                'tokenid' => 'J2jn1nsP3PdeJUnk',
+                'format' => 'json',
+                'term' => $request->get('term')
+            ]
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return $response;
+    }
+
     public function saveAnagram(Request $request)
     {
         $validator = Validator::make($request->all(), [

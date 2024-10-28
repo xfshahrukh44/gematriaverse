@@ -304,6 +304,7 @@ Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save
 Route::get('holidays/{month?}', [FrontController::class, 'holidays'])->name('holidays');
 Route::get('acronym-finder', [FrontController::class, 'acronymFinder'])->name('acronym.finder');
 Route::post('search-acronyms', [FrontController::class,'searchAcronyms'])->name('search.acronyms');
+Route::post('search-anagrams', [FrontController::class,'searchAnagrams'])->name('search.anagrams');
 
 
 Route::get('mutate-session', function () {
