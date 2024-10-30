@@ -430,7 +430,9 @@
                 return false;
             }
 
-            $('#h4_result').html(`Anagrams of "` + string + `"`);
+            $('#h4_result').prop('hidden', true);
+            $('#row_result').html('');
+            // $('#h4_result').html(`Anagrams of "` + string + `"`);
 
             let max_anagrams = $('#input_max_anagrams').val();
             let min_length = $('#input_min_length').val();
@@ -458,55 +460,67 @@
                 method: 'POST',
                 success: (data) => {
                     data = JSON.parse(data);
-                    if (data && data.result && data.result.length > 0) {
-                        anagrams = data.result;
+                    if (!data || !data.result || data.result.length == 0) {
+                        $('#h4_result').html(`No anagrams of "` + string + `" found.`);
+                        $('#h4_result').prop('hidden', false);
+                        $('#result_wrapper').prop('hidden', false);
 
-                        if (max_anagrams && max_anagrams < anagrams.length) {
-                            anagrams = anagrams.slice(0, max_anagrams);
-                        }
+                        return false;
+                    }
 
-                        if (min_length) {
-                            anagrams = anagrams.filter((item) => item.length >= min_length);
-                        }
+                    anagrams = data.result;
 
-                        if (max_length) {
-                            anagrams = anagrams.filter((item) => item.length <= max_length);
-                        }
+                    if (max_anagrams && max_anagrams < anagrams.length) {
+                        anagrams = anagrams.slice(0, max_anagrams);
+                    }
 
-                        $('#row_result').html('');
+                    if (min_length) {
+                        anagrams = anagrams.filter((item) => item.length >= min_length);
+                    }
 
-                        if (anagrams.length > 0) {
-                            for (const item of anagrams) {
-                                $('#row_result').append(`<div class="col-3">
-                                                <div class="box-main">
-                                                    <div class="click-box">
-                                                        <div class="data_show">
-                                                            <p>` + item.anagram + `</p>
-                                                        </div>
+                    if (max_length) {
+                        anagrams = anagrams.filter((item) => item.length <= max_length);
+                    }
+
+                    if (anagrams.length > 0) {
+                        for (const item of anagrams) {
+                            $('#row_result').append(`<div class="col-3">
+                                            <div class="box-main">
+                                                <div class="click-box">
+                                                    <div class="data_show">
+                                                        <p>` + item.anagram + `</p>
                                                     </div>
                                                 </div>
-                                                <div class="open-box">
-                                                    <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-                                                    <h6>` + item.anagram + `</h6>
-                                                    <a href="#" class="btn custom-btn" onclick="save_anagram('`+item.anagram+`', '`+string+`')">
-                                                        <i class="fas fa-floppy-disk"></i>
-                                                        Save anagram
-                                                    </a>
-                                                </div>
-                                            </div>`);
-                            }
-
-                            $('#result_wrapper').prop('hidden', false);
-
-                            return true;
-                        } else {
-                            $('#result_wrapper').prop('hidden', false);
-                            $('#h4_result').html(`No anagrams of "` + string + `" found.`);
-
-                            return false;
+                                            </div>
+                                            <div class="open-box">
+                                                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                                                <h6>` + item.anagram + `</h6>
+                                                <a href="#" class="btn custom-btn" onclick="save_anagram('`+item.anagram+`', '`+string+`')">
+                                                    <i class="fas fa-floppy-disk"></i>
+                                                    Save anagram
+                                                </a>
+                                            </div>
+                                        </div>`);
                         }
+
+                        $('#result_wrapper').prop('hidden', false);
+                        $('#h4_result').prop('hidden', false);
+                        $('#h4_result').html(`Anagrams of "` + string + `"`);
+
+
+                        return true;
+                    } else {
+                        $('#h4_result').html(`No anagrams of "` + string + `" found.`);
+                        $('#h4_result').prop('hidden', false);
+                        $('#result_wrapper').prop('hidden', false);
+
+                        return false;
                     }
                 },
+                error: (e) => {
+                    $('#h4_result').html(`No anagrams of "` + string + `" found.`);
+                    $('#h4_result').prop('hidden', false);
+                }
             })
         });
 

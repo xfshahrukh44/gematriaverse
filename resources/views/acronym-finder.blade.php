@@ -141,6 +141,10 @@
         }
 
         /* gematriaverse-section-from */
+
+        a.nav-link {
+            font-size: 12px;
+        }
     </style>
 @endsection
 
@@ -265,6 +269,21 @@
                 </div>
 
                 <div class="col-lg-12">
+                    <div class="container mt-5">
+                        <ul class="nav nav-tabs" role="tablist" id="ul_tabs">
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">First Panel</a>--}}
+{{--                            </li>--}}
+                        </ul>
+                        <div class="tab-content" id="div_panes">
+{{--                            <div class="tab-pane p-3 active" id="tabs-1" role="tabpanel">--}}
+{{--                                <p>First Panel</p>--}}
+{{--                            </div>--}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
 
                     <div class="form-row mt-4" id="error_wrapper" hidden>
                         <div class="col-md-12 text-center">
@@ -272,22 +291,22 @@
                         </div>
                     </div>
 
-                    <div class="form-row mt-4" id="table_wrapper" hidden>
-                        <div class="col-md-12">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Term</th>
-                                    <th>Definition</th>
-                                    <th>Tags</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tbody">
+{{--                    <div class="form-row mt-4" id="table_wrapper" hidden>--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <table class="table table-bordered table-striped">--}}
+{{--                                <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <th>Term</th>--}}
+{{--                                    <th>Definition</th>--}}
+{{--                                    <th>Tags</th>--}}
+{{--                                </tr>--}}
+{{--                                </thead>--}}
+{{--                                <tbody id="tbody">--}}
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -386,8 +405,8 @@
 
 
             $('#error_wrapper').prop('hidden', true);
-            $('#table_wrapper').prop('hidden', true);
-            $('#tbody').html('');
+            $('#ul_tabs').html(``);
+            $('#div_panes').html(``);
 
             $.ajax({
                 url: "{{route('search.acronyms')}}",
@@ -399,16 +418,91 @@
                 success: (data) => {
                     data = JSON.parse(data);
                     if (data && data.result && data.result.length > 0) {
+                        let acronym_categories = {};
+                        let table_content = ``;
+
+                        $('#ul_tabs').append(`<li class="nav-item" role="presentation">
+                                                            <a class="nav-link active show" data-toggle="tab" href="#all-pane" role="tab">All (`+data.result.length+`)</a>
+                                                    </li>`);
                         for (const item of data.result) {
-                            $('#tbody').append(`<tr>
+                            if (typeof item.categoryname != 'object') {
+                                if (!acronym_categories[item.categoryname]) {
+                                    acronym_categories[item.categoryname] = [];
+                                }
+                                acronym_categories[item.categoryname].push(item);
+                            }
+
+                            if (typeof item.parentcategoryname != 'object') {
+                                if (!acronym_categories[item.parentcategoryname]) {
+                                    acronym_categories[item.parentcategoryname] = [];
+                                }
+                                acronym_categories[item.parentcategoryname].push(item);
+                            }
+
+                            table_content += `<tr>
                                                     <td>`+item.term+`</td>
                                                     <td>`+item.definition+`</td>
                                                     <td>
                                                         <span class="badge badge-warning">`+(typeof item.categoryname == 'object' ? '' : item.categoryname)+`</span>
                                                         <span class="badge badge-success">`+(typeof item.parentcategoryname == 'object' ? '' : item.parentcategoryname)+`</span>
                                                     </td>
-                                                </tr>`);
-                            $('#table_wrapper').prop('hidden', false);
+                                                </tr>`;
+                        }
+
+                        $('#div_panes').append(`<div class="tab-pane p-3 fade active show" id="all-pane" role="tabpanel">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <table class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Term</th>
+                                                                            <th>Definition</th>
+                                                                            <th>Tags</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            `+ table_content +`
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                    </div>`);
+
+                        table_content = ``;
+                        for (const acronym_category of Object.keys(acronym_categories)) {
+                            $('#ul_tabs').append(`<li class="nav-item" role="presentation">
+                                                            <a class="nav-link" data-toggle="tab" href="#`+acronym_category.replaceAll(' ', '')+`" role="tab">`+acronym_category+` (`+acronym_categories[acronym_category].length+`)</a>
+                                                    </li>`);
+
+                            for (const acronym of acronym_categories[acronym_category]) {
+                                table_content += `<tr>
+                                                        <td>`+acronym.term+`</td>
+                                                        <td>`+acronym.definition+`</td>
+                                                        <td>
+                                                            <span class="badge badge-warning">`+(typeof acronym.categoryname == 'object' ? '' : acronym.categoryname)+`</span>
+                                                            <span class="badge badge-success">`+(typeof acronym.parentcategoryname == 'object' ? '' : acronym.parentcategoryname)+`</span>
+                                                        </td>
+                                                    </tr>`;
+                            }
+                            $('#div_panes').append(`<div class="tab-pane p-3 fade" id="`+acronym_category.replaceAll(' ', '')+`" role="tabpanel">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <table class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Term</th>
+                                                                            <th>Definition</th>
+                                                                            <th>Tags</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            `+ table_content +`
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                    </div>`);
+                            table_content = ``;
                         }
                     } else {
                         $('#error_wrapper').prop('hidden', false);
