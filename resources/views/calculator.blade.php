@@ -486,6 +486,21 @@
         #add-user-table label {
             color: #fff;
         }
+
+        @font-face {
+            font-family: dealerplate-california;
+            src: url(../fonts/dealerplate-california.ttf);
+        }
+
+        #alphabetRow .chartChar {
+            font-family: dealerplate-california !important;
+            font-size: 33px;
+        }
+
+        .BreakTable .BreakCharNG{
+            font-family: dealerplate-california !important;
+            font-size: 30px;
+        }
     </style>
 @endsection
 
@@ -854,6 +869,8 @@
                                                 <tr></tr>
                                                 <tr id="alphabetRow"></tr>
                                                 <tr id="valueRow"></tr>
+                                                <tr id="capitalAlphabetRow"></tr>
+                                                <tr id="capitalValueRow"></tr>
                                                 <tr>
                                                     <td id="cipherChartTitle" colspan="50">
                                                     </td>
@@ -1607,23 +1624,6 @@
                     // If it's empty, set the HTML of #database-first to an empty string
                     $('#history-saved').html('');
                 }
-                // if ($('#database-first').is(':empty')) {
-                //     // If it's empty, set the HTML of #database-first to an empty string
-                //     $('#database-first').html(`<div class="table-all-data">
-            //         <table class="table table-striped table-bordered" style="width:100%">
-            //             <thead>
-            //                 <tr id="table-headers"></tr>
-            //             </thead>
-
-            //             <tbody id="database-saved">
-            //             </tbody>
-
-            //             <tfoot>
-            //                 <tr id="table-footers"></tr>
-            //             </tfoot>
-            //         </table>
-            //     </div>`);
-                // }
                 let cipherList;
                 if (temp_ciphers.length == 0) {
                     cipherList = @json($ciphers);
@@ -2636,28 +2636,34 @@
                             let charValuesRow1 = [];
                             let charValuesRow2 = [];
                             let wordSum = 0;
-                            let cipher_small_alphabet;
+                            let cipherSmallAlphabet, cipherCapitalAlphabet;
+
+                            // Parse small and capital alphabets from the cipher
+                            if (typeof cipher.small_alphabet !== "object") {
+                                cipherSmallAlphabet = JSON.parse(cipher.small_alphabet);
+                            }
+                            if (typeof cipher.capital_alphabet !== "object") {
+                                cipherCapitalAlphabet = JSON.parse(cipher.capital_alphabet);
+                            }
+
+                            // Fallback: if capital alphabet is empty, use the small alphabet
+                            if (Object.keys(cipherCapitalAlphabet).length === 0) {
+                                cipherCapitalAlphabet = Object.fromEntries(
+                                    Object.entries(cipherSmallAlphabet).map(([key, value]) => [key.toUpperCase(), value])
+                                );
+                            }
 
                             for (let i = 0; i < word.length; i++) {
-                                let char;
-                                if (!['Russian', 'Russian Reduced', 'Russian Reversed',
-                                        'Greek Isopsephy', 'Ancient Greek', 'Ancient Greek Reduced',
-                                        'Modern Greek', 'Greek Alchemology'
-                                    ].includes(cipher.name)) {
-                                    char = word[i].toLowerCase();
-                                } else {
-                                    char = word[i];
-                                }
+                                let char = word[i];
 
-                                if (typeof cipher.small_alphabet !== "object") {
-                                    cipher_small_alphabet = JSON.parse(cipher.small_alphabet);
-                                }
+                                // Select the appropriate value based on character case
+                                let value = char == char.toLowerCase()
+                                    ? cipherSmallAlphabet[char] || 0
+                                    : cipherCapitalAlphabet[char] || 0;
 
-                                // console.log(cipher_small_alphabet);
-
-                                if (cipher_small_alphabet[char]) {
+                                // If value exists, add to charValues and wordSum
+                                if (value) {
                                     charValuesRow1.push(`<td class="BreakCharNG">${char}</td>`);
-                                    const value = cipher_small_alphabet[char];
                                     charValuesRow2.push(`<td class="BreakValue">${value}</td>`);
                                     wordSum += parseInt(value, 10);
                                 }
@@ -2977,44 +2983,32 @@
         function MoveCipherClick(cipherId, event) {
             let temp_ciphers_click;
             if (temp_ciphers.length === 0) {
-                temp_ciphers_click = @json($ciphers); // Assign the data directly
+                temp_ciphers_click = @json($ciphers);
             } else {
                 temp_ciphers_click = temp_ciphers;
             }
-            // const ciphers = @json($ciphers);
+
             const selectedCipher = temp_ciphers_click.find(cipher => cipher.id == cipherId);
 
             if (selectedCipher) {
-                let smallAlphabet;
-                if (typeof selectedCipher.small_alphabet !== "object") {
-                    smallAlphabet = JSON.parse(selectedCipher.small_alphabet);
-                } else {
-                    smallAlphabet = selectedCipher.small_alphabet;
-                }
+                let smallAlphabet = typeof selectedCipher.small_alphabet !== "object"
+                    ? JSON.parse(selectedCipher.small_alphabet)
+                    : selectedCipher.small_alphabet;
 
-                let capitalAlphabet;
-                if (typeof selectedCipher.capital_alphabet !== "object") {
-                    capitalAlphabet = JSON.parse(selectedCipher.capital_alphabet);
-                } else {
-                    capitalAlphabet = selectedCipher.capital_alphabet;
-                }
+                let capitalAlphabet = typeof selectedCipher.capital_alphabet !== "object"
+                    ? JSON.parse(selectedCipher.capital_alphabet)
+                    : selectedCipher.capital_alphabet;
 
-                let rgbValues;
-                if (typeof selectedCipher.rgb_values !== "object") {
-                    rgbValues = JSON.parse(selectedCipher.rgb_values);
-                } else {
-                    rgbValues = selectedCipher.rgb_values;
-                }
-
-                const alphabetToShow = smallAlphabet;
-
-                const alphabetKeys = Object.keys(alphabetToShow);
-                const alphabetValues = Object.values(alphabetToShow);
+                let rgbValues = typeof selectedCipher.rgb_values !== "object"
+                    ? JSON.parse(selectedCipher.rgb_values)
+                    : selectedCipher.rgb_values;
 
                 document.getElementById('alphabetRow').innerHTML = '';
                 document.getElementById('valueRow').innerHTML = '';
+                document.getElementById('capitalAlphabetRow').innerHTML = '';
+                document.getElementById('capitalValueRow').innerHTML = '';
 
-                alphabetKeys.forEach((char, index) => {
+                Object.entries(smallAlphabet).forEach(([char, value]) => {
                     const charCell = document.createElement('td');
                     charCell.classList.add('chartChar');
                     charCell.textContent = char;
@@ -3022,13 +3016,27 @@
 
                     const valueCell = document.createElement('td');
                     valueCell.classList.add('chartVal');
-                    valueCell.textContent = alphabetValues[index];
+                    valueCell.textContent = value;
                     document.getElementById('valueRow').appendChild(valueCell);
+                });
+
+                Object.entries(capitalAlphabet).forEach(([char, value]) => {
+                    const charCell = document.createElement('td');
+                    charCell.classList.add('chartChar');
+                    charCell.textContent = char;
+                    document.getElementById('capitalAlphabetRow').appendChild(charCell);
+
+                    const valueCell = document.createElement('td');
+                    valueCell.classList.add('chartVal');
+                    valueCell.textContent = value;
+                    document.getElementById('capitalValueRow').appendChild(valueCell);
                 });
 
                 const cipherTitle = selectedCipher.name;
                 document.getElementById('cipherChartTitle').innerHTML = `
-                    <font id="cipherTitleFont" style="color: rgb(${rgbValues.red}, ${rgbValues.green}, ${rgbValues.blue})">${cipherTitle}</font>
+                    <font id="cipherTitleFont" style="color: rgb(${rgbValues.red}, ${rgbValues.green}, ${rgbValues.blue})">
+                        ${cipherTitle}
+                    </font>
                 `;
             }
         }
@@ -3044,34 +3052,6 @@
         };
 
         // Gematria mapping for English alphabet
-        const alphabet123 = {
-            a: 1,
-            b: 2,
-            c: 3,
-            d: 4,
-            e: 5,
-            f: 6,
-            g: 7,
-            h: 8,
-            i: 9,
-            j: 10,
-            k: 11,
-            l: 12,
-            m: 13,
-            n: 14,
-            o: 15,
-            p: 16,
-            q: 17,
-            r: 18,
-            s: 19,
-            t: 20,
-            u: 21,
-            v: 22,
-            w: 23,
-            x: 24,
-            y: 25,
-            z: 26
-        };
 
         let alphabet = @json($D0);
         let alphabet1 = @json($D1);
@@ -3087,8 +3067,11 @@
                 let cipherId = cipher['id'];
 
                 if (!['D0', 'D1', 'D2', 'D3'].includes(cipherId)) {
-                    let alphabetData = JSON.parse(cipher['small_alphabet']);
-                    small_alphabets[cipherId] = alphabetData;
+                    let capitalData = JSON.parse(cipher['capital_alphabet']);
+                    let smallData = JSON.parse(cipher['small_alphabet']);
+
+                    // Merge capital and small alphabet mappings
+                    small_alphabets[cipherId] = { ...smallData, ...capitalData };
                 }
             });
 
@@ -3101,7 +3084,7 @@
 
                 // Ensure alphabetData is an object
                 if (alphabetData && typeof alphabetData === 'object') {
-                    var charValue = alphabetData[char] || alphabetData[char.toLowerCase()];
+                    let charValue = alphabetData[char] || alphabetData[char.toLowerCase()] || alphabetData[char.toUpperCase()];
 
                     // If a value exists for the character, add it to the sum (parse it as an integer)
                     return sum + (charValue !== undefined ? parseInt(charValue, 10) : 0);
