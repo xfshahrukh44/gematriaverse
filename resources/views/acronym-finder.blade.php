@@ -145,6 +145,14 @@
         a.nav-link {
             font-size: 12px;
         }
+
+        @media (max-width: 575px) {
+            .nav-tabs {
+                justify-content: center;
+                max-height: 150px;
+                overflow-y: scroll;
+            }
+        }
     </style>
 @endsection
 
