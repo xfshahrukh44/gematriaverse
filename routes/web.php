@@ -303,8 +303,9 @@ Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->
 Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save.anagram');
 Route::get('holidays/{month?}', [FrontController::class, 'holidays'])->name('holidays');
 Route::get('acronym-finder', [FrontController::class, 'acronymFinder'])->name('acronym.finder');
-Route::post('search-acronyms', [FrontController::class,'searchAcronyms'])->name('search.acronyms');
 Route::post('search-anagrams', [FrontController::class,'searchAnagrams'])->name('search.anagrams');
+Route::post('search-acronyms', [FrontController::class,'searchAcronyms'])->name('search.acronyms');
+Route::post('submit-acronym', [FrontController::class,'submitAcronym'])->name('submit.acronym');
 
 
 Route::get('mutate-session', function () {
@@ -335,3 +336,7 @@ Route::get('get-user-history', [FrontController::class, 'get_user_history'])->na
 Route::post('add-user-table', [FrontController::class, 'add_user_table'])->name('add_user_table');
 Route::post('add-entry-name', [FrontController::class, 'add_entry_name'])->name('add_entry_name');
 Route::get('remove-entry/{id}', [FrontController::class, 'remove_entry'])->name('remove_entry');
+
+Route::resource('Admin/saved-anagram', 'admin\savedAnagramController');
+Route::resource('Admin/saved-acronym', 'admin\savedAcronymController');
+Route::post('admin/approve-acronym/{id}', 'admin\savedAcronymController@approveAcronym')->name('admin.approve.acronym');

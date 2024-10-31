@@ -1,14 +1,19 @@
 {
-    "menus": [
-      {
-        "section": "Modules",
-        "items": [
-          {
-            "title": "Faqs",
-            "icon": "<i class='fas fa-question mr-1'><\/i>",
-            "url": "\/admin\/faq"
-          }
-        ]
-      }
-    ]
-  }
+  "menus": [
+    {
+      "section": "Modules",
+      "items": [
+        {
+          "title": "Faqs",
+          "icon": "<i class='fas fa-question mr-1'><\/i>",
+          "url": "\/admin\/faq"
+        },
+        {
+          "title": "Acronyms",
+          "icon": "<i class='fas fa-a mr-1'></i>",
+          "url": "\/Admin\/saved-acronym"
+        }
+      ]
+    }
+  ]
+}

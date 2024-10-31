@@ -153,6 +153,9 @@
                 overflow-y: scroll;
             }
         }
+        #modal_submit_acronym .modal-dialog {
+            max-width: 1000px !important;
+        }
     </style>
 @endsection
 
@@ -181,12 +184,19 @@
                             </div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="col-md-12">
-                                <button id="btn_search_acronym" class="btn form-btn full-width" type="submit"
-                                    style="width: 100% !important;">Search acronym</button>
+                        @if(auth()->check())
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <button id="btn_search_acronym" class="btn form-btn full-width" type="submit"
+                                        style="width: 100% !important;">Search acronym</button>
+                                </div>
+                                <div class="col-md-12 text-center mt-3">
+                                    <p>
+                                        Cant find acronym? <a href="#" id="btn_open_submit_acronym">Submit</a> your own.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
                         {{--                        </form> --}}
 
@@ -321,35 +331,42 @@
     </section>
     <!-- section-1 -->
 
-    <div class="modal fade" id="modal_saved_anagrams" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="modal_submit_acronym" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">
-                        <i class="fas fa-floppy-disk"></i>
-                        Saved anagrams
+                        Submit acronym
                     </h5>
 {{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
 {{--                        <span aria-hidden="true">&times;</span>--}}
 {{--                    </button>--}}
                 </div>
                 <div class="modal-body">
-                    <table class="table table-striped table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th>Anagram</th>
-                                <th>Original word</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody_saved_anagrams">
-                            @foreach($saved_anagrams as $saved_anagram)
-                                <tr>
-                                    <td>{{$saved_anagram->anagram}}</td>
-                                    <td>{{$saved_anagram->source_word}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="{{route('submit.acronym')}}" method="POST">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="term">Term</label>
+                                        <input type="text" id="term" class="form-control" name="term" placeholder="NASA" required>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="definition">Definition</label>
+                                        <input type="text" id="definition" class="form-control" name="definition" placeholder="National Aeronautics and Space Administration" required>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label for="category">Category</label>
+                                        <input type="text" id="category" class="form-control" name="category" placeholder="Professional organizations" required>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <button class="btn btn-success btn-block" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 {{--                <div class="modal-footer">--}}
 {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
@@ -361,47 +378,6 @@
 @endsection
 
 @section('js')
-    <script>
-        function save_anagram(anagram, source_word) {
-            let auth_check = "{{auth()->check()}}";
-            if (auth_check !== "1") {
-                toastr.error('You need to log in to proceed.');
-                return false;
-            }
-
-            $.ajax({
-                url: '{{route("save.anagram")}}',
-                method: 'POST',
-                data: {
-                    "_token": '{{csrf_token()}}',
-                    "anagram": anagram,
-                    "source_word": source_word
-                },
-                success: (data) => {
-                    if (!data.success) {
-                        toastr.error(data.message);
-                        return false;
-                    }
-
-                    $('#h6_view_saved_anagrams').prop('hidden', false);
-
-                    //your code here
-                    $('#tbody_saved_anagrams').append(`<tr>
-                                                            <td>`+anagram+`</td>
-                                                            <td>`+source_word+`</td>
-                                                        </tr>`);
-
-                    toastr.success(data.message);
-
-                    return true;
-                },
-                error: (error) => {
-                    toastr.error(error);
-                    return false;
-                },
-            });
-        }
-    </script>
     <script>
         $('#btn_search_acronym').on('click', function() {
             let val = $('#input_acronym').val();
@@ -425,6 +401,7 @@
                 method: 'POST',
                 success: (data) => {
                     data = JSON.parse(data);
+
                     if (data && data.result && data.result.length > 0) {
                         let acronym_categories = {};
                         let table_content = ``;
@@ -517,6 +494,10 @@
                     }
                 },
             })
+        });
+
+        $('#btn_open_submit_acronym').on('click', function () {
+            $('#modal_submit_acronym').modal('show');
         });
     </script>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\savedAcronym;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use App\HasRoles;
@@ -70,5 +71,10 @@ class User extends Authenticatable
     public function saved_anagrams ()
     {
         return $this->hasMany(SavedAnagram::class)->orderBy('created_at', 'ASC');
+    }
+
+    public function saved_acronyms ($term)
+    {
+        return $this->hasMany(savedAcronym::class)->where('is_approved', 1)->where('term', $term)->orderBy('created_at', 'ASC')->get();
     }
 }

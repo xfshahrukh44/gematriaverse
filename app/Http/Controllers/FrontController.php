@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\savedAcronym;
 use App\SavedAnagram;
 use Auth;
 use App\Faq;
@@ -1540,7 +1541,46 @@ class FrontController extends Controller
 
 //        dd($response);
 
+        $response = json_decode($response);
+        if (!isset($response->result)) {
+            $response->result = [];
+        }
+        $saved_acronyms = (auth()->check()) ? auth()->user()->saved_acronyms($request->get('term')) : [];
+        foreach ($saved_acronyms as $saved_acronym) {
+            $response->result []= [
+                'categoryname' => $saved_acronym->category,
+                'definition' => $saved_acronym->definition,
+                'id' => $saved_acronym->id,
+                'parentcategoryname' => $saved_acronym->category,
+                'term' => $saved_acronym->term
+            ];
+        }
+        $response = json_encode($response);
+
         return $response;
+
+        return auth()->user()->saved_acronyms($request->get('term'));
+    }
+
+    public function submitAcronym(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'term' => 'required',
+            'definition' => 'required',
+            'category' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first());
+        }
+
+        savedAcronym::create([
+            'user_id' => auth()->id(),
+            'term' => $request->get('term'),
+            'definition' => $request->get('definition'),
+            'category' => $request->get('category'),
+        ]);
+
+        return redirect()->back()->with('success', 'Your acronym has been submitted to the admin!');
     }
 
     public function searchAnagrams(Request $request)
