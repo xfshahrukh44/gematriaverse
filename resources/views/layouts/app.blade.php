@@ -689,49 +689,49 @@
 
 
     <script>
-        // JavaScript for toggling dark/light mode
-        document.addEventListener("DOMContentLoaded", function() {
-            const darkModeButton = document.getElementById("dark-mode");
-            const lightModeButton = document.getElementById("light-mode");
-            const body = document.body;
+    {{--    // JavaScript for toggling dark/light mode--}}
+    {{--    document.addEventListener("DOMContentLoaded", function() {--}}
+    {{--        const darkModeButton = document.getElementById("dark-mode");--}}
+    {{--        const lightModeButton = document.getElementById("light-mode");--}}
+    {{--        const body = document.body;--}}
 
-            // Inline styles for dark and light modes
-            const darkModeStyles = {
-                backgroundColor: "#121212",
-                color: "#ffffff"
-            };
+    {{--        // Inline styles for dark and light modes--}}
+    {{--        const darkModeStyles = {--}}
+    {{--            backgroundColor: "#121212",--}}
+    {{--            color: "#ffffff"--}}
+    {{--        };--}}
 
-            const lightModeStyles = {
-                backgroundColor: "#ffffff",
-                color: "#000000"
-            };
+    {{--        const lightModeStyles = {--}}
+    {{--            backgroundColor: "#ffffff",--}}
+    {{--            color: "#000000"--}}
+    {{--        };--}}
 
-            function applyStyles(styles) {
-                for (const property in styles) {
-                    body.style[property] = styles[property];
-                }
-            }
+    {{--        function applyStyles(styles) {--}}
+    {{--            for (const property in styles) {--}}
+    {{--                body.style[property] = styles[property];--}}
+    {{--            }--}}
+    {{--        }--}}
 
-            // Event listeners for each button to apply the respective theme
-            darkModeButton.addEventListener("click", () => {
-                applyStyles(darkModeStyles);
-                localStorage.setItem("theme", "dark");
-            });
+    {{--        // Event listeners for each button to apply the respective theme--}}
+    {{--        darkModeButton.addEventListener("click", () => {--}}
+    {{--            applyStyles(darkModeStyles);--}}
+    {{--            localStorage.setItem("theme", "dark");--}}
+    {{--        });--}}
 
-            lightModeButton.addEventListener("click", () => {
-                applyStyles(lightModeStyles);
-                localStorage.setItem("theme", "light");
-            });
+    {{--        lightModeButton.addEventListener("click", () => {--}}
+    {{--            applyStyles(lightModeStyles);--}}
+    {{--            localStorage.setItem("theme", "light");--}}
+    {{--        });--}}
 
-            // Load the saved theme from local storage, if it exists
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme === "dark") {
-                applyStyles(darkModeStyles);
-            } else {
-                applyStyles(lightModeStyles);
-            }
-        });
-    </script>
+    {{--        // Load the saved theme from local storage, if it exists--}}
+    {{--        const savedTheme = localStorage.getItem("theme");--}}
+    {{--        if (savedTheme === "dark") {--}}
+    {{--            applyStyles(darkModeStyles);--}}
+    {{--        } else {--}}
+    {{--            applyStyles(lightModeStyles);--}}
+    {{--        }--}}
+    {{--    });--}}
+    {{--</script>--}}
 
     <script>
         $(document).ready(function() {
