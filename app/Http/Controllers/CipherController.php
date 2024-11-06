@@ -27,6 +27,7 @@ class CipherController extends Controller
             'small_alphabet' => 'required|array',
             'capital_alphabet' => 'required|array',
             'rgb_values' => 'required',
+            'description' => 'nullable',
         ]);
 
         $existingCipher = Cipher::where('name', $request->name)->first();
@@ -50,6 +51,7 @@ class CipherController extends Controller
             'capital_alphabet' => json_encode($request->capital_alphabet),
             'rgb_values' => json_encode($request->rgb_values),
             'prority' => $prority,
+            'description' => $request->description,
         ]);
 
         // $user = Auth::user();
@@ -96,6 +98,7 @@ class CipherController extends Controller
             'small_alphabet' => 'required|array',
             'capital_alphabet' => 'required|array',
             'rgb_values' => 'required',
+            'description' => 'nullable',
         ]);
 
         $cipher = Cipher::find($id);
@@ -114,6 +117,7 @@ class CipherController extends Controller
         $cipher->small_alphabet = json_encode($request->small_alphabet);
         $cipher->capital_alphabet = json_encode($request->capital_alphabet);
         $cipher->rgb_values = json_encode($request->rgb_values);
+        $cipher->description = $request->description;
         $cipher->save();
 
         return response()->json(['success' => true, 'message' => 'Cipher updated successfully!'], 200);
@@ -130,7 +134,8 @@ class CipherController extends Controller
             'name' => $cipher->name,
             'small_alphabet' => json_decode($cipher->small_alphabet),
             'capital_alphabet' => json_decode($cipher->capital_alphabet),
-            'rgb_values' => json_decode($cipher->rgb_values)
+            'rgb_values' => json_decode($cipher->rgb_values),
+            'description' => $cipher->description
         ];
         return response()->json(['success' => true, 'message' => 'Cipher updated successfully!', 'cipher' => $data], 200);
     }

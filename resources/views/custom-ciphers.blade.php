@@ -41,6 +41,28 @@
             font-family: dealerplate-california !important;
             font-size: 20px;
         }
+
+        textarea#description {
+            width: 100%;
+            height: 120px;
+        }
+
+        textarea#editDescription {
+            width: 100%;
+            height: 120px;
+        }
+
+        div#descSection {
+            width: 100%;
+            display: flex;
+            margin-top: 10px;
+        }
+
+        td.text-area {
+            width: 100%;
+            display: flex;
+        }
+
     </style>
 @endsection
 
@@ -396,6 +418,12 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            <tr>
+                                                                                <td colspan="100" class="text-area">
+                                                                                    <div id="descSection"><span id="rgbText">Description:</span><textarea name="description" id="description"></textarea>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
                                                                         </tbody>
                                                                     </table>
                                                                     <div id="ButtonSpot"><button class="buttonFunction"
@@ -725,6 +753,12 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            <tr>
+                                                                                <td colspan="100" class="text-area">
+                                                                                    <div id="descSection"><span id="rgbText">Description:</span><textarea name="description" id="editDescription"></textarea>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
                                                                         </tbody>
                                                                     </table>
                                                                     <div id="ButtonSpot"><button class="buttonFunction"
@@ -803,6 +837,7 @@
 
             function addCipher() {
                 var cipherName = $('#NameField').val();
+                var description = $('#description').text();
 
                 // Initialize objects for small and capital alphabets
                 var smallAlphabet = {};
@@ -831,7 +866,8 @@
                     name: cipherName,
                     small_alphabet: smallAlphabet,
                     capital_alphabet: capitalAlphabet,
-                    rgb_values: color
+                    rgb_values: color,
+                    description: description
                 };
 
                 $.ajax({
@@ -921,6 +957,7 @@
                     success: function(response) {
                         if (response.success) {
                             $('#editNameField').val(response.cipher.name);
+                            $('#editDescription').text(response.cipher.description);
                             $('#cipher_id').val(id);
 
                             const smallAlphabet = response.cipher.small_alphabet;
@@ -987,7 +1024,9 @@
                         red: $('#RedBoxEdit').val() || 255,
                         green: $('#GreenBoxEdit').val() || 255,
                         blue: $('#BlueBoxEdit').val() || 255
-                    }
+                    },
+
+                    description: $('#editDescription').val(),
                 };
 
                 // Send an AJAX request to update the cipher

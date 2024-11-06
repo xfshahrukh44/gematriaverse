@@ -12,7 +12,8 @@ class Cipher extends Model
         'small_alphabet',
         'capital_alphabet',
         'rgb_values',
-        'prority'
+        'prority',
+        'description'
     ];
 
     protected $casts = [
