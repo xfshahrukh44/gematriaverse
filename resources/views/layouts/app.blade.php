@@ -252,6 +252,14 @@
             content: 'ON';
             left: 40px;
         }
+
+        div#\:0\.targetLanguage {
+            width: 100%;
+        }
+
+        img.goog-te-gadget-icon {
+            display: none;
+        }
     </style>
 
     {{-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> --}}
@@ -266,6 +274,25 @@
 
     <title>Gematriavere | @yield('title')</title>
 
+
+    <script type="text/javascript">
+        function googleTranslateElementInit(lang = 'en') {
+            new google.translate.TranslateElement({
+                pageLanguage: lang, // Set your default language here
+                includedLanguages: 'en,es,fr,de,it,pt,zh-CN', // Add any languages you want to support
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+
+        function setGoogleTranslateLanguage(lang) {
+            var iframe = $('.goog-te-menu-frame:first');
+            if (iframe.length > 0) {
+                // Access the Google Translate menu and simulate selecting the language
+                iframe.contents().find('.goog-te-menu2-item span.text:contains("' + lang + '")').click();
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
@@ -632,6 +659,36 @@
                             </div>
                         </div>
                     </li>
+                    <li class="menu-setting">
+                        <div class="theme-settings">
+                            <div class="theme-info">
+                                <h5>
+                                    Language
+                                    <i class="fa-solid fa-caret-right"></i>
+                                </h5>
+                            </div>
+                            <div class="none-mode">
+                                <div class="settings-mode check-block">
+                                    <div class="row px-3">
+                                        <div class="col-md-12 form-group">
+                                            <div id="google_translate_element" style="width: 100%;">
+
+                                            </div>
+{{--                                            <select name="" id="select_language" class="form-control">--}}
+{{--                                                <option value="zh-CN">Chinese (Simplified)</option>--}}
+{{--                                                <option value="en">English</option>--}}
+{{--                                                <option value="fr">French</option>--}}
+{{--                                                <option value="de">German</option>--}}
+{{--                                                <option value="it">Italian</option>--}}
+{{--                                                <option value="pt">Portuguese</option>--}}
+{{--                                                <option value="es">Spanish</option>--}}
+{{--                                            </select>--}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     {{-- <li class="menu-setting">
                         <div class="theme-settings">
                             <div class="theme-info">
@@ -687,52 +744,6 @@
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/datatables.bootstrap4.js') }}"></script>
 
-
-    <script>
-    {{--    // JavaScript for toggling dark/light mode--}}
-    {{--    document.addEventListener("DOMContentLoaded", function() {--}}
-    {{--        const darkModeButton = document.getElementById("dark-mode");--}}
-    {{--        const lightModeButton = document.getElementById("light-mode");--}}
-    {{--        const body = document.body;--}}
-
-    {{--        // Inline styles for dark and light modes--}}
-    {{--        const darkModeStyles = {--}}
-    {{--            backgroundColor: "#121212",--}}
-    {{--            color: "#ffffff"--}}
-    {{--        };--}}
-
-    {{--        const lightModeStyles = {--}}
-    {{--            backgroundColor: "#ffffff",--}}
-    {{--            color: "#000000"--}}
-    {{--        };--}}
-
-    {{--        function applyStyles(styles) {--}}
-    {{--            for (const property in styles) {--}}
-    {{--                body.style[property] = styles[property];--}}
-    {{--            }--}}
-    {{--        }--}}
-
-    {{--        // Event listeners for each button to apply the respective theme--}}
-    {{--        darkModeButton.addEventListener("click", () => {--}}
-    {{--            applyStyles(darkModeStyles);--}}
-    {{--            localStorage.setItem("theme", "dark");--}}
-    {{--        });--}}
-
-    {{--        lightModeButton.addEventListener("click", () => {--}}
-    {{--            applyStyles(lightModeStyles);--}}
-    {{--            localStorage.setItem("theme", "light");--}}
-    {{--        });--}}
-
-    {{--        // Load the saved theme from local storage, if it exists--}}
-    {{--        const savedTheme = localStorage.getItem("theme");--}}
-    {{--        if (savedTheme === "dark") {--}}
-    {{--            applyStyles(darkModeStyles);--}}
-    {{--        } else {--}}
-    {{--            applyStyles(lightModeStyles);--}}
-    {{--        }--}}
-    {{--    });--}}
-    {{--</script>--}}
-
     <script>
         $(document).ready(function() {
             $('.theme-info').click(function() {
@@ -741,31 +752,20 @@
             });
         });
     </script>
-    <!-- counter -->
-    {{--        <script> --}}
-    {{--            document.addEventListener("DOMContentLoaded", () => { --}}
-    {{--                function counter(id, start, end, duration) { --}}
-    {{--                    let obj = document.getElementById(id), --}}
-    {{--                        current = start, --}}
-    {{--                        range = end - start, --}}
-    {{--                        increment = end > start ? 1 : -1, --}}
-    {{--                        step = Math.abs(Math.floor(duration / range)), --}}
-    {{--                        timer = setInterval(() => { --}}
-    {{--                            current += increment; --}}
-    {{--                            obj.textContent = current; --}}
-    {{--                            if (current == end) { --}}
-    {{--                                clearInterval(timer); --}}
-    {{--                            } --}}
-    {{--                        }, step); --}}
-    {{--                } --}}
 
-    {{--                counter("count1", 0, 1420137, 10); --}}
-    {{--                counter("count2", 0, 2400, 10); --}}
-    {{--                counter("count3", 0, 5500, 10); --}}
-    {{--                counter("count4", 0, 20, 1000); --}}
-    {{--            }); --}}
+    <script>
+        $(document).ready(function () {
+            googleTranslateElementInit();
 
-    {{--        </script> --}}
+            $('#select_language').on('change', function () {
+                //write change language code here
+                setGoogleTranslateLanguage($(this).val());
+            });
+
+            $('#select_language').val('{{$gematriaverse_user_settings['language']}}');
+            $('#select_language').trigger('change');
+        });
+    </script>
 
     @yield('js')
 

@@ -77,4 +77,32 @@ class User extends Authenticatable
     {
         return $this->hasMany(savedAcronym::class)->where('is_approved', 1)->where('term', $term)->orderBy('created_at', 'ASC')->get();
     }
+
+    public function settings ()
+    {
+        return $this->hasMany(Setting::class);
+    }
+
+    public function setting ($key)
+    {
+        return $this->hasMany(Setting::class)->where('key', $key)->first() ?? null;
+    }
+
+    public function apply_setting ($key, $value)
+    {
+        if ($record = $this->settings()->where('key', $key)->first()) {
+            $record->value = $value;
+            $record->save();
+
+            return true;
+        } else {
+            Setting::create([
+                'user_id' => $this->id,
+                'key' => $key,
+                'value' => $value
+            ]);
+
+            return true;
+        }
+    }
 }

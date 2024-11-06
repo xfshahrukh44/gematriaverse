@@ -1871,4 +1871,21 @@ class FrontController extends Controller
         return response()->json(['error' => 'Entry not found.'], 404);
     }
 
+    public function applySetting (Request $request)
+    {
+        $request->validate([
+            'key' => 'required',
+            'value' => 'required'
+        ]);
+
+        $res = auth()->user()->apply_setting($request->get('key'), $request->get('value'));
+
+        return response()->json([
+            'success' => $res,
+            'data' => [],
+            'message' => $res ? 'Settings applied.' : 'Failed to apply settings',
+            'error' => $res ? '' : 'Failed to apply settings',
+        ]);
+    }
+
 }
