@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\CipherController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -340,3 +341,5 @@ Route::get('remove-entry/{id}', [FrontController::class, 'remove_entry'])->name(
 Route::resource('Admin/saved-anagram', 'admin\savedAnagramController');
 Route::resource('Admin/saved-acronym', 'admin\savedAcronymController');
 Route::post('admin/approve-acronym/{id}', 'admin\savedAcronymController@approveAcronym')->name('admin.approve.acronym');
+
+Route::post('matrix-rainbow', [SettingController::class, 'matrix_rainbow'])->name('matrix_rainbow');

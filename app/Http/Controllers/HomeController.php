@@ -18,6 +18,7 @@ use Auth;
 use App\Profile;
 use App\Page;
 use Image;
+use App\Setting;
 
 class HomeController extends Controller
 {
@@ -57,7 +58,8 @@ class HomeController extends Controller
     {
         $page = DB::table('pages')->where('id', 1)->first();
         $section = DB::table('section')->where('page_id', 1)->get();
-        return view('welcome', compact('page', 'section'));
+        $matrix_rainbow = Setting::getValue(Auth::user()->id, 'matrix_rainbow');
+        return view('welcome', compact('page', 'section', 'matrix_rainbow'));
     }
 
     public function careerSubmit(Request $request)
