@@ -164,19 +164,34 @@
 
 @section('js')
     <script>
-        let isRainbow = {{ $matrix_rainbow == 'on' ? 'true' : 'false' }};
+        const userId = {{ auth()->check() ? auth()->id() : 'null' }};
+
+        let isRainbow;
+        if (userId) {
+            // Load from server if user is logged in
+            isRainbow = {{ $matrix_rainbow == 'on' ? 'true' : 'false' }};
+        } else {
+            // Load from localStorage if user is logged out
+            isRainbow = localStorage.getItem('matrix_rainbow') === 'on';
+        }
+        document.getElementById('rainbowSwitch').checked = isRainbow;
 
         document.getElementById('rainbowSwitch').addEventListener('change', function() {
             isRainbow = this.checked;
 
-            fetch("{{ route('matrix_rainbow') }}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({ value: isRainbow ? 'on' : 'off' })
-            });
+            if (userId) {
+
+                fetch("{{ route('matrix_rainbow') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ value: isRainbow ? 'on' : 'off' })
+                });
+            }else {
+                localStorage.setItem('matrix_rainbow', isRainbow ? 'on' : 'off');
+            }
         });
 
         const canvas = document.getElementById('c1');
