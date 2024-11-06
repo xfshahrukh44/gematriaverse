@@ -183,6 +183,75 @@
         .container {
             max-width: 1200px !important;
         }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 93px;
+            height: 40px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ca2222;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 30px;
+            width: 30px;
+            left: 4px;
+            bottom: 5px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #2ab934;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(55px);
+        }
+
+        /*------ ADDED CSS ---------*/
+        .slider:after {
+            content: 'OFF';
+            color: white;
+            display: block;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            right: 0;
+            font-size: 16px;
+            font-family: Verdana, sans-serif;
+        }
+
+        input:checked+.slider:after {
+            content: 'ON';
+            left: 40px;
+        }
     </style>
 
     {{-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> --}}
@@ -552,6 +621,21 @@
                                         <i class="fa-solid fa-qrcode"></i>
                                         <p>Create QR Code</p>
                                     </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-setting">
+                        <div class="theme-settings">
+                            <div class="theme-info">
+                                <h5>Switch <i class="fa-solid fa-caret-right"></i></h5>
+                            </div>
+                            <div class="none-mode">
+                                <div class="settings-mode check-block">
+                                    <label class="switch">
+                                        <input type="checkbox" id="togBtn">
+                                        <div class="slider round"></div>
+                                    </label>
                                 </div>
                             </div>
                         </div>
