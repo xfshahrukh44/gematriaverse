@@ -497,7 +497,7 @@
             font-size: 33px;
         }
 
-        .BreakTable .BreakCharNG{
+        .BreakTable .BreakCharNG {
             font-family: dealerplate-california !important;
             font-size: 30px;
         }
@@ -505,6 +505,7 @@
 @endsection
 
 @section('content')
+
     <link rel="stylesheet" href="{{ asset('css/numberstyle.css') }}">
 
     <!-- Modal -->
@@ -770,11 +771,11 @@
                 <div class="col-lg-12">
                     <div class="tool-wrapper">
                         <!-- <script src="js/numberproperties.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/newfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/buildfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/matchfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/historyfunctions.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/ss.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/newfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/buildfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/matchfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/historyfunctions.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/ss.js"></script> -->
                         <script type="text/javascript">
                             const maxHistory = 1000,
                                 HistoryEnabled = true,
@@ -782,9 +783,9 @@
                         </script>
                         <link rel="stylesheet" type="text/css" href="{{ asset('css/advcalcstyles-1-00012.css') }}">
                         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/cipherbuilder.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/html2canvas.min.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <script src="js/load.js"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/cipherbuilder.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/html2canvas.min.js"></script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <script src="js/load.js"></script> -->
 
                         <div id="calculator-advanced">
                             <!-- FIRST ROW -->
@@ -2473,7 +2474,11 @@
                 $.ajax({
                     url: "{{ route('add_entry_name') }}",
                     method: 'POST',
-                    data: { id: dataId, entryId: entryId, _token: $('meta[name="csrf-token"]').attr('content') },
+                    data: {
+                        id: dataId,
+                        entryId: entryId,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
                     success: function(response) {
                         console.log(response);
                         Swal.fire({
@@ -2649,7 +2654,9 @@
                             // Fallback: if capital alphabet is empty, use the small alphabet
                             if (Object.keys(cipherCapitalAlphabet).length === 0) {
                                 cipherCapitalAlphabet = Object.fromEntries(
-                                    Object.entries(cipherSmallAlphabet).map(([key, value]) => [key.toUpperCase(), value])
+                                    Object.entries(cipherSmallAlphabet).map(([key, value]) => [key
+                                        .toUpperCase(), value
+                                    ])
                                 );
                             }
 
@@ -2657,9 +2664,9 @@
                                 let char = word[i];
 
                                 // Select the appropriate value based on character case
-                                let value = char == char.toLowerCase()
-                                    ? cipherSmallAlphabet[char] || 0
-                                    : cipherCapitalAlphabet[char] || 0;
+                                let value = char == char.toLowerCase() ?
+                                    cipherSmallAlphabet[char] || 0 :
+                                    cipherCapitalAlphabet[char] || 0;
 
                                 // If value exists, add to charValues and wordSum
                                 if (value) {
@@ -2991,17 +2998,17 @@
             const selectedCipher = temp_ciphers_click.find(cipher => cipher.id == cipherId);
 
             if (selectedCipher) {
-                let smallAlphabet = typeof selectedCipher.small_alphabet !== "object"
-                    ? JSON.parse(selectedCipher.small_alphabet)
-                    : selectedCipher.small_alphabet;
+                let smallAlphabet = typeof selectedCipher.small_alphabet !== "object" ?
+                    JSON.parse(selectedCipher.small_alphabet) :
+                    selectedCipher.small_alphabet;
 
-                let capitalAlphabet = typeof selectedCipher.capital_alphabet !== "object"
-                    ? JSON.parse(selectedCipher.capital_alphabet)
-                    : selectedCipher.capital_alphabet;
+                let capitalAlphabet = typeof selectedCipher.capital_alphabet !== "object" ?
+                    JSON.parse(selectedCipher.capital_alphabet) :
+                    selectedCipher.capital_alphabet;
 
-                let rgbValues = typeof selectedCipher.rgb_values !== "object"
-                    ? JSON.parse(selectedCipher.rgb_values)
-                    : selectedCipher.rgb_values;
+                let rgbValues = typeof selectedCipher.rgb_values !== "object" ?
+                    JSON.parse(selectedCipher.rgb_values) :
+                    selectedCipher.rgb_values;
 
                 document.getElementById('alphabetRow').innerHTML = '';
                 document.getElementById('valueRow').innerHTML = '';
@@ -3071,7 +3078,10 @@
                     let smallData = JSON.parse(cipher['small_alphabet']);
 
                     // Merge capital and small alphabet mappings
-                    small_alphabets[cipherId] = { ...smallData, ...capitalData };
+                    small_alphabets[cipherId] = {
+                        ...smallData,
+                        ...capitalData
+                    };
                 }
             });
 
@@ -3084,7 +3094,8 @@
 
                 // Ensure alphabetData is an object
                 if (alphabetData && typeof alphabetData === 'object') {
-                    let charValue = alphabetData[char] || alphabetData[char.toLowerCase()] || alphabetData[char.toUpperCase()];
+                    let charValue = alphabetData[char] || alphabetData[char.toLowerCase()] || alphabetData[char
+                        .toUpperCase()];
 
                     // If a value exists for the character, add it to the sum (parse it as an integer)
                     return sum + (charValue !== undefined ? parseInt(charValue, 10) : 0);

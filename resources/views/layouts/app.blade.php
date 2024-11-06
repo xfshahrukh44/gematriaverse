@@ -41,6 +41,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: manteka;
@@ -50,14 +53,135 @@
         body {
             /* font-family: "Work Sans", sans-serif; */
             font-family: manteka;
+            position: relative;
+            z-index: 0;
+        }
+
+        .web-sittg {
+            position: fixed;
+            z-index: 555;
+            right: 1%;
+            bottom: 3%;
+        }
+
+        .web-sittg .btn {
+            background: linear-gradient(45deg, #317009, #7fbe00);
+            border: none;
+            width: 55px;
+            height: 55px;
+            box-shadow: none !important;
+            border-radius: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .web-sittg i {
+            font-size: 30px;
+        }
+
+        h5#offcanvasRightLabel {
+            color: black;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .offcanvas-end {
+            width: 350px;
+        }
+
+        .side-bar-menu {
+            list-style: none;
+        }
+
+        .theme-info {
+            width: 100%;
+            padding: 5px 0;
+            cursor: pointer;
+        }
+
+        .theme-info h5 {
+            color: black;
+            font-size: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-info h5 i {
+            transform: rotate(90deg);
+            font-size: 25px;
+        }
+
+        .settings-mode {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 5px;
+            padding-bottom: 10px;
+        }
+
+        .settings-mode a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .menu-setting {
+            padding-bottom: 0;
+
+        }
+
+        .check-block {
+            display: block;
+        }
+
+        .check-block span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+        }
+
+        .check-block span p {
+            color: black;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .none-mode {
+            display: none;
+        }
+
+        .btn-close.text-reset {
+            opacity: 1;
+        }
+
+        .check-block span i {
+            color: black;
+            font-size: 20px;
+        }
+
+        input[type="checkbox"] {
+            border: 2px solid !important;
         }
 
         p {
             font-size: 14px;
         }
 
+        .theme-settings .dropdown:hover {
+            all: unset !important;
+        }
+
         a.dropdown-item {
             font-size: 12px !important;
+        }
+
+        .container {
+            max-width: 1200px !important;
         }
     </style>
 
@@ -76,6 +200,11 @@
 </head>
 
 <body>
+
+    <div class="web-sittg">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"><i class="fa-solid fa-gear"></i></button>
+    </div>
 
     <div class="top-header-parent">
         <div class="container">
@@ -205,9 +334,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('calendar') }}">Calendar</a>
                                 </li>
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link" href="{{ route('holidays') }}">Holidays</a>--}}
-{{--                                </li>--}}
+                                {{--                                <li class="nav-item"> --}}
+                                {{--                                    <a class="nav-link" href="{{ route('holidays') }}">Holidays</a> --}}
+                                {{--                                </li> --}}
                                 <!-- <li class="nav-item">
                                         <a class="nav-link" href="blog.php">Blog</a>
                                     </li> -->
@@ -349,6 +478,90 @@
         </div>
     </div>
 
+
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Settings</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="main-settings">
+                <ul class="side-bar-menu">
+                    <li class="menu-setting">
+                        <div class="theme-settings">
+                            <div class="theme-info">
+                                <h5>Mode <i class="fa-solid fa-caret-right"></i></h5>
+                            </div>
+                            <div class="none-mode">
+                                <div class="settings-mode">
+                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i
+                                            class="fa-solid fa-moon"></i>Dark</a>
+                                    <a href="javascript:;" id="light-mode" class="click-mode"><i
+                                            class="fa-regular fa-moon"></i>Light</a>
+                                    {{-- <a href="javascript:;" id="system-mode" class="click-mode"><i
+                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-setting">
+                        <div class="theme-settings">
+                            <div class="theme-info">
+                                <h5>Small Text Options <i class="fa-solid fa-caret-right"></i></h5>
+                            </div>
+                            <div class="none-mode">
+                                <div class="settings-mode check-block">
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <p>Navbar</p>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <p>Body</p>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <p>Footer</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-setting">
+                        <div class="theme-settings">
+                            <div class="theme-info">
+                                <h5>Tools and actions <i class="fa-solid fa-caret-right"></i></h5>
+                            </div>
+                            <div class="none-mode">
+                                <div class="settings-mode check-block">
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <p>Tools and actions</p>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <i class="fa-solid fa-language"></i>
+                                        <p>Translate</p>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" name="small">
+                                        <i class="fa-solid fa-qrcode"></i>
+                                        <p>Create QR Code</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -374,10 +587,69 @@
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/datatables.bootstrap4.js') }}"></script>
 
+
+    <script>
+        // JavaScript for toggling dark/light mode
+        document.addEventListener("DOMContentLoaded", function() {
+            const darkModeButton = document.getElementById("dark-mode");
+            const lightModeButton = document.getElementById("light-mode");
+            const body = document.body;
+
+            // Inline styles for dark and light modes
+            const darkModeStyles = {
+                backgroundColor: "#121212",
+                color: "#ffffff"
+            };
+
+            const lightModeStyles = {
+                backgroundColor: "#ffffff",
+                color: "#000000"
+            };
+
+            function applyStyles(styles) {
+                for (const property in styles) {
+                    body.style[property] = styles[property];
+                }
+            }
+
+            // Event listeners for each button to apply the respective theme
+            darkModeButton.addEventListener("click", () => {
+                applyStyles(darkModeStyles);
+                localStorage.setItem("theme", "dark");
+            });
+
+            lightModeButton.addEventListener("click", () => {
+                applyStyles(lightModeStyles);
+                localStorage.setItem("theme", "light");
+            });
+
+            // Load the saved theme from local storage, if it exists
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                applyStyles(darkModeStyles);
+            } else {
+                applyStyles(lightModeStyles);
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.theme-info').click(function() {
+                $('.none-mode').not($(this).next('.none-mode')).slideUp('fast');
+                $(this).next('.none-mode').slideToggle('fast');
+            });
+        });
+    </script>
     <!-- counter -->
     {{--        <script> --}}
     {{--            document.addEventListener("DOMContentLoaded", () => { --}}
@@ -404,7 +676,84 @@
 
     {{--        </script> --}}
 
-
+    <script>
+        const canvas = document.getElementById('c1');
+        const c = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        //Falling Text
+        class Text {
+            constructor(x, y, v, len, i) {
+                //Movement Data
+                this.x = x;
+                this.y = y;
+                this.vel = v;
+                //Visual Features
+                this.len = len;
+                this.i = i;
+                let r = Math.random();
+                if (r < 0.6) this.val = String.fromCharCode(0x30A0 + Math.round(Math.random() * 96));
+                else if (r < 0.9) this.val = String.fromCharCode(0x50D0 + Math.round(Math.random() * 222));
+                else this.val = Math.round(Math.random() * 9)
+                if (this.i == 0) {
+                    if (Math.random() < 0.4) this.tip = true;
+                }
+            }
+            update() {
+                //Changing Character
+                if (Math.random() < 0.03) {
+                    let r = Math.random();
+                    if (r < 0.6) this.val = String.fromCharCode(0x30A0 + Math.round(Math.random() * 96));
+                    else if (r < 0.9) this.val = String.fromCharCode(0x50D0 + Math.round(Math.random() * 222));
+                    else this.val = Math.round(Math.random() * 9)
+                }
+                //Moving Character
+                this.y += this.vel;
+                if (this.y > canvas.height + inc) this.y = -inc;
+            }
+            show() {
+                //Shading Based on Index
+                if (this.tip) c.fillStyle = 'rgb(200, 255, 200)';
+                else c.fillStyle = 'rgb(0, ' + (300 - this.i / this.len * 255) + ', 0)';
+                c.fillText(this.val, this.x, this.y)
+            }
+        }
+        //Streaks Of Text
+        class Streak {
+            constructor(x, y, len) {
+                //Array Holding Text Objects Belonging to This Streak
+                this.t = [];
+                let v = Math.random() * 4 + 4;
+                for (let i = 0; i < len; i++) {
+                    this.t[i] = new Text(x, y - i * inc, v, len, i);
+                }
+            }
+            run() {
+                //Updating And Showing Text
+                for (let i = 0; i < this.t.length; i++) {
+                    this.t[i].update();
+                    this.t[i].show();
+                }
+            }
+        }
+        let inc = 26;
+        //Adding Streaks
+        let s = [];
+        for (let i = 0; i < canvas.width / inc; i++) {
+            s[i] = new Streak(inc / 2 + i * inc, Math.random() * canvas.height - canvas.height, Math.random() * 15 + 20);
+        }
+        c.textAlign = 'center';
+        c.font = inc + 'px Arial';
+        //Animation Loop
+        function draw() {
+            requestAnimationFrame(draw);
+            c.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            c.fillRect(0, 0, canvas.width, canvas.height);
+            //Running Streaks
+            for (let i = 0; i < s.length; i++) s[i].run();
+        }
+        draw();
+    </script>
     @yield('js')
 
     @if (session()->has('success'))

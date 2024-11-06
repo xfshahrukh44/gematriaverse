@@ -4,19 +4,28 @@
 
 @section('css')
     <style>
-
+        canvas {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+        }
     </style>
 @endsection
 
 @section('content')
     <section class="hero-section">
 
-        <div class="parent-video">
+        {{-- <div class="parent-video">
             <video class="lazy" poster="" src="{{ asset('images/video-bg.mp4') }}" preload="auto" autoplay muted loop
                 width="100%" height="100%">
                 <source src="{{ asset('images/video-bg.mp4') }}" type="video/mp4">
             </video>
-        </div>
+        </div> --}}
+
+        <canvas id = "c1"></canvas>
 
         <div class="container">
             <div class="row">
@@ -31,10 +40,10 @@
                         </figure>
                         <div class="cta-buttons">
                             <span>
-                                <a href="{{route('calculator')}}" class="btn custom-btn">Gematriaverse CALCULATOR </a>
+                                <a href="{{ route('calculator') }}" class="btn custom-btn">Gematriaverse CALCULATOR </a>
                             </span>
                             <span>
-                                <a href="{{route('date-calculator')}}" class="btn custom-btn">DATE CALCULATOR </a>
+                                <a href="{{ route('date-calculator') }}" class="btn custom-btn">DATE CALCULATOR </a>
                             </span>
                         </div>
                     </div>
@@ -65,10 +74,10 @@
                         {!! $section[0]->value !!}
                         <div class="horizontals-btns">
                             <span>
-                                <a href="{{route('memberships')}}" class="btn custom-btn">JOIN</a>
+                                <a href="{{ route('memberships') }}" class="btn custom-btn">JOIN</a>
                             </span>
                             <span>
-                                <a href="{{route('faq')}}" class="btn custom-btn">FAQ</a>
+                                <a href="{{ route('faq') }}" class="btn custom-btn">FAQ</a>
                             </span>
                         </div>
                     </div>
