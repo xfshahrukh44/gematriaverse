@@ -150,26 +150,30 @@
             margin-top: 20px;
         }
 
-        table.table.table-sm.table-striped.table-bordered.planety-tables tr th {
+         table.table.table-sm.table-striped.table-bordered.planety-tables tr th {
             border: 2px solid white;
             height: 50px;
             line-height: 45px;
+            color: white;
         }
 
         table.table.table-sm.table-striped.table-bordered.planety-tables tr td {
             border: 2px solid white;
             height: 50px;
             line-height: 45px;
+            color: white;
         }
 
         table.table.table-sm.table-striped.table-bordered tr th {
             border: 2px solid white;
+            color: white;
         }
 
         table.table.table-sm.table-striped.table-bordered tr td {
             border: 2px solid white;
             height: 50px;
             line-height: 45px;
+            color: white;
         }
     </style>
 @endsection
