@@ -684,40 +684,39 @@
         //Falling Text
         class Text {
             constructor(x, y, v, len, i) {
-                //Movement Data
+                // Movement Data
                 this.x = x;
                 this.y = y;
                 this.vel = v;
-                //Visual Features
+                // Visual Features
                 this.len = len;
                 this.i = i;
                 let r = Math.random();
-                if (r < 0.6) this.val = String.fromCharCode(0x30A0 + Math.round(Math.random() * 96));
-                else if (r < 0.9) this.val = String.fromCharCode(0x50D0 + Math.round(Math.random() * 222));
-                else this.val = Math.round(Math.random() * 9)
-                if (this.i == 0) {
-                    if (Math.random() < 0.4) this.tip = true;
-                }
+                // Randomly select uppercase or lowercase English letters
+                if (r < 0.5) this.val = String.fromCharCode(0x41 + Math.floor(Math.random() * 26)); // Uppercase A-Z
+                else this.val = String.fromCharCode(0x61 + Math.floor(Math.random() * 26)); // Lowercase a-z
+                if (this.i == 0 && Math.random() < 0.4) this.tip = true;
             }
             update() {
-                //Changing Character
+                // Changing Character
                 if (Math.random() < 0.03) {
                     let r = Math.random();
-                    if (r < 0.6) this.val = String.fromCharCode(0x30A0 + Math.round(Math.random() * 96));
-                    else if (r < 0.9) this.val = String.fromCharCode(0x50D0 + Math.round(Math.random() * 222));
-                    else this.val = Math.round(Math.random() * 9)
+                    // Randomly select uppercase or lowercase English letters
+                    if (r < 0.5) this.val = String.fromCharCode(0x41 + Math.floor(Math.random() * 26)); // Uppercase A-Z
+                    else this.val = String.fromCharCode(0x61 + Math.floor(Math.random() * 26)); // Lowercase a-z
                 }
-                //Moving Character
+                // Moving Character
                 this.y += this.vel;
                 if (this.y > canvas.height + inc) this.y = -inc;
             }
             show() {
-                //Shading Based on Index
+                // Shading Based on Index
                 if (this.tip) c.fillStyle = 'rgb(200, 255, 200)';
                 else c.fillStyle = 'rgb(0, ' + (300 - this.i / this.len * 255) + ', 0)';
-                c.fillText(this.val, this.x, this.y)
+                c.fillText(this.val, this.x, this.y);
             }
         }
+
         //Streaks Of Text
         class Streak {
             constructor(x, y, len) {
