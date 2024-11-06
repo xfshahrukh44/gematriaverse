@@ -747,7 +747,7 @@
                                             @else
                                                 <p id="cipher_{{ $cipher['id'] }}" class="justnumber target_number"
                                                     style="color: rgb({{ $red }}, {{ $green }}, {{ $blue }})"
-                                                    onclick="" $cipher['id'] }})">0</p>
+                                                    onclick="">0</p>
                                             @endif
                                         </div>
                                     </div>
@@ -2660,6 +2660,12 @@
                                 );
                             }
 
+                            for (let i = 0; i <= 9; i++) {
+                                const numStr = i.toString();
+                                if (!cipherSmallAlphabet[numStr]) cipherSmallAlphabet[numStr] = i;
+                                if (!cipherCapitalAlphabet[numStr]) cipherCapitalAlphabet[numStr] = i;
+                            }
+
                             for (let i = 0; i < word.length; i++) {
                                 let char = word[i];
 
@@ -3065,6 +3071,11 @@
         let alphabet2 = @json($D2);
         let alphabet3 = @json($D3);
 
+        alphabet = addNumbersToAlphabet(alphabet);
+        alphabet1 = addNumbersToAlphabet(alphabet1);
+        alphabet2 = addNumbersToAlphabet(alphabet2);
+        alphabet3 = addNumbersToAlphabet(alphabet3);
+
         // var ciphers = @json($ciphers);
 
         function generateSmallAlphabets(ciphers) {
@@ -3076,12 +3087,24 @@
                 if (!['D0', 'D1', 'D2', 'D3'].includes(cipherId)) {
                     let capitalData = JSON.parse(cipher['capital_alphabet']);
                     let smallData = JSON.parse(cipher['small_alphabet']);
+                    let hasNumbers = false;
 
-                    // Merge capital and small alphabet mappings
-                    small_alphabets[cipherId] = {
-                        ...smallData,
-                        ...capitalData
-                    };
+                    for (let i = 0; i <= 9; i++) {
+                        const numStr = i.toString();
+                        if (smallData[numStr] != undefined || capitalData[numStr] != undefined) {
+                            hasNumbers = true;
+                            break;
+                        }
+                    }
+
+                    if (!hasNumbers) {
+                        for (let i = 0; i <= 9; i++) {
+                            const numStr = i.toString();
+                            smallData[numStr] = i;
+                        }
+                    }
+
+                    small_alphabets[cipherId] = { ...smallData, ...capitalData };
                 }
             });
 
@@ -3121,8 +3144,7 @@
         // Function to calculate Reverse Ordinal value
         function calculateReverseOrdinal(input) {
             return [...input].reduce((sum, char) => {
-                let reverseValue = 27 - (alphabet2[char.toLowerCase()] || 0);
-                return sum + (reverseValue > 0 ? reverseValue : 0);
+                return sum + (alphabet2[char.toLowerCase()] || 0);
             }, 0);
         }
 
@@ -3146,6 +3168,16 @@
                 reverseReduction: reverseReduction,
                 ordinalCiphers: ordinalCiphers
             };
+        }
+
+        function addNumbersToAlphabet(alphabet) {
+            for (let i = 0; i <= 9; i++) {
+                const numStr = i.toString();
+                if (!alphabet[numStr]) {
+                    alphabet[numStr] = i;  // You can change the value logic if needed
+                }
+            }
+            return alphabet;
         }
 
         function get_divisors(num) {
