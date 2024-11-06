@@ -603,7 +603,7 @@
                                 <div class="settings-mode">
                                     <h5>Rainbow Matrix</h5>
                                     <label class="switch">
-                                        <input type="checkbox" id="rainbowSwitch" {{ App\Setting::getValue(Auth::user()->id, 'matrix_rainbow') == 'on' ? 'checked' : '' }}>
+                                        <input type="checkbox" id="rainbowSwitch">
                                         <div class="slider round"></div>
                                     </label>
                                 </div>
