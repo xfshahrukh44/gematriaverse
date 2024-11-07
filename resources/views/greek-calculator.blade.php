@@ -190,7 +190,7 @@
             </div>
             <div class="row justify-content-center">
                 <div id="WordLetterCount text-center">
-                    <div class="WordLetterCount para white" id="div_words_and_letters">(0 words, 0 letters)</div>
+                    <div class="WordLetterCount para white text-center" id="div_words_and_letters">(0 words, 0 letters)</div>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -884,11 +884,11 @@
             $('#tr_alphabet_keys').html('');
             $('#tr_alphabet_values').html('');
 
-            for (const alphabet of Object.keys(ciphers[active_cipher])) {
+            for (const alphabet of Object.keys(ciphers[active_cipher]).slice(10)) {
                 $('#tr_alphabet_keys').append(`<td class="chartChar">`+alphabet+`</td>`);
             }
 
-            for (const value of Object.values(ciphers[active_cipher])) {
+            for (const value of Object.values(ciphers[active_cipher]).slice(10)) {
                 $('#tr_alphabet_values').append(`<td class="chartVal">`+value+`</td>`);
             }
 
