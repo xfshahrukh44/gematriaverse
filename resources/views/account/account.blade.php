@@ -117,7 +117,7 @@
     <?php $segment = Request::segments(); ?>
 
 
-    <section class="banner">
+    <section class="banner py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -160,14 +160,31 @@
                                         <!-- Single Tab Content Start -->
                                         <div class="tab-pane active" id="account-info" role="tabpanel">
                                             <div class="myaccount-content">
-                                                <div class="section-heading">
-                                                    <h2>Account Details</h2>
-                                                </div>
+{{--                                                <div class="section-heading">--}}
+{{--                                                    <h2>Account Details</h2>--}}
+{{--                                                </div>--}}
 
                                                 <div class="account-details-form">
                                                     <form action="{{ route('update.account') }}" method="post"
                                                         enctype="multipart/form-data" id="accountForm">
                                                         @csrf
+
+                                                        <div class="row mb-4">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="single-input-item">
+                                                                    <label for="last-name" class="required">
+                                                                        <b>
+                                                                            <h5>Account creation date</h5>
+                                                                        </b>
+                                                                        <h6 style="color: #7fbe00;">
+                                                                            {{\Carbon\Carbon::parse(auth()->user()->created_at)->format('d F, Y.')}}
+                                                                        </h6>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="row">
 
                                                             <div class="col-lg-12">
