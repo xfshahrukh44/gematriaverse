@@ -50,6 +50,17 @@ class LoggedInController extends Controller
         //View()->share('config',$config);
     }
 
+    protected function formatTime($seconds)
+    {
+        $minutes = floor($seconds / 60);
+        $remainingSeconds = $seconds % 60;
+
+        if ($minutes > 0) {
+            return $minutes . 'm ' . $remainingSeconds . 's';
+        } else {
+            return $remainingSeconds . 's';
+        }
+    }
 
 	public function orders()
     {
@@ -73,7 +84,8 @@ class LoggedInController extends Controller
 
         return view('account.index', [
             'activityData' => $activityData->map(function ($activity) {
-                $activity->total_time_spent = round($activity->total_time_spent / 60, 2); // Convert seconds to minutes
+                $activity->total_time_spent_td = $this->formatTime($activity->total_time_spent);
+                $activity->total_time_spent = round($activity->total_time_spent / 60, 2);
                 return $activity;
             })
         ]);

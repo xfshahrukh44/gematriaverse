@@ -170,8 +170,8 @@
                                                                 @foreach ($activityData as $activity)
                                                                     <tr>
                                                                         <td>{{ str_replace('_', ' ', $activity->feature_name) }}</td>
-                                                                        <td>{{ $activity->total_time_spent }}</td>
-                                                                        <td>{{ $activity->usage_count }}</td>
+                                                                        <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->total_time_spent_td }}</td>
+                                                                        <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->usage_count }}</td>
                                                                     </tr>
                                                                 @endforeach
                                                             </tbody>
