@@ -149,48 +149,50 @@
                                         <!-- Single Tab Content End -->
 
                                     </div>
-                                    <div class="container my-5 p-0">
-                                        <h2>User Activity</h2>
+                                    @if($activityData)
+                                        <div class="container my-5 p-0">
+                                            <h2>User Activity</h2>
 
-                                        <!-- Usage Overview -->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="card mb-4">
-                                                    <div class="card-header">Feature Usage Summary</div>
-                                                    <div class="card-body">
-                                                        <table class="table table-bordered">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Feature</th>
-                                                                    <th>Time Spent (mins)</th>
-                                                                    <th>Usage Count</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @foreach ($activityData as $activity)
+                                            <!-- Usage Overview -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="card mb-4">
+                                                        <div class="card-header">Feature Usage Summary</div>
+                                                        <div class="card-body">
+                                                            <table class="table table-bordered">
+                                                                <thead>
                                                                     <tr>
-                                                                        <td>{{ str_replace('_', ' ', $activity->feature_name) }}</td>
-                                                                        <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->total_time_spent_td }}</td>
-                                                                        <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->usage_count }}</td>
+                                                                        <th>Feature</th>
+                                                                        <th>Time Spent (mins)</th>
+                                                                        <th>Usage Count</th>
                                                                     </tr>
-                                                                @endforeach
-                                                            </tbody>
-                                                        </table>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($activityData as $activity)
+                                                                        <tr>
+                                                                            <td>{{ str_replace('_', ' ', $activity->feature_name) }}</td>
+                                                                            <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->total_time_spent_td }}</td>
+                                                                            <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->usage_count }}</td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <!-- Chart for Time Spent -->
-                                            <div class="col-md-6">
-                                                <div class="card mb-4">
-                                                    <div class="card-header">Time Spent on Features</div>
-                                                    <div class="card-body">
-                                                        <canvas id="timeSpentChart"></canvas>
+                                                <!-- Chart for Time Spent -->
+                                                <div class="col-md-6">
+                                                    <div class="card mb-4">
+                                                        <div class="card-header">Time Spent on Features</div>
+                                                        <div class="card-body">
+                                                            <canvas id="timeSpentChart"></canvas>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div> <!-- My Account Tab Content End -->
 
 

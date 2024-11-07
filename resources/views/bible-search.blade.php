@@ -1493,6 +1493,9 @@
                     if (id != 'D0' && id != 'D1' && id != 'D2' && id != 'D3') {
                         var name = "{{ $cipher['name'] }}";
                         var rgb_values = @json($cipher['rgb_values']);
+                        if (typeof rgb_values !== "object") {
+                            rgb_values = JSON.parse(rgb_values);
+                        }
                         var red = rgb_values.red;
                         var green = rgb_values.green;
                         var blue = rgb_values.blue;
