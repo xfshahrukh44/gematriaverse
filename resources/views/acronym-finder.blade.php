@@ -379,6 +379,9 @@
 
 @section('js')
     <script>
+        trackTimeSpent('acronym_finder', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         $('#btn_search_acronym').on('click', function() {
             let val = $('#input_acronym').val();
 

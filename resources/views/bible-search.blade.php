@@ -851,6 +851,9 @@
 {{--    <script src="{{asset('js/cipherbuilder.js')}}"></script>--}}
 {{--    <script src="{{asset('js/load.js')}}"></script>--}}
     <script>
+        trackTimeSpent('bible_search', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         let savedHTML, saveQuery;
         function Change_Ciphers(cipherId) {
             let userId = $('#user_id').val();

@@ -739,6 +739,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>
@@ -752,7 +753,6 @@
             });
         });
     </script>
-
     <script>
         $(document).ready(function () {
             googleTranslateElementInit();
@@ -766,6 +766,7 @@
             $('#select_language').trigger('change');
         });
     </script>
+    @include('ajax')
 
     @yield('js')
 

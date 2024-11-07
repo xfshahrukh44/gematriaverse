@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\UserActivity;
 
 class FrontController extends Controller
 {
@@ -1169,6 +1170,37 @@ class FrontController extends Controller
         return false;
     }
 
+    protected function logFeatureAccess($featureName)
+    {
+        if(Auth::check()){
+            UserActivity::create([
+                'user_id' => Auth::user()->id,
+                'feature_name' => $featureName,
+                'time_spent' => 0, // Initialize time_spent, you can update it when the user leaves the feature
+            ]);
+        }
+    }
+
+    public function logTimeSpent(Request $request)
+    {
+        $request->validate([
+            'feature_name' => 'required|string',
+            'time_spent' => 'required|integer',
+        ]);
+
+        if(Auth::check()){
+            UserActivity::where('user_id', Auth::user()->id)
+                ->where('feature_name', $request->feature_name)
+                ->latest()
+                ->first()
+                ->update(['time_spent' => $request->time_spent]);
+
+            return response()->json(['status' => 'success']);
+        }else{
+            return response()->json(['status' => 'error']);
+        }
+    }
+
     public function about()
     {
         $page = DB::table('pages')->where('id', 1)->first();
@@ -1185,6 +1217,8 @@ class FrontController extends Controller
         if ($user_id != '') {
 
             $staticCiphers = array_merge($this->staticCiphers, $this->afterLoginArr);
+            $this->logFeatureAccess('bible_search');
+
         }
 
         $D0 = array_map('intval', json_decode($staticCiphers[0]['small_alphabet'], true));
@@ -1282,6 +1316,7 @@ class FrontController extends Controller
 
         if ($user_id != '') {
             $staticCiphers = array_merge($this->staticCiphers, $this->afterLoginArr);
+            $this->logFeatureAccess('calculator');
         }else{
             $staticCiphers = $this->staticCiphers;
         }
@@ -1390,6 +1425,7 @@ class FrontController extends Controller
     public function calendar()
     {
         if ($this->hasAccessToFeature('calendar')) {
+            $this->logFeatureAccess('calendar');
             return view('calendar');
         } else {
             return view('locked', ['title' => 'Calendar']);
@@ -1406,6 +1442,7 @@ class FrontController extends Controller
         if (!$this->hasAccessToFeature('custom_ciphers')) {
             return view('locked', ['title' => 'Custom Cipher']);
         }
+        $this->logFeatureAccess('custom_ciphers');
         return view('custom-ciphers');
     }
     public function date_calculator()
@@ -1413,6 +1450,8 @@ class FrontController extends Controller
         if (!can_access_feature('date_calculator')) {
             return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+
+        $this->logFeatureAccess('date_calculator');
 
         $date_calculator = get_feature('date_calculator');
         $planetary_table = $date_calculator->planetary_table ?? false;
@@ -1444,6 +1483,8 @@ class FrontController extends Controller
         $calculator = get_feature('calculators');
         $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
 
+        $this->logFeatureAccess('greek_calculator');
+
         return view('greek-calculator', compact('breakdown_screenshot'));
     }
     public function hebrew_calculator()
@@ -1451,10 +1492,13 @@ class FrontController extends Controller
         $calculator = get_feature('calculators');
         $breakdown_screenshot = $calculator->breakdown_screenshot ?? false;
 
+        $this->logFeatureAccess('hebrew_calculator');
+
         return view('hebrew-calculator', compact('breakdown_screenshot'));
     }
     public function memberships()
     {
+        $this->logFeatureAccess('calendar');
         return view('memberships');
     }
     public function monthly_calendar()
@@ -1466,6 +1510,7 @@ class FrontController extends Controller
         if (!$this->hasAccessToFeature('nostalgia_calculators')) {
             return view('locked', ['title' => 'Nostalgia Calculators']);
         }
+        // $this->logFeatureAccess('nostalgia_calculators');
         return view('nostalgia-calculators');
     }
     public function nostalgia_calculators_basic()
@@ -1486,6 +1531,7 @@ class FrontController extends Controller
     }
     public function number_properties()
     {
+        $this->logFeatureAccess('number_properties');
         return view('number-properties');
     }
     public function product_detail()
@@ -1499,11 +1545,13 @@ class FrontController extends Controller
 
     public function anagramCalculator(Request $request)
     {
+        $this->logFeatureAccess('anagram_calculator');
         return view('anagram-calculator');
     }
 
     public function acronymFinder(Request $request)
     {
+        $this->logFeatureAccess('acronym_finder');
         return view('acronym-finder');
     }
 

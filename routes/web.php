@@ -344,3 +344,4 @@ Route::resource('Admin/saved-acronym', 'admin\savedAcronymController');
 Route::post('admin/approve-acronym/{id}', 'admin\savedAcronymController@approveAcronym')->name('admin.approve.acronym');
 
 Route::post('matrix-rainbow', [SettingController::class, 'matrix_rainbow'])->name('matrix_rainbow');
+Route::post('log-time-spent', [FrontController::class, 'logTimeSpent'])->name('log.time.spent');

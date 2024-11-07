@@ -179,6 +179,9 @@
 
 @section('js')
     <script>
+        trackTimeSpent('calculator', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         function calculateGematria(month, day, year) {
             // Convert year into two parts
             const yearFirstPart = Math.floor(year / 100); // first two digits of the year

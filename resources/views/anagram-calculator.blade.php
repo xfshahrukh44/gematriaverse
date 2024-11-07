@@ -359,6 +359,9 @@
 
 @section('js')
     <script>
+        trackTimeSpent('anagram_calculator', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         let dictionary_words = [];
         fetch('{{ url('/english-dictionary-words.json') }}')
             .then(res => res.json())

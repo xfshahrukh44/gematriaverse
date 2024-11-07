@@ -638,6 +638,9 @@
 @endsection
 
 @section('js')
+    <script>
+        trackTimeSpent('date_calculator', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
 

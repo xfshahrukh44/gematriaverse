@@ -221,6 +221,9 @@
 
 @section('js')
     <script>
+        trackTimeSpent('number_properties', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         function get_divisors(num) {
             let divisors = [];
 

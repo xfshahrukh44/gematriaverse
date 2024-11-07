@@ -77,6 +77,9 @@
 @endsection
 
 @section('js')
+    {{-- <script>
+        trackTimeSpent('nostalgia_calculators', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script> --}}
     <script type="text/javascript"></script>
 @endsection
 

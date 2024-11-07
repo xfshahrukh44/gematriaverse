@@ -786,6 +786,9 @@
 @endsection
 
 @section('js')
+    <script>
+        trackTimeSpent('custom_ciphers', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
     {{-- <script src="{{ asset('js/customciphers.js') }}"></script> --}}
     {{-- <script src="{{ asset('js/load.js') }}"></script> --}}
     <script>

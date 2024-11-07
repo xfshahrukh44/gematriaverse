@@ -144,6 +144,9 @@
 
 @section('js')
     <script>
+        trackTimeSpent('calendar', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
+    </script>
+    <script>
         let year = new Date().getFullYear();
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const monthNames = [
