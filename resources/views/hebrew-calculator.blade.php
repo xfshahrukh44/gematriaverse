@@ -188,7 +188,7 @@
             </div>
             <div class="row justify-content-center">
                 <div id="WordLetterCount text-center">
-                    <div class="WordLetterCount para white" id="div_words_and_letters">(0 words, 0 letters)</div>
+                    <div class="WordLetterCount para white text-center" id="div_words_and_letters">(0 words, 0 letters)</div>
                 </div>
             </div>
             <div class="row justify-content-center">
