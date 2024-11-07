@@ -279,17 +279,17 @@
         function googleTranslateElementInit(lang = 'en') {
             new google.translate.TranslateElement({
                 pageLanguage: lang, // Set your default language here
-                includedLanguages: 'en,es,fr,de,it,pt,zh-CN', // Add any languages you want to support
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                // includedLanguages: 'af,ar,bn,bg,ca,zh-TW,hr,cs,da,nl,en,et,tl,fi,fr,de,el,gu,iw,hi,hu,is,id,ga,it,ja,jw,kn,ko,lv,lt,ms,ml,mr,no,fa,pl,pt,pa,ro,ru,sr,sk,sl,so,es,sw,sv,ta,te,th,tr,uk,ur,vi,cy,yi,zu',
+                includedLanguages: 'en,es,fr,de,it,pt,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.VERTICAL
             }, 'google_translate_element');
         }
 
         function setGoogleTranslateLanguage(lang) {
-            var iframe = $('.goog-te-menu-frame:first');
-            if (iframe.length > 0) {
-                // Access the Google Translate menu and simulate selecting the language
-                iframe.contents().find('.goog-te-menu2-item span.text:contains("' + lang + '")').click();
-            }
+            const googleTranslateDropdown = document.querySelector('.goog-te-combo');
+
+            googleTranslateDropdown.value = lang;
+            googleTranslateDropdown.dispatchEvent(new Event('change'));
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -756,14 +756,29 @@
     <script>
         $(document).ready(function () {
             googleTranslateElementInit();
+            {{--googleTranslateElementInit('{{$gematriaverse_user_settings['language']}}');--}}
+            {{--setGoogleTranslateLanguage('{{$gematriaverse_user_settings['language']}}');--}}
 
-            $('#select_language').on('change', function () {
+            $('body').on('change', '.goog-te-combo', function () {
                 //write change language code here
-                setGoogleTranslateLanguage($(this).val());
+                // setGoogleTranslateLanguage($(this).val());
+                let val = $(this).val();
+
+                $.ajax({
+                    url: '{{route("apply.setting")}}',
+                    method: 'POST',
+                    data: {
+                        _token: '{{csrf_token()}}',
+                        key: 'language',
+                        value: val,
+                    },
+                }).then((data) => {
+                    //
+                });
             });
 
-            $('#select_language').val('{{$gematriaverse_user_settings['language']}}');
-            $('#select_language').trigger('change');
+            {{--$('#select_language').val('{{$gematriaverse_user_settings['language']}}');--}}
+            {{--$('#select_language').trigger('change');--}}
         });
     </script>
 
