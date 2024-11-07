@@ -260,6 +260,26 @@
         img.goog-te-gadget-icon {
             display: none;
         }
+
+        select.goog-te-combo {
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'manteka';
+            border: 2px solid black;
+        }
+
+        .none-mode .col-md-12.form-group {
+            padding: 0;
+        }
+
+        span {}
+
+        a.VIpgJd-ZVi9od-l4eHX-hSRGPd {
+            display: none;
+        }
     </style>
 
     {{-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> --}}
@@ -276,6 +296,22 @@
 
 
     <script type="text/javascript">
+        function removeTextNodes(searchText) {
+            var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+                acceptNode: function(node) {
+                    // Only accept nodes that contain the searchText
+                    return node.nodeValue.includes(searchText) ? NodeFilter.FILTER_ACCEPT : NodeFilter
+                        .FILTER_REJECT;
+                }
+            });
+
+            // Process each matching text node and remove it
+            var node;
+            while ((node = walker.nextNode())) {
+                node.parentNode.removeChild(node);
+            }
+        }
+
         function googleTranslateElementInit(lang = 'en') {
             new google.translate.TranslateElement({
                 pageLanguage: lang, // Set your default language here
@@ -283,6 +319,8 @@
                 includedLanguages: 'en,es,fr,de,it,pt,zh-CN',
                 layout: google.translate.TranslateElement.InlineLayout.VERTICAL
             }, 'google_translate_element');
+
+            removeTextNodes('Powered by');
         }
 
         function setGoogleTranslateLanguage(lang) {
@@ -292,7 +330,8 @@
             googleTranslateDropdown.dispatchEvent(new Event('change'));
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 </head>
 
 <body>
@@ -674,15 +713,15 @@
                                             <div id="google_translate_element" style="width: 100%;">
 
                                             </div>
-{{--                                            <select name="" id="select_language" class="form-control">--}}
-{{--                                                <option value="zh-CN">Chinese (Simplified)</option>--}}
-{{--                                                <option value="en">English</option>--}}
-{{--                                                <option value="fr">French</option>--}}
-{{--                                                <option value="de">German</option>--}}
-{{--                                                <option value="it">Italian</option>--}}
-{{--                                                <option value="pt">Portuguese</option>--}}
-{{--                                                <option value="es">Spanish</option>--}}
-{{--                                            </select>--}}
+                                            {{--                                            <select name="" id="select_language" class="form-control"> --}}
+                                            {{--                                                <option value="zh-CN">Chinese (Simplified)</option> --}}
+                                            {{--                                                <option value="en">English</option> --}}
+                                            {{--                                                <option value="fr">French</option> --}}
+                                            {{--                                                <option value="de">German</option> --}}
+                                            {{--                                                <option value="it">Italian</option> --}}
+                                            {{--                                                <option value="pt">Portuguese</option> --}}
+                                            {{--                                                <option value="es">Spanish</option> --}}
+                                            {{--                                            </select> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -754,21 +793,21 @@
     </script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             googleTranslateElementInit();
-            {{--googleTranslateElementInit('{{$gematriaverse_user_settings['language']}}');--}}
-            {{--setGoogleTranslateLanguage('{{$gematriaverse_user_settings['language']}}');--}}
+            {{-- googleTranslateElementInit('{{$gematriaverse_user_settings['language']}}'); --}}
+            {{-- setGoogleTranslateLanguage('{{$gematriaverse_user_settings['language']}}'); --}}
 
-            $('body').on('change', '.goog-te-combo', function () {
+            $('body').on('change', '.goog-te-combo', function() {
                 //write change language code here
                 // setGoogleTranslateLanguage($(this).val());
                 let val = $(this).val();
 
                 $.ajax({
-                    url: '{{route("apply.setting")}}',
+                    url: '{{ route('apply.setting') }}',
                     method: 'POST',
                     data: {
-                        _token: '{{csrf_token()}}',
+                        _token: '{{ csrf_token() }}',
                         key: 'language',
                         value: val,
                     },
@@ -777,8 +816,8 @@
                 });
             });
 
-            {{--$('#select_language').val('{{$gematriaverse_user_settings['language']}}');--}}
-            {{--$('#select_language').trigger('change');--}}
+            {{-- $('#select_language').val('{{$gematriaverse_user_settings['language']}}'); --}}
+            {{-- $('#select_language').trigger('change'); --}}
         });
     </script>
 
