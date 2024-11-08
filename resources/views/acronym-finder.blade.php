@@ -156,6 +156,10 @@
         #modal_submit_acronym .modal-dialog {
             max-width: 1000px !important;
         }
+
+        a.nav-link {
+            color: #7fbe00;
+        }
     </style>
 @endsection
 
@@ -184,24 +188,24 @@
                             </div>
                         </div>
 
-                        @if(auth()->check())
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <button id="btn_search_acronym" class="btn form-btn full-width" type="submit"
-                                        style="width: 100% !important;">Search acronym</button>
-                                </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <button id="btn_search_acronym" class="btn form-btn full-width" type="submit"
+                                    style="width: 100% !important;">Search acronym</button>
+                            </div>
+                            @if(auth()->check())
                                 <div class="col-md-12 text-center mt-3">
                                     <p>
                                         Cant find acronym? <a href="#" id="btn_open_submit_acronym">Submit</a> your own.
                                     </p>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
+                        </div>
 
                         {{--                        </form> --}}
 
                         <div class="anagrams-text mt-4" id="result_wrapper" hidden>
-                            <h4 id="h4_result" class="pb-2">Anagrams of "asaas"</h4>
+                            <h4 id="h4_result" class="pb-2"></h4>
 
                             <div class="anagrame_data">
                                 <div class="row" id="row_result">
@@ -378,9 +382,9 @@
 @endsection
 
 @section('js')
-    <script>
-        trackTimeSpent('acronym_finder', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");
-    </script>
+{{--    <script>--}}
+{{--        trackTimeSpent('acronym_finder', "{{ route('log.time.spent') }}", "{{ csrf_token() }}");--}}
+{{--    </script>--}}
     <script>
         $('#btn_search_acronym').on('click', function() {
             let val = $('#input_acronym').val();
