@@ -129,6 +129,13 @@
             margin-bottom: 10px;
         }
 
+        .btn_current_plan {
+            border: 4px solid white;
+            background: black;
+            color: white;
+            pointer-events: none;
+        }
+
     </style>
 @endsection
 
@@ -206,7 +213,15 @@
                                 <h5>Personal Calendar</h5>
                                 <li> Access Unlocked </li>
                             </ul>
-                            <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">{{ Auth::user()->plan == "casual" ? "Upgrade" : "Get Started"  }}</a>
+                            @if(auth()->check())
+                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn {!! Auth::user()->plan == "casual" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "casual" ? "Current plan" : "Change plan"  }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">
+                                    Get Started
+                                </a>
+                            @endif
 
                         </div>
                     </div>
@@ -255,7 +270,15 @@
                                 <li> Access Unlocked </li>
                             </ul>
 
-                            <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "enthusiast" ? "Upgrade" : "Get Started"  }}</a>
+                            @if(auth()->check())
+                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn {!! Auth::user()->plan == "enthusiast" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "enthusiast" ? "Current plan" : "Change plan"  }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription">
+                                    Get Started
+                                </a>
+                            @endif
 
                         </div>
                     </div>
@@ -306,7 +329,15 @@
                                 <li>Access Unlocked</li>
                             </ul>
 
-                            <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "mystic" ? "Upgrade" : "Get Started"  }}</a>
+                            @if(auth()->check())
+                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn {!! Auth::user()->plan == "mystic" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "mystic" ? "Current plan" : "Change plan"  }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription">
+                                    Get Started
+                                </a>
+                            @endif
 
                         </div>
                     </div>
@@ -343,7 +374,15 @@
                             </ul>
 
 
-                            <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription" >{{ Auth::user()->plan == "free" ? "Upgrade" : "Get Started"  }}</a>
+                            @if(auth()->check())
+                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn {!! Auth::user()->plan == "free" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "free" ? "Current plan" : "Change plan"  }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription">
+                                    Get Started
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -358,7 +397,12 @@
         const plan = $(this).data('plan');
 
         // Redirect to the signin route with the plan as a query parameter
-        const url = "{{ route('signin') }}" + '?plan=' + plan;
+        @if(auth()->check())
+            const url = "{{ route('upgrade.subscription') }}" + '?plan=' + plan;
+        @else
+            const url = "{{ route('signin') }}" + '?plan=' + plan;
+        @endif
+
         window.location.href = url;
     });
     </script>

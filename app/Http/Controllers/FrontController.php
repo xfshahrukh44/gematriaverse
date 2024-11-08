@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\savedAcronym;
 use App\SavedAnagram;
+use App\User;
 use Auth;
 use App\Faq;
 use App\Cipher;
@@ -1934,6 +1935,15 @@ class FrontController extends Controller
             'message' => $res ? 'Settings applied.' : 'Failed to apply settings',
             'error' => $res ? '' : 'Failed to apply settings',
         ]);
+    }
+
+    public function upgradeSubscription (Request $request)
+    {
+        $user = User::find(auth()->id());
+        $user->plan = $_GET['plan'] ?? $user->plan;
+        $user->save();
+
+        return redirect()->route('accountDetail')->with('success', 'Plan updated!');
     }
 
 }

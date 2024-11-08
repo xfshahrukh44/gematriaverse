@@ -308,6 +308,7 @@ Route::post('search-anagrams', [FrontController::class,'searchAnagrams'])->name(
 Route::post('search-acronyms', [FrontController::class,'searchAcronyms'])->name('search.acronyms');
 Route::post('submit-acronym', [FrontController::class,'submitAcronym'])->name('submit.acronym');
 Route::post('apply-setting', [FrontController::class,'applySetting'])->name('apply.setting');
+Route::get('upgrade-subscription', [FrontController::class,'upgradeSubscription'])->name('upgrade.subscription');
 
 
 Route::get('mutate-session', function () {

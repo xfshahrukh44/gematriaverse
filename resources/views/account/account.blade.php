@@ -171,7 +171,7 @@
 
                                                         <div class="row mb-4">
 
-                                                            <div class="col-lg-12">
+                                                            <div class="col-lg-6">
                                                                 <div class="single-input-item">
                                                                     <label for="last-name" class="required">
                                                                         <b>
@@ -180,6 +180,22 @@
                                                                         <h6 style="color: #7fbe00;">
                                                                             {{\Carbon\Carbon::parse(auth()->user()->created_at)->format('d F, Y.')}}
                                                                         </h6>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6 text-right">
+                                                                <div class="single-input-item">
+                                                                    <label for="last-name" class="required">
+                                                                        <b>
+                                                                            <h5>Membership plan</h5>
+                                                                        </b>
+                                                                        <h6 style="color: #7fbe00;">
+                                                                            {{ucfirst(auth()->user()->plan)}}
+                                                                        </h6>
+                                                                        <a href="{{route('memberships')}}" style="color: blue;">
+                                                                            <h6 style="font-size: 10px;">Change</h6>
+                                                                        </a>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -203,7 +219,7 @@
                                                         </div>
 
                                                         <fieldset>
-                                                            <legend style="font-family: Pixeboy !important;">Password change</legend>
+                                                            <legend style="font-family: Pixeboy !important;">Change password</legend>
 
                                                             <div class="row">
                                                                 <div class="col-lg-6">
