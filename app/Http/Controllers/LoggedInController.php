@@ -82,12 +82,16 @@ class LoggedInController extends Controller
             ->groupBy('feature_name')
             ->get();
 
+//        return view('account.index', [
+//            'activityData' => $activityData->map(function ($activity) {
+//                $activity->total_time_spent_td = $this->formatTime($activity->total_time_spent);
+//                $activity->total_time_spent = round($activity->total_time_spent / 60, 2);
+//                return $activity;
+//            })
+//        ]);
+
         return view('account.index', [
-            'activityData' => $activityData->map(function ($activity) {
-                $activity->total_time_spent_td = $this->formatTime($activity->total_time_spent);
-                $activity->total_time_spent = round($activity->total_time_spent / 60, 2);
-                return $activity;
-            })
+            'activityData' => $activityData
         ]);
 
 	}

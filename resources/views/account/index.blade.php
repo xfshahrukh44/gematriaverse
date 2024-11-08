@@ -169,9 +169,40 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     @foreach ($activityData as $activity)
+                                                                        @php
+                                                                            $string = '';
+
+                                                                            $seconds_count = intval($activity->total_time_spent);
+
+                                                                            $hours_count = intval($seconds_count / 60 / 60);
+                                                                            if ($hours_count >= 1) {
+                                                                                $seconds_count -= $hours_count * 60 * 60;
+                                                                            }
+
+                                                                            $minutes_count = intval($seconds_count / 60);
+                                                                            if ($minutes_count >= 1) {
+                                                                                $seconds_count -= $minutes_count * 60;
+                                                                            }
+
+                                                                            if ($hours_count >= 1) {
+                                                                                $string .= $hours_count . 'h';
+                                                                            }
+                                                                            if ($minutes_count >= 1) {
+                                                                                if ($string) {
+                                                                                    $string .= ' ';
+                                                                                }
+                                                                                $string .= $minutes_count . 'm';
+                                                                            }
+                                                                            if ($seconds_count >= 1) {
+                                                                                if ($string) {
+                                                                                    $string .= ' ';
+                                                                                }
+                                                                                $string .= $seconds_count . 's';
+                                                                            }
+                                                                        @endphp
                                                                         <tr>
                                                                             <td>{{ str_replace('_', ' ', $activity->feature_name) }}</td>
-                                                                            <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->total_time_spent_td }}</td>
+                                                                            <td style="font-family: dealerplate-california; font-weight: 600;">{{ $string }}</td>
                                                                             <td style="font-family: dealerplate-california; font-weight: 600;">{{ $activity->usage_count }}</td>
                                                                         </tr>
                                                                     @endforeach
@@ -246,7 +277,38 @@
                     },
                     tooltip: {
                         callbacks: {
-                            label: (tooltipItem) => `${tooltipItem.label}: ${tooltipItem.raw} mins`
+                            label: (tooltipItem) => {
+                                let string = '';
+                                let seconds_count = tooltipItem.raw;
+                                let hours_count = parseInt(seconds_count / 60 / 60);
+
+                                if (hours_count >= 1) {
+                                    seconds_count -= hours_count * 60 * 60;
+                                }
+
+                                let minutes_count = parseInt(seconds_count / 60);
+                                if (minutes_count >= 1) {
+                                    seconds_count -= minutes_count * 60;
+                                }
+
+                                if (hours_count >= 1) {
+                                    string += hours_count + 'h';
+                                }
+                                if (minutes_count >= 1) {
+                                    if (string) {
+                                        string += ' ';
+                                    }
+                                    string += minutes_count + 'm';
+                                }
+                                if (seconds_count >= 1) {
+                                    if (string) {
+                                        string += ' ';
+                                    }
+                                    string += seconds_count + 's';
+                                }
+
+                                return `${tooltipItem.label}: ${string}`;
+                            }
                         }
                     }
                 }
