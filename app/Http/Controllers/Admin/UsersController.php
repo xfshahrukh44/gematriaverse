@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Role;
-use App\imagetable;
-use App\User;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Session;
 use File;
+use Session;
+use App\Role;
+use App\User;
+use Carbon\Carbon;
+use App\imagetable;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -22,22 +23,22 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
-        $logo = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','logo')
-                     ->first();
-             
-        $favicon = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','favicon')
-                     ->first();  
 
-        View()->share('logo',$logo);
-        View()->share('favicon',$favicon);
-        
+        $logo = imagetable::
+            select('img_path')
+            ->where('table_name', '=', 'logo')
+            ->first();
+
+        $favicon = imagetable::
+            select('img_path')
+            ->where('table_name', '=', 'favicon')
+            ->first();
+
+        View()->share('logo', $logo);
+        View()->share('favicon', $favicon);
+
     }
-    
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');
@@ -164,21 +165,23 @@ class UsersController extends Controller
 
         return redirect('admin/users')->with('flash_message', 'User deleted!');
     }
-    
-    public function getSettings(){
+
+    public function getSettings()
+    {
         $user = auth()->user();
-        return view('admin.users.account-settings',compact('user'));
+        return view('admin.users.account-settings', compact('user'));
     }
 
-    public function saveSettings(Request $request){
-        $this->validate($request,[
+    public function saveSettings(Request $request)
+    {
+        $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
         ]);
 
-        $user =  auth()->user();
+        $user = auth()->user();
 
-        if($request->password){
+        if ($request->password) {
             $user->password = bcrypt($request->password);
         }
         $user->email = $request->email;
@@ -186,18 +189,18 @@ class UsersController extends Controller
         $user->save();
 
         $profile = $user->profile;
-        if($user->profile == null){
-            $profile = new  Profile();
+        if ($user->profile == null) {
+            $profile = new Profile();
         }
-        if($request->dob != null){
-            $date =  Carbon::parse($request->dob)->format('Y-m-d');
-        }else{
+        if ($request->dob != null) {
+            $date = Carbon::parse($request->dob)->format('Y-m-d');
+        } else {
             $date = $request->dob;
         }
 
 
         if ($file = $request->file('pic_file')) {
-            $extension = $file->extension()?: 'png';
+            $extension = $file->extension() ?: 'png';
             $destinationPath = public_path() . '/storage/uploads/users/';
             $safeName = str_random(10) . '.' . $extension;
             $file->move($destinationPath, $safeName);
@@ -221,8 +224,43 @@ class UsersController extends Controller
         $profile->postal = $request->postal;
         $profile->save();
 
-        Session::flash('message','Account has been updated');
+        Session::flash('message', 'Account has been updated');
         return redirect()->back();
     }
-    
+
+
+    public function getotp()
+    {
+        return view('otp.otp');
+    }
+    public function verifyOtp(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'otp' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors())->withInput();
+        }
+
+        $user = User::where('otp', $request->otp)->first();
+
+        if ($user) {
+            if ($user->otp == $request->otp && $user->is_verified == 0) {
+                $user->status = 1;
+                $user->is_verified = 1;
+                $user->otp = null;
+                $user->expire_otp = null;
+                $user->save();
+
+                return redirect()->route('account')->with('success', 'OTP Verified Successfully.');
+            } else {
+                return redirect()->back()->with('error', 'Your OTP has expire.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Failed to verify OTP.');
+        }
+
+    }
+
 }
