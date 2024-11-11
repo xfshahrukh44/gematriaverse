@@ -336,10 +336,10 @@
 
 <body>
 
-    <div class="web-sittg">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"><i class="fa-solid fa-gear"></i></button>
-    </div>
+{{--    <div class="web-sittg">--}}
+{{--        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"--}}
+{{--            aria-controls="offcanvasRight"><i class="fa-solid fa-gear"></i></button>--}}
+{{--    </div>--}}
 
     <div class="top-header-parent">
         <div class="container">
@@ -367,6 +367,16 @@
                             <a href="{{ route('account') }}">Dashboard<i class="fa-solid fa-right-to-bracket"></i></a>
                         </span>
                     @endif
+
+                    <span>
+                        <a href="{{ route('account') }}"
+                           type="button"
+                           data-bs-toggle="offcanvas"
+                           data-bs-target="#offcanvasRight"
+                           aria-controls="offcanvasRight">
+                            <i class="fas fa-cog ml-1"></i>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
