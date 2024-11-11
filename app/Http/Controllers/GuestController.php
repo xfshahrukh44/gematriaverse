@@ -21,32 +21,32 @@ use Illuminate\Support\Facades\File;
 
 class GuestController extends Controller
 {
-	use HelperTrait;
+    use HelperTrait;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-	 // use Helper;
+    // use Helper;
 
     public function __construct()
     {
-		 $this->middleware('guest');
+        $this->middleware('guest');
         $logo = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','logo')
-                     ->first();
+            select('img_path')
+            ->where('table_name', '=', 'logo')
+            ->first();
 
-		$favicon = imagetable::
-                     select('img_path')
-                     ->where('table_name','=','favicon')
-                     ->first();
+        $favicon = imagetable::
+            select('img_path')
+            ->where('table_name', '=', 'favicon')
+            ->first();
 
-        View()->share('logo',$logo);
-		View()->share('favicon',$favicon);
+        View()->share('logo', $logo);
+        View()->share('favicon', $favicon);
     }
 
-	public function signin(Request $request)
+    public function signin(Request $request)
     {
         $path = public_path('subscriptions.json');
 
@@ -56,16 +56,15 @@ class GuestController extends Controller
             $plan = $request->query('plan');
             $price = $subscriptions['subscriptions'][$plan]['price'] ?? 0;
             return view('account.signin', compact('price', 'plan'));
-        }else{
+        } else {
             return view('account.signin');
         }
+    }
 
-	}
-
-	public function signup()
+    public function signup()
     {
-		return view('account.signup');
-	}
+        return view('account.signup');
+    }
 
 
 }

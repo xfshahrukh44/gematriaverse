@@ -161,6 +161,15 @@ Route::get('account-detail', 'LoggedInController@accountDetail')->name('accountD
 
 Route::post('update/account', 'LoggedInController@updateAccount')->name('update.account');
 Route::get('signout', function () {
+    $user = auth()->user();
+    $user->is_verified = 0;
+    $user->save();
+    // activity($user->name)->performedOn($user)->causedBy($user)->log('LoggedOut');
+    // $this->guard()->logout();
+    // $request->session()->invalidate();
+
+    // return redirect('/login');
+
     Auth::logout();
 
     Session::flash('flash_message', 'You have logged out  Successfully');
@@ -268,81 +277,94 @@ Route::resource('upcomingclasses', 'UpcomingclassesController');
 Route::resource('admin/faq', 'Admin\FaqController');
 
 
-//===================== Front Routes =====================//
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('about', [FrontController::class, 'about'])->name('about');
-Route::get('bible-search', [FrontController::class, 'bible_search'])->name('bible-search');
-Route::get('blog', [FrontController::class, 'blog'])->name('blog');
-Route::get('blog-detail', [FrontController::class, 'blog_detail'])->name('blog-detail');
-Route::any('calculator', [FrontController::class, 'calculator'])->name('calculator');
-Route::get('calendar', [FrontController::class, 'calendar'])->name('calendar');
-Route::get('contact', [FrontController::class, 'contact'])->name('contact');
-Route::get('custom-ciphers', [FrontController::class, 'custom_ciphers'])->name('custom-ciphers');
-Route::get('date-calculator', [FrontController::class, 'date_calculator'])->name('date-calculator');
-Route::get('faq', [FrontController::class, 'faq'])->name('faq');
-Route::get('greek-calculator', [FrontController::class, 'greek_calculator'])->name('greek-calculator');
-Route::get('hebrew-calculator', [FrontController::class, 'hebrew_calculator'])->name('hebrew-calculator');
-Route::get('memberships', [FrontController::class, 'memberships'])->name('memberships');
-Route::get('monthly-calendar', [FrontController::class, 'monthly_calendar'])->name('monthly-calendar');
-Route::get('nostalgia-calculators', [FrontController::class, 'nostalgia_calculators'])->name('nostalgia-calculators');
-Route::get('nostalgia-calculators-basic', [FrontController::class, 'nostalgia_calculators_basic'])->name('nostalgia-calculators-basic');
-Route::get('nostalgia-calculators-classic', [FrontController::class, 'nostalgia_calculators_classic'])->name('nostalgia-calculators-classic');
-Route::get('nostalgia-calculators-date', [FrontController::class, 'nostalgia_calculators_date'])->name('nostalgia-calculators-date');
-Route::get('nostalgia-calculators-nextgen', [FrontController::class, 'nostalgia_calculators_nextgen'])->name('nostalgia-calculators-nextgen');
-Route::get('number-properties', [FrontController::class, 'number_properties'])->name('number-properties');
-Route::get('product-detail', [FrontController::class, 'product_detail'])->name('product-detail');
-Route::get('shop', [FrontController::class, 'shop'])->name('shop');
-Route::post('add-ciphers', [CipherController::class, 'store'])->name('ciphers.store');
-Route::get('ciphers', [CipherController::class, 'index'])->name('ciphers.index');
-Route::post('move-ciphers-up', [CipherController::class, 'moveUp'])->name('ciphers.move');
-Route::get('ciphers/{id}', [CipherController::class, 'show'])->name('ciphers.show');
-Route::post('ciphers/{id}/edit', [CipherController::class, 'update'])->name('ciphers.update');
-Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name('ciphers.destroy');
-Route::post('save-ciphers', [CipherController::class, 'saveCipherSettings'])->name('ciphers.saveciphers');
-Route::post('change-ciphers', [CipherController::class, 'changeCiphers'])->name('ciphers.change');
-Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->name('anagram.generator');
-Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save.anagram');
-Route::get('holidays/{month?}', [FrontController::class, 'holidays'])->name('holidays');
-Route::get('acronym-finder', [FrontController::class, 'acronymFinder'])->name('acronym.finder');
-Route::post('search-anagrams', [FrontController::class,'searchAnagrams'])->name('search.anagrams');
-Route::post('search-acronyms', [FrontController::class,'searchAcronyms'])->name('search.acronyms');
-Route::post('submit-acronym', [FrontController::class,'submitAcronym'])->name('submit.acronym');
-Route::post('apply-setting', [FrontController::class,'applySetting'])->name('apply.setting');
-Route::get('upgrade-subscription', [FrontController::class,'upgradeSubscription'])->name('upgrade.subscription');
+
+Route::middleware(['check.otp'])->group(function () {
+        //===================== Front Routes =====================//
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('about', [FrontController::class, 'about'])->name('about');
+    Route::get('bible-search', [FrontController::class, 'bible_search'])->name('bible-search');
+    Route::get('blog', [FrontController::class, 'blog'])->name('blog');
+    Route::get('blog-detail', [FrontController::class, 'blog_detail'])->name('blog-detail');
+    Route::any('calculator', [FrontController::class, 'calculator'])->name('calculator');
+    Route::get('calendar', [FrontController::class, 'calendar'])->name('calendar');
+    Route::get('contact', [FrontController::class, 'contact'])->name('contact');
+    Route::get('custom-ciphers', [FrontController::class, 'custom_ciphers'])->name('custom-ciphers');
+    Route::get('date-calculator', [FrontController::class, 'date_calculator'])->name('date-calculator');
+    Route::get('faq', [FrontController::class, 'faq'])->name('faq');
+    Route::get('greek-calculator', [FrontController::class, 'greek_calculator'])->name('greek-calculator');
+    Route::get('hebrew-calculator', [FrontController::class, 'hebrew_calculator'])->name('hebrew-calculator');
+    Route::get('memberships', [FrontController::class, 'memberships'])->name('memberships');
+    Route::get('monthly-calendar', [FrontController::class, 'monthly_calendar'])->name('monthly-calendar');
+    Route::get('nostalgia-calculators', [FrontController::class, 'nostalgia_calculators'])->name('nostalgia-calculators');
+    Route::get('nostalgia-calculators-basic', [FrontController::class, 'nostalgia_calculators_basic'])->name('nostalgia-calculators-basic');
+    Route::get('nostalgia-calculators-classic', [FrontController::class, 'nostalgia_calculators_classic'])->name('nostalgia-calculators-classic');
+    Route::get('nostalgia-calculators-date', [FrontController::class, 'nostalgia_calculators_date'])->name('nostalgia-calculators-date');
+    Route::get('nostalgia-calculators-nextgen', [FrontController::class, 'nostalgia_calculators_nextgen'])->name('nostalgia-calculators-nextgen');
+    Route::get('number-properties', [FrontController::class, 'number_properties'])->name('number-properties');
+    Route::get('product-detail', [FrontController::class, 'product_detail'])->name('product-detail');
+    Route::get('shop', [FrontController::class, 'shop'])->name('shop');
+    Route::post('add-ciphers', [CipherController::class, 'store'])->name('ciphers.store');
+    Route::get('ciphers', [CipherController::class, 'index'])->name('ciphers.index');
+    Route::post('move-ciphers-up', [CipherController::class, 'moveUp'])->name('ciphers.move');
+    Route::get('ciphers/{id}', [CipherController::class, 'show'])->name('ciphers.show');
+    Route::post('ciphers/{id}/edit', [CipherController::class, 'update'])->name('ciphers.update');
+    Route::post('ciphers/{id}/destroy', [CipherController::class, 'destroy'])->name('ciphers.destroy');
+    Route::post('save-ciphers', [CipherController::class, 'saveCipherSettings'])->name('ciphers.saveciphers');
+    Route::post('change-ciphers', [CipherController::class, 'changeCiphers'])->name('ciphers.change');
+    Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->name('anagram.generator');
+    Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save.anagram');
+    Route::get('holidays/{month?}', [FrontController::class, 'holidays'])->name('holidays');
+    Route::get('acronym-finder', [FrontController::class, 'acronymFinder'])->name('acronym.finder');
+    Route::post('search-anagrams', [FrontController::class, 'searchAnagrams'])->name('search.anagrams');
+    Route::post('search-acronyms', [FrontController::class, 'searchAcronyms'])->name('search.acronyms');
+    Route::post('submit-acronym', [FrontController::class, 'submitAcronym'])->name('submit.acronym');
+    Route::post('apply-setting', [FrontController::class, 'applySetting'])->name('apply.setting');
+    Route::get('upgrade-subscription', [FrontController::class, 'upgradeSubscription'])->name('upgrade.subscription');
 
 
-Route::get('mutate-session', function () {
-    session()->put($_GET['key'], $_GET['value']);
-})->name('mutate-session');
+    Route::get('mutate-session', function () {
+        session()->put($_GET['key'], $_GET['value']);
+    })->name('mutate-session');
 
 
-Route::get('get-anagrams', function () {
-    $string = $_GET['string'];
-    $response = file_get_contents("http://www.anagramica.com/all/:" . $string);
-    return response()->json($response);
-})->name('get-anagrams');
+    Route::get('get-anagrams', function () {
+        $string = $_GET['string'];
+        $response = file_get_contents("http://www.anagramica.com/all/:" . $string);
+        return response()->json($response);
+    })->name('get-anagrams');
 
 
-//Route::get('temp', function () {
-//    get_subscription();
-//})->name('temp');
+    //Route::get('temp', function () {
+    //    get_subscription();
+    //})->name('temp');
 
 
-Route::get('date-calculator_two', [FrontController::class, 'date_calculator_two'])->name('date-calculator-two');
-Route::post('cipher-history/store', [FrontController::class, 'cipher_history_store'])->name('cipher_history_store');
-Route::get('cipher-history/get', [FrontController::class, 'cipher_history_get'])->name('cipher_history_get');
-Route::get('cipher-database/get', [FrontController::class, 'cipher_database_get'])->name('cipher_database_get');
-Route::post('cipher-database-arrays', [FrontController::class, 'cipher_database_arrays'])->name('cipher_database_arrays');
-Route::get('get-user-tables', [FrontController::class, 'getUserTables'])->name('getUserTables');
-Route::get('get-user-tables/{id}', [FrontController::class, 'getUserTablesById'])->name('getUserTablesById');
-Route::get('get-user-history', [FrontController::class, 'get_user_history'])->name('get_user_history');
-Route::post('add-user-table', [FrontController::class, 'add_user_table'])->name('add_user_table');
-Route::post('add-entry-name', [FrontController::class, 'add_entry_name'])->name('add_entry_name');
-Route::get('remove-entry/{id}', [FrontController::class, 'remove_entry'])->name('remove_entry');
+    Route::get('date-calculator_two', [FrontController::class, 'date_calculator_two'])->name('date-calculator-two');
+    Route::post('cipher-history/store', [FrontController::class, 'cipher_history_store'])->name('cipher_history_store');
+    Route::get('cipher-history/get', [FrontController::class, 'cipher_history_get'])->name('cipher_history_get');
+    Route::get('cipher-database/get', [FrontController::class, 'cipher_database_get'])->name('cipher_database_get');
+    Route::post('cipher-database-arrays', [FrontController::class, 'cipher_database_arrays'])->name('cipher_database_arrays');
+    Route::get('get-user-tables', [FrontController::class, 'getUserTables'])->name('getUserTables');
+    Route::get('get-user-tables/{id}', [FrontController::class, 'getUserTablesById'])->name('getUserTablesById');
+    Route::get('get-user-history', [FrontController::class, 'get_user_history'])->name('get_user_history');
+    Route::post('add-user-table', [FrontController::class, 'add_user_table'])->name('add_user_table');
+    Route::post('add-entry-name', [FrontController::class, 'add_entry_name'])->name('add_entry_name');
+    Route::get('remove-entry/{id}', [FrontController::class, 'remove_entry'])->name('remove_entry');
 
-Route::resource('Admin/saved-anagram', 'admin\savedAnagramController');
-Route::resource('Admin/saved-acronym', 'admin\savedAcronymController');
-Route::post('admin/approve-acronym/{id}', 'admin\savedAcronymController@approveAcronym')->name('admin.approve.acronym');
+    Route::resource('Admin/saved-anagram', 'admin\savedAnagramController');
+    Route::resource('Admin/saved-acronym', 'admin\savedAcronymController');
+    Route::post('admin/approve-acronym/{id}', 'admin\savedAcronymController@approveAcronym')->name('admin.approve.acronym');
 
-Route::post('matrix-rainbow', [SettingController::class, 'matrix_rainbow'])->name('matrix_rainbow');
-Route::post('log-time-spent', [FrontController::class, 'logTimeSpent'])->name('log.time.spent');
+    Route::post('matrix-rainbow', [SettingController::class, 'matrix_rainbow'])->name('matrix_rainbow');
+    Route::post('log-time-spent', [FrontController::class, 'logTimeSpent'])->name('log.time.spent');
+
+    Route::get('account', 'LoggedInController@account')->name('account');
+
+});
+
+
+
+Route::get('otp/otp', 'Admin\UsersController@getotp')->name('otp.otp');
+Route::post('verifyOtp', 'Admin\UsersController@verifyOtp')->name('verifyOtp');
+
+

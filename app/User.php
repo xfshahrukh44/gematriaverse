@@ -20,7 +20,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'plan',
+        'name',
+        'email',
+        'password',
+        'plan',
+        'otp',
+        'is_verified',
+        'expire_otp',
     ];
 
     /**
@@ -29,38 +35,43 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
 
-    public function profile(){
+    public function profile()
+    {
         return $this->hasOne(Profile::class);
     }
 
-    public function permissionsList(){
+    public function permissionsList()
+    {
         $roles = $this->roles;
         $permissions = [];
-        foreach ($roles as $role){
+        foreach ($roles as $role) {
             $permissions[] = $role->permissions()->pluck('name')->implode(',');
         }
-       return collect($permissions);
+        return collect($permissions);
     }
 
-    public function permissions(){
+    public function permissions()
+    {
         $permissions = [];
         $role = $this->roles->first();
         $permissions = $role->permissions()->get();
         return $permissions;
     }
 
-    public function isAdmin(){
-       $is_admin =$this->roles()->where('name','admin')->first();
-       if($is_admin != null){
-           $is_admin = true;
-       }else{
-           $is_admin = false;
-       }
-       return $is_admin;
+    public function isAdmin()
+    {
+        $is_admin = $this->roles()->where('name', 'admin')->first();
+        if ($is_admin != null) {
+            $is_admin = true;
+        } else {
+            $is_admin = false;
+        }
+        return $is_admin;
     }
 
     public function cipherSettings()
@@ -68,27 +79,27 @@ class User extends Authenticatable
         return $this->hasMany(CipherSetting::class);
     }
 
-    public function saved_anagrams ()
+    public function saved_anagrams()
     {
         return $this->hasMany(SavedAnagram::class)->orderBy('created_at', 'ASC');
     }
 
-    public function saved_acronyms ($term)
+    public function saved_acronyms($term)
     {
         return $this->hasMany(savedAcronym::class)->where('is_approved', 1)->where('term', $term)->orderBy('created_at', 'ASC')->get();
     }
 
-    public function settings ()
+    public function settings()
     {
         return $this->hasMany(Setting::class);
     }
 
-    public function setting ($key)
+    public function setting($key)
     {
         return $this->hasMany(Setting::class)->where('key', $key)->first() ?? null;
     }
 
-    public function apply_setting ($key, $value)
+    public function apply_setting($key, $value)
     {
         if ($record = $this->settings()->where('key', $key)->first()) {
             $record->value = $value;
