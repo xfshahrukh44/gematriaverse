@@ -641,14 +641,14 @@
                                 <h5>App Setting <i class="fa-solid fa-caret-right"></i></h5>
                             </div>
                             <div class="none-mode">
-                                <div class="settings-mode">
-                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i
-                                            class="fa-solid fa-moon"></i>Dark</a>
-                                    <a href="javascript:;" id="light-mode" class="click-mode"><i
-                                            class="fa-regular fa-moon"></i>Light</a>
-                                    {{-- <a href="javascript:;" id="system-mode" class="click-mode"><i
-                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
-                                </div>
+{{--                                <div class="settings-mode">--}}
+{{--                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i--}}
+{{--                                            class="fa-solid fa-moon"></i>Dark</a>--}}
+{{--                                    <a href="javascript:;" id="light-mode" class="click-mode"><i--}}
+{{--                                            class="fa-regular fa-moon"></i>Light</a>--}}
+{{--                                    --}}{{-- <a href="javascript:;" id="system-mode" class="click-mode"><i--}}
+{{--                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
+{{--                                </div>--}}
                                 <div class="settings-mode">
                                     <h5>Rainbow Matrix</h5>
                                     <label class="switch">
@@ -659,55 +659,55 @@
                             </div>
                         </div>
                     </li>
-                    <li class="menu-setting">
-                        <div class="theme-settings">
-                            <div class="theme-info">
-                                <h5>Small Text Options <i class="fa-solid fa-caret-right"></i></h5>
-                            </div>
-                            <div class="none-mode">
-                                <div class="settings-mode check-block">
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <p>Navbar</p>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <p>Body</p>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <p>Footer</p>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu-setting">
-                        <div class="theme-settings">
-                            <div class="theme-info">
-                                <h5>Tools and actions <i class="fa-solid fa-caret-right"></i></h5>
-                            </div>
-                            <div class="none-mode">
-                                <div class="settings-mode check-block">
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                        <p>Tools and actions</p>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <i class="fa-solid fa-language"></i>
-                                        <p>Translate</p>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" name="small">
-                                        <i class="fa-solid fa-qrcode"></i>
-                                        <p>Create QR Code</p>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+{{--                    <li class="menu-setting">--}}
+{{--                        <div class="theme-settings">--}}
+{{--                            <div class="theme-info">--}}
+{{--                                <h5>Small Text Options <i class="fa-solid fa-caret-right"></i></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="none-mode">--}}
+{{--                                <div class="settings-mode check-block">--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <p>Navbar</p>--}}
+{{--                                    </span>--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <p>Body</p>--}}
+{{--                                    </span>--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <p>Footer</p>--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+{{--                    <li class="menu-setting">--}}
+{{--                        <div class="theme-settings">--}}
+{{--                            <div class="theme-info">--}}
+{{--                                <h5>Tools and actions <i class="fa-solid fa-caret-right"></i></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="none-mode">--}}
+{{--                                <div class="settings-mode check-block">--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <i class="fa-solid fa-magnifying-glass"></i>--}}
+{{--                                        <p>Tools and actions</p>--}}
+{{--                                    </span>--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <i class="fa-solid fa-language"></i>--}}
+{{--                                        <p>Translate</p>--}}
+{{--                                    </span>--}}
+{{--                                    <span>--}}
+{{--                                        <input type="checkbox" name="small">--}}
+{{--                                        <i class="fa-solid fa-qrcode"></i>--}}
+{{--                                        <p>Create QR Code</p>--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                     <li class="menu-setting">
                         <div class="theme-settings">
                             <div class="theme-info">
