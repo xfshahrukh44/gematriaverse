@@ -69,10 +69,16 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    protected function generateOtp($length = 6)
+    {
+        return random_int(100000, 999999); // Generates a 6-digit OTP
+    }
+
     public function register(Request $request)
     {
         $validator = $this->validator($request->all());
-        if($validator->fails()){
+        if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator, 'registerForm');
         }
 
@@ -80,10 +86,16 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
+        $otp = $this->generateOtp();
+        // $user->is_verified = 1;
+        $user->otp = $otp;
+        $user->expire_otp = now()->addMinutes(5);
+        $user->save();
+
         Session::flash('message', 'New Account Created Successfully');
         Session::flash('alert-class', 'alert-success');
         return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath());
     }
 
     /**
@@ -94,7 +106,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($data['plan'] != "free"){
+        if ($data['plan'] != "free") {
             try {
                 try {
                     Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -103,7 +115,7 @@ class RegisterController extends Controller
                         'email' => $data['email'],
                         'name' => $data['name'],
                         'description' => "Client Created From Website",
-                        'source'  => $data['stripeToken'],
+                        'source' => $data['stripeToken'],
                     ));
                 } catch (Exception $e) {
                     return redirect()->back()->with('stripe_error', $e->getMessage());
@@ -112,7 +124,7 @@ class RegisterController extends Controller
                 try {
                     $charge = \Stripe\Charge::create(array(
                         'customer' => $customer->id,
-                        'amount'   => (int)$data['price'] * 100,
+                        'amount' => (int) $data['price'] * 100,
                         'currency' => 'USD',
                         'description' => "Payment From Website",
                         'metadata' => array("name" => $data['name'], "email" => $data['email']),
@@ -137,7 +149,7 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        if($user->profile == null){
+        if ($user->profile == null) {
             $profile = new Profile();
             $profile->user_id = $user->id;
             $profile->localisation = $request->localisation;

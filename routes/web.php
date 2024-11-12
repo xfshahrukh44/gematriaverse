@@ -366,7 +366,7 @@ Route::middleware(['check.otp'])->group(function () {
 
 
 
-Route::get('otp/otp', 'Admin\UsersController@getotp')->name('otp.otp');
+Route::get('otp', 'Admin\UsersController@getotp')->name('otp.otp');
 Route::post('verifyOtp', 'Admin\UsersController@verifyOtp')->name('verifyOtp');
 
 

@@ -243,20 +243,23 @@ class UsersController extends Controller
             return back()->withErrors($validator->errors())->withInput();
         }
 
-        $user = User::where('otp', $request->otp)->first();
+        $user = User::where('otp', $request->otp)
+            ->where('id', auth()->id())
+            ->whereDate('created_at', '>=', Carbon::now()->subMinutes(10))
+            ->first();
 
         if ($user) {
-            if ($user->otp == $request->otp && $user->is_verified == 0) {
-                $user->status = 1;
-                $user->is_verified = 1;
-                $user->otp = null;
-                $user->expire_otp = null;
-                $user->save();
+            // if ($user->otp == $request->otp && $user->is_verified == 0) {
+            // $user->status = 1;
+            $user->is_verified = 1;
+            $user->otp = null;
+            $user->expire_otp = null;
+            $user->save();
 
-                return redirect()->route('account')->with('success', 'OTP Verified Successfully.');
-            } else {
-                return redirect()->back()->with('error', 'Your OTP has expire.');
-            }
+            return redirect()->route('account')->with('success', 'OTP Verified Successfully.');
+            // } else {
+            //     return redirect()->back()->with('error', 'Your OTP has expire.');
+            // }
         } else {
             return redirect()->back()->with('error', 'Failed to verify OTP.');
         }
