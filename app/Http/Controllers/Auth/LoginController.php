@@ -112,7 +112,7 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard');
             }
 
-            $user = auth()->user();
+            $user = User::find(auth()->id());
             // Generate OTP and store it in the session
             $otp = $this->generateOtp();
             // $user->is_verified = 1;
