@@ -12,6 +12,7 @@ yarn-error.log
 /public/upload
 /public/uploads
 /public/video
+composer.lock
 .env
 .htaccess
 *.zip

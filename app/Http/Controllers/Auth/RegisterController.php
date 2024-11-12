@@ -156,10 +156,10 @@ class RegisterController extends Controller
             $profile->dob = $request->dob;
             $profile->save();
         }
-        activity($user->name)
-            ->performedOn($user)
-            ->causedBy($user)
-            ->log('Registered');
+//        activity($user->name)
+//            ->performedOn($user)
+//            ->causedBy($user)
+//            ->log('Registered');
         $user->assignRole('user');
 
         DB::table('cipher_settings')->insert([
