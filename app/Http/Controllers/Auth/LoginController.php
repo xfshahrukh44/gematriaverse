@@ -76,9 +76,11 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $user = auth()->user();
-        $user->is_verified = 0;
-        $user->save();
-        activity($user->name)->performedOn($user)->causedBy($user)->log('LoggedOut');
+        if (auth()->user()->id != 1) {
+            $user->is_verified = 0;
+            $user->save();
+        }
+        // activity($user->name)->performedOn($user)->causedBy($user)->log('LoggedOut');
         $this->guard()->logout();
         $request->session()->invalidate();
 

@@ -15,7 +15,11 @@ class CheckOtpVerified
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->is_verified == 1) {
+        if (!auth()->check()) {
+            return $next($request);
+        }
+
+        if (auth()->user()->is_verified == 1) {
             return $next($request);
         } else {
             return redirect()->route('otp.otp');

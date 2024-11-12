@@ -162,8 +162,10 @@ Route::get('account-detail', 'LoggedInController@accountDetail')->name('accountD
 Route::post('update/account', 'LoggedInController@updateAccount')->name('update.account');
 Route::get('signout', function () {
     $user = auth()->user();
-    $user->is_verified = 0;
-    $user->save();
+    if (auth()->user()->id != 1) {
+        $user->is_verified = 0;
+        $user->save();
+    }
     // activity($user->name)->performedOn($user)->causedBy($user)->log('LoggedOut');
     // $this->guard()->logout();
     // $request->session()->invalidate();
