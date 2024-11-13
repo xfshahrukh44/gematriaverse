@@ -794,6 +794,8 @@
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/datatables.bootstrap4.js') }}"></script>
 
+    <script src="https://cdn.userway.org/widget.js" data-account="uI78PCtxx7"></script>
+
     <script>
         $(document).ready(function() {
             $('.theme-info').click(function() {
