@@ -1,4 +1,4 @@
-@section('title', 'Register')
+@section('title', 'Forgot password')
 @extends('layouts.app')
 @section('css')
     <style>
@@ -12,17 +12,17 @@
 
 
 
-    <section class="heading-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-headings">
-                        <h2> USER ACCOUNT SECTION </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section class="heading-sec">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="inner-headings">--}}
+{{--                        <h2>Forgot password</h2>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
     <section class="account">
         <div class="container" id="from-wrapper">
@@ -30,105 +30,34 @@
             <br><br><br><br>
 
             <div class="row">
-
-                <div class="col-md-6">
-
-                    <div class="form-container sign-up-container">
-                        <form method="POST" action="{{ route('register') }}" id="order-place">
-                            @csrf
-                            <h1>Sign Up</h1>
-                            <div class="form-group">
-                                <label>Username*</label>
-                                <input type="text"
-                                    class="form-control {{ $errors->registerForm->has('name') ? ' is-invalid' : '' }}"
-                                    name="name" id="name"required>
-                                @if ($errors->registerForm->has('name'))
-                                    <small
-                                        class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->registerForm->first('name') }}</small>
-                                @endif
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label>Email Address*</label>
-                                <input type="email"
-                                    class="form-control {{ $errors->registerForm->has('email') ? ' is-invalid' : '' }}"
-                                    name="email" id="signup-email" required>
-                                @if ($errors->registerForm->has('email'))
-                                    <small
-                                        class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('email') }}</small>
-                                @endif
-                            </div>
-
-
-                            <div class="form-group">
-                                <label>Password*</label>
-                                <input type="password"
-                                    class="form-control {{ $errors->registerForm->has('password') ? ' is-invalid' : '' }}"
-                                    name="password" id="signup-password" autocomplete="new-password" required>
-                                @if ($errors->registerForm->has('password'))
-                                    <small
-                                        class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->registerForm->first('password') }}</small>
-                                @endif
-                            </div>
-                            @if($plan)
-                                <input type="hidden" name="plan" id="plan" value="{{ $plan }}">
-                                <input type="hidden" name="price" id="price" value="{{ $price ?? 0 }}">
-                                <div class="card form-group">
-                                    <div class="card-body">
-                                    <div class="stripe-form-wrapper require-validation" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" data-cc-on-file="false">
-                                        <div id="card-element"></div>
-                                        <div id="card-errors" role="alert"></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <button class="btn custom-btn" type="submit" id="stripe-submit">Sign Up ${{ $price ?? 0 }}</button>
-                            @else
-                                <input type="hidden" name="plan" id="plan" value="free">
-                                <button class="btn custom-btn" type="submit">Sign Up</button>
-                            @endif
-
-                        </form>
-                    </div>
-
-
-                </div>
-
-                <div class="col-md-6">
+                <div class="col-md-6 offset-md-3">
 
                     <div class="form-container sign-in-container">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('send.reset.password.link') }}">
                             @csrf
-                            <h1>Login</h1>
+                            <h1>Forgot password</h1>
                             <div class="form-group">
-                                <label>Username or email address*</label>
+                                <label>Your email</label>
                                 <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
                                     name="email" value="{{ old('email') }}" required>
                                 @if ($errors->has('email'))
                                     <small
                                         class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->first('email') }}</small>
                                 @endif
-                            </div>
-                            <div class="form-group">
-                                <label>Password*</label>
-                                <input type="password"
-                                    class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                    name="password">
-                                @if ($errors->has('password'))
+                                @if (session()->has('success'))
                                     <small
-                                        class="alert alert-danger w-100 d-block p-2 mt-2">{{ $errors->first('password') }}</small>
+                                        class="alert alert-success w-100 d-block p-2 mt-2">{{ session()->get('success') }}</small>
+                                @endif
+                                @if (session()->has('error'))
+                                    <small
+                                        class="alert alert-danger w-100 d-block p-2 mt-2">{{ session()->get('error') }}</small>
                                 @endif
                             </div>
-                            <button class="btn custom-btn" type="submit">Login</button>
-                            <div class="form-group mt-2">
-                                <a href="{{route('forgot.password')}}">Forgot your password?</a>
-                            </div>
+                            <button class="btn custom-btn" type="submit">Send reset password link</button>
                         </form>
                     </div>
 
                 </div>
-
             </div>
 
             <br><br><br><br>
