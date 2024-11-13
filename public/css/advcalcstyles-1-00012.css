@@ -34,7 +34,7 @@ h3 {
 	width:100%;
 }
 /* Firefox only style */
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
 	#MenuSpot {
 		margin-bottom: 5px;
 	}
@@ -47,7 +47,7 @@ h3 {
 	color: #1862cf;
 }
 .displayOptions:hover,
-.displayOptions .no-mo:hover, 
+.displayOptions .no-mo:hover,
 .displayOptions a:hover {
 	color: white !important;
 }
@@ -62,10 +62,10 @@ h3 {
 #breakdownOn {
 	color: black;
 }
-#cipherChartOn, 
-#cipherChartOff, 
-#breakdownOn, 
-#breakdownOff, 
+#cipherChartOn,
+#cipherChartOff,
+#breakdownOn,
+#breakdownOff,
 .functionDescription,
 #tablesContainerCloser,
 #noMessage,
@@ -207,13 +207,13 @@ input#EntryField {
     border-radius: 3px;
 }
 /*------OPTIONS STYLES------*/
-#NumCalcSel, 
-#CiphersPerSel, 
-#BreakdownSel, 
-#NumSeqSel, 
+#NumCalcSel,
+#CiphersPerSel,
+#BreakdownSel,
+#NumSeqSel,
 #NumCalcSel option,
 #CiphersPerSel option,
-#BreakdownSel option, 
+#BreakdownSel option,
 #NumSeqSel option {
 	display: inline-block;
     width: auto;
@@ -536,7 +536,7 @@ input#SearchField {
 	font-weight: 700;
 }
 .chartChar {
-	color: RGB(242, 153, 96);
+	color: #7fbe00;
 	font-size: 1.1em;
 	font-weight: bold;
 }
@@ -616,7 +616,7 @@ input#SearchField {
 .classicBreak {
 	font-weight: 700;
 	font-size: 1.25em;
-	width: 555px;	
+	width: 555px;
 	line-height: 1.5em;
 	color: white;
 }
@@ -801,9 +801,9 @@ button#userTableSave {
 }
 /*.historyOptions a:hover {
 	color: RGB(204, 254, 254);
-    background: #232526;  
-	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
-	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+    background: #232526;
+	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88));
+	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88));
 }*/
 .historyDrop:hover .historyOptions{
     display: block;
@@ -852,9 +852,9 @@ button#userTableSave {
 }
 /*.TransferOptions a:hover {
 	color: RGB(204, 254, 254);
-    background: #232526;  
-	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
-	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88)); 
+    background: #232526;
+	background: -webkit-linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88));
+	background: linear-gradient(to right, rgb(0, 20, 47), rgb(0, 40, 88));
 }*/
 .TransferDrop:hover .TransferOptions {
     display: block;
@@ -1290,7 +1290,7 @@ h1#numberProperty {
 	}
 }
 @media only screen and (min-width: 768px){
-    .HistoryTable td:nth-child(1) {  
+    .HistoryTable td:nth-child(1) {
         max-width:500px;
     }
 }

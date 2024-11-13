@@ -35,7 +35,7 @@
             flex-direction: column-reverse;
             gap: 10px;
             height: 100px;
-            border: 2px solid orange;
+            border: 2px solid #7fbe00;
             padding: 10px 10px;
             border-radius: 5px;
             margin-bottom: 20px;
@@ -70,7 +70,7 @@
             height: 50px;
             padding: 0 15px;
             outline: none !important;
-            border: 2px solid orange;
+            border: 2px solid #7fbe00;
             width: 50%;
             margin-bottom: 10px;
         }

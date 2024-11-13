@@ -74,7 +74,7 @@
             height: 50px;
             padding: 0 15px;
             outline: none !important;
-            border: 2px solid orange;
+            border: 2px solid #7fbe00;
             width: 50%;
             margin-bottom: 10px;
         }

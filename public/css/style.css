@@ -630,7 +630,7 @@ a:hover {
     width: 100%;
     height: auto;
     text-align: center;
-    color: orange;
+    color: #7fbe00;
     font-weight: 900;
     font-size: 1.5em;
 }
@@ -853,7 +853,7 @@ a:hover {
 .DurHead {
     font-size: 150%;
     font-weight: bold;
-    color: orange;
+    color: #7fbe00;
     text-align: center;
     width: 100%;
     clear: both;
