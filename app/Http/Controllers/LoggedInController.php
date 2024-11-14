@@ -80,6 +80,7 @@ class LoggedInController extends Controller
                     DB::raw('SUM(time_spent) as total_time_spent'),
                     DB::raw('COUNT(*) as usage_count'))
             ->groupBy('feature_name')
+            ->orderBy('total_time_spent', 'DESC')
             ->get();
 
 //        return view('account.index', [
