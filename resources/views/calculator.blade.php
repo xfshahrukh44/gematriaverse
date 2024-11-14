@@ -492,8 +492,13 @@
             src: url(../fonts/dealerplate-california.ttf);
         }
 
+        @font-face {
+            font-family: futurama-bold;
+            src: url({{asset('fonts/futurama-bold.ttf')}});
+        }
+
         #alphabetRow .chartChar {
-            font-family: dealerplate-california !important;
+            font-family: futurama-bold !important;
             font-size: 33px;
         }
 
