@@ -56,10 +56,10 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        activity($user->name)
-            ->performedOn($user)
-            ->causedBy($user)
-            ->log('LoggedIn');
+//        activity($user->name)
+//            ->performedOn($user)
+//            ->causedBy($user)
+//            ->log('LoggedIn');
 
         if (auth()->user()->isAdmin() == true) {
             return redirect()->route('admin.dashboard');

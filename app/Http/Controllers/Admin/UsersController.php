@@ -245,7 +245,7 @@ class UsersController extends Controller
 
         $user = User::where('otp', $request->otp)
             ->where('id', auth()->id())
-            ->whereDate('created_at', '>=', Carbon::now()->subMinutes(10))
+            ->whereDate('expire_otp', '>=', Carbon::now()->subMinutes(10))
             ->first();
 
         if ($user) {

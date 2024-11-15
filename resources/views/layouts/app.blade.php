@@ -635,30 +635,30 @@
         <div class="offcanvas-body">
             <div class="main-settings">
                 <ul class="side-bar-menu">
-                    <li class="menu-setting">
-                        <div class="theme-settings">
-                            <div class="theme-info">
-                                <h5>App Setting <i class="fa-solid fa-caret-right"></i></h5>
-                            </div>
-                            <div class="none-mode">
+{{--                    <li class="menu-setting">--}}
+{{--                        <div class="theme-settings">--}}
+{{--                            <div class="theme-info">--}}
+{{--                                <h5>App Setting <i class="fa-solid fa-caret-right"></i></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="none-mode">--}}
 {{--                                <div class="settings-mode">--}}
 {{--                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i--}}
 {{--                                            class="fa-solid fa-moon"></i>Dark</a>--}}
 {{--                                    <a href="javascript:;" id="light-mode" class="click-mode"><i--}}
 {{--                                            class="fa-regular fa-moon"></i>Light</a>--}}
-{{--                                    --}}{{-- <a href="javascript:;" id="system-mode" class="click-mode"><i--}}
+{{--                                    --}}{{----}}{{-- <a href="javascript:;" id="system-mode" class="click-mode"><i--}}
 {{--                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
 {{--                                </div>--}}
-                                <div class="settings-mode">
-                                    <h5>Rainbow Matrix</h5>
-                                    <label class="switch">
-                                        <input type="checkbox" id="rainbowSwitch">
-                                        <div class="slider round"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+{{--                                <div class="settings-mode">--}}
+{{--                                    <h5>Rainbow Matrix</h5>--}}
+{{--                                    <label class="switch">--}}
+{{--                                        <input type="checkbox" id="rainbowSwitch">--}}
+{{--                                        <div class="slider round"></div>--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
 {{--                    <li class="menu-setting">--}}
 {{--                        <div class="theme-settings">--}}
 {{--                            <div class="theme-info">--}}
@@ -793,6 +793,8 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/datatables.bootstrap4.js') }}"></script>
+
+    <script src="https://cdn.userway.org/widget.js" data-account="uI78PCtxx7"></script>
 
     <script>
         $(document).ready(function() {

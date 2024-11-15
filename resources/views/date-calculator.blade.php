@@ -88,12 +88,12 @@
         #DateNums1 div span a,
         #DateNums2 div span a {
             font-size: 16px;
-            border: 1px solid orange;
+            border: 1px solid #7fbe00;
             padding: 3px 4px;
         }
 
         .dateNumSpan a:focus {
-            background: orange;
+            background: #7fbe00;
         }
 
         .dateNumSpan a:focus font {
@@ -117,7 +117,7 @@
 
         #mdy1,
         #mdy2 {
-            border-color: orange;
+            border-color: #7fbe00;
             border-radius: 5px;
             padding: 25px 0;
         }
@@ -128,7 +128,7 @@
         }
 
         .DurationStringMain {
-            color: orange;
+            color: #7fbe00;
             font-weight: 600;
             font-size: 17px;
             display: block;
@@ -144,7 +144,7 @@
         }
 
         div#DurationSection {
-            border-color: orange;
+            border-color: #7fbe00;
             border-radius: 5px;
             padding: 15px 0;
             margin-top: 20px;

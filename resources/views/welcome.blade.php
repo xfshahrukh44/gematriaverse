@@ -18,14 +18,14 @@
 @section('content')
     <section class="hero-section">
 
-        {{-- <div class="parent-video">
+        <div class="parent-video">
             <video class="lazy" poster="" src="{{ asset('images/video-bg.mp4') }}" preload="auto" autoplay muted loop
                 width="100%" height="100%">
                 <source src="{{ asset('images/video-bg.mp4') }}" type="video/mp4">
             </video>
-        </div> --}}
+        </div>
 
-        <canvas id = "c1"></canvas>
+{{--        <canvas id = "c1"></canvas>--}}
 
         <div class="container">
             <div class="row">

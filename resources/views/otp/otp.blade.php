@@ -46,7 +46,8 @@
                     <div class="main-otp">
                         <form method="POST" action="{{ route('verifyOtp') }}">
                             @csrf
-                            <h1>One Time Password</h1>
+                            <h1>Enter OTP</h1>
+                            <h6>An OTP was sent to your email address.</h6>
                             <div class="form-group">
                                 <input type="number" class="form-control" name="otp" id="otp"required>
                                 @if ($errors->has('otp'))

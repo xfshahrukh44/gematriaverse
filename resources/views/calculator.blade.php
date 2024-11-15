@@ -74,7 +74,7 @@
             height: 50px;
             padding: 0 15px;
             outline: none !important;
-            border: 2px solid orange;
+            border: 2px solid #7fbe00;
             width: 50%;
             margin-bottom: 10px;
         }
@@ -492,8 +492,13 @@
             src: url(../fonts/dealerplate-california.ttf);
         }
 
+        @font-face {
+            font-family: futurama-bold;
+            src: url({{asset('fonts/futurama-bold.ttf')}});
+        }
+
         #alphabetRow .chartChar {
-            font-family: dealerplate-california !important;
+            font-family: futurama-bold !important;
             font-size: 33px;
         }
 

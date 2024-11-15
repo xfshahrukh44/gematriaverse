@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\CipherController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
@@ -368,5 +369,10 @@ Route::middleware(['check.otp'])->group(function () {
 
 Route::get('otp', 'Admin\UsersController@getotp')->name('otp.otp');
 Route::post('verifyOtp', 'Admin\UsersController@verifyOtp')->name('verifyOtp');
+
+Route::get('forgot-password', [ResetPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password')->middleware('guest');
+Route::post('forgot-password', [ResetPasswordController::class, 'sendResetPasswordLink'])->name('send.reset.password.link')->middleware('guest');
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'showResetPasswordForm'])->name('show.reset.password')->middleware('guest');
+Route::post('reset-password', [ResetPasswordController::class, 'resetPassword'])->name('reset.password')->middleware('guest');
 
 
