@@ -153,7 +153,7 @@
                     <div class="gematriaverse-section-from">
                         <h2>Anagram Generator</h2>
                         @php
-                            $saved_anagrams = auth()->user()->saved_anagrams;
+                            $saved_anagrams = auth()->user()->saved_anagrams ?? [];
                         @endphp
                         <h6 style="font-size: 12px !important;" id="h6_view_saved_anagrams" {!! count($saved_anagrams) ? '' : 'hidden' !!}>
                             <a href="#" id="anchor_view_saved_anagrams">
