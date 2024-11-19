@@ -505,7 +505,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="planety_table">
-                            @if ($planetary_table)
+                            @if ($astrology_report)
                                 <div class="text-center mb-4">
                                     <h4>Planetary table</h4>
                                 </div>
@@ -644,7 +644,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/date-calculator.js') }}"></script>
 
-    @if ($planetary_table)
+    @if ($astrology_report)
         <script>
             $('#Month1, #Day1, #Year1, #Month2, #Day2, #Year2').on('keyup change', function() {
                 $(this).val($(this).val().replace(/[^0-9]/g, ''));

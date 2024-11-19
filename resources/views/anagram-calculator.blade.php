@@ -152,15 +152,17 @@
                 <div class="col-lg-6 py-5">
                     <div class="gematriaverse-section-from">
                         <h2>Anagram Generator</h2>
-                        @php
-                            $saved_anagrams = auth()->user()->saved_anagrams ?? [];
-                        @endphp
-                        <h6 style="font-size: 12px !important;" id="h6_view_saved_anagrams" {!! count($saved_anagrams) ? '' : 'hidden' !!}>
-                            <a href="#" id="anchor_view_saved_anagrams">
-                                <i class="fas fa-floppy-disk"></i>
-                                View saved anagrams
-                            </a>
-                        </h6>
+                        @if($save_to_database)
+                            @php
+                                $saved_anagrams = auth()->user()->saved_anagrams ?? [];
+                            @endphp
+                            <h6 style="font-size: 12px !important;" id="h6_view_saved_anagrams" {!! count($saved_anagrams) ? '' : 'hidden' !!}>
+                                <a href="#" id="anchor_view_saved_anagrams">
+                                    <i class="fas fa-floppy-disk"></i>
+                                    View saved anagrams
+                                </a>
+                            </h6>
+                        @endif
                         {{--                        <form> --}}
                         <div class="form-row">
                             <div class="col-md-12">
@@ -599,28 +601,30 @@
     <script>
         $(document).ready(function() {
             // Handle click to show the pop-up
-            $('body').on('click', '.click-box', function() {
-                console.log("Clicked!");
+            @if($save_to_database)
+                $('body').on('click', '.click-box', function() {
+                    console.log("Clicked!");
 
-                $('.open-box').each((i, item) => {
-                    $(item).fadeOut('slow');
+                    $('.open-box').each((i, item) => {
+                        $(item).fadeOut('slow');
+                    });
+
+                    $(this).parent().parent().find('.open-box').fadeIn('fast');
                 });
 
-                $(this).parent().parent().find('.open-box').fadeIn('fast');
-            });
+                // Close the pop-up when the close button is clicked
+                $('body').on('click', '.close-btn', function() {
+                    $(this).closest('.open-box').fadeOut('fast');
+                });
 
-            // Close the pop-up when the close button is clicked
-            $('body').on('click', '.close-btn', function() {
-                $(this).closest('.open-box').fadeOut('fast');
-            });
-
-            // Close the pop-up if the user clicks outside the modal content
-            $(document).mouseup(function(e) {
-                var container = $(".modal-content");
-                if (!container.is(e.target) && container.has(e.target).length === 0) {
-                    container.closest('.open-box').fadeOut('fast');
-                }
-            });
+                // Close the pop-up if the user clicks outside the modal content
+                $(document).mouseup(function(e) {
+                    var container = $(".modal-content");
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        container.closest('.open-box').fadeOut('fast');
+                    }
+                });
+            @endif
         });
     </script>
 @endsection

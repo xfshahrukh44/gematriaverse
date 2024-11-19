@@ -177,126 +177,126 @@
     <section class="membership_price">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="main-membership">
-                        <div class="top-price">
-                            <h5>CASUAL</h5>
-                            <h2>$6.04</h2>
-                            <p>Per Month</p>
-                        </div>
-                        <div class="experiencial">
-                            <h4>Ad Free Experience!</h4>
-                            <ul>
-                                <h5>Gematriaverse Calculator</h5>
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="main-membership">--}}
+{{--                        <div class="top-price">--}}
+{{--                            <h5>CASUAL</h5>--}}
+{{--                            <h2>$6.04</h2>--}}
+{{--                            <p>Per Month</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="experiencial">--}}
+{{--                            <h4>Ad Free Experience!</h4>--}}
+{{--                            <ul>--}}
+{{--                                <h5>Gematriaverse Calculator</h5>--}}
 {{--                                <li><strong>Match</strong> to Database (<strong>25/Day</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
 {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
-                                    <li>Screenshots of Breakdown</li>
+{{--                                    <li>Screenshots of Breakdown</li>--}}
 {{--                                <li>Save Your User Preferences</li>--}}
 {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+{{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
-                                <h5>Create-A-Cipher </h5>
-                                <li>Create up to 20 Custom Ciphers</li>
+{{--                                <h5>Create-A-Cipher </h5>--}}
+{{--                                <li>Create up to 20 Custom Ciphers</li>--}}
 {{--                                <li>Import 3 Created Ciphers into Calculator</li>--}}
 
-                                <h5>Date Calculator</h5>
+{{--                                <h5>Date Calculator</h5>--}}
 {{--                                <li> Save 25 Recent Dates Unlocked</li>--}}
-                                <li> Access Unlocked </li>
+{{--                                <li> Access Unlocked </li>--}}
 
-                                <h5>Bible Search Tool</h5>
-                                <li> Access Unlocked </li>
+{{--                                <h5>Bible Search Tool</h5>--}}
+{{--                                <li> Access Unlocked </li>--}}
 
-                                <h5>Personal Calendar</h5>
-                                <li> Access Unlocked </li>
-                            </ul>
-                            @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn {!! Auth::user()->plan == "casual" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "casual" ? "Current plan" : "Change plan"  }}
-                                </a>
-                            @else
-                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">
-                                    Get Started
-                                </a>
-                            @endif
+{{--                                <h5>Personal Calendar</h5>--}}
+{{--                                <li> Access Unlocked </li>--}}
+{{--                            </ul>--}}
+{{--                            @if(auth()->check())--}}
+{{--                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn {!! Auth::user()->plan == "casual" ? 'btn_current_plan' : 'btn-subscription' !!}">--}}
+{{--                                    {{ Auth::user()->plan == "casual" ? "Current plan" : "Change plan"  }}--}}
+{{--                                </a>--}}
+{{--                            @else--}}
+{{--                                <a href="javascript:void(0)" data-plan="casual" class="btn white-btn btn-subscription">--}}
+{{--                                    Get Started--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="main-membership">
-                        <div class="top-price">
-                            <h5>ENTHUSIAST
-                            </h5>
-                            <h2>$10.61</h2>
-                            <p>Ad Free Experience!
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="main-membership">--}}
+{{--                        <div class="top-price">--}}
+{{--                            <h5>ENTHUSIAST--}}
+{{--                            </h5>--}}
+{{--                            <h2>$10.61</h2>--}}
+{{--                            <p>Ad Free Experience!--}}
 
-                            </p>
-                        </div>
-                        <div class="experiencial">
-                            <h4>Ad Free Experience!</h4>
-                            <ul>
-                                <h5>Gematriaverse Calculator </h5>
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                        <div class="experiencial">--}}
+{{--                            <h4>Ad Free Experience!</h4>--}}
+{{--                            <ul>--}}
+{{--                                <h5>Gematriaverse Calculator </h5>--}}
 {{--                                <li><strong>Match</strong> to Database (<strong>75/Day</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
 {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Session + History (500 Entries Each)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>No Watermark on Screenshots</li>--}}
-                                    <li>Screenshots of Breakdown</li>
+{{--                                    <li>Screenshots of Breakdown</li>--}}
 {{--                                <li>Save Your User Preferences</li>--}}
 {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+{{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
-                                <h5>Create-A-Cipher </h5>
-                                <li> Create up to 20 Custom Ciphers</li>
+{{--                                <h5>Create-A-Cipher </h5>--}}
+{{--                                <li> Create up to 20 Custom Ciphers</li>--}}
 {{--                                <li>Import up to 7 Created Ciphers into Calculator</li>--}}
 
-                                <h5>Date Calculator</h5>
+{{--                                <h5>Date Calculator</h5>--}}
 {{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+{{--                                <li>Planetary Table <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
-                                <h5>Bible Search Tool </h5>
-                                <li> Access Unlocked </li>
+{{--                                <h5>Bible Search Tool </h5>--}}
+{{--                                <li> Access Unlocked </li>--}}
 
-                                <h5>Personal Calendar</h5>
-                                <li> Access Unlocked </li>
-                            </ul>
+{{--                                <h5>Personal Calendar</h5>--}}
+{{--                                <li> Access Unlocked </li>--}}
+{{--                            </ul>--}}
 
-                            @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn {!! Auth::user()->plan == "enthusiast" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "enthusiast" ? "Current plan" : "Change plan"  }}
-                                </a>
-                            @else
-                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription">
-                                    Get Started
-                                </a>
-                            @endif
+{{--                            @if(auth()->check())--}}
+{{--                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn {!! Auth::user()->plan == "enthusiast" ? 'btn_current_plan' : 'btn-subscription' !!}">--}}
+{{--                                    {{ Auth::user()->plan == "enthusiast" ? "Current plan" : "Change plan"  }}--}}
+{{--                                </a>--}}
+{{--                            @else--}}
+{{--                                <a href="javascript:void(0)" data-plan="enthusiast" class="btn white-btn btn-subscription">--}}
+{{--                                    Get Started--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="main-membership">
-                        <div class="top-price">
-                            <h5>MYSTIC
-                            </h5>
-                            <h2>$16.99</h2>
-                            <p>Ad Free Experience!
-                            </p>
-                        </div>
-                        <div class="experiencial">
-                            <h4>Ad Free Experience!</h4>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="main-membership">--}}
+{{--                        <div class="top-price">--}}
+{{--                            <h5>MYSTIC--}}
+{{--                            </h5>--}}
+{{--                            <h2>$16.99</h2>--}}
+{{--                            <p>Ad Free Experience!--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                        <div class="experiencial">--}}
+{{--                            <h4>Ad Free Experience!</h4>--}}
 
-                            <ul>
-                                <h5>Gematriaverse Calculator</h5>
+{{--                            <ul>--}}
+{{--                                <h5>Gematriaverse Calculator</h5>--}}
 {{--                                <li><strong>Match</strong> to Database (<strong>Unlimited</strong>)</li>--}}
 {{--                                <li><strong>Match</strong> to All Tables&nbsp;(<strong>Unlimited</strong>)</li>--}}
 {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
@@ -304,37 +304,137 @@
 {{--                                <li>History (500 Entries)</li>--}}
 {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
 {{--                                <li>Screenshots of History + Breakdown</li>--}}
-                                <li>Screenshots of Breakdown</li>
+{{--                                <li>Screenshots of Breakdown</li>--}}
 {{--                                <li>Save Your User Preferences</li>--}}
 {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
-                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>
+{{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
-                                <h5>Create-A-Cipher </h5>
-                                <li>Create up to 20 Custom Ciphers</li>
+{{--                                <h5>Create-A-Cipher </h5>--}}
+{{--                                <li>Create up to 20 Custom Ciphers</li>--}}
 {{--                                <li> Import up to 12 Created Ciphers into Calculator</li>--}}
 
-                                <h5>Date Calculator</h5>
+{{--                                <h5>Date Calculator</h5>--}}
 {{--                                <li>Save 100 Recent Dates <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Astrology Add-On <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-                                <li>Planetary Table <strong>Unlocked</strong></li>
+{{--                                <li>Planetary Table <strong>Unlocked</strong></li>--}}
 {{--                                <li>Lunar Phase <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Saros Series <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Brown Lunation Count <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 {{--                                <li>Date Matrix <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
-                                <h5>Bible Search Tool</h5>
-                                <li> Access Unlocked </li>
+{{--                                <h5>Bible Search Tool</h5>--}}
+{{--                                <li> Access Unlocked </li>--}}
 
-                                <h5>Personal Calendar</h5>
-                                <li>Access Unlocked</li>
+{{--                                <h5>Personal Calendar</h5>--}}
+{{--                                <li>Access Unlocked</li>--}}
+{{--                            </ul>--}}
+
+{{--                            @if(auth()->check())--}}
+{{--                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn {!! Auth::user()->plan == "mystic" ? 'btn_current_plan' : 'btn-subscription' !!}">--}}
+{{--                                    {{ Auth::user()->plan == "mystic" ? "Current plan" : "Change plan"  }}--}}
+{{--                                </a>--}}
+{{--                            @else--}}
+{{--                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription">--}}
+{{--                                    Get Started--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="main-membership">--}}
+{{--                        <div class="top-price">--}}
+{{--                            <h5>JOIN FOR--}}
+{{--                            </h5>--}}
+{{--                            <h2>FREE</h2>--}}
+{{--                            <p>Ads Will Be Present--}}
+
+{{--                            </p>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="experiencial">--}}
+{{--                            <h4>Gematriaverse Calculator</h4>--}}
+{{--                            <ul>--}}
+{{--                                <li><strong>Match</strong> to Database (10/Day)</li>--}}
+{{--                                <li><strong>Match</strong> to Session/History&nbsp;(<strong>Unlimited</strong>)</li>--}}
+{{--                                <li>Session + History (50 Entries Each)</li>--}}
+{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">31 of 38 Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+{{--                                <li> Basic Access</li>--}}
+
+{{--                                <h5>Date Calculator</h5>--}}
+{{--                                <li> Basic Access</li>--}}
+
+{{--                                <h5>Bible Search</h5>--}}
+{{--                                <li>Locked</li>--}}
+
+{{--                                <h5>Personal Calendar</h5>--}}
+{{--                                <li>Locked </li>--}}
+
+{{--                            </ul>--}}
+
+
+{{--                            @if(auth()->check())--}}
+{{--                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn {!! Auth::user()->plan == "free" ? 'btn_current_plan' : 'btn-subscription' !!}">--}}
+{{--                                    {{ Auth::user()->plan == "free" ? "Current plan" : "Change plan"  }}--}}
+{{--                                </a>--}}
+{{--                            @else--}}
+{{--                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription">--}}
+{{--                                    Get Started--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+
+                <div class="col-lg-4">
+                    <div class="main-membership">
+                        <div class="top-price">
+                            <h5>Gold</h5>
+                            <h2>$17</h2>
+                            <p>Per Month</p>
+                        </div>
+                        <div class="experiencial">
+                            <h4>Ad Free Experience!</h4>
+                            <ul>
+                                <h5>Gematriaverse Calculator</h5>
+                                <li>All ciphers unlocked</li>
+                                <li>Match from database (7 times/day)</li>
+                                {{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
+                                {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+                                {{--                                <li>Session + History (500 Entries Each)</li>--}}
+                                {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
+                                {{--                                <li>No Watermark on Screenshots</li>--}}
+{{--                                <li>Screenshots of Breakdown</li>--}}
+                                {{--                                <li>Save Your User Preferences</li>--}}
+                                {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
+{{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+
+
+                                <h5>Date Calculator</h5>
+                                <li>Astrology report</li>
+
+                                <h5>Holidays</h5>
+
+                                <h5>Anagrams</h5>
+                                <li>All ciphers unlocked</li>
+                                <li>Save to database unlocked</li>
+
+                                <h5>Acronyms</h5>
+
+                                <h5>Number properties</h5>
+
+                                <h5>Bible search</h5>
+
+                                <h5>Custom ciphers</h5>
                             </ul>
-
                             @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn {!! Auth::user()->plan == "mystic" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "mystic" ? "Current plan" : "Change plan"  }}
+                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn {!! Auth::user()->plan == "gold" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "gold" ? "Current plan" : "Change plan"  }}
                                 </a>
                             @else
-                                <a href="javascript:void(0)" data-plan="mystic" class="btn white-btn btn-subscription">
+                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn btn-subscription">
                                     Get Started
                                 </a>
                             @endif
@@ -342,44 +442,87 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4">
                     <div class="main-membership">
                         <div class="top-price">
-                            <h5>JOIN FOR
-                            </h5>
-                            <h2>FREE</h2>
-                            <p>Ads Will Be Present
+                            <h5>Silver</h5>
+                            <h2>$7</h2>
+                            <p>Per Month</p>
+                        </div>
+                        <div class="experiencial">
+                            <h4>Ad Free Experience!</h4>
+                            <ul>
+                                <h5>Gematriaverse Calculator</h5>
+                                <li>All ciphers unlocked</li>
+                                <li>Match from database (7 times/day)</li>
 
-                            </p>
+
+                                <h5>Date Calculator</h5>
+                                <li>Astrology report</li>
+
+                                <h5>Holidays</h5>
+
+                                <h5>Anagrams</h5>
+                                <li>All ciphers unlocked</li>
+                                <li>Save to database unlocked</li>
+
+                                <h5>Acronyms</h5>
+
+                                <h5>Number properties</h5>
+
+                                <h5>Bible search</h5>
+
+                                <h5>Custom ciphers</h5>
+                            </ul>
+                            @if(auth()->check())
+                                <a href="javascript:void(0)" data-plan="silver" class="btn white-btn {!! Auth::user()->plan == "silver" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "silver" ? "Current plan" : "Change plan"  }}
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" data-plan="silver" class="btn white-btn btn-subscription">
+                                    Get Started
+                                </a>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="main-membership">
+                        <div class="top-price">
+                            <h5>Bronze</h5>
+                            <h2>FREE</h2>
+                            <p>Ads Will Be Present</p>
                         </div>
 
                         <div class="experiencial">
-                            <h4>Gematriaverse Calculator</h4>
+                            <h4>Ads will be present</h4>
                             <ul>
-{{--                                <li><strong>Match</strong> to Database (10/Day)</li>--}}
-{{--                                <li><strong>Match</strong> to Session/History&nbsp;(<strong>Unlimited</strong>)</li>--}}
-{{--                                <li>Session + History (50 Entries Each)</li>--}}
-{{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">31 of 38 Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-                                <li> Basic Access</li>
+                                <h5>Gematriaverse Calculator</h5>
+                                <li>Match from database (7 times/day)</li>
+
 
                                 <h5>Date Calculator</h5>
-                                <li> Basic Access</li>
+                                <li>Astrology report</li>
 
-                                <h5>Bible Search</h5>
-                                <li>Locked</li>
+                                <h5>Holidays</h5>
 
-                                <h5>Personal Calendar</h5>
-                                <li>Locked </li>
+                                <h5>Anagrams</h5>
 
+                                <h5>Acronyms</h5>
+
+                                <h5>Number properties</h5>
                             </ul>
 
 
                             @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn {!! Auth::user()->plan == "free" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "free" ? "Current plan" : "Change plan"  }}
+                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn {!! Auth::user()->plan == "bronze" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "bronze" ? "Current plan" : "Change plan"  }}
                                 </a>
                             @else
-                                <a href="javascript:void(0)" data-plan="free" class="btn white-btn btn-subscription">
+                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn btn-subscription">
                                     Get Started
                                 </a>
                             @endif

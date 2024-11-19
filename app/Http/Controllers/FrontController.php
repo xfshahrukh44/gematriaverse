@@ -1210,9 +1210,10 @@ class FrontController extends Controller
     }
     public function bible_search()
     {
-        if (!$this->hasAccessToFeature('bible_search')) {
-            return view('locked', ['title' => 'Bible Search']);
+        if (!can_access_feature('bible_search')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+
         $user_id = Auth::check() ? Auth::user()->id : '';
 
         if ($user_id != '') {
@@ -1310,9 +1311,12 @@ class FrontController extends Controller
     }
     public function calculator(Request $request)
     {
-        if (!$this->hasAccessToFeature('calculators')) {
-            return view('locked', ['title' => 'Calculators']);
+        if (!can_access_feature('calculator')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+        $feature = get_feature('calculator') ?? null;
+        $all_ciphers = $feature->all_ciphers ?? false;
+
         $user_id = Auth::check() ? Auth::user()->id : '';
 
         if ($user_id != '') {
@@ -1421,7 +1425,7 @@ class FrontController extends Controller
             ]);
         }
 
-        return view('calculator', compact('ciphers', 'breakdown_screenshot', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id', 'ciphersForTableArr'));
+        return view('calculator', compact('ciphers', 'all_ciphers', 'breakdown_screenshot', 'ciphersAll', 'first_ciphers', 'D0', 'D1', 'D2', 'D3', 'user_id', 'ciphersForTableArr'));
     }
     public function calendar()
     {
@@ -1440,9 +1444,10 @@ class FrontController extends Controller
     }
     public function custom_ciphers()
     {
-        if (!$this->hasAccessToFeature('custom_ciphers')) {
-            return view('locked', ['title' => 'Custom Cipher']);
+        if (!can_access_feature('custom_ciphers')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+
         $this->logFeatureAccess('custom_ciphers');
         return view('custom-ciphers');
     }
@@ -1451,13 +1456,12 @@ class FrontController extends Controller
         if (!can_access_feature('date_calculator')) {
             return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+        $feature = get_feature('date_calculator') ?? null;
+        $astrology_report = $feature->astrology_report ?? false;
 
         $this->logFeatureAccess('date_calculator');
 
-        $date_calculator = get_feature('date_calculator');
-        $planetary_table = $date_calculator->planetary_table ?? false;
-
-        return view('date-calculator', compact('planetary_table'));
+        return view('date-calculator', compact('astrology_report'));
     }
 
     public function date_calculator_two()
@@ -1532,6 +1536,10 @@ class FrontController extends Controller
     }
     public function number_properties()
     {
+        if (!can_access_feature('number_properties')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
         $this->logFeatureAccess('number_properties');
         return view('number-properties');
     }
@@ -1546,12 +1554,23 @@ class FrontController extends Controller
 
     public function anagramCalculator(Request $request)
     {
+        if (!can_access_feature('anagrams')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+        $feature = get_feature('anagrams') ?? null;
+        $all_ciphers = $feature->all_ciphers ?? false;
+        $save_to_database = $feature->save_to_database ?? false;
+
         $this->logFeatureAccess('anagram_calculator');
-        return view('anagram-calculator');
+        return view('anagram-calculator', compact('all_ciphers', 'save_to_database'));
     }
 
     public function acronymFinder(Request $request)
     {
+        if (!can_access_feature('acronyms')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
         $this->logFeatureAccess('acronym_finder');
         return view('acronym-finder');
     }
@@ -1692,6 +1711,10 @@ class FrontController extends Controller
 
     public function holidays($month = null)
     {
+        if (!can_access_feature('holidays')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
         $currentMonth = $month ?? strtolower(Carbon::now()->format('M'));
         $filePath = public_path("months/{$currentMonth}.json");
 
@@ -1868,6 +1891,14 @@ class FrontController extends Controller
 
     public function add_entry_name(Request $request)
     {
+        $feature = get_feature('calculator') ?? null;
+        $match_to_database = $feature->match_to_database ?? 0;
+        $entry_count = ChiperTables::where('user_id', auth()->id())->whereDate('created_at', '=', Carbon::today())->count();
+        $remaining_entries_for_today = $match_to_database - $entry_count;
+        if ($remaining_entries_for_today < 1) {
+            return response()->json(['message' => 'You have reached your daily limit for your plan.'], 403);
+        }
+
         $existingData = ChiperTables::where('user_id', Auth::user()->id)
             ->where('entry_id', $request->entryId)
             ->where('table_id', $request->id)

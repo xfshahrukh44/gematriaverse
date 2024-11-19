@@ -462,6 +462,11 @@
 
                         table_content = ``;
                         for (const acronym_category of Object.keys(acronym_categories)) {
+                            //testing - limit categories
+                            if (acronym_categories[acronym_category].length < 4) {
+                                continue;
+                            }
+
                             $('#ul_tabs').append(`<li class="nav-item" role="presentation">
                                                             <a class="nav-link" data-toggle="tab" href="#`+acronym_category.replaceAll(' ', '')+`" role="tab">`+acronym_category+` (`+acronym_categories[acronym_category].length+`)</a>
                                                     </li>`);

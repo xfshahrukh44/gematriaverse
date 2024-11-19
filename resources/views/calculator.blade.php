@@ -506,6 +506,11 @@
             font-family: dealerplate-california !important;
             font-size: 30px;
         }
+
+        .nextGenText {
+            font-family: futurama-bold !important;
+            font-size: 30px !important;
+        }
     </style>
 @endsection
 
@@ -799,21 +804,27 @@
                                     <!-- Calculator (Above) 1 -->
 
                                     <!-- MOBILE MENU SECTION -->
-                                    <div id="menu-dynamic">
-                                        <div id="calc-menu">
-                                            <a data-fancybox="" class="MenuLink" href="#ciphMod">
-                                                Ciphers&nbsp;
-                                            </a>
-                                            {{-- <span>|</span>
-                                            <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">
-                                                <span class="calcMenuItem">Options&nbsp;</span>
-                                            </a>
-                                            <span>|</span>
-                                            <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod">
-                                                <span class="calcMenuItem">Shortcuts</span>
-                                            </a> --}}
+                                    @php
+                                        $feature = get_feature('calculator') ?? null;
+                                        $all_ciphers = $feature->all_ciphers ?? false;
+                                    @endphp
+                                    @if($all_ciphers)
+                                        <div id="menu-dynamic">
+                                            <div id="calc-menu">
+                                                <a data-fancybox="" class="MenuLink" href="#ciphMod">
+                                                    Ciphers&nbsp;
+                                                </a>
+                                                {{-- <span>|</span>
+                                                <a id="optionsBtn" class="MenuLink" onclick="javascript:Open_Options()" data-fancybox="dialog" data-src="#optionsMod">
+                                                    <span class="calcMenuItem">Options&nbsp;</span>
+                                                </a>
+                                                <span>|</span>
+                                                <a id="shortcutsBtn" class="MenuLink" data-fancybox="shortcuts" data-src="#shortcutsMod">
+                                                    <span class="calcMenuItem">Shortcuts</span>
+                                                </a> --}}
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
 
                                     <!-- END MENU SECTION -->
                                     <!-- ENTRY SECTION -->
@@ -3492,21 +3503,21 @@
 
 
         // Ensure both modals can open independently
-        var rightModal = new bootstrap.Modal(document.getElementById('myModalRight'), {
+        var rightModal = new bootstrap.Modal(document.getElementById('right-side'), {
             backdrop: 'static',
             keyboard: false
         });
 
-        var leftModal = new bootstrap.Modal(document.getElementById('myModalLeft'), {
+        var leftModal = new bootstrap.Modal(document.getElementById('left-side'), {
             backdrop: false, // This allows the left modal to open without closing the right modal
             keyboard: false
         });
 
-        $('#myModalRight').on('shown.bs.modal', function() {
+        $('#right-side').on('shown.bs.modal', function() {
             $('body').removeClass('modal-open');
         });
 
-        $('#myModalLeft').on('shown.bs.modal', function() {
+        $('#left-side').on('shown.bs.modal', function() {
             $('body').removeClass('modal-open');
         });
 

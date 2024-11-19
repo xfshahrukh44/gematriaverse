@@ -3,7 +3,7 @@
 function get_subscription () {
     $subscriptions = json_decode(file_get_contents(url('/subscriptions.json')))->subscriptions;
 
-    $current_subscription_string = auth()->check() ? auth()->user()->plan : 'guest';
+    $current_subscription_string = auth()->check() ? auth()->user()->plan : 'bronze';
 
     return $subscriptions->$current_subscription_string;
 }

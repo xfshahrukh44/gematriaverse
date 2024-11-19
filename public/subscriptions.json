@@ -1,81 +1,148 @@
 {
-  "subscriptions": {
-    "mystic": {
-      "price": 16.99,
-      "features": {
-        "calculators": {
-          "breakdown_screenshot": true
+    "subscriptions": {
+        "mystic": {
+          "price": 16.99,
+          "features": {
+            "calculators": {
+              "breakdown_screenshot": true
+            },
+            "nostalgia_calculators": true,
+            "custom_ciphers": {
+              "limit": 20
+            },
+            "date_calculator": {
+              "planetary_table": true
+            },
+            "bible_search": true,
+            "calendar": true
+          }
         },
-        "nostalgia_calculators": true,
-        "custom_ciphers": {
-          "limit": 20
+        "enthusiast": {
+          "price": 10.61,
+          "features": {
+            "calculators": {
+              "breakdown_screenshot": true
+            },
+            "nostalgia_calculators": true,
+            "custom_ciphers": {
+              "limit": 20
+            },
+            "date_calculator": {
+              "planetary_table":  true
+            },
+            "bible_search": true,
+            "calendar": true
+          }
         },
-        "date_calculator": {
-          "planetary_table": true
+        "casual": {
+          "price": 6.04,
+          "features": {
+            "calculators": {
+              "breakdown_screenshot": true
+            },
+            "nostalgia_calculators": true,
+            "custom_ciphers": {
+              "limit": 20
+            },
+            "date_calculator": true,
+            "bible_search": true,
+            "calendar": true
+          }
         },
-        "bible_search": true,
-        "calendar": true
-      }
-    },
-    "enthusiast": {
-      "price": 10.61,
-      "features": {
-        "calculators": {
-          "breakdown_screenshot": true
+        "free": {
+          "price": 0.00,
+          "features": {
+            "calculators": {
+              "breakdown_screenshot": false
+            },
+            "nostalgia_calculators": false,
+            "custom_ciphers": {
+              "limit": 0
+            },
+            "date_calculator": true,
+            "bible_search": false,
+            "calendar": false
+          }
         },
-        "nostalgia_calculators": true,
-        "custom_ciphers": {
-          "limit": 20
+        "guest": {
+          "price": 0.00,
+          "features": {
+            "calculators": {
+              "breakdown_screenshot": false
+            },
+            "nostalgia_calculators": false,
+            "custom_ciphers": false,
+            "date_calculator": false,
+            "bible_search": false,
+            "calendar": false
+          }
         },
-        "date_calculator": {
-          "planetary_table":  true
+
+
+
+
+        "gold": {
+            "price": 17,
+            "features": {
+                "calculator": {
+                    "all_ciphers": true,
+                    "match_to_database": 7
+                },
+                "date_calculator": {
+                    "astrology_report": true
+                },
+                "holidays": true,
+                "anagrams": {
+                    "all_ciphers": true,
+                    "save_to_database": true
+                },
+                "acronyms": true,
+                "number_properties": true,
+                "bible_search": true,
+                "custom_ciphers": true
+            }
         },
-        "bible_search": true,
-        "calendar": true
-      }
-    },
-    "casual": {
-      "price": 6.04,
-      "features": {
-        "calculators": {
-          "breakdown_screenshot": true
+        "silver": {
+            "price": 7,
+            "features": {
+                "calculator": {
+                    "all_ciphers": true,
+                    "match_to_database": 7
+                },
+                "date_calculator": {
+                    "astrology_report": true
+                },
+                "holidays": true,
+                "anagrams": {
+                    "all_ciphers": true,
+                    "save_to_database": true
+                },
+                "acronyms": true,
+                "number_properties": true,
+                "bible_search": true,
+                "custom_ciphers": true
+            }
         },
-        "nostalgia_calculators": true,
-        "custom_ciphers": {
-          "limit": 20
-        },
-        "date_calculator": true,
-        "bible_search": true,
-        "calendar": true
-      }
-    },
-    "free": {
-      "price": 0.00,
-      "features": {
-        "calculators": {
-          "breakdown_screenshot": false
-        },
-        "nostalgia_calculators": false,
-        "custom_ciphers": {
-          "limit": 0
-        },
-        "date_calculator": true,
-        "bible_search": false,
-        "calendar": false
-      }
-    },
-    "guest": {
-      "price": 0.00,
-      "features": {
-        "calculators": {
-          "breakdown_screenshot": false
-        },
-        "nostalgia_calculators": false,
-        "custom_ciphers": false,
-        "date_calculator": false,
-        "bible_search": false,
-        "calendar": false
-      }
+        "bronze": {
+            "price": 0,
+            "features": {
+                "calculator": {
+                    "all_ciphers": false,
+                    "match_to_database": 7
+                },
+                "date_calculator": {
+                    "astrology_report": true
+                },
+                "holidays": true,
+                "anagrams": {
+                    "all_ciphers": false,
+                    "save_to_database": false
+                },
+                "acronyms": true,
+                "number_properties": true,
+                "bible_search": false,
+                "custom_ciphers": false
+            }
+        }
     }
-  }
 }

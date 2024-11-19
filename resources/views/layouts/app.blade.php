@@ -447,41 +447,53 @@
                                         Tools
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('number-properties') }}"
-                                            style="padding-left: 14px;">
-                                            <i class="fas fa-2 ml-2" style="font-size: 8px; margin-right: -4px;"></i>
-                                            <i class="fas fa-3" style="font-size: 8px; margin-right: -4px;"></i>
-                                            <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
-                                            Number Properties
-                                        </a>
+                                        @if(can_access_feature('number_properties'))
+                                            <a class="dropdown-item" href="{{ route('number-properties') }}"
+                                               style="padding-left: 14px;">
+                                                <i class="fas fa-2 ml-2" style="font-size: 8px; margin-right: -4px;"></i>
+                                                <i class="fas fa-3" style="font-size: 8px; margin-right: -4px;"></i>
+                                                <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
+                                                Number Properties
+                                            </a>
+                                        @endif
                                         {{--                                        <a class="dropdown-item" href="{{ route('calendar') }}"> --}}
                                         {{--                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i> --}}
                                         {{--                                            Personal Calendar --}}
                                         {{--                                        </a> --}}
-                                        <a class="dropdown-item" href="{{ route('bible-search') }}">
-                                            <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
-                                            Bible Search
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('custom-ciphers') }}">
-                                            <i class="fas fa-wand-magic-sparkles mr-1" style="font-size: 14px;"></i>
-                                            Custom Ciphers
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('anagram.generator') }}">
-                                            <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
-                                            Anagram Generator
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('acronym.finder') }}">
-                                            <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
-                                            Acronym Finder
-                                        </a>
+                                        @if(can_access_feature('bible_search'))
+                                            <a class="dropdown-item" href="{{ route('bible-search') }}">
+                                                <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
+                                                Bible Search
+                                            </a>
+                                        @endif
+                                        @if(can_access_feature('custom_ciphers'))
+                                            <a class="dropdown-item" href="{{ route('custom-ciphers') }}">
+                                                <i class="fas fa-wand-magic-sparkles mr-1" style="font-size: 14px;"></i>
+                                                Custom Ciphers
+                                            </a>
+                                        @endif
+                                        @if(can_access_feature('anagrams'))
+                                            <a class="dropdown-item" href="{{ route('anagram.generator') }}">
+                                                <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
+                                                Anagram Generator
+                                            </a>
+                                        @endif
+                                        @if(can_access_feature('acronyms'))
+                                            <a class="dropdown-item" href="{{ route('acronym.finder') }}">
+                                                <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
+                                                Acronym Finder
+                                            </a>
+                                        @endif
                                     </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('calendar') }}">Calendar</a>
                                 </li>
-                                {{--                                <li class="nav-item"> --}}
-                                {{--                                    <a class="nav-link" href="{{ route('holidays') }}">Holidays</a> --}}
-                                {{--                                </li> --}}
+                                @if(can_access_feature('holidays'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('holidays') }}">Holidays</a>
+                                    </li>
+                                @endif
                                 <!-- <li class="nav-item">
                                         <a class="nav-link" href="blog.php">Blog</a>
                                     </li> -->
@@ -544,8 +556,12 @@
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('memberships') }}">Memberships</a></li>
-                            <li><a href="{{ route('calculator') }}">Calculator</a></li>
-                            <li><a href="{{ route('date-calculator') }}">Date Calculator</a></li>
+                            @if(can_access_feature('calculator'))
+                                <li><a href="{{ route('calculator') }}">Calculator</a></li>
+                            @endif
+                            @if(can_access_feature('date_calculator'))
+                                <li><a href="{{ route('date-calculator') }}">Date Calculator</a></li>
+                            @endif
                             <li><a href="{{ route('calendar') }}">Calendar</a></li>
                             <!-- <li><a href="blog.php">Blog</a></li> -->
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
