@@ -387,29 +387,19 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 
-
                 <div class="col-lg-4">
                     <div class="main-membership">
                         <div class="top-price">
-                            <h5>Gold</h5>
-                            <h2>$17</h2>
-                            <p>Per Month</p>
+                            <h5>Bronze</h5>
+                            <h2>FREE</h2>
+                            <p>Ads Will Be Present</p>
                         </div>
+
                         <div class="experiencial">
-                            <h4>Ad Free Experience!</h4>
+                            <h4>Ads will be present</h4>
                             <ul>
                                 <h5>Gematriaverse Calculator</h5>
-                                <li>All ciphers unlocked</li>
                                 <li>Match from database (7 times/day)</li>
-                                {{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
-                                {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
-                                {{--                                <li>Session + History (500 Entries Each)</li>--}}
-                                {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
-                                {{--                                <li>No Watermark on Screenshots</li>--}}
-{{--                                <li>Screenshots of Breakdown</li>--}}
-                                {{--                                <li>Save Your User Preferences</li>--}}
-                                {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
-{{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
 
                                 <h5>Date Calculator</h5>
@@ -418,27 +408,22 @@
                                 <h5>Holidays</h5>
 
                                 <h5>Anagrams</h5>
-                                <li>All ciphers unlocked</li>
-                                <li>Save to database unlocked</li>
 
                                 <h5>Acronyms</h5>
 
                                 <h5>Number properties</h5>
-
-                                <h5>Bible search</h5>
-
-                                <h5>Custom ciphers</h5>
                             </ul>
+
+
                             @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn {!! Auth::user()->plan == "gold" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "gold" ? "Current plan" : "Change plan"  }}
+                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn {!! Auth::user()->plan == "bronze" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "bronze" ? "Current plan" : "Change plan"  }}
                                 </a>
                             @else
-                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn btn-subscription">
+                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn btn-subscription">
                                     Get Started
                                 </a>
                             @endif
-
                         </div>
                     </div>
                 </div>
@@ -492,16 +477,25 @@
                 <div class="col-lg-4">
                     <div class="main-membership">
                         <div class="top-price">
-                            <h5>Bronze</h5>
-                            <h2>FREE</h2>
-                            <p>Ads Will Be Present</p>
+                            <h5>Gold</h5>
+                            <h2>$17</h2>
+                            <p>Per Month</p>
                         </div>
-
                         <div class="experiencial">
-                            <h4>Ads will be present</h4>
+                            <h4>Ad Free Experience!</h4>
                             <ul>
                                 <h5>Gematriaverse Calculator</h5>
+                                <li>All ciphers unlocked</li>
                                 <li>Match from database (7 times/day)</li>
+                                {{--                                <li><strong>Match</strong> to Session/History (<strong>Unlimited</strong>)</li>--}}
+                                {{--                                <li><strong><a style="color: #0dd300;" href="javascript:void(0)">All Ciphers</a> Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
+                                {{--                                <li>Session + History (500 Entries Each)</li>--}}
+                                {{--                                <li>4 Custom Tables (500 Entries Each)</li>--}}
+                                {{--                                <li>No Watermark on Screenshots</li>--}}
+                                {{--                                <li>Screenshots of Breakdown</li>--}}
+                                {{--                                <li>Save Your User Preferences</li>--}}
+                                {{--                                <li>Set Your Default Ciphers + Presets</li>--}}
+                                {{--                                <li>Nostalgia Calculators <strong>Unlocked <i class="fas fa-lock-open"></i></strong></li>--}}
 
 
                                 <h5>Date Calculator</h5>
@@ -510,22 +504,27 @@
                                 <h5>Holidays</h5>
 
                                 <h5>Anagrams</h5>
+                                <li>All ciphers unlocked</li>
+                                <li>Save to database unlocked</li>
 
                                 <h5>Acronyms</h5>
 
                                 <h5>Number properties</h5>
+
+                                <h5>Bible search</h5>
+
+                                <h5>Custom ciphers</h5>
                             </ul>
-
-
                             @if(auth()->check())
-                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn {!! Auth::user()->plan == "bronze" ? 'btn_current_plan' : 'btn-subscription' !!}">
-                                    {{ Auth::user()->plan == "bronze" ? "Current plan" : "Change plan"  }}
+                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn {!! Auth::user()->plan == "gold" ? 'btn_current_plan' : 'btn-subscription' !!}">
+                                    {{ Auth::user()->plan == "gold" ? "Current plan" : "Change plan"  }}
                                 </a>
                             @else
-                                <a href="javascript:void(0)" data-plan="bronze" class="btn white-btn btn-subscription">
+                                <a href="javascript:void(0)" data-plan="gold" class="btn white-btn btn-subscription">
                                     Get Started
                                 </a>
                             @endif
+
                         </div>
                     </div>
                 </div>

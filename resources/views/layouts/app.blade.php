@@ -450,7 +450,7 @@
                                         @if(can_access_feature('number_properties'))
                                             <a class="dropdown-item" href="{{ route('number-properties') }}"
                                                style="padding-left: 14px;">
-                                                <i class="fas fa-2 ml-2" style="font-size: 8px; margin-right: -4px;"></i>
+                                                <i class="fas fa-2" style="font-size: 8px; margin-right: -4px;"></i>
                                                 <i class="fas fa-3" style="font-size: 8px; margin-right: -4px;"></i>
                                                 <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
                                                 Number Properties

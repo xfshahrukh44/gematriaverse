@@ -1429,12 +1429,12 @@ class FrontController extends Controller
     }
     public function calendar()
     {
-        if ($this->hasAccessToFeature('calendar')) {
-            $this->logFeatureAccess('calendar');
-            return view('calendar');
-        } else {
-            return view('locked', ['title' => 'Calendar']);
+        if (!can_access_feature('custom_ciphers')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+
+        $this->logFeatureAccess('calendar');
+        return view('calendar');
     }
     public function contact()
     {
