@@ -146,21 +146,22 @@
     <section class="empty-sec py">
         <div class="container-fluid">
             <div class="row">
-{{--                <div class="col-lg-12">--}}
-{{--                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div>--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-12"> --}}
+                {{--                    <div id="DecadeSpot"> Change Year: <a href="javascript:;">2020-2029</a></div> --}}
+                {{--                </div> --}}
                 <div class="col-lg-12">
                     <div class="CalHeaderTop">
-{{--                    <span class="NavClass LeftNav">--}}
-{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a>--}}
-{{--                    </span>--}}
-                    <span id="YearViewYear">{{\Carbon\Carbon::createFromFormat('m', $_GET['month'])->format('F')}}</span>
-                    <br>
-                    <span id="YearViewYear">{{$_GET["year"]}}&nbsp;<span id="YearNumber"></span>
-                    </span>
-{{--                    <span class="NavClass RightNav">--}}
-{{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a>--}}
-{{--                    </span>--}}
+                        {{--                    <span class="NavClass LeftNav"> --}}
+                        {{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-left"></i></a> --}}
+                        {{--                    </span> --}}
+                        <span
+                            id="YearViewYear">{{ \Carbon\Carbon::createFromFormat('m', $_GET['month'])->format('F') }}</span>
+                        <br>
+                        <span id="YearViewYear">{{ $_GET['year'] }}&nbsp;<span id="YearNumber"></span>
+                        </span>
+                        {{--                    <span class="NavClass RightNav"> --}}
+                        {{--                        <a href="javascript:;"><i class="fas fa-arrow-circle-right"></i></a> --}}
+                        {{--                    </span> --}}
                     </div>
                 </div>
             </div>
@@ -208,8 +209,8 @@
         }
     </script>
     <script>
-        let year_check = '{{$_GET["year"] ?? ""}}';
-        let month = '{{$_GET["month"] ?? "1"}}';
+        let year_check = '{{ $_GET['year'] ?? '' }}';
+        let month = '{{ $_GET['month'] ?? '1' }}';
         month = parseInt(month) - 1;
 
         const year = year_check !== '' ? year_check : new Date().getFullYear();
@@ -313,11 +314,12 @@
                         const dateContentRow = document.createElement("tr");
                         dateContentRow.classList.add("DateContent");
 
-                        let numeric_results = calculateGematria(month+1, day.date, year);
+                        let numeric_results = calculateGematria(month + 1, day.date, year);
                         const calSpotTd = document.createElement("td");
                         calSpotTd.classList.add("CalSpot");
                         calSpotTd.id = `CalSpot${index}`;
-                        calSpotTd.innerHTML = `${numeric_results[0]}<br>${numeric_results[1]}<br>${numeric_results[2]}<br>${numeric_results[3]}<br>`; // Example content
+                        calSpotTd.innerHTML =
+                            `${numeric_results[0]}<br>${numeric_results[1]}<br>${numeric_results[2]}<br>${numeric_results[3]}<br>`; // Example content
 
                         const personalSpotTd = document.createElement("td");
                         personalSpotTd.classList.add("PersonalSpot");
@@ -347,5 +349,3 @@
         generateMonthView(month);
     </script>
 @endsection
-
-

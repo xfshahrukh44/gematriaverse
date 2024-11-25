@@ -286,8 +286,8 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/data-tables.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
-          integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{--    @include('layouts.front.css') --}}
     @yield('css')
@@ -336,10 +336,10 @@
 
 <body>
 
-{{--    <div class="web-sittg">--}}
-{{--        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"--}}
-{{--            aria-controls="offcanvasRight"><i class="fa-solid fa-gear"></i></button>--}}
-{{--    </div>--}}
+    {{--    <div class="web-sittg"> --}}
+    {{--        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" --}}
+    {{--            aria-controls="offcanvasRight"><i class="fa-solid fa-gear"></i></button> --}}
+    {{--    </div> --}}
 
     <div class="top-header-parent">
         <div class="container">
@@ -369,11 +369,8 @@
                     @endif
 
                     <span>
-                        <a href="{{ route('account') }}"
-                           type="button"
-                           data-bs-toggle="offcanvas"
-                           data-bs-target="#offcanvasRight"
-                           aria-controls="offcanvasRight">
+                        <a href="{{ route('account') }}" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <i class="fas fa-cog ml-1"></i>
                         </a>
                     </span>
@@ -447,9 +444,9 @@
                                         Tools
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @if(can_access_feature('number_properties'))
+                                        @if (can_access_feature('number_properties'))
                                             <a class="dropdown-item" href="{{ route('number-properties') }}"
-                                               style="padding-left: 14px;">
+                                                style="padding-left: 14px;">
                                                 <i class="fas fa-2" style="font-size: 8px; margin-right: -4px;"></i>
                                                 <i class="fas fa-3" style="font-size: 8px; margin-right: -4px;"></i>
                                                 <i class="fas fa-1" style="font-size: 8px; margin-right: 6px;"></i>
@@ -460,25 +457,26 @@
                                         {{--                                            <i class="fas fa-calendar mr-2" style="font-size: 14px;"></i> --}}
                                         {{--                                            Personal Calendar --}}
                                         {{--                                        </a> --}}
-                                        @if(can_access_feature('bible_search'))
+                                        @if (can_access_feature('bible_search'))
                                             <a class="dropdown-item" href="{{ route('bible-search') }}">
                                                 <i class="fas fa-book-bible mr-2" style="font-size: 14px;"></i>
                                                 Bible Search
                                             </a>
                                         @endif
-                                        @if(can_access_feature('custom_ciphers'))
+                                        @if (can_access_feature('custom_ciphers'))
                                             <a class="dropdown-item" href="{{ route('custom-ciphers') }}">
-                                                <i class="fas fa-wand-magic-sparkles mr-1" style="font-size: 14px;"></i>
+                                                <i class="fas fa-wand-magic-sparkles mr-1"
+                                                    style="font-size: 14px;"></i>
                                                 Custom Ciphers
                                             </a>
                                         @endif
-                                        @if(can_access_feature('anagrams'))
+                                        @if (can_access_feature('anagrams'))
                                             <a class="dropdown-item" href="{{ route('anagram.generator') }}">
                                                 <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
                                                 Anagram Generator
                                             </a>
                                         @endif
-                                        @if(can_access_feature('acronyms'))
+                                        @if (can_access_feature('acronyms'))
                                             <a class="dropdown-item" href="{{ route('acronym.finder') }}">
                                                 <i class="fas fa-arrow-down-a-z mr-1" style="font-size: 14px;"></i>
                                                 Acronym Finder
@@ -489,7 +487,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('calendar') }}">Calendar</a>
                                 </li>
-                                @if(can_access_feature('holidays'))
+                                @if (can_access_feature('holidays'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('holidays') }}">Holidays</a>
                                     </li>
@@ -556,10 +554,10 @@
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('memberships') }}">Memberships</a></li>
-                            @if(can_access_feature('calculator'))
+                            @if (can_access_feature('calculator'))
                                 <li><a href="{{ route('calculator') }}">Calculator</a></li>
                             @endif
-                            @if(can_access_feature('date_calculator'))
+                            @if (can_access_feature('date_calculator'))
                                 <li><a href="{{ route('date-calculator') }}">Date Calculator</a></li>
                             @endif
                             <li><a href="{{ route('calendar') }}">Calendar</a></li>
@@ -651,79 +649,79 @@
         <div class="offcanvas-body">
             <div class="main-settings">
                 <ul class="side-bar-menu">
-{{--                    <li class="menu-setting">--}}
-{{--                        <div class="theme-settings">--}}
-{{--                            <div class="theme-info">--}}
-{{--                                <h5>App Setting <i class="fa-solid fa-caret-right"></i></h5>--}}
-{{--                            </div>--}}
-{{--                            <div class="none-mode">--}}
-{{--                                <div class="settings-mode">--}}
-{{--                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i--}}
-{{--                                            class="fa-solid fa-moon"></i>Dark</a>--}}
-{{--                                    <a href="javascript:;" id="light-mode" class="click-mode"><i--}}
-{{--                                            class="fa-regular fa-moon"></i>Light</a>--}}
-{{--                                    --}}{{----}}{{-- <a href="javascript:;" id="system-mode" class="click-mode"><i--}}
-{{--                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
-{{--                                </div>--}}
-{{--                                <div class="settings-mode">--}}
-{{--                                    <h5>Rainbow Matrix</h5>--}}
-{{--                                    <label class="switch">--}}
-{{--                                        <input type="checkbox" id="rainbowSwitch">--}}
-{{--                                        <div class="slider round"></div>--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    <li class="menu-setting">--}}
-{{--                        <div class="theme-settings">--}}
-{{--                            <div class="theme-info">--}}
-{{--                                <h5>Small Text Options <i class="fa-solid fa-caret-right"></i></h5>--}}
-{{--                            </div>--}}
-{{--                            <div class="none-mode">--}}
-{{--                                <div class="settings-mode check-block">--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <p>Navbar</p>--}}
-{{--                                    </span>--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <p>Body</p>--}}
-{{--                                    </span>--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <p>Footer</p>--}}
-{{--                                    </span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    <li class="menu-setting">--}}
-{{--                        <div class="theme-settings">--}}
-{{--                            <div class="theme-info">--}}
-{{--                                <h5>Tools and actions <i class="fa-solid fa-caret-right"></i></h5>--}}
-{{--                            </div>--}}
-{{--                            <div class="none-mode">--}}
-{{--                                <div class="settings-mode check-block">--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <i class="fa-solid fa-magnifying-glass"></i>--}}
-{{--                                        <p>Tools and actions</p>--}}
-{{--                                    </span>--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <i class="fa-solid fa-language"></i>--}}
-{{--                                        <p>Translate</p>--}}
-{{--                                    </span>--}}
-{{--                                    <span>--}}
-{{--                                        <input type="checkbox" name="small">--}}
-{{--                                        <i class="fa-solid fa-qrcode"></i>--}}
-{{--                                        <p>Create QR Code</p>--}}
-{{--                                    </span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
+                    {{--                    <li class="menu-setting"> --}}
+                    {{--                        <div class="theme-settings"> --}}
+                    {{--                            <div class="theme-info"> --}}
+                    {{--                                <h5>App Setting <i class="fa-solid fa-caret-right"></i></h5> --}}
+                    {{--                            </div> --}}
+                    {{--                            <div class="none-mode"> --}}
+                    {{--                                <div class="settings-mode"> --}}
+                    {{--                                    <a href="javascript:;" id="dark-mode" class="click-mode"><i --}}
+                    {{--                                            class="fa-solid fa-moon"></i>Dark</a> --}}
+                    {{--                                    <a href="javascript:;" id="light-mode" class="click-mode"><i --}}
+                    {{--                                            class="fa-regular fa-moon"></i>Light</a> --}}
+                    {{--                                    --}}{{-- --}}{{-- <a href="javascript:;" id="system-mode" class="click-mode"><i --}}
+                    {{--                                            class="fa-solid fa-circle-half-stroke"></i>System</a> --}}
+                    {{--                                </div> --}}
+                    {{--                                <div class="settings-mode"> --}}
+                    {{--                                    <h5>Rainbow Matrix</h5> --}}
+                    {{--                                    <label class="switch"> --}}
+                    {{--                                        <input type="checkbox" id="rainbowSwitch"> --}}
+                    {{--                                        <div class="slider round"></div> --}}
+                    {{--                                    </label> --}}
+                    {{--                                </div> --}}
+                    {{--                            </div> --}}
+                    {{--                        </div> --}}
+                    {{--                    </li> --}}
+                    {{--                    <li class="menu-setting"> --}}
+                    {{--                        <div class="theme-settings"> --}}
+                    {{--                            <div class="theme-info"> --}}
+                    {{--                                <h5>Small Text Options <i class="fa-solid fa-caret-right"></i></h5> --}}
+                    {{--                            </div> --}}
+                    {{--                            <div class="none-mode"> --}}
+                    {{--                                <div class="settings-mode check-block"> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <p>Navbar</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <p>Body</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <p>Footer</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                </div> --}}
+                    {{--                            </div> --}}
+                    {{--                        </div> --}}
+                    {{--                    </li> --}}
+                    {{--                    <li class="menu-setting"> --}}
+                    {{--                        <div class="theme-settings"> --}}
+                    {{--                            <div class="theme-info"> --}}
+                    {{--                                <h5>Tools and actions <i class="fa-solid fa-caret-right"></i></h5> --}}
+                    {{--                            </div> --}}
+                    {{--                            <div class="none-mode"> --}}
+                    {{--                                <div class="settings-mode check-block"> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <i class="fa-solid fa-magnifying-glass"></i> --}}
+                    {{--                                        <p>Tools and actions</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <i class="fa-solid fa-language"></i> --}}
+                    {{--                                        <p>Translate</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                    <span> --}}
+                    {{--                                        <input type="checkbox" name="small"> --}}
+                    {{--                                        <i class="fa-solid fa-qrcode"></i> --}}
+                    {{--                                        <p>Create QR Code</p> --}}
+                    {{--                                    </span> --}}
+                    {{--                                </div> --}}
+                    {{--                            </div> --}}
+                    {{--                        </div> --}}
+                    {{--                    </li> --}}
                     <li class="menu-setting">
                         <div class="theme-settings">
                             <div class="theme-info">

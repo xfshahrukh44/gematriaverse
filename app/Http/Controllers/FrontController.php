@@ -1173,7 +1173,7 @@ class FrontController extends Controller
 
     protected function logFeatureAccess($featureName)
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             UserActivity::create([
                 'user_id' => Auth::user()->id,
                 'feature_name' => $featureName,
@@ -1189,7 +1189,7 @@ class FrontController extends Controller
             'time_spent' => 'required|integer',
         ]);
 
-        if(Auth::check()){
+        if (Auth::check()) {
             UserActivity::where('user_id', Auth::user()->id)
                 ->where('feature_name', $request->feature_name)
                 ->latest()
@@ -1197,7 +1197,7 @@ class FrontController extends Controller
                 ->update(['time_spent' => $request->time_spent]);
 
             return response()->json(['status' => 'success']);
-        }else{
+        } else {
             return response()->json(['status' => 'error']);
         }
     }
@@ -1322,7 +1322,7 @@ class FrontController extends Controller
         if ($user_id != '') {
             $staticCiphers = array_merge($this->staticCiphers, $this->afterLoginArr);
             $this->logFeatureAccess('calculator');
-        }else{
+        } else {
             $staticCiphers = $this->staticCiphers;
         }
 
@@ -1469,11 +1469,12 @@ class FrontController extends Controller
         if (!can_access_feature('date_calculator')) {
             return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
         }
+        $feature = get_feature('date_calculator') ?? null;
+        $astrology_report = $feature->astrology_report ?? false;
 
-        $date_calculator = get_feature('date_calculator');
-        $planetary_table = $date_calculator->planetary_table ?? false;
+        $this->logFeatureAccess('date_calculator');
 
-        return view('date-calculator_two', compact('planetary_table'));
+        return view('date-calculator_two', compact('astrology_report'));
     }
 
     public function faq(Request $request)
@@ -1598,7 +1599,7 @@ class FrontController extends Controller
                 'format' => 'json',
                 'term' => $request->get('term')
             ],
-//            CURLOPT_HTTPHEADER => array(
+            //            CURLOPT_HTTPHEADER => array(
 //                'Authorization: Bearer 81f36ac3-2713-12c1-ed6c-f66d868fe0e9',
 //                'Cookie: AWSALB=pmo6W+ZBV4oGUz35vQ7jAHRBREgXo4OHJUc26I6ZlZGbdAL0bc2JCpY+I0RdZrNcAXQpXIK6vAKh9Ck6vz0ekXqrvnuQRrGH9rW5zl4kKSS4GxgNk8BHp8S7/RLY; AWSALBCORS=pmo6W+ZBV4oGUz35vQ7jAHRBREgXo4OHJUc26I6ZlZGbdAL0bc2JCpY+I0RdZrNcAXQpXIK6vAKh9Ck6vz0ekXqrvnuQRrGH9rW5zl4kKSS4GxgNk8BHp8S7/RLY; PHPSESSID=069amc7mmbatslcr253ra18f1k'
 //            ),
@@ -1607,7 +1608,7 @@ class FrontController extends Controller
         $response = curl_exec($curl);
         curl_close($curl);
 
-//        dd($response);
+        //        dd($response);
 
         $response = json_decode($response);
         if (!isset($response->result)) {
@@ -1615,7 +1616,7 @@ class FrontController extends Controller
         }
         $saved_acronyms = (auth()->check()) ? auth()->user()->saved_acronyms($request->get('term')) : [];
         foreach ($saved_acronyms as $saved_acronym) {
-            $response->result []= [
+            $response->result[] = [
                 'categoryname' => $saved_acronym->category,
                 'definition' => $saved_acronym->definition,
                 'id' => $saved_acronym->id,
@@ -1630,7 +1631,8 @@ class FrontController extends Controller
         return auth()->user()->saved_acronyms($request->get('term'));
     }
 
-    public function submitAcronym(Request $request) {
+    public function submitAcronym(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'term' => 'required',
             'definition' => 'required',
@@ -1726,6 +1728,46 @@ class FrontController extends Controller
 
         return view('holidays', compact('holidays', 'currentMonth'));
     }
+    public function holidays_two($month = null)
+    {
+        if (!can_access_feature('holidays')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
+        $currentMonth = $month ?? strtolower(Carbon::now()->format('M'));
+        $filePath = public_path("months/{$currentMonth}.json");
+
+        if (File::exists($filePath)) {
+            $holidays = json_decode(File::get($filePath), true);
+        } else {
+            $holidays = [];
+        }
+
+        return view('holidays-two', compact('holidays', 'currentMonth'));
+    }
+    public function holidays_details($month, $day)
+    {
+        if (!can_access_feature('holidays')) {
+            return redirect()->route('memberships')->with('error', 'You need to upgrade your plan to access this feature.');
+        }
+
+        $filePath = public_path("months/{$month}.json");
+
+        $holidays = [];
+        $date = null;
+
+        if (File::exists(path: $filePath)) {
+            $allholidays = json_decode(File::get($filePath), true);
+            $date = ucfirst($month) . ' ' . $day;
+            $holidays = array_key_exists($date, $allholidays) ? $allholidays[$date] : [];
+
+
+            $datekey = \Carbon\Carbon::createFromDate(null, \Carbon\Carbon::parse($month)->month, $day);
+
+        }
+
+        return view('holiday-detail', compact('holidays', 'month', 'day', 'datekey'));
+    }
 
     public function cipher_history_store(Request $request)
     {
@@ -1795,7 +1837,7 @@ class FrontController extends Controller
             $scores = json_decode($dataEntry->ciphers, true);
 
             foreach ($scores as $cipherId => $score) {
-                $matchedCipher = array_filter($cipherInfo, function($c) use ($cipherId) {
+                $matchedCipher = array_filter($cipherInfo, function ($c) use ($cipherId) {
                     return $c['id'] === $cipherId;
                 });
 
@@ -1818,15 +1860,15 @@ class FrontController extends Controller
 
     private function getMatchingEntriesByScore($currentMatchedData, $matchedData)
     {
-        $currentScores = array_map(function($entry) {
+        $currentScores = array_map(function ($entry) {
             return $entry['score'];
         }, $currentMatchedData);
 
-        $matchingEntries = array_unique(array_map(function($item) use ($currentScores) {
+        $matchingEntries = array_unique(array_map(function ($item) use ($currentScores) {
             return in_array($item['score'], $currentScores) ? $item['entry'] : null;
         }, $matchedData));
 
-        return array_values(array_filter($matchedData, function($item) use ($matchingEntries) {
+        return array_values(array_filter($matchedData, function ($item) use ($matchingEntries) {
             return in_array($item['entry'], $matchingEntries);
         }));
     }
@@ -1874,8 +1916,8 @@ class FrontController extends Controller
         ]);
 
         $existingTable = User_Table::where('user_id', Auth::user()->id)
-                                ->where('name', $request->name)
-                                ->first();
+            ->where('name', $request->name)
+            ->first();
 
         if ($existingTable) {
             return response()->json(['message' => 'Table name already exists!'], 409);
@@ -1913,7 +1955,7 @@ class FrontController extends Controller
             ->where('table_id', '!=', $request->id)
             ->first();
 
-        if($data){
+        if ($data) {
             $data->delete();
 
             $cipherTables = new ChiperTables();
@@ -1951,7 +1993,7 @@ class FrontController extends Controller
         return response()->json(['error' => 'Entry not found.'], 404);
     }
 
-    public function applySetting (Request $request)
+    public function applySetting(Request $request)
     {
         $request->validate([
             'key' => 'required',
@@ -1968,7 +2010,7 @@ class FrontController extends Controller
         ]);
     }
 
-    public function upgradeSubscription (Request $request)
+    public function upgradeSubscription(Request $request)
     {
         $user = User::find(auth()->id());
         $user->plan = $_GET['plan'] ?? $user->plan;

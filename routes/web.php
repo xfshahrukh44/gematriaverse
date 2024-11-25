@@ -63,8 +63,6 @@ Route::group(['middleware' => ['auth', 'roles'], 'roles' => 'admin', 'prefix' =>
     Route::post('config/setting', 'Admin\AdminController@configSettingUpdate')->name('config_settings_update');
 
 
-
-
     //==============================================================//
 
     //==================== Error pages Routes ====================//
@@ -282,7 +280,7 @@ Route::resource('admin/faq', 'Admin\FaqController');
 
 
 Route::middleware(['check.otp'])->group(function () {
-        //===================== Front Routes =====================//
+    //===================== Front Routes =====================//
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('about', [FrontController::class, 'about'])->name('about');
     Route::get('bible-search', [FrontController::class, 'bible_search'])->name('bible-search');
@@ -317,6 +315,8 @@ Route::middleware(['check.otp'])->group(function () {
     Route::get('anagram-generator', [FrontController::class, 'anagramCalculator'])->name('anagram.generator');
     Route::post('save-anagram', [FrontController::class, 'saveAnagram'])->name('save.anagram');
     Route::get('holidays/{month?}', [FrontController::class, 'holidays'])->name('holidays');
+    Route::get('holidays-two/{month}', [FrontController::class, 'holidays_two'])->name('holidays-two');
+    Route::get('holiday-detail/{month}/{day}', [FrontController::class, 'holidays_details'])->name('holiday-detail');
     Route::get('acronym-finder', [FrontController::class, 'acronymFinder'])->name('acronym.finder');
     Route::post('search-anagrams', [FrontController::class, 'searchAnagrams'])->name('search.anagrams');
     Route::post('search-acronyms', [FrontController::class, 'searchAcronyms'])->name('search.acronyms');
