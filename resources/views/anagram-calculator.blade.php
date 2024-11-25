@@ -489,6 +489,11 @@
                         })
                     }
 
+                    anagrams = [
+                        ...anagrams,
+                        ...anagrams,
+                    ]
+
                     if (max_anagrams && max_anagrams < anagrams.length) {
                         anagrams = anagrams.slice(0, max_anagrams);
                     }
