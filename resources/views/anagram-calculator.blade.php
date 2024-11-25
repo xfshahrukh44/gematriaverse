@@ -465,15 +465,29 @@
                 method: 'POST',
                 success: (data) => {
                     data = JSON.parse(data);
-                    if (!data || !data.result || data.result.length == 0) {
-                        $('#h4_result').html(`No anagrams of "` + string + `" found.`);
-                        $('#h4_result').prop('hidden', false);
-                        $('#result_wrapper').prop('hidden', false);
+                    // if (!data || !data.result || data.result.length == 0) {
+                    //     $('#h4_result').html(`No anagrams of "` + string + `" found.`);
+                    //     $('#h4_result').prop('hidden', false);
+                    //     $('#result_wrapper').prop('hidden', false);
+                    //
+                    //     return false;
+                    // }
 
-                        return false;
+                    anagrams = data.result ?? [];
+
+
+                    let spaceless_string = string.replaceAll(' ', '');
+                    let possibleWords = dictionary_words.filter(word => {
+                        let spaceless_word = word.replaceAll(' ', ''); // Remove spaces if any
+                        return canFormWord(spaceless_word, spaceless_string);
+                    });
+                    possibleWords.sort((a, b) => b.length - a.length);
+
+                    for (const item of possibleWords) {
+                        anagrams.push({
+                            anagram: item
+                        })
                     }
-
-                    anagrams = data.result;
 
                     if (max_anagrams && max_anagrams < anagrams.length) {
                         anagrams = anagrams.slice(0, max_anagrams);
