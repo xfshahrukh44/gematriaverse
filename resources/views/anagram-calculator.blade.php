@@ -476,23 +476,24 @@
                     anagrams = data.result ?? [];
 
 
-                    let spaceless_string = string.replaceAll(' ', '');
-                    let possibleWords = dictionary_words.filter(word => {
-                        let spaceless_word = word.replaceAll(' ', ''); // Remove spaces if any
-                        return canFormWord(spaceless_word, spaceless_string);
-                    });
-                    possibleWords.sort((a, b) => b.length - a.length);
-
-                    for (const item of possibleWords) {
-                        anagrams.push({
-                            anagram: item
-                        })
-                    }
-
-                    anagrams = [
-                        ...anagrams,
-                        ...anagrams,
-                    ]
+                    //dont un-comment !!!
+                    // let spaceless_string = string.replaceAll(' ', '');
+                    // let possibleWords = dictionary_words.filter(word => {
+                    //     let spaceless_word = word.replaceAll(' ', ''); // Remove spaces if any
+                    //     return canFormWord(spaceless_word, spaceless_string);
+                    // });
+                    // possibleWords.sort((a, b) => b.length - a.length);
+                    //
+                    // for (const item of possibleWords) {
+                    //     anagrams.push({
+                    //         anagram: item
+                    //     })
+                    // }
+                    //
+                    // anagrams = [
+                    //     ...anagrams,
+                    //     ...anagrams,
+                    // ]
 
                     if (max_anagrams && max_anagrams < anagrams.length) {
                         anagrams = anagrams.slice(0, max_anagrams);
