@@ -507,7 +507,7 @@
 
                     anagrams = data.result ?? [];
 
-                    function generateAnagrams(input, maxAnagrams = 9000) {
+                    function generateAnagrams(input, maxAnagrams = 7000) {
                         const results = [];
 
                         function permute(arr, memo = '') {
@@ -600,7 +600,7 @@
 
                     if (anagrams.length > 0) {
                         for (const item of anagrams) {
-                            $('#row_result').append(`<div class="col-3">
+                            $('#row_result').append(`<div class="col-12">
                                             <div class="box-main">
                                                 <div class="click-box">
                                                     <div class="data_show">
