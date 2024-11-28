@@ -152,7 +152,7 @@
                 <div class="col-lg-6 py-5">
                     <div class="gematriaverse-section-from">
                         <h2>Anagram Generator</h2>
-                        @if($save_to_database)
+                        @if ($save_to_database)
                             @php
                                 $saved_anagrams = auth()->user()->saved_anagrams ?? [];
                             @endphp
@@ -320,7 +320,8 @@
     </section>
     <!-- section-1 -->
 
-    <div class="modal fade" id="modal_saved_anagrams" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="modal_saved_anagrams" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -328,9 +329,9 @@
                         <i class="fas fa-floppy-disk"></i>
                         Saved anagrams
                     </h5>
-{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                        <span aria-hidden="true">&times;</span>--}}
-{{--                    </button>--}}
+                    {{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> --}}
+                    {{--                        <span aria-hidden="true">&times;</span> --}}
+                    {{--                    </button> --}}
                 </div>
                 <div class="modal-body">
                     <table class="table table-striped table-bordered text-center">
@@ -341,19 +342,19 @@
                             </tr>
                         </thead>
                         <tbody id="tbody_saved_anagrams">
-                            @foreach($saved_anagrams as $saved_anagram)
+                            @foreach ($saved_anagrams as $saved_anagram)
                                 <tr>
-                                    <td>{{$saved_anagram->anagram}}</td>
-                                    <td>{{$saved_anagram->source_word}}</td>
+                                    <td>{{ $saved_anagram->anagram }}</td>
+                                    <td>{{ $saved_anagram->source_word }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-{{--                    <button type="button" class="btn btn-primary">Save changes</button>--}}
-{{--                </div>--}}
+                {{--                <div class="modal-footer"> --}}
+                {{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+                {{--                    <button type="button" class="btn btn-primary">Save changes</button> --}}
+                {{--                </div> --}}
             </div>
         </div>
     </div>
@@ -389,17 +390,17 @@
         }
 
         function save_anagram(anagram, source_word) {
-            let auth_check = "{{auth()->check()}}";
+            let auth_check = "{{ auth()->check() }}";
             if (auth_check !== "1") {
                 toastr.error('You need to log in to proceed.');
                 return false;
             }
 
             $.ajax({
-                url: '{{route("save.anagram")}}',
+                url: '{{ route('save.anagram') }}',
                 method: 'POST',
                 data: {
-                    "_token": '{{csrf_token()}}',
+                    "_token": '{{ csrf_token() }}',
                     "anagram": anagram,
                     "source_word": source_word
                 },
@@ -413,8 +414,8 @@
 
                     //your code here
                     $('#tbody_saved_anagrams').append(`<tr>
-                                                            <td>`+anagram+`</td>
-                                                            <td>`+source_word+`</td>
+                                                            <td>` + anagram + `</td>
+                                                            <td>` + source_word + `</td>
                                                         </tr>`);
 
                     toastr.success(data.message);
@@ -457,9 +458,9 @@
 
             let anagrams = [];
             $.ajax({
-                url: "{{route('search.anagrams')}}",
+                url: "{{ route('search.anagrams') }}",
                 data: {
-                    _token: '{{csrf_token()}}',
+                    _token: '{{ csrf_token() }}',
                     term: string
                 },
                 method: 'POST',
@@ -474,6 +475,65 @@
                     // }
 
                     anagrams = data.result ?? [];
+
+                    function generateAnagrams(input, maxAnagrams = 10000) {
+                        const results = [];
+
+                        function permute(arr, memo = '') {
+                            if (results.length >= maxAnagrams) {
+                                return;
+                            }
+                            if (arr.length === 0) {
+                                const result = memo.trim(); // Trim to avoid trailing spaces
+                                if (!results.includes(result)) {
+                                    results.push(result); // Ensure uniqueness
+                                }
+                            } else {
+                                for (let i = 0; i < arr.length; i++) {
+                                    if (i > 0 && arr[i] === arr[i - 1]) {
+                                        continue; // Skip duplicates
+                                    }
+
+                                    const current = arr.slice();
+                                    const next = current.splice(i, 1);
+
+                                    // Randomly decide whether to add a space
+                                    const shouldAddSpace = Math.random() < 0.5;
+
+                                    permute(current, memo + next + (shouldAddSpace ? ' ' : ''));
+                                }
+                            }
+                        }
+
+                        permute(input.split(''));
+
+                        // Ensure at least maxAnagrams by filling with random permutations if necessary
+                        while (results.length < maxAnagrams) {
+                            const randomIndex = Math.floor(Math.random() * results.length);
+                            const randomAnagram = results[randomIndex];
+                            const newAnagram = randomAnagram.split('').sort(() => Math.random() - 0.5)
+                                .join('');
+                            results.push(newAnagram);
+                        }
+
+                        return results;
+                    }
+
+                    function getAnagramsArray(word) {
+                        const temp_anagrams = generateAnagrams(word.replace(/\s+/g, '').toLowerCase());
+                        return temp_anagrams;
+                    }
+
+                    // Example usage
+                    const word = string;
+                    const random_anagrams = getAnagramsArray(word.replace(/\s+/g, '').toLowerCase());
+
+
+                    for (const item of random_anagrams) {
+                        anagrams.push({
+                            anagram: item
+                        });
+                    }
 
 
                     //dont un-comment !!!
@@ -520,7 +580,8 @@
                                             <div class="open-box">
                                                 <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
                                                 <h6>` + item.anagram + `</h6>
-                                                <a href="#" class="btn custom-btn" onclick="save_anagram('`+item.anagram+`', '`+string+`')">
+                                                <a href="#" class="btn custom-btn" onclick="save_anagram('` + item
+                                .anagram + `', '` + string + `')">
                                                     <i class="fas fa-floppy-disk"></i>
                                                     Save anagram
                                                 </a>
@@ -614,14 +675,14 @@
             }
         });
 
-        $('#anchor_view_saved_anagrams').on('click', function () {
+        $('#anchor_view_saved_anagrams').on('click', function() {
             $('#modal_saved_anagrams').modal('show');
         });
     </script>
     <script>
         $(document).ready(function() {
             // Handle click to show the pop-up
-            @if($save_to_database)
+            @if ($save_to_database)
                 $('body').on('click', '.click-box', function() {
                     console.log("Clicked!");
 

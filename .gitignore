@@ -21,3 +21,4 @@ composer.lock
 *.sql
 *.wpress
 exm.php
+composer.lock
