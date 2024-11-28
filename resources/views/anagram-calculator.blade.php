@@ -140,6 +140,26 @@
             outline: none;
         }
 
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .main-loder-flex .loder-inner {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
         /* gematriaverse-section-from */
     </style>
 @endsection
@@ -228,7 +248,14 @@
                             {{--                                <button class="btn form-btn full-width" type="submit">Words</button> --}}
                         </div>
 
+                        <div class="form-row main-loder-flex" id="data-load" hidden>
+                            <div class="col-md-12 loder-inner">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+
                         {{--                        </form> --}}
+
 
                         <div class="anagrams-text mt-4" id="result_wrapper" hidden>
                             <h4 id="h4_result" class="pb-2">Anagrams of "asaas"</h4>
@@ -435,6 +462,8 @@
             if (string === '') {
                 return false;
             }
+            $("#btn_calculate_anagrams").prop('disabled', true);
+            $("#data-load").prop('hidden', false);
 
             $('#h4_result').prop('hidden', true);
             $('#row_result').html('');
@@ -465,6 +494,8 @@
                 },
                 method: 'POST',
                 success: (data) => {
+                    $("#btn_calculate_anagrams").prop('disabled', false);
+                    $("#data-load").prop('hidden', true);
                     data = JSON.parse(data);
                     // if (!data || !data.result || data.result.length == 0) {
                     //     $('#h4_result').html(`No anagrams of "` + string + `" found.`);
@@ -476,7 +507,7 @@
 
                     anagrams = data.result ?? [];
 
-                    function generateAnagrams(input, maxAnagrams = 10000) {
+                    function generateAnagrams(input, maxAnagrams = 9000) {
                         const results = [];
 
                         function permute(arr, memo = '') {
@@ -591,7 +622,7 @@
 
                         $('#result_wrapper').prop('hidden', false);
                         $('#h4_result').prop('hidden', false);
-                        $('#h4_result').html(`Anagrams of "` + string + `"`);
+                        $('#h4_result').html(anagrams.length + ` Anagrams of "` + string + `"`);
 
 
                         return true;
