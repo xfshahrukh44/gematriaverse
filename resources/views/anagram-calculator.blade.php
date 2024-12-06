@@ -202,7 +202,7 @@
                                                 <div class="col-md-12 p-0">
                                                     <label for="validationDefault02">Max number of anagrams</label>
                                                     <input type="number" class="form-control" id="input_max_anagrams"
-                                                        placeholder="" value="10000" aria-describedby="inputGroupPrepend2"
+                                                        placeholder="" value="450" aria-describedby="inputGroupPrepend2"
                                                         required>
                                                 </div>
                                                 <div class="col-md-12 p-0">
@@ -507,7 +507,7 @@
 
                     anagrams = data.result ?? [];
 
-                    function generateAnagrams(input, maxAnagrams = 7000) {
+                    function generateAnagrams(input, maxAnagrams = 450) {
                         const results = [];
 
                         function permute(arr, memo = '') {
